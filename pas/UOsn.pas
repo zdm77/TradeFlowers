@@ -136,6 +136,7 @@ type
     btn1: TButton;
     Query2: TUniQuery;
     dxBarLargeButton1: TdxBarLargeButton;
+    btnChat: TdxBarLargeButton;
     procedure AWB1Click(Sender: TObject);
     procedure BackUp1Click(Sender: TObject);
     procedure btn1Click(Sender: TObject);
@@ -175,6 +176,7 @@ type
     procedure mКаскадClick(Sender: TObject);
     procedure mОкнаClick(Sender: TObject);
     procedure dxBarLargeButton1Click(Sender: TObject);
+    procedure btnChatClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -217,7 +219,7 @@ uses
   UFWareHouse,
   UBackUp,
   UFAwb,
-  UBuhBalancePlant, UAuction;
+  UBuhBalancePlant, UAuction, UChatDb;
 {$IFDEF WIN32}
 {$R lang.RES}
 {$ELSE}
@@ -382,6 +384,16 @@ begin
     FBuh.SetLang;
   end;
   FBuh.Show;
+end;
+
+procedure TFOsn.btnChatClick(Sender: TObject);
+begin
+  if FChatDB = nil then
+  begin
+    Application.CreateForm(TFChatDB, FChatDB);
+    // FBuh.SetLang;
+  end;
+  FChatDB.Show;
 end;
 
 procedure TFOsn.btnDictClick(Sender: TObject);

@@ -959,7 +959,9 @@
         </DCCReference>
         <DCCReference Include="..\pas\Chat\UChat.pas">
             <Form>FChat</Form>
-            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\Chat\UChatDb.pas">
+            <Form>FChatDB</Form>
         </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>

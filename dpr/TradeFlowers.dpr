@@ -206,7 +206,8 @@ uses
   UFrameAucOrder in '..\pas\Auction\Orders\UFrameAucOrder.pas' {FrameAucOrder: TFrame},
   UfNewAucOrderBody in '..\pas\Auction\Orders\UfNewAucOrderBody.pas' {fNewAucOrderBody},
   UfNewAucOrder in '..\pas\Auction\Orders\UfNewAucOrder.pas' {fNewAucOrder},
-  UChat in '..\pas\Chat\UChat.pas' {FChat};
+  UChat in '..\pas\Chat\UChat.pas' {FChat},
+  UChatDb in '..\pas\Chat\UChatDb.pas' {FChatDB};
 
 {$R *.res}
 
@@ -219,7 +220,8 @@ begin
   Application.CreateForm(TFPasswd, FPasswd);
   Application.CreateForm(TFSync, FSync);
   Application.CreateForm(TFSplash, FSplash);
-  Application.CreateForm(TFChat, FChat);
+  ///Application.CreateForm(TFChatDB, FChatDB);
+  // Application.CreateForm(TFChat, FChat);
   // Application.CreateForm(TfNewAucOrder, fNewAucOrder);
   // Application.CreateForm(TfNewAucOrder, fNewAucOrder);
   // Application.CreateForm(TFSelectClient, FSelectClient);

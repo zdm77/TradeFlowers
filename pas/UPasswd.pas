@@ -46,7 +46,7 @@ uses
 
   dxSkinDevExpressStyle,
 
-  cxCheckBox, dxSkinsDefaultPainters;
+  cxCheckBox, dxSkinsDefaultPainters, dxSkinOffice2007Blue;
 
 type
   TFPasswd = class(TForm)
