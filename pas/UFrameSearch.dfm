@@ -1,0 +1,52 @@
+object FrameSearch: TFrameSearch
+  Left = 0
+  Top = 0
+  Width = 460
+  Height = 28
+  TabOrder = 0
+  object Group1: TcxGroupBox
+    Left = 0
+    Top = 0
+    Align = alClient
+    PanelStyle.Active = True
+    Style.LookAndFeel.NativeStyle = False
+    Style.LookAndFeel.SkinName = 'Office2007Blue'
+    StyleDisabled.LookAndFeel.NativeStyle = False
+    StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
+    StyleFocused.LookAndFeel.NativeStyle = False
+    StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
+    StyleHot.LookAndFeel.NativeStyle = False
+    StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
+    TabOrder = 0
+    Height = 28
+    Width = 460
+    object LabelName: TcxLabel
+      Left = 3
+      Top = 5
+      Caption = #1055#1086#1080#1089#1082
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clBlack
+      Style.Font.Height = -11
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      Properties.LineOptions.Alignment = cxllaBottom
+      Transparent = True
+    end
+    object edtName: TcxTextEdit
+      Left = 42
+      Top = 3
+      Style.LookAndFeel.Kind = lfOffice11
+      Style.LookAndFeel.SkinName = 'Office2007Blue'
+      StyleDisabled.LookAndFeel.Kind = lfOffice11
+      StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
+      StyleFocused.LookAndFeel.Kind = lfOffice11
+      StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
+      StyleHot.LookAndFeel.Kind = lfOffice11
+      StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
+      TabOrder = 1
+      Width = 269
+    end
+  end
+end

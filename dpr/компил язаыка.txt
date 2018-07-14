@@ -1,0 +1,1 @@
+C:\Program Files (x86)\Embarcadero\RAD Studio\9.0\bin\brcc32.exe\brcc32.exe  D:\Проекты\Trade2012\dpr\lang.rc

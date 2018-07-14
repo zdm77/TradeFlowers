@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.297,D:\OneDrive\Проекты\TradeFlowers\dpr\Unit1.pas=D:\OneDrive\Проекты\TradeFlowers\pas\UPriceDetail.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.174,=D:\OneDrive\Проекты\TradeFlowers\dpr\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.299,D:\OneDrive\Проекты\TradeFlowers\dpr\Unit1.pas=D:\OneDrive\Проекты\TradeFlowers\pas\UFramePriceDetail.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.737,D:\OneDrive\Проекты\TradeFlowers\dpr\Unit1.pas=D:\OneDrive\Проекты\TradeFlowers\pas\UFramePrice.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.170,D:\OneDrive\Проекты\TradeFlowers\pas\UFImport.dfm=D:\OneDrive\Проекты\TradeFlowers\dpr\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.030,=D:\OneDrive\Проекты\TradeFlowers\dpr\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.059,=D:\OneDrive\Проекты\TradeFlowers\dpr\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.229,D:\OneDrive\Проекты\TradeFlowers\dpr\Unit1.pas=D:\OneDrive\Проекты\TradeFlowers\pas\UFrameProductNew.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.297,D:\OneDrive\Проекты\TradeFlowers\dpr\Unit1.dfm=D:\OneDrive\Проекты\TradeFlowers\pas\UPriceDetail.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.737,D:\OneDrive\Проекты\TradeFlowers\dpr\Unit1.dfm=D:\OneDrive\Проекты\TradeFlowers\pas\UFramePrice.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.229,D:\OneDrive\Проекты\TradeFlowers\dpr\Unit1.dfm=D:\OneDrive\Проекты\TradeFlowers\pas\UFrameProductNew.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.299,D:\OneDrive\Проекты\TradeFlowers\dpr\Unit1.dfm=D:\OneDrive\Проекты\TradeFlowers\pas\UFramePriceDetail.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.299,=D:\OneDrive\Проекты\TradeFlowers\dpr\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.979,=D:\OneDrive\Проекты\TradeFlowers\dpr\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.170,D:\OneDrive\Проекты\TradeFlowers\pas\UFImport.pas=D:\OneDrive\Проекты\TradeFlowers\dpr\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

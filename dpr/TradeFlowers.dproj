@@ -1,0 +1,1027 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{F4CD4886-8F8A-44E2-80F2-390DE987110A}</ProjectGuid>
+        <ProjectVersion>15.4</ProjectVersion>
+        <FrameworkType>VCL</FrameworkType>
+        <MainSource>TradeFlowers.dpr</MainSource>
+        <Base>True</Base>
+        <Config Condition="'$(Config)'==''">Release</Config>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <TargetedPlatforms>1</TargetedPlatforms>
+        <AppType>Application</AppType>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
+        <Base_Win64>true</Base_Win64>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+        <Cfg_1>true</Cfg_1>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+        <Cfg_1_Win32>true</Cfg_1_Win32>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+        <Cfg_2>true</Cfg_2>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
+        <Cfg_2_Win32>true</Cfg_2_Win32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <DCC_DcuOutput>..\dcu</DCC_DcuOutput>
+        <SanitizedProjectName>TradeFlowers</SanitizedProjectName>
+        <DCC_UsePackage>fmx;IndySystem;DBXInterBaseDriver;DataSnapCommon;DataSnapClient;DataSnapServer;DataSnapProviderClient;DbxCommonDriver;dbxcds;DBXOracleDriver;CustomIPTransport;dsnap;fmxase;IndyCore;inetdbxpress;IPIndyImpl;bindcompfmx;rtl;dbrtl;DbxClientDriver;bindcomp;inetdb;xmlrtl;ibxpress;IndyProtocols;DBXMySQLDriver;bindengine;soaprtl;DBXInformixDriver;DBXFirebirdDriver;inet;fmxobj;DBXSybaseASADriver;fmxdae;dbexpress;DataSnapIndy10ServerTransport;$(DCC_UsePackage)</DCC_UsePackage>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
+        <DCC_ExeOutput>..\</DCC_ExeOutput>
+        <VerInfo_Locale>1049</VerInfo_Locale>
+        <DCC_E>false</DCC_E>
+        <DCC_N>false</DCC_N>
+        <DCC_S>false</DCC_S>
+        <DCC_F>false</DCC_F>
+        <DCC_K>false</DCC_K>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <Manifest_File>None</Manifest_File>
+        <DCC_UsePackage>fsADO16;cxPageControldxBarPopupMenuD16;cxPageControlD16;dxPSdxFCLnkD16;cxBarEditItemD16;TeeDB;dxComnD16;dxNavBarD16;dxSkinSpringTimeD16;dxPSCoreD16;Rave100VCL;vclib;inetdbbde;dcldxSkinsCoreD16;cxPivotGridOLAPD16;dxSkinsdxNavBarPainterD16;dxdbtrD16;dxSpellCheckerD16;DBXSybaseASEDriver;dxBarDBNavD16;cxSpreadSheetD16;vclimg;dxPSDBTeeChartD16;dxSkinGlassOceansD16;fmi;dxCoreD16;dxSkinSilverD16;vcldb;dxorgcD16;vcldsnap;dac160;cxPivotGridChartD16;dxSkinscxPCPainterD16;dxRibbonD16;dxPScxExtCommonD16;unidacvcl160;frxTee16;cxVerticalGridD16;acntDelphiXE2_R;DBXDb2Driver;Intraweb_120_160;dxThemeD16;GLibWMI;vclribbon;cxSchedulerGridD16;dxdborD16;cxTreeListdxBarPopupMenuD16;frxe16;vcl;dxSkinscxSchedulerPainterD16;dxGDIPlusD16;CloudService;DBXMSSQLDriver;dxPScxSSLnkD16;FmxTeeUI;dxPSdxOCLnkD16;dxPSdxDBTVLnkD16;dxSkinCoffeeD16;dxSkinOffice2010BlueD16;unidac160;tmsexdxe2;cxTreeListD16;dxPScxVGridLnkD16;cxLibraryD16;dxPScxPivotGridLnkD16;dxPSdxDBOCLnkD16;webdsnap;dxBarD16;dxtrmdD16;dxPScxPCProdD16;dxPScxSchedulerLnkD16;tmsdxe2;EhLib160;dxSkinOffice2007BlackD16;dxSkinPumpkinD16;EhLibDataDrivers160;fsTee16;adortl;AlphaDBDelphiXE2;dxPScxGridLnkD16;dxBarExtItemsD16;dxLayoutControlD16;dxSkinLondonLiquidSkyD16;dxDockingD16;vcldbx;cxPivotGridD16;cxEditorsD16;dxPSTeeChartD16;dxPScxCommonD16;dxPsPrVwAdvD16;Tee;crcontrols160;frx16;DBXOdbcDriver;dxPSLnksD16;svnui;dxBarExtDBItemsD16;dxmdsD16;dxSkinsCoreD16;dxSkinsdxDLPainterD16;intrawebdb_120_160;dxPSPrVwRibbonD16;fsBDE16;frxDB16;fs16;TeeUI;FMXTee;vclactnband;bindcompvcl;dxTabbedMDID16;vclie;vcltouch;tmsxlsdxe2;dacvcl160;websnap;dxPSdxLCLnkD16;VclSmp;fsDB16;dxFlowChartD16;dxSkinsdxRibbonPainterD16;DataSnapConnectors;dclfrxTee16;dsnapcon;cxGridD16;vclx;tmswizdxe2;svn;dxSkinsdxBarPainterD16;dxPScxTLLnkD16;bdertl;cxSchedulerD16;acntDelphiXE6_R;AlphaDBDelphiXE6;$(DCC_UsePackage)</DCC_UsePackage>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win64)'!=''">
+        <DCC_UsePackage>TeeDB;vclib;DBXSybaseASEDriver;vclimg;vcldb;vcldsnap;DBXDb2Driver;vcl;DBXMSSQLDriver;webdsnap;adortl;Tee;DBXOdbcDriver;TeeUI;vclactnband;bindcompvcl;vclie;vcltouch;websnap;VclSmp;DataSnapConnectors;dsnapcon;vclx;acntDelphiXE6_R;$(DCC_UsePackage)</DCC_UsePackage>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <Manifest_File>None</Manifest_File>
+        <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+        <DCC_Optimize>false</DCC_Optimize>
+        <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+        <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+        <DCC_RemoteDebug>true</DCC_RemoteDebug>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <DCC_ExeOutput>..\bin</DCC_ExeOutput>
+        <Icon_MainIcon>Trade2012_Icon.ico</Icon_MainIcon>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <DCC_RemoteDebug>false</DCC_RemoteDebug>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2)'!=''">
+        <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+        <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+        <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+        <DCC_DebugInformation>0</DCC_DebugInformation>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <Icon_MainIcon>TradeFlowers_Icon.ico</Icon_MainIcon>
+        <Manifest_File>None</Manifest_File>
+        <DCC_ExeOutput>..\bin</DCC_ExeOutput>
+        <VerInfo_Build>2</VerInfo_Build>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=0.3.0.2;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_MinorVer>3</VerInfo_MinorVer>
+        <VerInfo_MajorVer>0</VerInfo_MajorVer>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+    </PropertyGroup>
+    <ItemGroup>
+        <DelphiCompile Include="$(MainSource)">
+            <MainSource>MainSource</MainSource>
+        </DelphiCompile>
+        <DCCReference Include="..\pas\UOsn.pas">
+            <Form>FOsn</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UDataModule1.pas">
+            <Form>DM1</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UPasswd.pas">
+            <Form>FPasswd</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\USplash.pas">
+            <Form>FSplash</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\Dictonary\UDict.pas">
+            <Form>FDict</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameTopPanel.pas">
+            <Form>FrameTopPanel</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\PGSQL.pas"/>
+        <DCCReference Include="..\pas\UFrameCountry.pas">
+            <Form>FrameCountry</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFramePlant.pas">
+            <Form>FramePlant</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewUniName.pas">
+            <Form>FNewUniName</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameSave.pas">
+            <Form>FrameSave</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameType.pas">
+            <Form>FrameType</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UType.pas">
+            <Form>FType</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\USelect.pas">
+            <Form>FSelect</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameProduct.pas">
+            <Form>FrameProduct</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewPlant.pas">
+            <Form>FNewPlant</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameSort.pas">
+            <Form>FrameSort</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewSort.pas">
+            <Form>FNewSort</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameSearch.pas">
+            <Form>FrameSearch</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UDialogMy.pas"/>
+        <DCCReference Include="..\pas\UFrameLength.pas">
+            <Form>FrameLength</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\ULength.pas">
+            <Form>FLength</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewLength.pas">
+            <Form>FNewSortRose</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFuncPeoduct.pas"/>
+        <DCCReference Include="..\pas\UFrameUniName.pas">
+            <Form>FrameUniName</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameProperties.pas">
+            <Form>FrameProperties</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameStruct.pas">
+            <Form>FrameСтруктура</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewProduct.pas">
+            <Form>FNewProduct</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewTTH.pas">
+            <Form>FNewTTH</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\ULang.pas"/>
+        <DCCReference Include="..\pas\UFrameBankRussia.pas">
+            <Form>FrameBank</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameBankInter.pas">
+            <Form>FrameBankInter</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UnewOrg.pas">
+            <Form>FNewOrg</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameOrg.pas">
+            <Form>FrameOrg</Form>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameUsers.pas">
+            <Form>FrameUsers</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewUser.pas">
+            <Form>FNewUser</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UAdress.pas">
+            <Form>FAddress</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameClient.pas">
+            <Form>FrameClient</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewClient.pas">
+            <Form>FNewClient</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameRole.pas">
+            <Form>FrameRole</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameKargo.pas">
+            <Form>FrameKargo</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewKargo.pas">
+            <Form>FNewKargo</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewContactKargo.pas">
+            <Form>FNewContactKargo</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewInAccount.pas">
+            <Form>FNewInAccount</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\USelectInBank.pas">
+            <Form>FSelectInBank</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewInBank.pas">
+            <Form>FNewInBank</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameAirLine.pas">
+            <Form>FrameAirLine</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewAirLine.pas">
+            <Form>FNewAirLine</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewDaesWeek.pas">
+            <Form>FNewDaysWeek</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewShedule.pas">
+            <Form>FNewTimeFly</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewTarifKargo.pas">
+            <Form>FNewTarifKargo</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewContract.pas">
+            <Form>FNewContract</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameMarking.pas">
+            <Form>FrameMarking</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameTrack.pas">
+            <Form>FrameTrack</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewTrack.pas">
+            <Form>FNewTrack</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewContactUni.pas">
+            <Form>FNewContactUni</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewAccountRus.pas">
+            <Form>FNewAccountRus</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\USelectRusBank.pas">
+            <Form>FSelectBankRus</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewTarifTrack.pas">
+            <Form>FNewTarifTrack</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFramePricooling.pas">
+            <Form>FrameProcooling</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewPricooling.pas">
+            <Form>FNewPricooling</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewGroupMarking.pas">
+            <Form>FNewGroupMarking</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewMarking.pas">
+            <Form>FNewMarking</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewTarifPricooling.pas">
+            <Form>FNewTarifPricooling</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewPriceMarking.pas">
+            <Form>FNewPriceMarking</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UDocs.pas">
+            <Form>FDocs</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameOrder.pas">
+            <Form>FrameOrder</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewOrder.pas">
+            <Form>FNewOrder</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewOrderDetail.pas">
+            <Form>FNewOrderDetail</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameStanding.pas">
+            <Form>FrameStanding</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewStanding.pas">
+            <Form>FNewStanding</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewGroupProduct.pas">
+            <Form>FNewGroupProduct</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFramePedido.pas">
+            <Form>FramePedido</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\USelectOrder.pas">
+            <Form>FSelectOrder</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UExcel.pas"/>
+        <DCCReference Include="..\pas\UMultiSelect.pas">
+            <Form>FMultiSelect</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameGroupOrderDetail.pas">
+            <Form>FrameGroupOrderDetail</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewZakupka.pas">
+            <Form>FNewZakupka</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewZakupkaDetail.pas">
+            <Form>FNewZakupkaDetail</Form>
+        </DCCReference>
+        <DCCReference Include="..\pas\ULogistic.pas">
+            <Form>FLogistic</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UTimer.pas"/>
+        <DCCReference Include="..\pas\UFrameFactura.pas">
+            <Form>FrameFactura</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\USelectPlant.pas">
+            <Form>FSelectPlant</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFacturaDetail.pas">
+            <Form>FFacturaDetail</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UEditFacturaDetail.pas">
+            <Form>FEditFacturaDetail</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\USeparate.pas">
+            <Form>FSeparate</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UReport.pas"/>
+        <DCCReference Include="..\pas\UPrepReportPedido.pas">
+            <Form>FPrepReportPedido</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\USelectSort.pas">
+            <Form>FSelectSort</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFramePriceLength.pas">
+            <Form>FramePriceLength</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewPriceLength.pas">
+            <Form>FNewPriceLength</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewVal.pas">
+            <Form>FAddValue</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameWarehouse.pas">
+            <Form>FrameWarehouse</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewOrgName.pas">
+            <Form>FNewOrgName</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewWarehouse.pas">
+            <Form>FNewWarehouse</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewStoreloc.pas">
+            <Form>FNewStoreloc</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFramePlantSort.pas">
+            <Form>FramePlantSort</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UStandartReport.pas">
+            <Form>FStandartReport</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameFito.pas">
+            <Form>FrameFITO</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UReportClients.pas">
+            <Form>FReportClients</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFCountry.pas">
+            <Form>FCountry</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFTypeStruct.pas">
+            <Form>FTypeStruct</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFProperties.pas">
+            <Form>FProperties</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFPlant.pas">
+            <Form>FPlant</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFSort.pas">
+            <Form>FSort</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\USync.pas">
+            <Form>FSync</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\USelectSortInPlant.pas">
+            <Form>FSelectSortInPlant</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\tamog_packing.pas">
+            <Form>Tamog_Packing</Form>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewPacking.pas">
+            <Form>FNewPacking</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewAvtoForPacking.pas">
+            <Form>FNewAvtoForPacking</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewSubPacking.pas">
+            <Form>FNewSubPacking</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewBoxForPacking.pas">
+            <Form>FNewBoxForPacking</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewBoxForPackingDetail.pas">
+            <Form>FNewBoxForPackingDetail</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UDetailBoxPacking.pas">
+            <Form>FDetailBoxPacking</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UPackingCorrection.pas">
+            <Form>FPackingCorrection</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameTypeLengthWeight.pas">
+            <Form>FrameTypeLengthWeight</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewTypeLengthWeight.pas">
+            <Form>FNewTypeLengthWeight</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewCorrectPacking.pas">
+            <Form>FNewCorrectPacking</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameBox.pas">
+            <Form>FrameBox</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewBox.pas">
+            <Form>FNewBox</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\Buh\UBuh.pas">
+            <Form>FBuh</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\Buh\UFrameAWB.pas">
+            <Form>FrameAWB</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\USubAWB.pas">
+            <Form>FSubAWB</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\Buh\Control\UNewAWB.pas">
+            <Form>FNewAWB</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewSubAWBDetail.pas">
+            <Form>FNewSubAWBDetail</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\Buh\UFrameBalance.pas">
+            <Form>FrameBalance</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFacturPlant.pas">
+            <Form>FFacturPlant</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFEditFact.pas">
+            <Form>FEditFact</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewOpl.pas">
+            <Form>FNewOpl</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\Buh\UBalanceKargo.pas">
+            <Form>FrameBalanceKargo</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFacturKargo.pas">
+            <Form>FFacturKargo</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UEditFactKargo.pas">
+            <Form>FEditFactKargo</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameAccess.pas">
+            <Form>FrameAccess</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UParamPC.pas">
+            <Form>FParamPC</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFProduct.pas">
+            <Form>FProduct</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFClient.pas">
+            <Form>FClient</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UTypeLengthWeight.pas">
+            <Form>FTypeLengthWeight</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFBox.pas">
+            <Form>FBox</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFMarking.pas">
+            <Form>FMarking</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFAirLines.pas">
+            <Form>FAirLines</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFKargo.pas">
+            <Form>FKargo</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFTrack.pas">
+            <Form>FTrack</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFPricooling.pas">
+            <Form>FPricooling</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFFITO.pas">
+            <Form>FFITO</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFStanding.pas">
+            <Form>FStanding</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFOrg.pas">
+            <Form>FOrg</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFPrice.pas">
+            <Form>FPrice</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFWareHouse.pas">
+            <Form>FWareHouse</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewFB.pas">
+            <Form>FNewFB</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\Buh\UFramePritenz.pas">
+            <Form>FramePritenz</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\Buh\Control\UFEditPitenz.pas">
+            <Form>FEditPritenz</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\Buh\UFrameOplataPlant.pas">
+            <Form>FrameOplataPlant</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\Buh\Control\UNewOplatPlant.pas">
+            <Form>FNewOplatPlant</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UBackUp.pas">
+            <Form>BackUp</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\Buh\UFrameStatFacturPlant.pas">
+            <Form>FrameStatFacturPlant</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFramePretenzEdit.pas">
+            <Form>FramePretenzEdit</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewPretenzDetail.pas">
+            <Form>FNewPretenzDetail</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFAwb.pas">
+            <Form>FAWB</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UBuhBalancePlant.pas">
+            <Form>FBuhBalancePlant</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\USelLang.pas">
+            <Form>FSelLang</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewZakupDetailQuick.pas">
+            <Form>FNewZakupDetailQuick</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameTypeClient.pas">
+            <Form>FrameTypeClient</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewTypeClient.pas">
+            <Form>FNewTypeClient</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameAWBPedido.pas">
+            <Form>FrameAWBPedido</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewPeduidoAWB.pas">
+            <Form>FNewPeduidoAWB</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UAWBPedido.pas">
+            <Form>FAWBPedido</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewPedidoAWBDetail.pas">
+            <Form>FNewPedidoAWBDetail</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFramePedidoALL.pas">
+            <Form>FramePedidoAll</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UPedido.pas">
+            <Form>FPedido</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\Buh\UFramePrikulingBuh.pas">
+            <Form>FramePrikulingBuh</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameProductNew.pas">
+            <Form>FrameProductNew</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFImport.pas">
+            <Form>FImport</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFramePrice.pas">
+            <Form>FramePrice</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFramePriceDetail.pas">
+            <Form>FramePriceDetail</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UPriceDetail.pas">
+            <Form>FPriceDetail</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFQuestionSort.pas">
+            <Form>FQuestionSort</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameReceipt.pas">
+            <Form>FrameReceipt</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UFrameNewReceipt.pas">
+            <Form>FrameNewReceipt</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewReceipt.pas">
+            <Form>FNewReceipt</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\Auction\UAuction.pas">
+            <Form>FAuction</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\Auction\UFrameAuction.pas">
+            <Form>FrameAuction</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\Auction\UNewAuction.pas">
+            <Form>fNewAuction</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewPlantCountry.pas">
+            <Form>fNewPlantCountry</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UTypeSort.pas">
+            <Form>fTypeSort</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\Auction\UAuctionDetail.pas">
+            <Form>fAuctionDetail</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\Auction\UFrameRaznosAuc.pas">
+            <Form>FrameRaznosAuc</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\Auction\UFrameRaznosAucAll.pas">
+            <Form>FrameRaznosAucAll</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\Auction\URaznosAuc.pas">
+            <Form>fRaznosAuc</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\Auction\UTypeAuc.pas">
+            <Form>FrameTypeAuc</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\Auction\UFrameProductAuc.pas">
+            <Form>FrameProductAuc</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\Auction\UNewTypeAuc.pas">
+            <Form>fNewTypeAuc</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\Auction\UNewProductAuc.pas">
+            <Form>fNewProductAuc</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\Auction\UEditProductAuc.pas">
+            <Form>FEditProductAuc</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\Auction\UNewPriceProdAuc.pas">
+            <Form>FNewPriceProdAuc</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\UNewCountry.pas">
+            <Form>FNewCountry</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\Auction\USelectTypeAuc.pas">
+            <Form>FSelectTypeAuc</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\Auction\UAucImage.pas">
+            <Form>FAucImage</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\Auction\UNewOrderAuc.pas">
+            <Form>FNewOrderAuc</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\Auction\UAucZakup.pas">
+            <Form>FAucZakup</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\ULogin.pas">
+            <Form>FLogin</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\USelectClient.pas">
+            <Form>FSelectClient</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\Auction\Orders\UFrameAucOrder.pas">
+            <Form>FrameAucOrder</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TFrame</DesignClass>
+        </DCCReference>
+        <DCCReference Include="..\pas\Auction\Orders\UfNewAucOrderBody.pas">
+            <Form>fNewAucOrderBody</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\Auction\Orders\UfNewAucOrder.pas">
+            <Form>fNewAucOrder</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\pas\Chat\UChat.pas">
+            <Form>FChat</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_2</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Debug">
+            <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Delphi.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Delphi.Personality>
+                <VersionInfo>
+                    <VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+                    <VersionInfo Name="AutoIncBuild">False</VersionInfo>
+                    <VersionInfo Name="MajorVer">1</VersionInfo>
+                    <VersionInfo Name="MinorVer">0</VersionInfo>
+                    <VersionInfo Name="Release">0</VersionInfo>
+                    <VersionInfo Name="Build">0</VersionInfo>
+                    <VersionInfo Name="Debug">False</VersionInfo>
+                    <VersionInfo Name="PreRelease">False</VersionInfo>
+                    <VersionInfo Name="Special">False</VersionInfo>
+                    <VersionInfo Name="Private">False</VersionInfo>
+                    <VersionInfo Name="DLL">False</VersionInfo>
+                    <VersionInfo Name="Locale">1049</VersionInfo>
+                    <VersionInfo Name="CodePage">1251</VersionInfo>
+                </VersionInfo>
+                <VersionInfoKeys>
+                    <VersionInfoKeys Name="CompanyName"/>
+                    <VersionInfoKeys Name="FileDescription"/>
+                    <VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+                    <VersionInfoKeys Name="InternalName"/>
+                    <VersionInfoKeys Name="LegalCopyright"/>
+                    <VersionInfoKeys Name="LegalTrademarks"/>
+                    <VersionInfoKeys Name="OriginalFilename"/>
+                    <VersionInfoKeys Name="ProductName"/>
+                    <VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+                    <VersionInfoKeys Name="Comments"/>
+                </VersionInfoKeys>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k200.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp200.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                </Excluded_Packages>
+                <Source>
+                    <Source Name="MainSource">TradeFlowers.dpr</Source>
+                </Source>
+            </Delphi.Personality>
+            <Deployment/>
+            <Platforms>
+                <Platform value="Win32">True</Platform>
+                <Platform value="Win64">False</Platform>
+            </Platforms>
+            <ModelSupport>False</ModelSupport>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <Import Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')" Project="$(BDS)\Bin\CodeGear.Delphi.Targets"/>
+    <Import Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')" Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj"/>
+</Project>
