@@ -9,7 +9,7 @@ uses
   cxLookAndFeelPainters, cxContainer, cxEdit, dxSkinsCore, 
    dxSkinsdxBarPainter, cxLabel, dxBar, cxBarEditItem,
   cxClasses, cxGroupBox, Data.DB, MemDS, DBAccess, Uni, cxTextEdit,
-  Vcl.StdCtrls;
+  Vcl.StdCtrls, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
 
 type
   TFLogin = class(TForm)
