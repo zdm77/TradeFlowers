@@ -22,7 +22,6 @@ uses
   cxLabel,
   cxTLdxBarBuiltInMenu,
   dxSkinsCore,
-
   UFrameTopPanel,
   cxInplaceContainer,
   cxDBTL,
@@ -34,10 +33,8 @@ uses
   Uni,
   cxMaskEdit,
   cxClasses,
-
   dxSkinDevExpressStyle,
-
-   dxSkinsDefaultPainters, dxSkinOffice2007Blue;
+  dxSkinsDefaultPainters, dxSkinOffice2007Blue;
 
 type
   TFrameMarking = class(TFrame)
@@ -109,8 +106,8 @@ begin
       begin
         Close;
         sql.Text :=
-          'insert into "маркировки"."маркировки" (id, pid, name, uni_name, reg_name, id_group) '
-          + ' values (:id, 1, :name, :uni_name, :reg_name, 1)';
+          'insert into "маркировки"."маркировки" (id, pid, name, uni_name, reg_name, id_group) ' +
+          ' values (:id, 1, :name, :uni_name, :reg_name, 1)';
         ParamByName('id').AsInteger := id;
         with FrameUniName1 do
         begin
@@ -134,14 +131,13 @@ begin
     case QueryMarking.FieldByName('id_group').AsInteger of
       0:
         begin
-          PGSQL.StandartDelete(QueryMarking.FieldByName('id').AsString,
-            '"маркировки"."маркировки"', QueryMarking, '', '', '', '');
+          PGSQL.StandartDelete(QueryMarking.FieldByName('id').AsString, '"маркировки"."маркировки"',
+            QueryMarking, '', '', '', '');
         end;
       1:
         begin
           { TODO -oOwner -cGeneral : Удаление маркировок после документов вернуться'','', }
-          if Application.MessageBox
-            ('Вы действительно хотите удалить группу маркировок?', 'Вопрос',
+          if Application.MessageBox('Вы действительно хотите удалить группу маркировок?', 'Вопрос',
             MB_YESNO) = mrYes then
           begin
             with Query1 do
@@ -186,84 +182,81 @@ procedure TFrameMarking.btnEditClick(Sender: TObject);
 begin
   if QueryMarking.FieldByName('pid').AsInteger <> 0 then
   begin
-    case QueryMarking.FieldByName('id_group').AsInteger of
-      0:
+    // case QueryMarking.FieldByName('id_group').AsInteger of
+    // 0:
 {$REGION 'Маркировки'}
+    begin
+      FSplash.Show();
+      FSplash.Update;
+      Application.CreateForm(TFNewMarking, FNewMarking);
+      with FNewMarking do
+      begin
+        if QueryMarking.FieldByName('адрес_клиента').AsInteger = 0 then
+          adr_client := False
+        else
+          adr_client := true;
+        id_client := QueryMarking.FieldByName('код_клиента').AsInteger;
+        id_kargo := QueryMarking.FieldByName('код_карго').AsInteger;
+        id_track := QueryMarking.FieldByName('код_трака').AsInteger;
+        id_pricooling := QueryMarking.FieldByName('код_прикулинга').AsInteger;
+        s_id_marking := QueryMarking.FieldByName('id').AsInteger;
+        id_fito := QueryMarking.FieldByName('код_фито').AsInteger;
+        with FrameUniName1 do
         begin
-          FSplash.Show();
-          FSplash.Update;
-          Application.CreateForm(TFNewMarking, FNewMarking);
-          with FNewMarking do
-          begin
-            if QueryMarking.FieldByName('адрес_клиента').AsInteger = 0 then
-              adr_client := False
-            else
-              adr_client := true;
-            id_client := QueryMarking.FieldByName('код_клиента').AsInteger;
-            id_kargo := QueryMarking.FieldByName('код_карго').AsInteger;
-            id_track := QueryMarking.FieldByName('код_трака').AsInteger;
-            id_pricooling := QueryMarking.FieldByName('код_прикулинга')
-              .AsInteger;
-            s_id_marking := QueryMarking.FieldByName('id').AsInteger;
-            id_fito := QueryMarking.FieldByName('код_фито').AsInteger;
-            with FrameUniName1 do
-            begin
-              edtName.Text := QueryMarking.FieldByName('name').AsString;
-              edtUniName.Text := QueryMarking.FieldByName('uni_name').AsString;
-              edtRegName.Text := QueryMarking.FieldByName('reg_name').AsString;
-            end;
-            // mmoAdres.Text := QueryMarking.FieldByName('адрес').AsString;
-            edtPhone1.Text := QueryMarking.FieldByName('телефон').AsString;
-            edtFax.Text := QueryMarking.FieldByName('факс').AsString;
-            o_id_country := QueryMarking.FieldByName('код_страны').AsInteger;
-            o_id_city := QueryMarking.FieldByName('код_города').AsInteger;
-            s_lock_plant := QueryMarking.FieldByName
-              ('коды_запрет_плантаций').AsString;
-            s_good_plant := QueryMarking.FieldByName
-              ('коды_желаемые_плантации').AsString;
-            ShowDict;
-            ShowPlantLock;
-            ShowPlantGood;
-            ShowModal;
-            if FrameSave1.id_save = true then
-              InsUpdMarking(False);
-          end;
+          edtName.Text := QueryMarking.FieldByName('name').AsString;
+          edtUniName.Text := QueryMarking.FieldByName('uni_name').AsString;
+          edtRegName.Text := QueryMarking.FieldByName('reg_name').AsString;
         end;
-{$ENDREGION}
-      1:
-{$REGION 'Группы'}
-        begin
-          Application.CreateForm(TFNewGroupMarking, FNewGroupMarking);
-          with FNewGroupMarking do
-          begin
-            with FrameUniName1 do
-            begin
-              edtName.Text := QueryMarking.FieldByName('name').AsString;
-              edtUniName.Text := QueryMarking.FieldByName('uni_name').AsString;
-              edtRegName.Text := QueryMarking.FieldByName('reg_name').AsString;
-            end;
-            ShowModal;
-            if FrameSave1.id_save = true then
-            begin
-              with Query1 do
-              begin
-                Close;
-                sql.Text := 'update "маркировки"."маркировки" set name=:name, '
-                  + ' uni_name=:uni_name, reg_name=:reg_name where id=' +
-                  QueryMarking.FieldByName('id').AsString;
-                with FrameUniName1 do
-                begin
-                  ParamByName('name').AsString := edtName.Text;
-                  ParamByName('uni_name').AsString := edtUniName.Text;
-                  ParamByName('reg_name').AsString := edtRegName.Text;
-                end;
-                ExecSQL;
-                QueryMarking.Refresh;
-              end;
-            end;
-          end;
-        end;
+        // mmoAdres.Text := QueryMarking.FieldByName('адрес').AsString;
+        edtPhone1.Text := QueryMarking.FieldByName('телефон').AsString;
+        edtFax.Text := QueryMarking.FieldByName('факс').AsString;
+        o_id_country := QueryMarking.FieldByName('код_страны').AsInteger;
+        o_id_city := QueryMarking.FieldByName('код_города').AsInteger;
+        s_lock_plant := QueryMarking.FieldByName('коды_запрет_плантаций').AsString;
+        s_good_plant := QueryMarking.FieldByName('коды_желаемые_плантации').AsString;
+        ShowDict;
+        ShowPlantLock;
+        ShowPlantGood;
+        ShowModal;
+        if FrameSave1.id_save = true then
+          InsUpdMarking(False);
+      end;
     end;
+    // {$ENDREGION}
+    // 1:
+    // {$REGION 'Группы'}
+    // begin
+    // Application.CreateForm(TFNewGroupMarking, FNewGroupMarking);
+    // with FNewGroupMarking do
+    // begin
+    // with FrameUniName1 do
+    // begin
+    // edtName.Text := QueryMarking.FieldByName('name').AsString;
+    // edtUniName.Text := QueryMarking.FieldByName('uni_name').AsString;
+    // edtRegName.Text := QueryMarking.FieldByName('reg_name').AsString;
+    // end;
+    // ShowModal;
+    // if FrameSave1.id_save = true then
+    // begin
+    // with Query1 do
+    // begin
+    // Close;
+    // sql.Text := 'update "маркировки"."маркировки" set name=:name, '
+    // + ' uni_name=:uni_name, reg_name=:reg_name where id=' +
+    // QueryMarking.FieldByName('id').AsString;
+    // with FrameUniName1 do
+    // begin
+    // ParamByName('name').AsString := edtName.Text;
+    // ParamByName('uni_name').AsString := edtUniName.Text;
+    // ParamByName('reg_name').AsString := edtRegName.Text;
+    // end;
+    // ExecSQL;
+    // QueryMarking.Refresh;
+    // end;
+    // end;
+    // end;
+    // end;
+    // end;
 {$ENDREGION}
   end
   else
@@ -314,25 +307,25 @@ begin
       else
       begin
         id := QueryMarking.FieldByName('id').AsInteger;
-        sql.Text :=
-          'UPDATE "маркировки"."маркировки" SET  pid = :pid,  id_group = 0,' +
+        sql.Text := 'UPDATE "маркировки"."маркировки" SET  pid = :pid,  id_group = :id_group,' +
           '"код_клиента" = :код_клиента, "код_карго" = :код_карго,' +
           ' "код_трака" = :код_трака,  "код_прикулинга" = :код_прикулинга,' +
           '  name = :name,  uni_name = :uni_name,  reg_name = :reg_name,' +
-          '  "адрес" = :адрес,  "страна" = :страна, "город"=:город,  "телефон" = :телефон,'
-          + '  "факс" = :факс,  "код_страны" = :код_страны,  "код_города" = :код_города'
-          + ',адрес_клиента=:адрес_клиента, код_фито=:код_фито,изменен=:изменен WHERE  id = :id';
+          '  "адрес" = :адрес,  "страна" = :страна, "город"=:город,  "телефон" = :телефон,' +
+          '  "факс" = :факс,  "код_страны" = :код_страны,  "код_города" = :код_города' +
+          ',адрес_клиента=:адрес_клиента, код_фито=:код_фито,изменен=:изменен WHERE  id = :id';
       end;
       if chkAddrClient.Checked = true then
         ParamByName('адрес_клиента').AsInteger := 1
       else
         ParamByName('адрес_клиента').AsInteger := 0;
       ParamByName('id').AsInteger := id;
+      if (id_ins = False) then
+        ParamByName('id_group').AsInteger := QueryMarking.FieldByName('id_group').AsInteger;
       if QueryMarking.FieldByName('id_group').AsInteger = 1 then
-        ParamByName('pid').AsInteger := QueryMarking.FieldByName('id').AsInteger
+        ParamByName('pid').AsInteger := 1
       else
-        ParamByName('pid').AsInteger := QueryMarking.FieldByName('pid')
-          .AsInteger;
+        ParamByName('pid').AsInteger := QueryMarking.FieldByName('pid').AsInteger;
       with FrameUniName1 do
       begin
         ParamByName('name').AsString := edtName.Text;
@@ -374,9 +367,8 @@ begin
     btnEditClick(Sender);
 end;
 
-procedure TFrameMarking.lstTreeProductsStylesGetContentStyle
-  (Sender: TcxCustomTreeList; AColumn: TcxTreeListColumn;
-  ANode: TcxTreeListNode; var AStyle: TcxStyle);
+procedure TFrameMarking.lstTreeProductsStylesGetContentStyle(Sender: TcxCustomTreeList;
+  AColumn: TcxTreeListColumn; ANode: TcxTreeListNode; var AStyle: TcxStyle);
 begin
   if ANode.Values[ColumnGroup.ItemIndex] = 0 then
   begin
@@ -392,9 +384,8 @@ begin
   with QueryMarking do
   begin
     Close;
-    sql.Text := 'select m.*, k.name k_name from "маркировки"."маркировки"  m  '
-      + ' left join "контрагенты"."клиенты" k on k.id=m."код_клиента" ' +
-      ' order by id';
+    sql.Text := 'select m.*, k.name k_name from "маркировки"."маркировки"  m  ' +
+      ' left join "контрагенты"."клиенты" k on k.id=m."код_клиента" ' + ' order by id';
     Open;
     Locate('id', id_locate, []);
   end;

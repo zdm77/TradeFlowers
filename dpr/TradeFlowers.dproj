@@ -963,6 +963,7 @@
         <DCCReference Include="..\pas\Chat\UChatDb.pas">
             <Form>FChatDB</Form>
         </DCCReference>
+        <DCCReference Include="..\pas\ProductClass.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

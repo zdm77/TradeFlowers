@@ -329,4 +329,30 @@ object FChatDB: TFChatDB
     Left = 488
     Top = 88
   end
+  object ds1: TClientDataSet
+    Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'name'
+      end>
+    IndexDefs = <>
+    Params = <>
+    StoreDefs = True
+    Left = 256
+    Top = 488
+    object ds1name: TStringField
+      FieldName = 'name'
+      Size = 255
+    end
+  end
+  object ds2: TDataSource
+    DataSet = ds1
+    Left = 200
+    Top = 488
+  end
+  object DataSetProvider1: TDataSetProvider
+    DataSet = ds1
+    Left = 120
+    Top = 360
+  end
 end

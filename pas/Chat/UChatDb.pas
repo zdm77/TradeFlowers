@@ -12,7 +12,7 @@ uses
   cxFilter, cxData, cxDataStorage, cxNavigator, cxDBData, cxGridLevel,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxClasses,
   cxGridCustomView, cxMemo, Vcl.Menus, cxButtons, cxTextEdit, Vcl.ImgList,
-  cxListBox, cxDBEdit, Vcl.ExtCtrls;
+  cxListBox, cxDBEdit, Vcl.ExtCtrls, Datasnap.DBClient, Datasnap.Provider;
 
 type
   TFChatDB = class(TForm)
@@ -31,6 +31,10 @@ type
     lstClients: TcxListView;
     imgSmall: TcxImageList;
     tmr1: TTimer;
+    ds1: TClientDataSet;
+    ds1name: TStringField;
+    ds2: TDataSource;
+    DataSetProvider1: TDataSetProvider;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure btnSendClick(Sender: TObject);
@@ -65,7 +69,7 @@ var
 implementation
 
 uses
-  UDataModule1, UPasswd, ULogin;
+  UDataModule1, UPasswd, ULogin, ProductClass;
 {$R *.dfm}
 
 procedure TFChatDB.updateReadAll;
@@ -153,7 +157,7 @@ begin
     sql.Add(':id_client, ');
     sql.Add(':id_user, ');
     sql.Add(':adm, :read, :read_client');
-     sql.Add(')');
+    sql.Add(')');
     ParamByName('id_user').AsInteger := FPasswd.id_user;
     ParamByName('id_client').AsInteger := idClientChat;
     ParamByName('message').AsString := memoMessage.Text;
@@ -169,7 +173,6 @@ begin
       ParamByName('adm').AsInteger := 0;
       ParamByName('read_client').AsInteger := 1;
     end;
-    
     ExecSQL;
     showMessages;
     // ShowMessage(str);
@@ -222,7 +225,6 @@ begin
   else
   begin
     lstClients.Visible := False;
-   
     with Query1 do
     begin
       Close;
@@ -231,7 +233,6 @@ begin
       Open;
       First;
       idClientChat := Fields[0].AsInteger;
-   
       showMessages2(idClientChat);
     end;
   end;

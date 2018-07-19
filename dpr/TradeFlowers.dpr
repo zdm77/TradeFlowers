@@ -207,7 +207,8 @@ uses
   UfNewAucOrderBody in '..\pas\Auction\Orders\UfNewAucOrderBody.pas' {fNewAucOrderBody},
   UfNewAucOrder in '..\pas\Auction\Orders\UfNewAucOrder.pas' {fNewAucOrder},
   UChat in '..\pas\Chat\UChat.pas' {FChat},
-  UChatDb in '..\pas\Chat\UChatDb.pas' {FChatDB};
+  UChatDb in '..\pas\Chat\UChatDb.pas' {FChatDB},
+  ProductClass in '..\pas\ProductClass.pas';
 
 {$R *.res}
 
