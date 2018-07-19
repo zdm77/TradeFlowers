@@ -44,7 +44,7 @@ uses
 
   dxSkinDevExpressStyle,
 
-   dxSkinsDefaultPainters, dxSkinOffice2007Blue;
+   dxSkinsDefaultPainters, dxSkinOffice2007Blue, dxmdaset;
 
 type
   TFrameProduct = class(TFrame)
@@ -62,6 +62,8 @@ type
     cxStyle2: TcxStyle;
     ColumnPrice: TcxDBTreeListColumn;
     Query1: TUniQuery;
+    memProducts: TdxMemData;
+    ds1: TDataSource;
     procedure btnAddClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnDelClick(Sender: TObject);
@@ -535,101 +537,103 @@ end;
 procedure TFrameProduct.ShowProduct(id_locate: Integer = 0;
   not_in: string = '');
 begin
-  with QueryProduct do
-  begin
-    Close;
-    with FrameSearch1 do
-    begin
-      if edtName.Text = '' then
-      begin
-        sql.Text := 'select * from продукция.продукция where 1=1 ';
-        if not_in <> '' then
-          sql.Add(not_in);
-        if chkDel.Checked = false then
-          sql.Add(' and скрыт=0');
-        sql.Add(' order by id');
-        Open;
-      end
-      else
-      begin
-        sql.Text :=
-          'select * from "продукция"."продукция" where id_group = 1 and' +
-          ' код_структуры = 3 and  id in (select pid from "продукция"."продукция"'
-          + ' where id_group = 1 and  код_структуры = 4 and id in (select pid' +
-          ' from "продукция"."продукция" where id_group = 1 and' +
-          '  код_структуры = 5 and id in (select pid from "продукция"."продукция"'
-          + '  where id_group = 0 and код_структуры = 6 and  Upper(';
-        case FPasswd.edtLangData.ItemIndex of
-          0:
-            sql.Add('name');
-          1:
-            sql.Add('uni_name');
-          2:
-            sql.Add('reg_name');
-        end;
-        sql.Add(') Like ''%' + AnsiUpperCase(edtName.Text) + '%''');
-        sql.Add('))) union all select * from "продукция"."продукция" where id_group = 1 and'
-          + ' код_структуры = 4 and id in (select pid from "продукция"."продукция"'
-          + ' where id_group = 1 and код_структуры = 5 and id IN (select pid' +
-          ' from "продукция"."продукция"  where id_group = 0 and ' +
-          ' код_структуры = 6 and Upper(');
-        case FPasswd.edtLangData.ItemIndex of
-          0:
-            sql.Add('name');
-          1:
-            sql.Add('uni_name');
-          2:
-            sql.Add('reg_name');
-        end;
-        sql.Add(') Like ''%' + AnsiUpperCase(edtName.Text) + '%''');
-        sql.Add(')) union all select * from "продукция"."продукция" where id_group = 1 and'
-          + ' код_структуры = 5 and  id IN (select pid from "продукция"."продукция"'
-          + ' where id_group = 0 and код_структуры = 6 and Upper(');
-        case FPasswd.edtLangData.ItemIndex of
-          0:
-            sql.Add('name');
-          1:
-            sql.Add('uni_name');
-          2:
-            sql.Add('reg_name');
-        end;
-        sql.Add(') Like ''%' + AnsiUpperCase(edtName.Text) + '%''');
-        sql.Add(')  UNION all select * from "продукция"."продукция" where id_group = 0 and'
-          + '  код_структуры = 6 and Upper(');
-        case FPasswd.edtLangData.ItemIndex of
-          0:
-            sql.Add('name');
-          1:
-            sql.Add('uni_name');
-          2:
-            sql.Add('reg_name');
-        end;
-        sql.Add(') Like ''%' + AnsiUpperCase(edtName.Text) + '%'' ');
-        if chkDel.Checked = false then
-          sql.Add(' and скрыт=0');
-        sql.Add(' order by id');
-        // sql.Text := 'select id, pid, name, uni_name, reg_name, id_group from ' +
-        // ' "продукция"."продукция" where id_group=1 and id in (select pid from '
-        // + ' "продукция"."продукция") union all select id, pid, name, uni_name, '
-        // + ' reg_name, id_group from "продукция"."продукция" where id_group=0 '
-        // + ' and Upper(';
-        // case FPasswd.Lang of
-        // 0:
-        // sql.Add('name');
-        // 1:
-        // sql.Add('uni_name');
-        // 2:
-        // sql.Add('reg_name');
-        // end;
-        // sql.Add(') Like ''%' + AnsiUpperCase(edtName.Text) + '%''');
-        // sql.Add(' order by id');
-        Open;
-        lstTreeProducts.FullExpand;
-      end;
-    end;
-    Locate('id', id_locate, []);
-    //
-  end;
+ memProducts.Active:=true;
+ memProducts.LoadFromDataSet(dm1.QueryProductLocal);
+//  with QueryProduct do
+//  begin
+//    Close;
+//    with FrameSearch1 do
+//    begin
+//      if edtName.Text = '' then
+//      begin
+//        sql.Text := 'select * from продукция.продукция where 1=1 ';
+//        if not_in <> '' then
+//          sql.Add(not_in);
+//        if chkDel.Checked = false then
+//          sql.Add(' and скрыт=0');
+//        sql.Add(' order by id');
+//        Open;
+//      end
+//      else
+//      begin
+//        sql.Text :=
+//          'select * from "продукция"."продукция" where id_group = 1 and' +
+//          ' код_структуры = 3 and  id in (select pid from "продукция"."продукция"'
+//          + ' where id_group = 1 and  код_структуры = 4 and id in (select pid' +
+//          ' from "продукция"."продукция" where id_group = 1 and' +
+//          '  код_структуры = 5 and id in (select pid from "продукция"."продукция"'
+//          + '  where id_group = 0 and код_структуры = 6 and  Upper(';
+//        case FPasswd.edtLangData.ItemIndex of
+//          0:
+//            sql.Add('name');
+//          1:
+//            sql.Add('uni_name');
+//          2:
+//            sql.Add('reg_name');
+//        end;
+//        sql.Add(') Like ''%' + AnsiUpperCase(edtName.Text) + '%''');
+//        sql.Add('))) union all select * from "продукция"."продукция" where id_group = 1 and'
+//          + ' код_структуры = 4 and id in (select pid from "продукция"."продукция"'
+//          + ' where id_group = 1 and код_структуры = 5 and id IN (select pid' +
+//          ' from "продукция"."продукция"  where id_group = 0 and ' +
+//          ' код_структуры = 6 and Upper(');
+//        case FPasswd.edtLangData.ItemIndex of
+//          0:
+//            sql.Add('name');
+//          1:
+//            sql.Add('uni_name');
+//          2:
+//            sql.Add('reg_name');
+//        end;
+//        sql.Add(') Like ''%' + AnsiUpperCase(edtName.Text) + '%''');
+//        sql.Add(')) union all select * from "продукция"."продукция" where id_group = 1 and'
+//          + ' код_структуры = 5 and  id IN (select pid from "продукция"."продукция"'
+//          + ' where id_group = 0 and код_структуры = 6 and Upper(');
+//        case FPasswd.edtLangData.ItemIndex of
+//          0:
+//            sql.Add('name');
+//          1:
+//            sql.Add('uni_name');
+//          2:
+//            sql.Add('reg_name');
+//        end;
+//        sql.Add(') Like ''%' + AnsiUpperCase(edtName.Text) + '%''');
+//        sql.Add(')  UNION all select * from "продукция"."продукция" where id_group = 0 and'
+//          + '  код_структуры = 6 and Upper(');
+//        case FPasswd.edtLangData.ItemIndex of
+//          0:
+//            sql.Add('name');
+//          1:
+//            sql.Add('uni_name');
+//          2:
+//            sql.Add('reg_name');
+//        end;
+//        sql.Add(') Like ''%' + AnsiUpperCase(edtName.Text) + '%'' ');
+//        if chkDel.Checked = false then
+//          sql.Add(' and скрыт=0');
+//        sql.Add(' order by id');
+//        // sql.Text := 'select id, pid, name, uni_name, reg_name, id_group from ' +
+//        // ' "продукция"."продукция" where id_group=1 and id in (select pid from '
+//        // + ' "продукция"."продукция") union all select id, pid, name, uni_name, '
+//        // + ' reg_name, id_group from "продукция"."продукция" where id_group=0 '
+//        // + ' and Upper(';
+//        // case FPasswd.Lang of
+//        // 0:
+//        // sql.Add('name');
+//        // 1:
+//        // sql.Add('uni_name');
+//        // 2:
+//        // sql.Add('reg_name');
+//        // end;
+//        // sql.Add(') Like ''%' + AnsiUpperCase(edtName.Text) + '%''');
+//        // sql.Add(' order by id');
+//        Open;
+//        lstTreeProducts.FullExpand;
+//      end;
+//    end;
+//    Locate('id', id_locate, []);
+//    //
+//  end;
   lstTreeProducts.SetFocus;
 end;
 

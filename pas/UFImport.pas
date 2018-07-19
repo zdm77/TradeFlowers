@@ -21,7 +21,8 @@ uses
   dxSkinsdxBarPainter, Data.DB, MemDS, DBAccess, Uni, dxBar, cxClasses,
   Vcl.Grids, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
   cxContainer, cxEdit, Vcl.StdCtrls, cxGroupBox, Vcl.ComCtrls, cxTextEdit,
-  cxMaskEdit, cxDropDownEdit, cxLookupEdit, cxDBLookupEdit, cxDBLookupComboBox;
+  cxMaskEdit, cxDropDownEdit, cxLookupEdit, cxDBLookupEdit, cxDBLookupComboBox,
+  dxSkinOffice2007Blue, dxSkinsDefaultPainters;
 
 type
   TFImport = class(TForm)

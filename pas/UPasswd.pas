@@ -33,7 +33,6 @@ uses
   cxDBLookupEdit,
   cxDBLookupComboBox,
   cxGroupBox,
-
   Data.DB,
   DBAccess,
   MemDS,
@@ -43,9 +42,7 @@ uses
   Vcl.StdCtrls, DALoader, UniLoader, Datasnap.DBClient, Vcl.Grids, Vcl.DBGrids,
   cxCustomData, cxStyles, cxTL, cxTLdxBarBuiltInMenu, cxInplaceContainer,
   cxDBTL, cxTLData,
-
   dxSkinDevExpressStyle,
-
   cxCheckBox, dxSkinsDefaultPainters, dxSkinOffice2007Blue;
 
 type
@@ -90,10 +87,8 @@ type
     procedure edtOrgPropertiesEditValueChanged(Sender: TObject);
     procedure edtNamePropertiesEditValueChanged(Sender: TObject);
     procedure edtNamePropertiesChange(Sender: TObject);
-    procedure edtPasswdKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure edtPasswdKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    procedure edtPasswdKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure edtPasswdKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure edtNamePropertiesCloseUp(Sender: TObject);
     procedure QueryUsersAfterScroll(DataSet: TDataSet);
     procedure edtOrgPropertiesCloseUp(Sender: TObject);
@@ -152,7 +147,6 @@ begin
   begin
     with Query1 do
     begin
-
       { доступ }
       // глобальный параметр компа
       // проверяем предыдущие данные
@@ -161,8 +155,7 @@ begin
       pc_user := PGSQL.GetUserFromWindows;
       pc_mac := PGSQL.GetMACAddress;
       Close;
-      SQL.Text := 'select * from "пользователи"."безопасность" where id_user=' +
-        IntToStr(ID_USER) +
+      SQL.Text := 'select * from "пользователи"."безопасность" where id_user=' + IntToStr(ID_USER) +
         ' and name_pc=:name_pc and id_hard=:id_hard and mac=:mac and account=:account ';
       ParamByName('name_pc').AsString := pc_name;
       ParamByName('id_hard').AsString := pc_hard;
@@ -174,10 +167,9 @@ begin
       else
       begin
         Close;
-        SQL.Text := 'select * from "пользователи"."безопасность" where id_user='
-          + IntToStr(ID_USER) +
-          ' and name_pc=:name_pc and id_hard=:id_hard and mac=:mac and account=:account '
-          + ' and разрешить=false';
+        SQL.Text := 'select * from "пользователи"."безопасность" where id_user=' + IntToStr(ID_USER)
+          + ' and name_pc=:name_pc and id_hard=:id_hard and mac=:mac and account=:account ' +
+          ' and разрешить=false';
         ParamByName('name_pc').AsString := pc_name;
         ParamByName('id_hard').AsString := pc_hard;
         ParamByName('mac').AsString := pc_mac;
@@ -192,8 +184,7 @@ begin
         end;
       end;
       Close;
-      SQL.Text := 'select * from "пользователи"."доступ"  where код_роли=' +
-        IntToStr(ID_ROLE);
+      SQL.Text := 'select * from "пользователи"."доступ"  where код_роли=' + IntToStr(ID_ROLE);
       open;
       FOsn.btnDict.Enabled := FieldByName('Справочники').AsBoolean;
       FOsn.btnTorg.Enabled := FieldByName('Закупка_и_реализация').AsBoolean;
@@ -221,8 +212,7 @@ begin
       FSplash.Show();
       FSplash.Update;
       Close;
-      SQL.Text :=
-        'select пароль, id from пользователи.пользователи where пароль=md5(''' +
+      SQL.Text := 'select пароль, id from пользователи.пользователи where пароль=md5(''' +
         edtPasswd.Text + ''') ';
       if chkAdmin.Checked = False then
         SQL.Add('  and id=' + IntToStr(edtName.EditValue))
@@ -268,8 +258,7 @@ begin
         FOsn.Enabled := true;
         FOsn.Access;
         s := 'TradeFlowers. ';
-        cxlclzr1.LoadFromFile(ExtractFileDir(Application.ExeName) +
-          '\..\ini\LanguagesUnicode.ini');
+        cxlclzr1.LoadFromFile(ExtractFileDir(Application.ExeName) + '\..\ini\LanguagesUnicode.ini');
         cxlclzr1.Active := true;
         case edtLang.ItemIndex of
           0:
@@ -302,10 +291,10 @@ begin
         FSplash.Close;
         edtPasswd.SelectAll;
         Counter := Counter + 1;
-        s := 'Не правильный пароль. Осталось попыток - ' + IntToStr(4 - Counter)
-          + '. Попробуете снова?';
-        if (Counter = 4) or (Application.MessageBox(PChar(s), 'Ошибка',
-          MB_YESNO + MB_ICONERROR) = mrNo) then
+        s := 'Не правильный пароль. Осталось попыток - ' + IntToStr(4 - Counter) +
+          '. Попробуете снова?';
+        if (Counter = 4) or (Application.MessageBox(PChar(s), 'Ошибка', MB_YESNO + MB_ICONERROR)
+          = mrNo) then
         begin
           Application.Terminate
         end;
@@ -391,8 +380,7 @@ begin
   with QueryOrg do
   begin
     Close;
-    SQL.Text :=
-      'select * from "организация"."организации" where id<>1 and id_del=0';
+    SQL.Text := 'select * from "организация"."организации" where id<>1 and id_del=0';
     open;
   end;
   ShowUsers;
@@ -429,15 +417,13 @@ begin
   EnableSave;
 end;
 
-procedure TFPasswd.edtPasswdKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFPasswd.edtPasswdKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
 begin
   if (btnOk.Enabled = true) and (Key = VK_RETURN) then
     btnOkClick(Sender);
 end;
 
-procedure TFPasswd.edtPasswdKeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFPasswd.edtPasswdKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
 begin
   if (edtName.EditValue = 0) and (edtOrg.EditValue = 0) then
   begin
@@ -453,8 +439,7 @@ procedure TFPasswd.EnableSave;
 begin
   if chkAdmin.Checked = False then
   begin
-    if (edtName.Text <> '') and (edtPasswd.Text <> '') and (edtOrg.Text <> '')
-    then
+    if (edtName.Text <> '') and (edtPasswd.Text <> '') and (edtOrg.Text <> '') then
       btnOk.Enabled := true
     else
       btnOk.Enabled := False;
@@ -497,27 +482,59 @@ begin
   // DM1.db1.Connected := true;
   FSplash.Update;
   { открываем сорта }
-//  with Query1 do
-//  begin
-//    Close;
-//    SQL.Text := 'select * from продукция.сорта order by uni_name';
-//    open;
-//    DM1.dxMemData1.Active := true;
-//    while not Eof do
+  // with Query1 do
+  // begin
+  // Close;
+  // SQL.Text := 'select * from продукция.сорта order by uni_name';
+  // open;
+  // DM1.dxMemData1.Active := true;
+  // while not Eof do
+  // begin
+  // FSplash.lblComment.Caption := 'Загрузка данных: Сорта';
+  // FSplash.Update;
+  // DM1.dxMemData1.Append;
+  // DM1.dxMemData1.FieldByName('id').AsInteger := FieldByName('id').AsInteger;
+  // DM1.dxMemData1.FieldByName('uni_name').AsString :=
+  // FieldByName('uni_name').AsString;
+  // DM1.dxMemData1.FieldByName('код_типа').AsInteger :=
+  // FieldByName('код_типа').AsInteger;
+  // DM1.dxMemData1.Post;
+  // Next;
+  // end;
+  // // DM1.dxMemData1.Active := False;
+  // end;
+  with DM1.QueryProductLocal do
+  begin
+    DM1.memProducts.Active := true;
+    Close;
+    SQL.Text := 'select * from продукция.продукция where скрыт=0 order by id';
+    open;
+//    while not eof do
 //    begin
-//      FSplash.lblComment.Caption := 'Загрузка данных: Сорта';
+//      DM1.memProducts.Append;
+//      FSplash.lblComment.Caption := 'Загрузка данных: Номенклатура';
 //      FSplash.Update;
-//      DM1.dxMemData1.Append;
-//      DM1.dxMemData1.FieldByName('id').AsInteger := FieldByName('id').AsInteger;
-//      DM1.dxMemData1.FieldByName('uni_name').AsString :=
-//        FieldByName('uni_name').AsString;
-//      DM1.dxMemData1.FieldByName('код_типа').AsInteger :=
-//        FieldByName('код_типа').AsInteger;
-//      DM1.dxMemData1.Post;
+//      DM1.memProductsid.Value := FieldByName('id').Value;
+//      DM1.memProductspid.Value := FieldByName('pid').Value;
+//      DM1.memProductsкод_структуры.Value := FieldByName('код_структуры').Value;
+//      DM1.memProductsкод_детализации.Value := FieldByName('').Value;
+//      DM1.memProductsname.Value := FieldByName('').Value;
+//      DM1.memProductsid_group.Value := FieldByName('').Value;
+//      DM1.memProductsuni_name.Value := FieldByName('').Value;
+//      DM1.memProductsreg_name.Value := FieldByName('').Value;
+//      DM1.memProductsname_in_tree.Value := FieldByName('').Value;
+//      DM1.memProductsцена.Value := FieldByName('').Value;
+//      DM1.memProductstree.Value := FieldByName('').Value;
+//      DM1.memProductslevel_val.Value := FieldByName('').Value;
+//      DM1.memProductsкод_типа.Value := FieldByName('').Value;
+//      DM1.memProductsкод_плантации.Value := FieldByName('').Value;
+//      DM1.memProductsкод_сорта.Value := FieldByName('').Value;
+//      DM1.memProductsскрыт.Value := FieldByName('').Value;
+//
+//      Post;
 //      Next;
 //    end;
-//    // DM1.dxMemData1.Active := False;
-//  end;
+  end;
   { открываем номенклатуру }
   // with DM1.QueryProductG do
   // begin
@@ -566,16 +583,14 @@ begin
       case Lang of
         0:
           ErrorDialog('База данных закрыта на техническое обслуживание. ', '',
-            ' Дата/Время окончания работ: ' + FieldByName('дата_открытия')
-            .AsString);
+            ' Дата/Время окончания работ: ' + FieldByName('дата_открытия').AsString);
         1:
-          ErrorDialog('Database is closed for maintenance.', '',
-            'Date/Time of end of works: ' + FieldByName('дата_открытия')
-            .AsString);
+          ErrorDialog('Database is closed for maintenance.', '', 'Date/Time of end of works: ' +
+            FieldByName('дата_открытия').AsString);
         2:
           ErrorDialog('Base de datos es cerrada al mantenimiento técnico.', '',
-            'La Fecha/tiempo de la terminación de los trabajos: ' +
-            FieldByName('дата_открытия').AsString);
+            'La Fecha/tiempo de la terminación de los trabajos: ' + FieldByName('дата_открытия')
+            .AsString);
       end;
       Application.Terminate;
     end;
@@ -585,15 +600,13 @@ begin
     begin
       case Lang of
         0:
-          ErrorDialog('Версия программы и базы данных не совпадают. ', '',
-            'Обновите приложение.');
+          ErrorDialog('Версия программы и базы данных не совпадают. ', '', 'Обновите приложение.');
         1:
-          ErrorDialog
-            ('Version of the program and the database are not the same. ', '',
+          ErrorDialog('Version of the program and the database are not the same. ', '',
             'Update the application.');
         2:
-          ErrorDialog('Versión del programa y la base de datos no coincide.',
-            '', 'Renueven la aplicación.');
+          ErrorDialog('Versión del programa y la base de datos no coincide.', '',
+            'Renueven la aplicación.');
       end;
       Application.Terminate;
     end;
@@ -616,8 +629,7 @@ begin
   with Query1 do
   begin
     Close;
-    SQL.Text := 'select код_роли from пользователи.пользователи where id=' +
-      IntToStr(id_locate);
+    SQL.Text := 'select код_роли from пользователи.пользователи where id=' + IntToStr(id_locate);
     open;
     Result := Fields[0].AsInteger;
   end;
@@ -632,8 +644,7 @@ begin
   with Query1 do
   begin
     Close;
-    SQL.Text := 'select name from пользователи.пользователи where id=' +
-      IntToStr(id_locate);
+    SQL.Text := 'select name from пользователи.пользователи where id=' + IntToStr(id_locate);
     open;
     Result := Fields[0].AsString;
   end;
@@ -653,9 +664,8 @@ begin
   with Query1 do
   begin
     Close;
-    SQL.Text := 'INSERT INTO  "пользователи"."безопасность"(id_user,  name_pc,'
-      + '  id_hard,  mac,  account) VALUES (:id_user,  :name_pc,' +
-      '  :id_hard,  :mac,  :account);';
+    SQL.Text := 'INSERT INTO  "пользователи"."безопасность"(id_user,  name_pc,' +
+      '  id_hard,  mac,  account) VALUES (:id_user,  :name_pc,' + '  :id_hard,  :mac,  :account);';
     ParamByName('id_user').AsInteger := ID_USER;
     ParamByName('name_pc').AsString := pc_name;
     ParamByName('id_hard').AsString := pc_hard;
@@ -724,8 +734,8 @@ begin
     with QueryUsers do
     begin
       Close;
-      SQL.Text := 'select * from пользователи.пользователи ' +
-        'where код_организации=' + IntToStr(edtOrg.EditValue);
+      SQL.Text := 'select * from пользователи.пользователи ' + 'where код_организации=' +
+        IntToStr(edtOrg.EditValue);
       open;
     end;
   end;

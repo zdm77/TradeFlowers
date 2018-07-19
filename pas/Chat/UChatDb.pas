@@ -33,12 +33,7 @@ type
     lstClients: TcxListView;
     imgSmall: TcxImageList;
     tmr1: TTimer;
-    ds2: TDataSource;
     btn1: TButton;
-    lstTreeProducts: TcxDBTreeList;
-    ColumnName: TcxDBTreeListColumn;
-    ColumnDel: TcxDBTreeListColumn;
-    ColumnPrice: TcxDBTreeListColumn;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure btnSendClick(Sender: TObject);
@@ -266,6 +261,7 @@ begin
 //      Next;
 //    end;
 //  end;
+//  lst1.DataController.DataSource:=ds1;
 end;
 
 procedure TFChatDB.btnSendClick(Sender: TObject);

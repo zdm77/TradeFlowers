@@ -40,6 +40,23 @@ type
     MFieldID: TIntegerField;
     MFieldName: TStringField;
     dxMemData1код_типа: TIntegerField;
+    memProducts: TdxMemData;
+    memProductsid: TIntegerField;
+    memProductspid: TIntegerField;
+    memProductsкод_структуры: TIntegerField;
+    memProductsкод_детализации: TIntegerField;
+    memProductsname: TStringField;
+    memProductsid_group: TSmallintField;
+    memProductsuni_name: TStringField;
+    memProductsreg_name: TStringField;
+    memProductsname_in_tree: TStringField;
+    memProductsцена: TFloatField;
+    memProductstree: TStringField;
+    memProductslevel_val: TIntegerField;
+    memProductsкод_типа: TIntegerField;
+    memProductsкод_плантации: TIntegerField;
+    memProductsкод_сорта: TIntegerField;
+    memProductsскрыт: TSmallintField;
   private
     { Private declarations }
   public

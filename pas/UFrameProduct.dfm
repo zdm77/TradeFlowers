@@ -84,7 +84,7 @@ object FrameProduct: TFrameProduct
       item
         Expandable = tlbeExpandable
       end>
-    DataController.DataSource = dsProduct
+    DataController.DataSource = ds1
     DataController.ImageIndexField = 'ID_GROUP'
     DataController.ParentField = 'pid'
     DataController.KeyField = 'id'
@@ -389,5 +389,16 @@ object FrameProduct: TFrameProduct
       'order by id')
     Left = 279
     Top = 301
+  end
+  object memProducts: TdxMemData
+    Indexes = <>
+    SortOptions = []
+    Left = 528
+    Top = 288
+  end
+  object ds1: TDataSource
+    DataSet = memProducts
+    Left = 648
+    Top = 281
   end
 end

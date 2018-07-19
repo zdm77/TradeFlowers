@@ -139,7 +139,7 @@
       end>
   end
   object QueryProductLocal: TUniQuery
-    Connection = dbLocal
+    Connection = db1
     SQL.Strings = (
       'select * from "Product"')
     AutoCalcFields = False
@@ -169,6 +169,64 @@
     end
     object dxMemData1код_типа: TIntegerField
       FieldName = #1082#1086#1076'_'#1090#1080#1087#1072
+    end
+  end
+  object memProducts: TdxMemData
+    Indexes = <
+      item
+        FieldName = 'id'
+        SortOptions = []
+      end>
+    SortOptions = []
+    Left = 554
+    Top = 392
+    object memProductsid: TIntegerField
+      FieldName = 'id'
+    end
+    object memProductspid: TIntegerField
+      FieldName = 'pid'
+    end
+    object memProductsкод_структуры: TIntegerField
+      FieldName = #1082#1086#1076'_'#1089#1090#1088#1091#1082#1090#1091#1088#1099
+    end
+    object memProductsкод_детализации: TIntegerField
+      FieldName = #1082#1086#1076'_'#1076#1077#1090#1072#1083#1080#1079#1072#1094#1080#1080
+    end
+    object memProductsname: TStringField
+      FieldName = 'name'
+    end
+    object memProductsid_group: TSmallintField
+      FieldName = 'id_group'
+    end
+    object memProductsuni_name: TStringField
+      FieldName = 'uni_name'
+    end
+    object memProductsreg_name: TStringField
+      FieldName = 'reg_name'
+    end
+    object memProductsname_in_tree: TStringField
+      FieldName = 'name_in_tree'
+    end
+    object memProductsцена: TFloatField
+      FieldName = #1094#1077#1085#1072
+    end
+    object memProductstree: TStringField
+      FieldName = 'tree'
+    end
+    object memProductslevel_val: TIntegerField
+      FieldName = 'level_val'
+    end
+    object memProductsкод_типа: TIntegerField
+      FieldName = #1082#1086#1076'_'#1090#1080#1087#1072
+    end
+    object memProductsкод_плантации: TIntegerField
+      FieldName = #1082#1086#1076'_'#1087#1083#1072#1085#1090#1072#1094#1080#1080
+    end
+    object memProductsкод_сорта: TIntegerField
+      FieldName = #1082#1086#1076'_'#1089#1086#1088#1090#1072
+    end
+    object memProductsскрыт: TSmallintField
+      FieldName = #1089#1082#1088#1099#1090
     end
   end
 end

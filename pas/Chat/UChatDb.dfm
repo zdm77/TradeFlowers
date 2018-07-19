@@ -2,8 +2,8 @@ object FChatDB: TFChatDB
   Left = 0
   Top = 0
   Caption = #1063#1072#1090
-  ClientHeight = 602
-  ClientWidth = 815
+  ClientHeight = 730
+  ClientWidth = 1041
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -110,66 +110,6 @@ object FChatDB: TFChatDB
     TabOrder = 4
     Visible = False
     OnClick = btn1Click
-  end
-  object lstTreeProducts: TcxDBTreeList
-    Left = 60
-    Top = 180
-    Width = 851
-    Height = 361
-    Bands = <
-      item
-        Expandable = tlbeExpandable
-      end>
-    DataController.ImageIndexField = 'ID_GROUP'
-    DataController.ParentField = 'pid'
-    DataController.KeyField = 'id'
-    DataController.StateIndexField = '0'
-    LookAndFeel.Kind = lfOffice11
-    LookAndFeel.NativeStyle = False
-    LookAndFeel.SkinName = ''
-    Navigator.Buttons.CustomButtons = <>
-    OptionsBehavior.DragExpand = False
-    OptionsBehavior.HeaderHints = True
-    OptionsData.Editing = False
-    OptionsData.Deleting = False
-    OptionsSelection.CellSelect = False
-    OptionsView.CellAutoHeight = True
-    OptionsView.CheckGroups = True
-    OptionsView.DropNodeIndicator = True
-    Preview.AutoHeight = False
-    RootValue = -1
-    TabOrder = 5
-    object ColumnName: TcxDBTreeListColumn
-      PropertiesClassName = 'TcxLabelProperties'
-      Properties.Alignment.Vert = taVCenter
-      Caption.Text = #1053#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1077
-      DataBinding.FieldName = 'name'
-      Width = 445
-      Position.ColIndex = 0
-      Position.RowIndex = 0
-      Position.BandIndex = 0
-      Summary.FooterSummaryItems = <>
-      Summary.GroupFooterSummaryItems = <>
-    end
-    object ColumnDel: TcxDBTreeListColumn
-      Visible = False
-      DataBinding.FieldName = #1089#1082#1088#1099#1090
-      Position.ColIndex = 1
-      Position.RowIndex = 0
-      Position.BandIndex = 0
-      Summary.FooterSummaryItems = <>
-      Summary.GroupFooterSummaryItems = <>
-    end
-    object ColumnPrice: TcxDBTreeListColumn
-      Caption.Text = #1062#1077#1085#1072
-      DataBinding.FieldName = #1094#1077#1085#1072
-      Width = 100
-      Position.ColIndex = 2
-      Position.RowIndex = 0
-      Position.BandIndex = 0
-      Summary.FooterSummaryItems = <>
-      Summary.GroupFooterSummaryItems = <>
-    end
   end
   object QueryUsers: TUniQuery
     SQLInsert.Strings = (
@@ -398,9 +338,5 @@ object FChatDB: TFChatDB
     OnTimer = tmr1Timer
     Left = 488
     Top = 88
-  end
-  object ds2: TDataSource
-    Left = 200
-    Top = 488
   end
 end
