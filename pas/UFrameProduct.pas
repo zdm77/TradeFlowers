@@ -27,7 +27,6 @@ uses
   cxLabel,
   cxTLdxBarBuiltInMenu,
   dxSkinsCore,
-
   cxInplaceContainer,
   cxDBTL,
   cxTLData,
@@ -41,10 +40,9 @@ uses
   cxClasses,
   cxTLExportLink,
   shellapi,
-
   dxSkinDevExpressStyle,
-
-   dxSkinsDefaultPainters, dxSkinOffice2007Blue, dxmdaset;
+  dxSkinsDefaultPainters, dxSkinOffice2007Blue, dxmdaset, MemTableDataEh,
+  MemTableEh, DataDriverEh;
 
 type
   TFrameProduct = class(TFrame)
@@ -62,25 +60,24 @@ type
     cxStyle2: TcxStyle;
     ColumnPrice: TcxDBTreeListColumn;
     Query1: TUniQuery;
-    memProducts: TdxMemData;
     ds1: TDataSource;
+    memProducts: TMemTableEh;
+    DataSetDriverEh1: TDataSetDriverEh;
     procedure btnAddClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnDelClick(Sender: TObject);
     procedure btnRefreshClick(Sender: TObject);
-    procedure FrameSearch1edtNameKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    procedure FrameSearch1edtNameKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure lstTreeProductsDblClick(Sender: TObject);
-    procedure lstTreeProductsKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    procedure lstTreeProductsKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure QueryProductAfterFetch(DataSet: TCustomDADataSet);
-    procedure QueryProductBeforeFetch(DataSet: TCustomDADataSet;
-      var Cancel: Boolean);
+    procedure QueryProductBeforeFetch(DataSet: TCustomDADataSet; var Cancel: Boolean);
     procedure chkDelClick(Sender: TObject);
     procedure lstTreeProductsStylesGetContentStyle(Sender: TcxCustomTreeList;
       AColumn: TcxTreeListColumn; ANode: TcxTreeListNode; var AStyle: TcxStyle);
     procedure btnRestClick(Sender: TObject);
     procedure btnExportClick(Sender: TObject);
+    procedure memProductsFilterRecord(DataSet: TDataSet; var Accept: Boolean);
   private
     function DetectUniq(s_id_detail: string): Boolean;
     { Private declarations }
@@ -108,8 +105,7 @@ begin
   begin
     if QueryProduct.FieldByName('код_структуры').AsInteger = 6 then
       QueryProduct.Locate('id', QueryProduct.FieldByName('pid').AsInteger, []);
-    if DetectUniq(QueryProduct.FieldByName('код_детализации').AsString) = false
-    then
+    if DetectUniq(QueryProduct.FieldByName('код_детализации').AsString) = false then
     begin
       Application.CreateForm(TFNewProduct, FNewProduct);
       with FNewProduct do
@@ -126,8 +122,7 @@ begin
     begin
       case FPasswd.edtLang.ItemIndex of
         0:
-          ErrorDialog('Добавление невозможно.', '',
-            'Все уникальные свойства уже выбраны.');
+          ErrorDialog('Добавление невозможно.', '', 'Все уникальные свойства уже выбраны.');
         1:
           ErrorDialog('Adding it is impossible to.', '',
             'All of the unique properties of the already selected.');
@@ -143,11 +138,9 @@ begin
       0:
         ErrorDialog('Добавление невозможно.', '', 'Необходимо выбрать сорт.');
       1:
-        ErrorDialog('Adding it is impossible to.', '',
-          'You must select a variety. ');
+        ErrorDialog('Adding it is impossible to.', '', 'You must select a variety. ');
       2:
-        ErrorDialog('La adición es imposible.', '',
-          'Es necesario escoger la clase.');
+        ErrorDialog('La adición es imposible.', '', 'Es necesario escoger la clase.');
     end;
   end;
 end;
@@ -160,8 +153,8 @@ begin
   with DM1.QueryUpd do
   begin
     Close;
-    sql.Text := 'select код_детализации from "продукция"."продукция"  where id='
-      + QueryProduct.FieldByName('pid').AsString;
+    sql.Text := 'select код_детализации from "продукция"."продукция"  where id=' +
+      QueryProduct.FieldByName('pid').AsString;
     Open;
     pid := Fields[0].AsString;
   end;
@@ -172,13 +165,11 @@ begin
     begin
       case FPasswd.edtLang.ItemIndex of
         0:
-          QuestionDialog('Удаление',
-            'Вы действительно хотите удалить позицию?');
+          QuestionDialog('Удаление', 'Вы действительно хотите удалить позицию?');
         1:
           QuestionDialog('Removal', 'You really want to remove a position? ');
         2:
-          QuestionDialog('Desaparición',
-            'Queréis quitar realmente la posición?');
+          QuestionDialog('Desaparición', 'Queréis quitar realmente la posición?');
       end;
       if UDialogMy.Dlg.Execute = 100 then
       begin
@@ -196,14 +187,11 @@ begin
           except
             case FPasswd.edtLang.ItemIndex of
               0:
-                QuestionDialog('Полное удаление не возможно',
-                  'Вы хотите скрыть позицию?');
+                QuestionDialog('Полное удаление не возможно', 'Вы хотите скрыть позицию?');
               1:
-                QuestionDialog('Removal is impossible',
-                  'You want to hide a position? ');
+                QuestionDialog('Removal is impossible', 'You want to hide a position? ');
               2:
-                QuestionDialog('a desaparición es imposible',
-                  'Queréis esconder la posición?');
+                QuestionDialog('a desaparición es imposible', 'Queréis esconder la posición?');
             end;
             if UDialogMy.Dlg.Execute = 100 then
             begin
@@ -244,23 +232,18 @@ begin
         begin
           case FPasswd.edtLang.ItemIndex of
             0:
-              QuestionDialog('Удаление',
-                'Вы действительно хотите удалить сорт?');
+              QuestionDialog('Удаление', 'Вы действительно хотите удалить сорт?');
             1:
-              QuestionDialog('Removal',
-                'Do you really want to delete the grade? ');
+              QuestionDialog('Removal', 'Do you really want to delete the grade? ');
             2:
-              QuestionDialog('Desaparición',
-                'Estás seguro que quieres eliminar el grado?');
+              QuestionDialog('Desaparición', 'Estás seguro que quieres eliminar el grado?');
           end;
           if UDialogMy.Dlg.Execute = 100 then
           begin
             // овтязываем сорт_плантация
             Close;
-            sql.Text :=
-              'delete from "продукция"."сорт_плантация" where код_сорта=' +
-              QueryProduct.FieldByName('код_детализации').AsString +
-              ' and код_плантации=' + pid;
+            sql.Text := 'delete from "продукция"."сорт_плантация" where код_сорта=' +
+              QueryProduct.FieldByName('код_детализации').AsString + ' and код_плантации=' + pid;
             ExecSQL;
             // удаляем сорт из номенклатуры
             Close;
@@ -292,10 +275,8 @@ begin
               QueryProduct.FieldByName('id').AsString;
             ExecSQL;
             Close;
-            sql.Text :=
-              'update  "продукция"."сорт_плантация" set скрыт=1 where код_плантации='
-              + pid + ' and код_сорта=' + QueryProduct.FieldByName
-              ('код_детализации').AsString;
+            sql.Text := 'update  "продукция"."сорт_плантация" set скрыт=1 where код_плантации=' +
+              pid + ' and код_сорта=' + QueryProduct.FieldByName('код_детализации').AsString;
             ExecSQL;
             QueryProduct.Refresh;
           end;
@@ -307,13 +288,11 @@ begin
   begin
     case FPasswd.edtLang.ItemIndex of
       0:
-        ErrorDialog
-          ('Скрытую позицию резрешено только восстанавливать. ', '', '');
+        ErrorDialog('Скрытую позицию резрешено только восстанавливать. ', '', '');
       1:
         ErrorDialog('Rezresheno only to restore the hidden position.', '', '');
       2:
-        ErrorDialog
-          ('La posición escondida резрешено restablecer solamente.', '', '');
+        ErrorDialog('La posición escondida резрешено restablecer solamente.', '', '');
     end;
   end;
 end;
@@ -356,10 +335,8 @@ end;
 
 procedure TFrameProduct.btnExportClick(Sender: TObject);
 begin
-  cxExportTLToExcel(FPasswd.GetVar('TEMP') + '\balance', lstTreeProducts, true,
-    true, true, 'xls');
-  ShellExecute(Handle, nil, PChar(FPasswd.GetVar('TEMP') + '\balance.xls'), nil,
-    nil, SW_RESTORE);
+  cxExportTLToExcel(FPasswd.GetVar('TEMP') + '\balance', lstTreeProducts, true, true, true, 'xls');
+  ShellExecute(Handle, nil, PChar(FPasswd.GetVar('TEMP') + '\balance.xls'), nil, nil, SW_RESTORE);
 end;
 
 procedure TFrameProduct.btnRefreshClick(Sender: TObject);
@@ -373,13 +350,11 @@ begin
   begin
     case FPasswd.edtLang.ItemIndex of
       0:
-        QuestionDialog('Восстановление',
-          'Вы действительно хотите восстановить позицию?');
+        QuestionDialog('Восстановление', 'Вы действительно хотите восстановить позицию?');
       1:
         QuestionDialog('Restitution', 'You really want to restore a position?');
       2:
-        QuestionDialog('Reconstitución',
-          'Queréis restablecer realmente la posición?');
+        QuestionDialog('Reconstitución', 'Queréis restablecer realmente la posición?');
     end;
     if UDialogMy.Dlg.Execute = 100 then
     begin
@@ -399,12 +374,9 @@ begin
       0:
         ErrorDialog('Позиция не скрыта. Удаление не возможно.', '', '');
       1:
-        ErrorDialog
-          ('The position isn''t hidden. Removal isn''t possible.', '', '');
+        ErrorDialog('The position isn''t hidden. Removal isn''t possible.', '', '');
       2:
-        ErrorDialog
-          ('La posición no es escondida. La desaparición no es posible.', '',
-          '');
+        ErrorDialog('La posición no es escondida. La desaparición no es posible.', '', '');
     end;
   end;
 end;
@@ -426,20 +398,19 @@ begin
   begin
     { берем хотя-бы одно уникальное свойство }
     Close;
-    sql.Text := 'select * from "продукция"."типы_свойства" where код_типа IN ('
-      + 'select код_типа from "продукция"."сорта" where id=' + s_id_detail +
-      ' ) and uniq=true';
+    sql.Text := 'select * from "продукция"."типы_свойства" where код_типа IN (' +
+      'select код_типа from "продукция"."сорта" where id=' + s_id_detail + ' ) and uniq=true';
     Open;
     id_prop := Fields[0].AsString;
     { есть уникальные свойства, проверяем занятость значений }
     if Fields[0].AsString <> '' then
     begin
       Close;
-      sql.Text := 'select * from  "продукция"."свойства_значения" where ' +
-        ' код_свойства=' + id_prop + ' and id not in ' +
+      sql.Text := 'select * from  "продукция"."свойства_значения" where ' + ' код_свойства=' +
+        id_prop + ' and id not in ' +
         ' (select код_значения_свойства from "продукция"."продукт_свойство" ' +
-        ' where код_товара in (select id from "продукция"."продукция" where pid='
-        + QueryProduct.FieldByName('id').AsString + '))';
+        ' where код_товара in (select id from "продукция"."продукция" where pid=' +
+        QueryProduct.FieldByName('id').AsString + '))';
       Open;
       if Fields[0].AsString <> '' then
         Result := false
@@ -458,8 +429,8 @@ begin
   end;
 end;
 
-procedure TFrameProduct.FrameSearch1edtNameKeyDown(Sender: TObject;
-  var Key: Word; Shift: TShiftState);
+procedure TFrameProduct.FrameSearch1edtNameKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 begin
   if Key = VK_RETURN then
     ShowProduct();
@@ -494,8 +465,7 @@ begin
     btnEditClick(Sender);
 end;
 
-procedure TFrameProduct.lstTreeProductsKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFrameProduct.lstTreeProductsKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
 begin
   if Key = VK_INSERT then
     if FrameTopPanel1.btnAdd.Visible = ivAlways then
@@ -508,9 +478,8 @@ begin
       btnEditClick(Sender);
 end;
 
-procedure TFrameProduct.lstTreeProductsStylesGetContentStyle
-  (Sender: TcxCustomTreeList; AColumn: TcxTreeListColumn;
-  ANode: TcxTreeListNode; var AStyle: TcxStyle);
+procedure TFrameProduct.lstTreeProductsStylesGetContentStyle(Sender: TcxCustomTreeList;
+  AColumn: TcxTreeListColumn; ANode: TcxTreeListNode; var AStyle: TcxStyle);
 begin
   if ANode.Values[ColumnDel.ItemIndex] = 1 then
     AStyle := cxStyle1
@@ -522,118 +491,144 @@ begin
   // AStyle := cxStyle2;
 end;
 
+procedure TFrameProduct.memProductsFilterRecord(DataSet: TDataSet; var Accept: Boolean);
+begin
+  DataSet.Filter := 'name = ' + QuotedStr(FrameSearch1.edtName.Text + '*');
+end;
+
 procedure TFrameProduct.QueryProductAfterFetch(DataSet: TCustomDADataSet);
 begin
   FSplash.Close;
 end;
 
-procedure TFrameProduct.QueryProductBeforeFetch(DataSet: TCustomDADataSet;
-  var Cancel: Boolean);
+procedure TFrameProduct.QueryProductBeforeFetch(DataSet: TCustomDADataSet; var Cancel: Boolean);
 begin
   FSplash.Show;
   FSplash.Update;
 end;
 
-procedure TFrameProduct.ShowProduct(id_locate: Integer = 0;
-  not_in: string = '');
+procedure TFrameProduct.ShowProduct(id_locate: Integer = 0; not_in: string = '');
 begin
- memProducts.Active:=true;
- memProducts.LoadFromDataSet(dm1.QueryProductLocal);
-//  with QueryProduct do
-//  begin
-//    Close;
-//    with FrameSearch1 do
-//    begin
-//      if edtName.Text = '' then
-//      begin
-//        sql.Text := 'select * from продукция.продукция where 1=1 ';
-//        if not_in <> '' then
-//          sql.Add(not_in);
-//        if chkDel.Checked = false then
-//          sql.Add(' and скрыт=0');
-//        sql.Add(' order by id');
-//        Open;
-//      end
-//      else
-//      begin
-//        sql.Text :=
-//          'select * from "продукция"."продукция" where id_group = 1 and' +
-//          ' код_структуры = 3 and  id in (select pid from "продукция"."продукция"'
-//          + ' where id_group = 1 and  код_структуры = 4 and id in (select pid' +
-//          ' from "продукция"."продукция" where id_group = 1 and' +
-//          '  код_структуры = 5 and id in (select pid from "продукция"."продукция"'
-//          + '  where id_group = 0 and код_структуры = 6 and  Upper(';
-//        case FPasswd.edtLangData.ItemIndex of
-//          0:
-//            sql.Add('name');
-//          1:
-//            sql.Add('uni_name');
-//          2:
-//            sql.Add('reg_name');
-//        end;
-//        sql.Add(') Like ''%' + AnsiUpperCase(edtName.Text) + '%''');
-//        sql.Add('))) union all select * from "продукция"."продукция" where id_group = 1 and'
-//          + ' код_структуры = 4 and id in (select pid from "продукция"."продукция"'
-//          + ' where id_group = 1 and код_структуры = 5 and id IN (select pid' +
-//          ' from "продукция"."продукция"  where id_group = 0 and ' +
-//          ' код_структуры = 6 and Upper(');
-//        case FPasswd.edtLangData.ItemIndex of
-//          0:
-//            sql.Add('name');
-//          1:
-//            sql.Add('uni_name');
-//          2:
-//            sql.Add('reg_name');
-//        end;
-//        sql.Add(') Like ''%' + AnsiUpperCase(edtName.Text) + '%''');
-//        sql.Add(')) union all select * from "продукция"."продукция" where id_group = 1 and'
-//          + ' код_структуры = 5 and  id IN (select pid from "продукция"."продукция"'
-//          + ' where id_group = 0 and код_структуры = 6 and Upper(');
-//        case FPasswd.edtLangData.ItemIndex of
-//          0:
-//            sql.Add('name');
-//          1:
-//            sql.Add('uni_name');
-//          2:
-//            sql.Add('reg_name');
-//        end;
-//        sql.Add(') Like ''%' + AnsiUpperCase(edtName.Text) + '%''');
-//        sql.Add(')  UNION all select * from "продукция"."продукция" where id_group = 0 and'
-//          + '  код_структуры = 6 and Upper(');
-//        case FPasswd.edtLangData.ItemIndex of
-//          0:
-//            sql.Add('name');
-//          1:
-//            sql.Add('uni_name');
-//          2:
-//            sql.Add('reg_name');
-//        end;
-//        sql.Add(') Like ''%' + AnsiUpperCase(edtName.Text) + '%'' ');
-//        if chkDel.Checked = false then
-//          sql.Add(' and скрыт=0');
-//        sql.Add(' order by id');
-//        // sql.Text := 'select id, pid, name, uni_name, reg_name, id_group from ' +
-//        // ' "продукция"."продукция" where id_group=1 and id in (select pid from '
-//        // + ' "продукция"."продукция") union all select id, pid, name, uni_name, '
-//        // + ' reg_name, id_group from "продукция"."продукция" where id_group=0 '
-//        // + ' and Upper(';
-//        // case FPasswd.Lang of
-//        // 0:
-//        // sql.Add('name');
-//        // 1:
-//        // sql.Add('uni_name');
-//        // 2:
-//        // sql.Add('reg_name');
-//        // end;
-//        // sql.Add(') Like ''%' + AnsiUpperCase(edtName.Text) + '%''');
-//        // sql.Add(' order by id');
-//        Open;
-//        lstTreeProducts.FullExpand;
-//      end;
-//    end;
-//    Locate('id', id_locate, []);
-//    //
-//  end;
+  with memProducts do
+  begin
+    if (FrameSearch1.edtName.Text <> '') then
+    begin
+      FilterOptions := [foCaseInsensitive];
+      Filtered := true;
+    end
+    else
+    begin
+      Filtered := false;
+    end;
+    Active := false;
+    Active := true;
+    // Filtered:=true;
+    // if Active = false then
+    // begin
+    //
+    // // LoadFromDataSet(DM1.QueryProductLocal,0,lmAppend,true);
+    // Active := true;
+    // end;
+    // if FrameSearch1.edtName.Text<>'' then
+    // begin
+    //
+    // end;
+  end;
+  // with QueryProduct do
+  // begin
+  // Close;
+  // with FrameSearch1 do
+  // begin
+  // if edtName.Text = '' then
+  // begin
+  // sql.Text := 'select * from продукция.продукция where 1=1 ';
+  // if not_in <> '' then
+  // sql.Add(not_in);
+  // if chkDel.Checked = false then
+  // sql.Add(' and скрыт=0');
+  // sql.Add(' order by id');
+  // Open;
+  // end
+  // else
+  // begin
+  // sql.Text :=
+  // 'select * from "продукция"."продукция" where id_group = 1 and' +
+  // ' код_структуры = 3 and  id in (select pid from "продукция"."продукция"'
+  // + ' where id_group = 1 and  код_структуры = 4 and id in (select pid' +
+  // ' from "продукция"."продукция" where id_group = 1 and' +
+  // '  код_структуры = 5 and id in (select pid from "продукция"."продукция"'
+  // + '  where id_group = 0 and код_структуры = 6 and  Upper(';
+  // case FPasswd.edtLangData.ItemIndex of
+  // 0:
+  // sql.Add('name');
+  // 1:
+  // sql.Add('uni_name');
+  // 2:
+  // sql.Add('reg_name');
+  // end;
+  // sql.Add(') Like ''%' + AnsiUpperCase(edtName.Text) + '%''');
+  // sql.Add('))) union all select * from "продукция"."продукция" where id_group = 1 and'
+  // + ' код_структуры = 4 and id in (select pid from "продукция"."продукция"'
+  // + ' where id_group = 1 and код_структуры = 5 and id IN (select pid' +
+  // ' from "продукция"."продукция"  where id_group = 0 and ' +
+  // ' код_структуры = 6 and Upper(');
+  // case FPasswd.edtLangData.ItemIndex of
+  // 0:
+  // sql.Add('name');
+  // 1:
+  // sql.Add('uni_name');
+  // 2:
+  // sql.Add('reg_name');
+  // end;
+  // sql.Add(') Like ''%' + AnsiUpperCase(edtName.Text) + '%''');
+  // sql.Add(')) union all select * from "продукция"."продукция" where id_group = 1 and'
+  // + ' код_структуры = 5 and  id IN (select pid from "продукция"."продукция"'
+  // + ' where id_group = 0 and код_структуры = 6 and Upper(');
+  // case FPasswd.edtLangData.ItemIndex of
+  // 0:
+  // sql.Add('name');
+  // 1:
+  // sql.Add('uni_name');
+  // 2:
+  // sql.Add('reg_name');
+  // end;
+  // sql.Add(') Like ''%' + AnsiUpperCase(edtName.Text) + '%''');
+  // sql.Add(')  UNION all select * from "продукция"."продукция" where id_group = 0 and'
+  // + '  код_структуры = 6 and Upper(');
+  // case FPasswd.edtLangData.ItemIndex of
+  // 0:
+  // sql.Add('name');
+  // 1:
+  // sql.Add('uni_name');
+  // 2:
+  // sql.Add('reg_name');
+  // end;
+  // sql.Add(') Like ''%' + AnsiUpperCase(edtName.Text) + '%'' ');
+  // if chkDel.Checked = false then
+  // sql.Add(' and скрыт=0');
+  // sql.Add(' order by id');
+  // // sql.Text := 'select id, pid, name, uni_name, reg_name, id_group from ' +
+  // // ' "продукция"."продукция" where id_group=1 and id in (select pid from '
+  // // + ' "продукция"."продукция") union all select id, pid, name, uni_name, '
+  // // + ' reg_name, id_group from "продукция"."продукция" where id_group=0 '
+  // // + ' and Upper(';
+  // // case FPasswd.Lang of
+  // // 0:
+  // // sql.Add('name');
+  // // 1:
+  // // sql.Add('uni_name');
+  // // 2:
+  // // sql.Add('reg_name');
+  // // end;
+  // // sql.Add(') Like ''%' + AnsiUpperCase(edtName.Text) + '%''');
+  // // sql.Add(' order by id');
+  // Open;
+  // lstTreeProducts.FullExpand;
+  // end;
+  // end;
+  // Locate('id', id_locate, []);
+  // //
+  // end;
   lstTreeProducts.SetFocus;
 end;
 

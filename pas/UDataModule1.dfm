@@ -141,7 +141,7 @@
   object QueryProductLocal: TUniQuery
     Connection = db1
     SQL.Strings = (
-      'select * from "Product"')
+      'select * from  '#1087#1088#1086#1076#1091#1082#1094#1080#1103'.'#1087#1088#1086#1076#1091#1082#1094#1080#1103)
     AutoCalcFields = False
     Left = 72
     Top = 320

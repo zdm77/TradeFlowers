@@ -211,7 +211,7 @@ object FrameProduct: TFrameProduct
     Left = 388
     Top = 205
     Bitmap = {
-      494C010102000500800010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102000500840010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       00000000000000000000000000000000000000000000FCFCFC04D0CFCE39CCCB
       CA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECBCA
@@ -390,15 +390,22 @@ object FrameProduct: TFrameProduct
     Left = 279
     Top = 301
   end
-  object memProducts: TdxMemData
-    Indexes = <>
-    SortOptions = []
-    Left = 528
-    Top = 288
-  end
   object ds1: TDataSource
     DataSet = memProducts
     Left = 648
     Top = 281
+  end
+  object memProducts: TMemTableEh
+    Filtered = True
+    Params = <>
+    DataDriver = DataSetDriverEh1
+    OnFilterRecord = memProductsFilterRecord
+    Left = 88
+    Top = 368
+  end
+  object DataSetDriverEh1: TDataSetDriverEh
+    ProviderDataSet = DM1.QueryProductLocal
+    Left = 160
+    Top = 352
   end
 end

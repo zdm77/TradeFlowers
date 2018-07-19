@@ -12,20 +12,50 @@ File_9=TSourceModule,'C:\Проекты\TradeFlowers\pas\Buh\UFrameOplataPlant.p
 File_10=TSourceModule,'C:\Проекты\TradeFlowers\pas\Buh\Control\UNewOplatPlant.pas',0,1,74,75,83,0,0,,
 
 [Modules]
-Module0=C:\Проекты\TradeFlowers\pas\Chat\UChatDb.pas
-Module1=C:\Проекты\TradeFlowers\pas\ProductClass.pas
-Module2=C:\Проекты\TradeFlowers\pas\Chat\ChatClass.pas
-Module3=C:\Проекты\TradeFlowers\pas\Chat\UChat.pas
-Module4=C:\Проекты\TradeFlowers\dpr\TradeFlowers.dproj
-Module5=C:\Проекты\TradeFlowers\pas\UDataModule1.pas
-Module6=C:\Проекты\TradeFlowers\pas\ULogin.pas
-Module7=C:\Проекты\TradeFlowers\pas\UOsn.pas
-Module8=C:\Проекты\TradeFlowers\pas\UPasswd.pas
-Module9=C:\Проекты\TradeFlowers\pas\Auction\UAuction.pas
-Module10=C:\Проекты\TradeFlowers\pas\UFrameProduct.pas
-Module11=C:\Проекты\TradeFlowers\pas\UExcel.pas
-Count=12
+Module0=C:\Проекты\TradeFlowers\pas\UNewOrder.pas
+Module1=C:\Проекты\TradeFlowers\pas\UFrameProduct.pas
+Module2=C:\Проекты\TradeFlowers\pas\UDataModule1.pas
+Module3=c:\program files (x86)\embarcadero\studio\14.0\source\data\Data.DB.pas
+Module4=C:\Проекты\TradeFlowers\pas\ULogin.pas
+Module5=C:\Проекты\TradeFlowers\dpr\TradeFlowers.dproj
+Module6=C:\Проекты\TradeFlowers\pas\Chat\UChatDb.pas
+Module7=C:\Проекты\TradeFlowers\pas\ProductClass.pas
+Module8=C:\Проекты\TradeFlowers\pas\Chat\ChatClass.pas
+Module9=C:\Проекты\TradeFlowers\pas\Chat\UChat.pas
+Module10=C:\Проекты\TradeFlowers\pas\UOsn.pas
+Module11=C:\Проекты\TradeFlowers\pas\UPasswd.pas
+Module12=C:\Проекты\TradeFlowers\pas\Auction\UAuction.pas
+Module13=C:\Проекты\TradeFlowers\pas\UExcel.pas
+Count=14
 EditWindowCount=1
+
+[C:\Проекты\TradeFlowers\pas\UNewOrder.pas]
+ModuleType=TSourceModule
+FormState=1
+FormOnTop=0
+
+[C:\Проекты\TradeFlowers\pas\UFrameProduct.pas]
+ModuleType=TSourceModule
+FormState=1
+FormOnTop=0
+
+[C:\Проекты\TradeFlowers\pas\UDataModule1.pas]
+ModuleType=TSourceModule
+FormState=1
+FormOnTop=1
+
+[c:\program files (x86)\embarcadero\studio\14.0\source\data\Data.DB.pas]
+ModuleType=TSourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Проекты\TradeFlowers\pas\ULogin.pas]
+ModuleType=TSourceModule
+FormState=1
+FormOnTop=0
+
+[C:\Проекты\TradeFlowers\dpr\TradeFlowers.dproj]
+ModuleType=TBaseProject
 
 [C:\Проекты\TradeFlowers\pas\Chat\UChatDb.pas]
 ModuleType=TSourceModule
@@ -47,19 +77,6 @@ ModuleType=TSourceModule
 FormState=1
 FormOnTop=0
 
-[C:\Проекты\TradeFlowers\dpr\TradeFlowers.dproj]
-ModuleType=TBaseProject
-
-[C:\Проекты\TradeFlowers\pas\UDataModule1.pas]
-ModuleType=TSourceModule
-FormState=1
-FormOnTop=0
-
-[C:\Проекты\TradeFlowers\pas\ULogin.pas]
-ModuleType=TSourceModule
-FormState=1
-FormOnTop=0
-
 [C:\Проекты\TradeFlowers\pas\UOsn.pas]
 ModuleType=TSourceModule
 FormState=1
@@ -71,11 +88,6 @@ FormState=1
 FormOnTop=0
 
 [C:\Проекты\TradeFlowers\pas\Auction\UAuction.pas]
-ModuleType=TSourceModule
-FormState=1
-FormOnTop=0
-
-[C:\Проекты\TradeFlowers\pas\UFrameProduct.pas]
 ModuleType=TSourceModule
 FormState=1
 FormOnTop=0
@@ -113,9 +125,13 @@ FormOnTop=0
 FormState=1
 FormOnTop=0
 
+[C:\Проекты\TradeFlowers\pas\UFrameSave.pas]
+FormState=1
+FormOnTop=0
+
 [EditWindow0]
-ViewCount=12
-CurrentEditView=C:\Проекты\TradeFlowers\pas\Chat\UChatDb.pas
+ViewCount=14
+CurrentEditView=C:\Проекты\TradeFlowers\pas\UNewOrder.pas
 View0=0
 View1=1
 View2=2
@@ -128,6 +144,8 @@ View8=8
 View9=9
 View10=10
 View11=11
+View12=12
+View13=13
 PercentageSizes=1
 Create=1
 Visible=1
@@ -146,7 +164,7 @@ BorlandEditorCodeExplorer=BorlandEditorCodeExplorer@EditWindow0
 TopPanelSize=0
 LeftPanelSize=1896
 LeftPanelClients=PropertyInspector,DockSite3
-LeftPanelData=0000080001010100000009000000446F636B5369746533611000000000000001680700000000000001000000001E1D00001100000050726F7065727479496E73706563746F72FFFFFFFF
+LeftPanelData=00000800010100000000611000000000000001680700000000000001000000008A0E000009000000446F636B536974653301000000001E1D00001100000050726F7065727479496E73706563746F72FFFFFFFF
 RightPanelSize=2000
 RightPanelClients=DockSite2,DockSite4
 RightPanelData=0000080001010100000009000000446F636B5369746532611000000000000001D00700000000000001000000001E1D000009000000446F636B5369746534FFFFFFFF
@@ -161,14 +179,36 @@ BottomMiddelPanelData=0000080001020200000009000000446F636B5369746530100000004772
 CustomEditViewType=TEditView
 Module=C:\Проекты\TradeFlowers\pas\UFrameProduct.pas
 CursorX=1
-CursorY=104
-TopLine=102
+CursorY=512
+TopLine=498
 LeftCol=1
 Elisions=
 Bookmarks=
 EditViewName=C:\Проекты\TradeFlowers\pas\UFrameProduct.pas
 
 [View1]
+CustomEditViewType=TEditView
+Module=C:\Проекты\TradeFlowers\pas\UNewOrder.pas
+CursorX=37
+CursorY=189
+TopLine=137
+LeftCol=1
+Elisions=
+Bookmarks=
+EditViewName=C:\Проекты\TradeFlowers\pas\UNewOrder.pas
+
+[View2]
+CustomEditViewType=TEditView
+Module=c:\program files (x86)\embarcadero\studio\14.0\source\data\Data.DB.pas
+CursorX=37
+CursorY=2518
+TopLine=2497
+LeftCol=1
+Elisions=
+Bookmarks=
+EditViewName=c:\program files (x86)\embarcadero\studio\14.0\source\data\Data.DB.pas
+
+[View3]
 CustomEditViewType=TEditView
 Module=C:\Проекты\TradeFlowers\pas\Auction\UAuction.pas
 CursorX=11
@@ -179,7 +219,7 @@ Elisions=
 Bookmarks=
 EditViewName=Borland.FormDesignerView
 
-[View2]
+[View4]
 CustomEditViewType=TEditView
 Module=C:\Проекты\TradeFlowers\dpr\TradeFlowers.dpr
 CursorX=37
@@ -190,7 +230,7 @@ Elisions=
 Bookmarks=
 EditViewName=C:\Проекты\TradeFlowers\dpr\TradeFlowers.dpr
 
-[View3]
+[View5]
 CustomEditViewType=TEditView
 Module=C:\Проекты\TradeFlowers\pas\ULogin.pas
 CursorX=13
@@ -201,10 +241,10 @@ Elisions=
 Bookmarks=
 EditViewName=C:\Проекты\TradeFlowers\pas\ULogin.pas
 
-[View4]
+[View6]
 CustomEditViewType=TEditView
 Module=C:\Проекты\TradeFlowers\pas\Chat\UChat.pas
-CursorX=50
+CursorX=33
 CursorY=30
 TopLine=30
 LeftCol=1
@@ -212,7 +252,7 @@ Elisions=
 Bookmarks=
 EditViewName=C:\Проекты\TradeFlowers\pas\Chat\UChat.pas
 
-[View5]
+[View7]
 CustomEditViewType=TEditView
 Module=C:\Проекты\TradeFlowers\pas\ProductClass.pas
 CursorX=31
@@ -223,7 +263,7 @@ Elisions=
 Bookmarks=
 EditViewName=C:\Проекты\TradeFlowers\pas\ProductClass.pas
 
-[View6]
+[View8]
 CustomEditViewType=TEditView
 Module=C:\Проекты\TradeFlowers\pas\Chat\ChatClass.pas
 CursorX=13
@@ -234,7 +274,7 @@ Elisions=
 Bookmarks=
 EditViewName=C:\Проекты\TradeFlowers\pas\Chat\ChatClass.pas
 
-[View7]
+[View9]
 CustomEditViewType=TEditView
 Module=C:\Проекты\TradeFlowers\pas\Chat\UChatDb.pas
 CursorX=17
@@ -245,7 +285,7 @@ Elisions=
 Bookmarks=
 EditViewName=Borland.FormDesignerView
 
-[View8]
+[View10]
 CustomEditViewType=TEditView
 Module=C:\Проекты\TradeFlowers\pas\UOsn.pas
 CursorX=1
@@ -256,10 +296,10 @@ Elisions=
 Bookmarks=
 EditViewName=Borland.FormDesignerView
 
-[View9]
+[View11]
 CustomEditViewType=TEditView
 Module=C:\Проекты\TradeFlowers\pas\UPasswd.pas
-CursorX=36
+CursorX=18
 CursorY=116
 TopLine=206
 LeftCol=1
@@ -267,7 +307,7 @@ Elisions=
 Bookmarks=
 EditViewName=C:\Проекты\TradeFlowers\pas\UPasswd.pas
 
-[View10]
+[View12]
 CustomEditViewType=TEditView
 Module=C:\Проекты\TradeFlowers\pas\UDataModule1.pas
 CursorX=6
@@ -278,7 +318,7 @@ Elisions=
 Bookmarks=
 EditViewName=Borland.FormDesignerView
 
-[View11]
+[View13]
 CustomEditViewType=TEditView
 Module=C:\Проекты\TradeFlowers\pas\UExcel.pas
 CursorX=1
@@ -485,14 +525,14 @@ Visible=1
 Docked=1
 State=0
 Left=0
-Top=23
+Top=425
 Width=1896
-Height=7519
+Height=3654
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=1896
-ClientHeight=7519
-TBDockHeight=9019
+ClientHeight=3654
+TBDockHeight=7519
 LRDockWidth=1896
 Dockable=1
 StayOnTop=0
@@ -500,8 +540,8 @@ SplitPos=111
 
 [PropInspDesignerSelection]
 ArrangeBy=Name
-SelectedItem=Name,
-ExpandedItems=Font=0,ImageMargins=0,LiveBindings=1,"LiveBindings Designer=1",Margins=0,DataBinding=1,Options=1,Styles=0,Summary=0,BackgroundBitmaps=0,DataController=1,DateTimeHandling=0,EditForm=0,FilterBox=0,Filtering=0,FilterRow=0,Navigator=0,NewItemRow=0,OptionsBehavior=0,OptionsCustomize=0,OptionsData=0,OptionsSelection=0,OptionsView=0,Preview=0,DataController.Filter=0,DataController.Options=0,DataController.Summary=0,Anchors=0,BevelEdges=0,Constraints=0,DataSet=0,"LiveBindings Designer.Element Layers=0",Properties=0,DataController.DataModeController=0,DataController.DataSource=0,DataController.MultiThreadedOptions=0,FilterOptions=0,Attributes=0
+SelectedItem=Name,OnFilterRecord
+ExpandedItems="LiveBindings Designer=0",Anchors=0,BorderIcons=0,Constraints=0,Font=0,GlassFrame=0,HorzScrollBar=0,LiveBindings=0,Margins=0,Padding=0,StyleElements=0,Touch=0,VertScrollBar=0,Persistent=0,SortOptions=0,AutoIncrement=0,Options=1,TreeList=0,ProviderDataSet=0,DataController=0,Images=0,LookAndFeel=0,Navigator=0,OptionsBehavior=0,OptionsCustomizing=0,OptionsData=0,OptionsSelection=0,OptionsView=0,DataDriver=0,DefaultTransaction=0,PoolingOptions=0
 
 [TFileExplorerForm]
 PercentageSizes=1
@@ -762,11 +802,11 @@ State=0
 Left=0
 Top=0
 Width=1896
-Height=9019
+Height=3606
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=1896
-ClientHeight=9019
+ClientHeight=3606
 TBDockHeight=3673
 LRDockWidth=1896
 Dockable=1
@@ -871,18 +911,18 @@ HostDockSite=DockLeftPanel
 DockSiteType=1
 PercentageSizes=1
 Create=1
-Visible=0
+Visible=1
 Docked=1
 State=0
 Left=0
-Top=0
+Top=23
 Width=1896
-Height=9019
+Height=3606
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=1896
-ClientHeight=9019
-TBDockHeight=9019
+ClientHeight=3606
+TBDockHeight=7519
 LRDockWidth=1896
 Dockable=1
 StayOnTop=0

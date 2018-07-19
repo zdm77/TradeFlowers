@@ -325,9 +325,9 @@
       Height = 32
       Align = alTop
       TabOrder = 0
-      ExplicitLeft = 2
-      ExplicitTop = -2
-      ExplicitWidth = 633
+      ExplicitLeft = 3
+      ExplicitTop = 15
+      ExplicitWidth = 631
       ExplicitHeight = 32
       inherited barProduct: TdxBarManager
         Top = 16
@@ -362,10 +362,6 @@
       PopupMenu = pmLock
       TabOrder = 1
       LookAndFeel.Kind = lfOffice11
-      ExplicitLeft = 2
-      ExplicitTop = 50
-      ExplicitWidth = 633
-      ExplicitHeight = 320
       object ViewOrder: TcxGridDBTableView
         OnDblClick = ViewOrderDblClick
         Navigator.Buttons.CustomButtons = <>
@@ -473,17 +469,18 @@
       Height = 28
       Align = alTop
       TabOrder = 0
-      ExplicitLeft = 2
-      ExplicitTop = -2
-      ExplicitWidth = 285
+      ExplicitLeft = 3
+      ExplicitTop = 15
+      ExplicitWidth = 283
       inherited Group1: TcxGroupBox
-        ExplicitWidth = 285
+        ExplicitWidth = 283
         Width = 283
         inherited LabelName: TcxLabel
           Style.IsFontAssigned = True
         end
         inherited edtName: TcxTextEdit
           Left = 36
+          Properties.OnChange = edtNamePropertiesChange
           TabOrder = 0
           OnKeyUp = FrameSearch1edtNameKeyUp
           ExplicitLeft = 36
@@ -526,10 +523,6 @@
       OnCustomDrawDataCell = lstTreeProductsCustomDrawDataCell
       OnDblClick = lstTreeProductsDblClick
       OnKeyDown = lstTreeProductsKeyDown
-      ExplicitLeft = 2
-      ExplicitTop = 46
-      ExplicitWidth = 285
-      ExplicitHeight = 324
       object ColumnName: TcxDBTreeListColumn
         PropertiesClassName = 'TcxLabelProperties'
         Properties.Alignment.Vert = taVCenter
@@ -778,7 +771,7 @@
     Left = 228
     Top = 333
     Bitmap = {
-      494C010102000500440010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102000500480010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       00000000000000000000000000000000000000000000FCFCFC04D0CFCE39CCCB
       CA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECBCA
