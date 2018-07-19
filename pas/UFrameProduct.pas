@@ -493,7 +493,7 @@ end;
 
 procedure TFrameProduct.memProductsFilterRecord(DataSet: TDataSet; var Accept: Boolean);
 begin
-  DataSet.Filter := 'name = ' + QuotedStr(FrameSearch1.edtName.Text + '*');
+  DataSet.Filter := 'name  LIKE ' + #39 + '%' + FrameSearch1.edtName.Text + '%' + #39;
 end;
 
 procedure TFrameProduct.QueryProductAfterFetch(DataSet: TCustomDADataSet);
