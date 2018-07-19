@@ -101,6 +101,76 @@ object FChatDB: TFChatDB
     ViewStyle = vsReport
     OnClick = lstClientsClick
   end
+  object btn1: TButton
+    Left = 8
+    Top = 73
+    Width = 75
+    Height = 25
+    Caption = 'btn1'
+    TabOrder = 4
+    Visible = False
+    OnClick = btn1Click
+  end
+  object lstTreeProducts: TcxDBTreeList
+    Left = 60
+    Top = 180
+    Width = 851
+    Height = 361
+    Bands = <
+      item
+        Expandable = tlbeExpandable
+      end>
+    DataController.ImageIndexField = 'ID_GROUP'
+    DataController.ParentField = 'pid'
+    DataController.KeyField = 'id'
+    DataController.StateIndexField = '0'
+    LookAndFeel.Kind = lfOffice11
+    LookAndFeel.NativeStyle = False
+    LookAndFeel.SkinName = ''
+    Navigator.Buttons.CustomButtons = <>
+    OptionsBehavior.DragExpand = False
+    OptionsBehavior.HeaderHints = True
+    OptionsData.Editing = False
+    OptionsData.Deleting = False
+    OptionsSelection.CellSelect = False
+    OptionsView.CellAutoHeight = True
+    OptionsView.CheckGroups = True
+    OptionsView.DropNodeIndicator = True
+    Preview.AutoHeight = False
+    RootValue = -1
+    TabOrder = 5
+    object ColumnName: TcxDBTreeListColumn
+      PropertiesClassName = 'TcxLabelProperties'
+      Properties.Alignment.Vert = taVCenter
+      Caption.Text = #1053#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1077
+      DataBinding.FieldName = 'name'
+      Width = 445
+      Position.ColIndex = 0
+      Position.RowIndex = 0
+      Position.BandIndex = 0
+      Summary.FooterSummaryItems = <>
+      Summary.GroupFooterSummaryItems = <>
+    end
+    object ColumnDel: TcxDBTreeListColumn
+      Visible = False
+      DataBinding.FieldName = #1089#1082#1088#1099#1090
+      Position.ColIndex = 1
+      Position.RowIndex = 0
+      Position.BandIndex = 0
+      Summary.FooterSummaryItems = <>
+      Summary.GroupFooterSummaryItems = <>
+    end
+    object ColumnPrice: TcxDBTreeListColumn
+      Caption.Text = #1062#1077#1085#1072
+      DataBinding.FieldName = #1094#1077#1085#1072
+      Width = 100
+      Position.ColIndex = 2
+      Position.RowIndex = 0
+      Position.BandIndex = 0
+      Summary.FooterSummaryItems = <>
+      Summary.GroupFooterSummaryItems = <>
+    end
+  end
   object QueryUsers: TUniQuery
     SQLInsert.Strings = (
       'INSERT INTO clients'
@@ -329,30 +399,8 @@ object FChatDB: TFChatDB
     Left = 488
     Top = 88
   end
-  object ds1: TClientDataSet
-    Aggregates = <>
-    FieldDefs = <
-      item
-        Name = 'name'
-      end>
-    IndexDefs = <>
-    Params = <>
-    StoreDefs = True
-    Left = 256
-    Top = 488
-    object ds1name: TStringField
-      FieldName = 'name'
-      Size = 255
-    end
-  end
   object ds2: TDataSource
-    DataSet = ds1
     Left = 200
     Top = 488
-  end
-  object DataSetProvider1: TDataSetProvider
-    DataSet = ds1
-    Left = 120
-    Top = 360
   end
 end

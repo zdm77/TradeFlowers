@@ -12,7 +12,9 @@ uses
   cxFilter, cxData, cxDataStorage, cxNavigator, cxDBData, cxGridLevel,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxClasses,
   cxGridCustomView, cxMemo, Vcl.Menus, cxButtons, cxTextEdit, Vcl.ImgList,
-  cxListBox, cxDBEdit, Vcl.ExtCtrls, Datasnap.DBClient, Datasnap.Provider;
+  cxListBox, cxDBEdit, Vcl.ExtCtrls, Datasnap.DBClient, Datasnap.Provider,
+  dxmdaset, cxTL, cxLabel, cxMaskEdit, cxTLdxBarBuiltInMenu, cxInplaceContainer,
+  cxDBTL, cxTLData;
 
 type
   TFChatDB = class(TForm)
@@ -31,10 +33,12 @@ type
     lstClients: TcxListView;
     imgSmall: TcxImageList;
     tmr1: TTimer;
-    ds1: TClientDataSet;
-    ds1name: TStringField;
     ds2: TDataSource;
-    DataSetProvider1: TDataSetProvider;
+    btn1: TButton;
+    lstTreeProducts: TcxDBTreeList;
+    ColumnName: TcxDBTreeListColumn;
+    ColumnDel: TcxDBTreeListColumn;
+    ColumnPrice: TcxDBTreeListColumn;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure btnSendClick(Sender: TObject);
@@ -44,6 +48,7 @@ type
       AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
     procedure lstClientsClick(Sender: TObject);
     procedure tmr1Timer(Sender: TObject);
+    procedure btn1Click(Sender: TObject);
   private
     procedure showUsers();
     procedure showMessages();
@@ -241,6 +246,26 @@ end;
 procedure TFChatDB.tmr1Timer(Sender: TObject);
 begin
   updateReadAll;
+end;
+
+procedure TFChatDB.btn1Click(Sender: TObject);
+begin
+//  mem1.Active := True;
+//  with Query1 do
+//  begin
+//    Close;
+//    sql.Text := 'select * from продукция.продукция order by id ';
+//    Open;
+//    while not eof do
+//    begin
+//      mem1.Append;
+//      mem1.FieldByName('name').AsString := FieldByName('name').AsString;
+//      mem1.FieldByName('id').AsInteger := FieldByName('id').AsInteger;
+//      mem1.FieldByName('pid').AsInteger := FieldByName('pid').AsInteger;
+//      mem1.Post;
+//      Next;
+//    end;
+//  end;
 end;
 
 procedure TFChatDB.btnSendClick(Sender: TObject);

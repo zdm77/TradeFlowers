@@ -497,27 +497,27 @@ begin
   // DM1.db1.Connected := true;
   FSplash.Update;
   { открываем сорта }
-  with Query1 do
-  begin
-    Close;
-    SQL.Text := 'select * from продукция.сорта order by uni_name';
-    open;
-    DM1.dxMemData1.Active := true;
-    while not Eof do
-    begin
-      FSplash.lblComment.Caption := 'Загрузка данных: Сорта';
-      FSplash.Update;
-      DM1.dxMemData1.Append;
-      DM1.dxMemData1.FieldByName('id').AsInteger := FieldByName('id').AsInteger;
-      DM1.dxMemData1.FieldByName('uni_name').AsString :=
-        FieldByName('uni_name').AsString;
-      DM1.dxMemData1.FieldByName('код_типа').AsInteger :=
-        FieldByName('код_типа').AsInteger;
-      DM1.dxMemData1.Post;
-      Next;
-    end;
-    // DM1.dxMemData1.Active := False;
-  end;
+//  with Query1 do
+//  begin
+//    Close;
+//    SQL.Text := 'select * from продукция.сорта order by uni_name';
+//    open;
+//    DM1.dxMemData1.Active := true;
+//    while not Eof do
+//    begin
+//      FSplash.lblComment.Caption := 'Загрузка данных: Сорта';
+//      FSplash.Update;
+//      DM1.dxMemData1.Append;
+//      DM1.dxMemData1.FieldByName('id').AsInteger := FieldByName('id').AsInteger;
+//      DM1.dxMemData1.FieldByName('uni_name').AsString :=
+//        FieldByName('uni_name').AsString;
+//      DM1.dxMemData1.FieldByName('код_типа').AsInteger :=
+//        FieldByName('код_типа').AsInteger;
+//      DM1.dxMemData1.Post;
+//      Next;
+//    end;
+//    // DM1.dxMemData1.Active := False;
+//  end;
   { открываем номенклатуру }
   // with DM1.QueryProductG do
   // begin
