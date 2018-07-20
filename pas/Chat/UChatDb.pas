@@ -69,7 +69,7 @@ var
 implementation
 
 uses
-  UDataModule1, UPasswd, ULogin, ProductClass;
+  UDataModule1, UPasswd, ULogin;
 {$R *.dfm}
 
 procedure TFChatDB.updateReadAll;
