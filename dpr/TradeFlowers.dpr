@@ -208,7 +208,8 @@ uses
   UfNewAucOrder in '..\pas\Auction\Orders\UfNewAucOrder.pas' {fNewAucOrder},
   UChat in '..\pas\Chat\UChat.pas' {FChat},
   UChatDb in '..\pas\Chat\UChatDb.pas' {FChatDB},
-  ProductClass in '..\pas\ProductClass.pas';
+  ProductClass in '..\pas\ProductClass.pas',
+  UNewOrderFromChat in '..\pas\Orders\UNewOrderFromChat.pas' {FNewOrderFromChat};
 
 {$R *.res}
 
@@ -221,6 +222,7 @@ begin
   Application.CreateForm(TFPasswd, FPasswd);
   Application.CreateForm(TFSync, FSync);
   Application.CreateForm(TFSplash, FSplash);
+ // Application.CreateForm(TFNewOrderFromChat, FNewOrderFromChat);
   ///Application.CreateForm(TFChatDB, FChatDB);
   // Application.CreateForm(TFChat, FChat);
   // Application.CreateForm(TfNewAucOrder, fNewAucOrder);

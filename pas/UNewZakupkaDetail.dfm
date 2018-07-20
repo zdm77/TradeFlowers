@@ -289,9 +289,9 @@ object FNewZakupkaDetail: TFNewZakupkaDetail
       Height = 32
       Align = alTop
       TabOrder = 0
-      ExplicitLeft = 3
-      ExplicitTop = 15
-      ExplicitWidth = 668
+      ExplicitLeft = 2
+      ExplicitTop = -2
+      ExplicitWidth = 670
       ExplicitHeight = 32
       inherited barProduct: TdxBarManager
         Top = 16

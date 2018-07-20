@@ -74,7 +74,7 @@ uses
      
       
     
-     dxSkinXmas2008Blue;
+     dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
 
 type
   TFNewZakupkaDetail = class(TForm)

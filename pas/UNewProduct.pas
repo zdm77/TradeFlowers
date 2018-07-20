@@ -41,7 +41,7 @@ uses
 
   dxSkinDevExpressStyle,
 
-   dxSkinsDefaultPainters;
+   dxSkinsDefaultPainters, dxSkinOffice2007Blue;
 
 type
   TFNewProduct = class(TForm)
