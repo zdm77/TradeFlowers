@@ -6,3 +6,6 @@ __history
 *.exe
 *.dcu
 .svn
+*.dsk
+*.identcache
+*.~dsk
