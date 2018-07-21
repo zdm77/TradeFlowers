@@ -139,7 +139,7 @@
       end>
   end
   object QueryProductLocal: TUniQuery
-    Connection = dbLocal
+    Connection = db1
     SQL.Strings = (
       'select * from "Product"')
     AutoCalcFields = False

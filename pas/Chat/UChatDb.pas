@@ -14,7 +14,8 @@ uses
   cxGridCustomView, cxMemo, Vcl.Menus, cxButtons, cxTextEdit, Vcl.ImgList,
   cxListBox, cxDBEdit, Vcl.ExtCtrls, Datasnap.DBClient, Datasnap.Provider,
   dxmdaset, cxTL, cxLabel, cxMaskEdit, cxTLdxBarBuiltInMenu, cxInplaceContainer,
-  cxDBTL, cxTLData, cxSplitter, cxGroupBox;
+  cxDBTL, cxTLData, cxSplitter, cxGroupBox, MemTableDataEh, DataDriverEh,
+  MemTableEh;
 
 type
   TFChatDB = class(TForm)
@@ -46,6 +47,13 @@ type
     btnCopy: TcxButton;
     cxButton1: TcxButton;
     Query2: TUniQuery;
+    memPr: TMemTableEh;
+    dataDriverP: TDataSetDriverEh;
+    cxGrid2: TcxGrid;
+    cxGridDBTableView2: TcxGridDBTableView;
+    cxGridDBColumn2: TcxGridDBColumn;
+    cxGridDBColumn3: TcxGridDBColumn;
+    cxGridLevel2: TcxGridLevel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure btnSendClick(Sender: TObject);
@@ -323,6 +331,15 @@ begin
   // Next;
   // end;
   // end;
+   if memPr.Active=false then
+      begin
+        memPr.Active:=true;
+//        while not memPr.eof do
+//        begin
+//          memo1.Lines.Add(memPr.fields[0].AsString);
+//          memPr.Next;
+//        end;
+      end;
 end;
 
 procedure TFChatDB.btnCopyClick(Sender: TObject);
@@ -332,122 +349,124 @@ var
   lengthP: Double;
   CountOrd, str: string;
 begin
-  Application.CreateForm(TFNewOrderFromChat, FNewOrderFromChat);
-  memo1.Lines.Clear;
-  fL := TStringList.Create;
-  try
-    fL.Delimiter := ',';
-    fL.StrictDelimiter := True;
-    counter := 0;
-    // memo1.Lines.Clear;
-    // findT := AnsiUpperCase(memoMessage.Text);
-    // for I := 0 to fL.Count - 1 do   fl[i]=trim
-    with Query1 do
-    begin
-      for j := 0 to memoMessage.Lines.Count - 1 do
-      begin
-        CountOrd := '1';
-        str := trim(AnsiUpperCase(memoMessage.Lines[j]));
-        if (str.Length > 0) then
-        begin
-          lengthP := 0;
-          globalSql := '';
-          l := pos('-', str);
-          if (l = 0) then
-            fL.DelimitedText := str
-          else
-          begin
-            // SetLength(memoMessage.Lines[j], 5);
-            fL.DelimitedText := Copy(str, 0, l - 1);
-            CountOrd := trim(Copy(str, l + 1, str.Length));
-          end;
-          // пытаемся определить тип
-          Close;
-          sql.Text := returnSQL('"продукция"."типы"', fL);
-          Open;
-          // memo1.Lines.Add(sql.Text);
-          // memo1.Lines.Add('Нашли тип');
-          if RecordCount > 0 then
-          begin
-            addGlobalSql(Query1, 'код_типа');
-          end;
-          // memo1.Lines.Add(globalSql);
-          // пытаемся определить плантацию
-          Close;
-          sql.Text := returnSQL('"продукция"."плантации"', fL);
-          Open;
-          // memo1.Lines.Add(sql.Text);
-          // memo1.Lines.Add('Нашли тип');
-          if RecordCount > 0 then
-          begin
-            addGlobalSql(Query1, 'код_плантации');
-          end;
-          // memo1.Lines.Add(globalSql);
-          // пытаемся определить сорт
-          Close;
-          sql.Text := returnSQL('"продукция"."сорта"', fL);
-          Open;
-          // memo1.Lines.Add(sql.Text);
-          // memo1.Lines.Add('Нашли сорт');
-          if RecordCount > 0 then
-          begin
-            addGlobalSql(Query1, 'код_сорта');
-          end;
-          // memo1.Lines.Add(globalSql);
-          // пытаемся определить длину если есть число
-          for I := 1 to fL.Count - 1 do
-          begin
-            lengthP := StrToFloatDef(trim(fL[I]), 0);
-            if lengthP <> 0 then
-            begin
-              globalSql := globalSql + ' AND uni_name Like ''%' +
-                AnsiUpperCase(FloatToStr(lengthP)) + '%''';
-              Break;
-            end;
-          end;
-          memo1.Lines.Add(globalSql);
-          if globalSql <> '' then
-          begin
-            Close;
-            sql.Text := globalSql;
-            Open;
-            while not eof do
-            begin
-              FNewOrderFromChat.Table1.DataController.Append;
-              FNewOrderFromChat.Table1.DataController.SetValue(counter, FNewOrderFromChat.columnName.Index,
-                FieldByName('uni_name').AsString);
-              FNewOrderFromChat.Table1.DataController.SetValue(counter, FNewOrderFromChat.columnID.Index,
-                FieldByName('id').AsString);
-              FNewOrderFromChat.Table1.DataController.SetValue(counter, FNewOrderFromChat.columnCount.Index, CountOrd);
-            //  memo1.Lines.Add(FieldByName('uni_name').AsString);
-              Query2.Close;
-              Query2.sql.Text := 'SELECT  st.uni_name,  pl.uni_name,  tp.uni_name,  s.uni_name ' +
-                ' FROM  "продукция"."плантации" pl  INNER JOIN "продукция"."страны" st ON (pl."код_страны" = st.id) '
-                + '  INNER JOIN "продукция"."продукция" p ON (p."код_плантации" = pl.id) ' +
-                '  INNER JOIN "продукция"."сорта" s ON (p."код_сорта" = s.id) ' +
-                '  INNER JOIN "продукция"."типы" tp ON (s."код_типа" = tp.id) ' +
-                '  AND (p."код_типа" = tp.id) where p.id=' + Fields[0].AsString;
-              Query2.Open;
-              FNewOrderFromChat.Table1.DataController.SetValue(counter, FNewOrderFromChat.columnCountry.Index,
-                Query2.Fields[0].AsString);
-              FNewOrderFromChat.Table1.DataController.SetValue(counter, FNewOrderFromChat.columnPlant.Index,
-                Query2.Fields[1].AsString);
-              FNewOrderFromChat.Table1.DataController.SetValue(counter, FNewOrderFromChat.columnType.Index,
-                Query2.Fields[2].AsString);
-              FNewOrderFromChat.Table1.DataController.SetValue(counter, FNewOrderFromChat.columnSort.Index,
-                Query2.Fields[3].AsString);
-              FNewOrderFromChat.Table1.DataController.Post(True);
-              counter := counter + 1;
-              Next;
-            end;
-          end;
-        end;
-      end;
-    end;
-  finally
-    fL.Free
-  end;
-  FNewOrderFromChat.Show;
+
+     
+//  Application.CreateForm(TFNewOrderFromChat, FNewOrderFromChat);
+//  memo1.Lines.Clear;
+//  fL := TStringList.Create;
+//  try
+//    fL.Delimiter := ',';
+//    fL.StrictDelimiter := True;
+//    counter := 0;
+//    // memo1.Lines.Clear;
+//    // findT := AnsiUpperCase(memoMessage.Text);
+//    // for I := 0 to fL.Count - 1 do   fl[i]=trim
+//    with Query1 do
+//    begin
+//      for j := 0 to memoMessage.Lines.Count - 1 do
+//      begin
+//        CountOrd := '1';
+//        str := trim(AnsiUpperCase(memoMessage.Lines[j]));
+//        if (str.Length > 0) then
+//        begin
+//          lengthP := 0;
+//          globalSql := '';
+//          l := pos('-', str);
+//          if (l = 0) then
+//            fL.DelimitedText := str
+//          else
+//          begin
+//            // SetLength(memoMessage.Lines[j], 5);
+//            fL.DelimitedText := Copy(str, 0, l - 1);
+//            CountOrd := trim(Copy(str, l + 1, str.Length));
+//          end;
+//          // пытаемся определить тип
+//          Close;
+//          sql.Text := returnSQL('"продукция"."типы"', fL);
+//          Open;
+//          // memo1.Lines.Add(sql.Text);
+//          // memo1.Lines.Add('Нашли тип');
+//          if RecordCount > 0 then
+//          begin
+//            addGlobalSql(Query1, 'код_типа');
+//          end;
+//          // memo1.Lines.Add(globalSql);
+//          // пытаемся определить плантацию
+//          Close;
+//          sql.Text := returnSQL('"продукция"."плантации"', fL);
+//          Open;
+//          // memo1.Lines.Add(sql.Text);
+//          // memo1.Lines.Add('Нашли тип');
+//          if RecordCount > 0 then
+//          begin
+//            addGlobalSql(Query1, 'код_плантации');
+//          end;
+//          // memo1.Lines.Add(globalSql);
+//          // пытаемся определить сорт
+//          Close;
+//          sql.Text := returnSQL('"продукция"."сорта"', fL);
+//          Open;
+//          // memo1.Lines.Add(sql.Text);
+//          // memo1.Lines.Add('Нашли сорт');
+//          if RecordCount > 0 then
+//          begin
+//            addGlobalSql(Query1, 'код_сорта');
+//          end;
+//          // memo1.Lines.Add(globalSql);
+//          // пытаемся определить длину если есть число
+//          for I := 1 to fL.Count - 1 do
+//          begin
+//            lengthP := StrToFloatDef(trim(fL[I]), 0);
+//            if lengthP <> 0 then
+//            begin
+//              globalSql := globalSql + ' AND uni_name Like ''%' +
+//                AnsiUpperCase(FloatToStr(lengthP)) + '%''';
+//              Break;
+//            end;
+//          end;
+//          memo1.Lines.Add(globalSql);
+//          if globalSql <> '' then
+//          begin
+//            Close;
+//            sql.Text := globalSql;
+//            Open;
+//            while not eof do
+//            begin
+//              FNewOrderFromChat.Table1.DataController.Append;
+//              FNewOrderFromChat.Table1.DataController.SetValue(counter, FNewOrderFromChat.columnName.Index,
+//                FieldByName('uni_name').AsString);
+//              FNewOrderFromChat.Table1.DataController.SetValue(counter, FNewOrderFromChat.columnID.Index,
+//                FieldByName('id').AsString);
+//              FNewOrderFromChat.Table1.DataController.SetValue(counter, FNewOrderFromChat.columnCount.Index, CountOrd);
+//            //  memo1.Lines.Add(FieldByName('uni_name').AsString);
+//              Query2.Close;
+//              Query2.sql.Text := 'SELECT  st.uni_name,  pl.uni_name,  tp.uni_name,  s.uni_name ' +
+//                ' FROM  "продукция"."плантации" pl  INNER JOIN "продукция"."страны" st ON (pl."код_страны" = st.id) '
+//                + '  INNER JOIN "продукция"."продукция" p ON (p."код_плантации" = pl.id) ' +
+//                '  INNER JOIN "продукция"."сорта" s ON (p."код_сорта" = s.id) ' +
+//                '  INNER JOIN "продукция"."типы" tp ON (s."код_типа" = tp.id) ' +
+//                '  AND (p."код_типа" = tp.id) where p.id=' + Fields[0].AsString;
+//              Query2.Open;
+//              FNewOrderFromChat.Table1.DataController.SetValue(counter, FNewOrderFromChat.columnCountry.Index,
+//                Query2.Fields[0].AsString);
+//              FNewOrderFromChat.Table1.DataController.SetValue(counter, FNewOrderFromChat.columnPlant.Index,
+//                Query2.Fields[1].AsString);
+//              FNewOrderFromChat.Table1.DataController.SetValue(counter, FNewOrderFromChat.columnType.Index,
+//                Query2.Fields[2].AsString);
+//              FNewOrderFromChat.Table1.DataController.SetValue(counter, FNewOrderFromChat.columnSort.Index,
+//                Query2.Fields[3].AsString);
+//              FNewOrderFromChat.Table1.DataController.Post(True);
+//              counter := counter + 1;
+//              Next;
+//            end;
+//          end;
+//        end;
+//      end;
+//    end;
+//  finally
+//    fL.Free
+//  end;
+//  FNewOrderFromChat.Show;
 end;
 
 procedure TFChatDB.btnSendClick(Sender: TObject);

@@ -25,7 +25,6 @@ object FChatDB: TFChatDB
     Align = alTop
     PanelStyle.Active = True
     TabOrder = 0
-    ExplicitWidth = 815
     Height = 178
     Width = 978
     object cxGroupBox4: TcxGroupBox
@@ -42,8 +41,6 @@ object FChatDB: TFChatDB
       StyleHot.LookAndFeel.NativeStyle = False
       StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
       TabOrder = 0
-      ExplicitTop = 18
-      ExplicitWidth = 811
       Height = 49
       Width = 974
       object btnSend: TcxButton
@@ -87,10 +84,6 @@ object FChatDB: TFChatDB
       Caption = 'cxGroupBox5'
       PanelStyle.Active = True
       TabOrder = 1
-      ExplicitLeft = 200
-      ExplicitTop = 88
-      ExplicitWidth = 185
-      ExplicitHeight = 105
       Height = 125
       Width = 974
       object memoMessage: TcxMemo
@@ -103,9 +96,6 @@ object FChatDB: TFChatDB
         TabOrder = 0
         OnKeyDown = memoMessageKeyDown
         OnKeyUp = memoMessageKeyUp
-        ExplicitTop = 104
-        ExplicitWidth = 807
-        ExplicitHeight = 72
         Height = 121
         Width = 970
       end
@@ -144,8 +134,6 @@ object FChatDB: TFChatDB
       ViewStyle = vsReport
       OnClick = lstClientsClick
       OnCustomDrawItem = lstClientsCustomDrawItem
-      ExplicitLeft = 1
-      ExplicitTop = 3
     end
   end
   object cxSplitter1: TcxSplitter
@@ -155,8 +143,7 @@ object FChatDB: TFChatDB
     Height = 8
     HotZoneClassName = 'TcxMediaPlayer9Style'
     AlignSplitter = salTop
-    ExplicitLeft = 345
-    ExplicitWidth = 492
+    Control = cxGroupBox1
   end
   object cxSplitter2: TcxSplitter
     Left = 200
@@ -165,7 +152,7 @@ object FChatDB: TFChatDB
     Height = 484
     HotZoneClassName = 'TcxMediaPlayer9Style'
     HotZone.SizePercent = 54
-    ExplicitLeft = 345
+    Control = grpMark
   end
   object cxGroupBox3: TcxGroupBox
     Left = 208
@@ -173,10 +160,6 @@ object FChatDB: TFChatDB
     Align = alClient
     PanelStyle.Active = True
     TabOrder = 4
-    ExplicitLeft = 440
-    ExplicitTop = 256
-    ExplicitWidth = 185
-    ExplicitHeight = 105
     Height = 484
     Width = 770
     object cxGrid1: TcxGrid
@@ -188,10 +171,6 @@ object FChatDB: TFChatDB
       TabOrder = 0
       LookAndFeel.Kind = lfOffice11
       LookAndFeel.NativeStyle = False
-      ExplicitLeft = -96
-      ExplicitTop = 19
-      ExplicitWidth = 441
-      ExplicitHeight = 465
       object cxGridDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         FilterBox.Visible = fvNever
@@ -226,14 +205,55 @@ object FChatDB: TFChatDB
       end
     end
     object memo1: TcxMemo
-      Left = 72
-      Top = 104
+      Left = 33
+      Top = 72
       Properties.ScrollBars = ssBoth
       TabOrder = 1
       OnKeyDown = memoMessageKeyDown
       OnKeyUp = memoMessageKeyUp
-      Height = 284
-      Width = 602
+      Height = 201
+      Width = 552
+    end
+    object cxGrid2: TcxGrid
+      Left = 200
+      Top = 240
+      Width = 546
+      Height = 220
+      TabOrder = 2
+      LookAndFeel.Kind = lfOffice11
+      LookAndFeel.NativeStyle = False
+      object cxGridDBTableView2: TcxGridDBTableView
+        Navigator.Buttons.CustomButtons = <>
+        FilterBox.Visible = fvNever
+        DataController.DataSource = ds2
+        DataController.Filter.Options = [fcoCaseInsensitive]
+        DataController.Summary.DefaultGroupSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <>
+        DataController.Summary.SummaryGroups = <>
+        FilterRow.Visible = True
+        FilterRow.ApplyChanges = fracImmediately
+        OptionsCustomize.ColumnsQuickCustomization = True
+        OptionsData.Editing = False
+        OptionsSelection.CellSelect = False
+        OptionsView.CellAutoHeight = True
+        OptionsView.ColumnAutoWidth = True
+        OptionsView.GroupByBox = False
+        object cxGridDBColumn2: TcxGridDBColumn
+          Caption = #1057#1086#1086#1086#1073#1097#1077#1085#1080#1077
+          DataBinding.FieldName = 'uni_name'
+          PropertiesClassName = 'TcxMemoProperties'
+          Properties.ReadOnly = True
+          OnCustomDrawCell = cxGridDBColumn1CustomDrawCell
+          Width = 149
+        end
+        object cxGridDBColumn3: TcxGridDBColumn
+          DataBinding.FieldName = 'adm'
+          Visible = False
+        end
+      end
+      object cxGridLevel2: TcxGridLevel
+        GridView = cxGridDBTableView2
+      end
     end
   end
   object btn1: TButton
@@ -295,8 +315,8 @@ object FChatDB: TFChatDB
   end
   object dsMessage: TDataSource
     DataSet = QueryMessage
-    Left = 408
-    Top = 416
+    Left = 400
+    Top = 352
   end
   object QueryMessage: TUniQuery
     SQLInsert.Strings = (
@@ -474,6 +494,7 @@ object FChatDB: TFChatDB
     Top = 88
   end
   object ds2: TDataSource
+    DataSet = memPr
     Left = 200
     Top = 488
   end
@@ -518,5 +539,16 @@ object FChatDB: TFChatDB
     CachedUpdates = True
     Left = 600
     Top = 312
+  end
+  object memPr: TMemTableEh
+    Params = <>
+    DataDriver = dataDriverP
+    Left = 120
+    Top = 506
+  end
+  object dataDriverP: TDataSetDriverEh
+    ProviderDataSet = DM1.QueryProductLocal
+    Left = 56
+    Top = 496
   end
 end
