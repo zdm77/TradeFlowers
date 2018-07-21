@@ -24,10 +24,11 @@ type
     columnCount: TcxGridColumn;
     columnPlant: TcxGridColumn;
     columnCheck: TcxGridColumn;
-    procedure btn1Click(Sender: TObject);
+    procedure Table1DblClick(Sender: TObject);
   private
     { Private declarations }
   public
+    MStream: TStream;
     { Public declarations }
   end;
 
@@ -38,16 +39,32 @@ implementation
 
 {$R *.dfm}
 
-procedure TFNewOrderFromChat.btn1Click(Sender: TObject);
+uses USelectProduct;
+
+procedure TFNewOrderFromChat.Table1DblClick(Sender: TObject);
+var
+  i: integer;
 begin
-  Table1.DataController.Append;
-  Table1.DataController.SetValue(0,0,'1212');
+  Application.CreateForm(TFSelectProduct, FSelectProduct);
+  with FSelectProduct do
+  begin
+    ShowModal;
+    if IDSelect = true then
+    begin
+      i := Table1.DataController.GetEditingRecordIndex;
+      Table1.DataController.SetValue(i, FNewOrderFromChat.columnCountry.Index,
+        memPr.FieldByName('country').AsString);
+         Table1.DataController.SetValue(i, FNewOrderFromChat.columnType.Index,
+        memPr.FieldByName('tpe').AsString);
+         Table1.DataController.SetValue(i, FNewOrderFromChat.columnPlant.Index,
+        memPr.FieldByName('plant').AsString);
+         Table1.DataController.SetValue(i, FNewOrderFromChat.columnSort.Index,
+        memPr.FieldByName('sort').AsString);
+         Table1.DataController.SetValue(i, FNewOrderFromChat.columnID.Index,
+        memPr.FieldByName('id').AsString);
 
-  Table1.DataController.Post(true);
-   Table1.DataController.Append;
-  Table1.DataController.SetValue(1,0,'1212');
-
-  Table1.DataController.Post(true);
+    end;
+  end;
 end;
 
 end.

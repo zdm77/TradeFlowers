@@ -23,6 +23,7 @@ object FNewOrderFromChat: TFNewOrderFromChat
     LookAndFeel.NativeStyle = False
     LookAndFeel.SkinName = ''
     object Table1: TcxGridTableView
+      OnDblClick = Table1DblClick
       Navigator.Buttons.CustomButtons = <>
       Navigator.InfoPanel.Visible = True
       Navigator.Visible = True
@@ -78,12 +79,11 @@ object FNewOrderFromChat: TFNewOrderFromChat
     end
   end
   object btn1: TButton
-    Left = 32
-    Top = 8
+    Left = 48
+    Top = 24
     Width = 75
     Height = 25
     Caption = 'btn1'
     TabOrder = 1
-    OnClick = btn1Click
   end
 end

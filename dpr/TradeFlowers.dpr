@@ -209,7 +209,8 @@ uses
   UChat in '..\pas\Chat\UChat.pas' {FChat},
   UChatDb in '..\pas\Chat\UChatDb.pas' {FChatDB},
   ProductClass in '..\pas\ProductClass.pas',
-  UNewOrderFromChat in '..\pas\Orders\UNewOrderFromChat.pas' {FNewOrderFromChat};
+  UNewOrderFromChat in '..\pas\Orders\UNewOrderFromChat.pas' {FNewOrderFromChat},
+  USelectProduct in '..\pas\USelectProduct.pas' {FSelectProduct};
 
 {$R *.res}
 
@@ -222,7 +223,8 @@ begin
   Application.CreateForm(TFPasswd, FPasswd);
   Application.CreateForm(TFSync, FSync);
   Application.CreateForm(TFSplash, FSplash);
- // Application.CreateForm(TFNewOrderFromChat, FNewOrderFromChat);
+  //Application.CreateForm(TFSelectProduct, FSelectProduct);
+  // Application.CreateForm(TFNewOrderFromChat, FNewOrderFromChat);
   ///Application.CreateForm(TFChatDB, FChatDB);
   // Application.CreateForm(TFChat, FChat);
   // Application.CreateForm(TfNewAucOrder, fNewAucOrder);

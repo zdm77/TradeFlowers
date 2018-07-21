@@ -91,7 +91,11 @@ object FChatDB: TFChatDB
         Top = 2
         Align = alClient
         Lines.Strings = (
-          'Ecuador, Roses, ABAX ROSES, Topaz, 110')
+          'Ecuador, Roses, ABAX ROSES, Topaz, 110'
+          'Ecuador, Rose, Abax Roses, Creme de la Creme, 90'
+          'Ecuador, Rose, Abax Roses, '#1057'ool Water, 70'
+          'Ecuador, Rose, Abax Roses, High & Yellow Flame, 100'
+          'Ecuador, Rose, CANANVALLE, Aerobic, 100')
         Properties.ScrollBars = ssBoth
         TabOrder = 0
         OnKeyDown = memoMessageKeyDown
@@ -225,7 +229,6 @@ object FChatDB: TFChatDB
       object cxGridDBTableView2: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         FilterBox.Visible = fvNever
-        DataController.DataSource = ds2
         DataController.Filter.Options = [fcoCaseInsensitive]
         DataController.Summary.DefaultGroupSummaryItems = <>
         DataController.Summary.FooterSummaryItems = <>
@@ -541,8 +544,10 @@ object FChatDB: TFChatDB
     Top = 312
   end
   object memPr: TMemTableEh
+    Filtered = True
     Params = <>
     DataDriver = dataDriverP
+    OnFilterRecord = memPrFilterRecord
     Left = 120
     Top = 506
   end
@@ -550,5 +555,11 @@ object FChatDB: TFChatDB
     ProviderDataSet = DM1.QueryProductLocal
     Left = 56
     Top = 496
+  end
+  object ClientDataSet1: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 72
+    Top = 570
   end
 end

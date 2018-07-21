@@ -225,7 +225,7 @@ begin
         FSplash.lblComment.Caption := 'Загрузка данных. Номенклатура';
         FSplash.Update;
         DM1.QueryProductLocal.Close;
-        DM1.QueryProductLocal.SQL.Text := 'select * from продукция.продукция';
+       // DM1.QueryProductLocal.SQL.Text := 'select * from продукция.продукция';
         DM1.QueryProductLocal.open;
         if chkAdmin.Checked = False then
         begin
@@ -318,7 +318,7 @@ begin
   // dset1.SetProvider(QueryProduct);
   // dset1.Active:=true;
   // MStream:=TMemoryStream.Create;
-  // dset1.SaveToStream(MStream,dfXML);
+   //dset1.SaveToStream(MStream,dfXML);
   // MStream.seek(0, 0);
 end;
 
