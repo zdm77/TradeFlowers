@@ -12,13 +12,13 @@ File_9=TSourceModule,'C:\Проекты\TradeFlowers\pas\Buh\UFrameOplataPlant.p
 File_10=TSourceModule,'C:\Проекты\TradeFlowers\pas\Buh\Control\UNewOplatPlant.pas',0,1,74,75,83,0,0,,
 
 [Modules]
-Module0=C:\Проекты\TradeFlowers\pas\UFrameProduct.pas
-Module1=C:\Проекты\TradeFlowers\pas\UPasswd.pas
-Module2=C:\Проекты\TradeFlowers\dpr\TradeFlowers.dproj
-Module3=C:\Проекты\TradeFlowers\pas\Chat\UChatDb.pas
-Module4=C:\Проекты\TradeFlowers\pas\UNewOrder.pas
-Module5=C:\Проекты\TradeFlowers\pas\UOsn.pas
-Module6=C:\Проекты\TradeFlowers\pas\UDataModule1.pas
+Module0=C:\Проекты\TradeFlowers\pas\UPasswd.pas
+Module1=C:\Проекты\TradeFlowers\pas\UDataModule1.pas
+Module2=C:\Проекты\TradeFlowers\pas\UFrameProduct.pas
+Module3=C:\Проекты\TradeFlowers\dpr\TradeFlowers.dproj
+Module4=C:\Проекты\TradeFlowers\pas\UOsn.pas
+Module5=C:\Проекты\TradeFlowers\pas\Chat\UChatDb.pas
+Module6=C:\Проекты\TradeFlowers\pas\UNewOrder.pas
 Module7=c:\program files (x86)\embarcadero\studio\14.0\source\data\Data.DB.pas
 Module8=C:\Проекты\TradeFlowers\pas\ULogin.pas
 Module9=C:\Проекты\TradeFlowers\pas\Chat\ChatClass.pas
@@ -28,12 +28,17 @@ Module12=C:\Проекты\TradeFlowers\pas\UExcel.pas
 Count=13
 EditWindowCount=1
 
-[C:\Проекты\TradeFlowers\pas\UFrameProduct.pas]
+[C:\Проекты\TradeFlowers\pas\UPasswd.pas]
 ModuleType=TSourceModule
 FormState=1
 FormOnTop=0
 
-[C:\Проекты\TradeFlowers\pas\UPasswd.pas]
+[C:\Проекты\TradeFlowers\pas\UDataModule1.pas]
+ModuleType=TSourceModule
+FormState=1
+FormOnTop=1
+
+[C:\Проекты\TradeFlowers\pas\UFrameProduct.pas]
 ModuleType=TSourceModule
 FormState=1
 FormOnTop=0
@@ -41,22 +46,17 @@ FormOnTop=0
 [C:\Проекты\TradeFlowers\dpr\TradeFlowers.dproj]
 ModuleType=TBaseProject
 
+[C:\Проекты\TradeFlowers\pas\UOsn.pas]
+ModuleType=TSourceModule
+FormState=1
+FormOnTop=0
+
 [C:\Проекты\TradeFlowers\pas\Chat\UChatDb.pas]
 ModuleType=TSourceModule
 FormState=1
 FormOnTop=0
 
 [C:\Проекты\TradeFlowers\pas\UNewOrder.pas]
-ModuleType=TSourceModule
-FormState=1
-FormOnTop=0
-
-[C:\Проекты\TradeFlowers\pas\UOsn.pas]
-ModuleType=TSourceModule
-FormState=1
-FormOnTop=0
-
-[C:\Проекты\TradeFlowers\pas\UDataModule1.pas]
 ModuleType=TSourceModule
 FormState=1
 FormOnTop=0
@@ -91,15 +91,15 @@ ModuleType=TSourceModule
 FormState=0
 FormOnTop=0
 
-[C:\Проекты\TradeFlowers\pas\UFrameSave.pas]
-FormState=1
-FormOnTop=0
-
 [C:\Проекты\TradeFlowers\pas\UFrameTopPanel.pas]
 FormState=1
 FormOnTop=0
 
 [C:\Проекты\TradeFlowers\pas\UFrameSearch.pas]
+FormState=1
+FormOnTop=0
+
+[C:\Проекты\TradeFlowers\pas\UFrameSave.pas]
 FormState=1
 FormOnTop=0
 
@@ -125,7 +125,7 @@ FormOnTop=0
 
 [EditWindow0]
 ViewCount=13
-CurrentEditView=C:\Проекты\TradeFlowers\pas\UFrameProduct.pas
+CurrentEditView=C:\Проекты\TradeFlowers\pas\UPasswd.pas
 View0=0
 View1=1
 View2=2
@@ -171,9 +171,9 @@ BottomMiddelPanelData=0000080001020200000009000000446F636B5369746530100000004772
 [View0]
 CustomEditViewType=TEditView
 Module=C:\Проекты\TradeFlowers\pas\UFrameProduct.pas
-CursorX=46
+CursorX=26
 CursorY=501
-TopLine=472
+TopLine=482
 LeftCol=1
 Elisions=
 Bookmarks=
@@ -283,7 +283,7 @@ CustomEditViewType=TEditView
 Module=C:\Проекты\TradeFlowers\pas\UPasswd.pas
 CursorX=18
 CursorY=116
-TopLine=221
+TopLine=464
 LeftCol=1
 Elisions=
 Bookmarks=
@@ -325,11 +325,11 @@ State=0
 Left=0
 Top=0
 Width=3823
-Height=1000
+Height=2837
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=3823
-ClientHeight=1000
+ClientHeight=2837
 TBDockHeight=212
 LRDockWidth=13599
 Dockable=1
@@ -450,7 +450,7 @@ Visible=0
 Docked=1
 State=0
 Left=0
-Top=-77
+Top=-79
 Width=1844
 Height=3144
 MaxLeft=-1
@@ -522,8 +522,8 @@ SplitPos=111
 
 [PropInspDesignerSelection]
 ArrangeBy=Name
-SelectedItem=Name,
-ExpandedItems=Anchors=0,BorderIcons=0,Constraints=0,Font=0,GlassFrame=0,LiveBindings=0,"LiveBindings Designer=0",Margins=0,Properties=0,Style=0,StyleDisabled=0,StyleFocused=0,StyleHot=0
+SelectedItem="LiveBindings Designer",
+ExpandedItems="LiveBindings Designer=0"
 
 [TFileExplorerForm]
 PercentageSizes=1
@@ -531,8 +531,8 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=-1418
-Top=-12
+Left=-1536
+Top=-79
 Width=2844
 Height=6202
 MaxLeft=-1
@@ -551,7 +551,7 @@ Visible=0
 Docked=1
 State=0
 Left=-1536
-Top=269
+Top=-102
 Width=276
 Height=356
 MaxLeft=-1
@@ -575,11 +575,11 @@ State=0
 Left=0
 Top=0
 Width=3823
-Height=1000
+Height=2837
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=3823
-ClientHeight=1000
+ClientHeight=2837
 TBDockHeight=413
 LRDockWidth=4948
 Dockable=1
@@ -594,11 +594,11 @@ State=0
 Left=0
 Top=0
 Width=3823
-Height=1000
+Height=2837
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=3823
-ClientHeight=1000
+ClientHeight=2837
 TBDockHeight=212
 LRDockWidth=7406
 Dockable=1
@@ -617,11 +617,11 @@ State=0
 Left=0
 Top=0
 Width=3823
-Height=1000
+Height=2837
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=3823
-ClientHeight=1000
+ClientHeight=2837
 TBDockHeight=1538
 LRDockWidth=3479
 Dockable=1
@@ -636,11 +636,11 @@ State=0
 Left=0
 Top=0
 Width=3823
-Height=1000
+Height=2837
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=3823
-ClientHeight=1000
+ClientHeight=2837
 TBDockHeight=2058
 LRDockWidth=3479
 Dockable=1
@@ -655,11 +655,11 @@ State=0
 Left=0
 Top=0
 Width=2339
-Height=1000
+Height=1240
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=2339
-ClientHeight=1000
+ClientHeight=1240
 TBDockHeight=2317
 LRDockWidth=2823
 Dockable=1
@@ -736,8 +736,8 @@ Create=1
 Visible=0
 Docked=1
 State=0
-Left=370
-Top=827
+Left=0
+Top=0
 Width=2859
 Height=3212
 MaxLeft=-1
@@ -758,11 +758,11 @@ State=0
 Left=0
 Top=0
 Width=3823
-Height=1000
+Height=2837
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=3823
-ClientHeight=1000
+ClientHeight=2837
 TBDockHeight=1548
 LRDockWidth=8745
 Dockable=1
@@ -849,14 +849,14 @@ Visible=0
 Docked=1
 State=0
 Left=0
-Top=23
+Top=0
 Width=3823
-Height=1240
+Height=3077
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=3823
-ClientHeight=1240
-TBDockHeight=1240
+ClientHeight=3077
+TBDockHeight=3077
 LRDockWidth=3823
 Dockable=1
 StayOnTop=0
@@ -873,7 +873,7 @@ Visible=0
 Docked=1
 State=0
 Left=0
-Top=23
+Top=0
 Width=2000
 Height=6990
 MaxLeft=-1
