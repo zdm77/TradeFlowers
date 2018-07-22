@@ -218,46 +218,6 @@ object FChatDB: TFChatDB
       Height = 201
       Width = 552
     end
-    object cxGrid2: TcxGrid
-      Left = 200
-      Top = 240
-      Width = 546
-      Height = 220
-      TabOrder = 2
-      LookAndFeel.Kind = lfOffice11
-      LookAndFeel.NativeStyle = False
-      object cxGridDBTableView2: TcxGridDBTableView
-        Navigator.Buttons.CustomButtons = <>
-        FilterBox.Visible = fvNever
-        DataController.Filter.Options = [fcoCaseInsensitive]
-        DataController.Summary.DefaultGroupSummaryItems = <>
-        DataController.Summary.FooterSummaryItems = <>
-        DataController.Summary.SummaryGroups = <>
-        FilterRow.Visible = True
-        FilterRow.ApplyChanges = fracImmediately
-        OptionsCustomize.ColumnsQuickCustomization = True
-        OptionsData.Editing = False
-        OptionsSelection.CellSelect = False
-        OptionsView.CellAutoHeight = True
-        OptionsView.ColumnAutoWidth = True
-        OptionsView.GroupByBox = False
-        object cxGridDBColumn2: TcxGridDBColumn
-          Caption = #1057#1086#1086#1086#1073#1097#1077#1085#1080#1077
-          DataBinding.FieldName = 'uni_name'
-          PropertiesClassName = 'TcxMemoProperties'
-          Properties.ReadOnly = True
-          OnCustomDrawCell = cxGridDBColumn1CustomDrawCell
-          Width = 149
-        end
-        object cxGridDBColumn3: TcxGridDBColumn
-          DataBinding.FieldName = 'adm'
-          Visible = False
-        end
-      end
-      object cxGridLevel2: TcxGridLevel
-        GridView = cxGridDBTableView2
-      end
-    end
   end
   object btn1: TButton
     Left = 32

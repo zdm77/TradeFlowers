@@ -972,6 +972,7 @@
             <Form>FSelectProduct</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\pas\Classes\UMarkingClass.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

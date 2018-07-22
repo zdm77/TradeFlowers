@@ -49,11 +49,6 @@ type
     Query2: TUniQuery;
     memPr: TMemTableEh;
     dataDriverP: TDataSetDriverEh;
-    cxGrid2: TcxGrid;
-    cxGridDBTableView2: TcxGridDBTableView;
-    cxGridDBColumn2: TcxGridDBColumn;
-    cxGridDBColumn3: TcxGridDBColumn;
-    cxGridLevel2: TcxGridLevel;
     ClientDataSet1: TClientDataSet;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -315,13 +310,13 @@ begin
 end;
 
 procedure TFChatDB.btn1Click(Sender: TObject);
- type
+type
   PMyList = ^AList;
+
   AList = record
     I: Integer;
     C: string;
   end;
-
 var
   substr, findT: string;
   fL: TStringList;
@@ -329,7 +324,6 @@ var
   lengthP: Double;
   MyList: TList;
   ARecord: PMyList;
-
 begin
   // mem1.Active := True;
   // with Query1 do
@@ -347,47 +341,44 @@ begin
   // Next;
   // end;
   // end;
-
-   MyList := TList.Create;
-   New(ARecord);
-    ARecord^.I := 100;
-    ARecord^.C := 'Z';
-    MyList.Add(ARecord);
-    Application.CreateForm(TFNewOrderFromChat, FNewOrderFromChat);
-    with FNewOrderFromChat do
-    begin
-//    substr:='dsfjk dksfj kdsfj';
-//     i := length(Str);
-   //   MStream := TMemoryStream.Create;
-//     MStream.WriteBuffer(i, SizeOf(i));
-//     if i > 0 then
-//       MStream.WriteBuffer(PChar(substr)^, i);
-    //  MStream.WriteBuffer(MyList, 800);
+  MyList := TList.Create;
+  New(ARecord);
+  ARecord^.I := 100;
+  ARecord^.C := 'Z';
+  MyList.Add(ARecord);
+  Application.CreateForm(TFNewOrderFromChat, FNewOrderFromChat);
+  with FNewOrderFromChat do
+  begin
+    // substr:='dsfjk dksfj kdsfj';
+    // i := length(Str);
+    // MStream := TMemoryStream.Create;
+    // MStream.WriteBuffer(i, SizeOf(i));
+    // if i > 0 then
+    // MStream.WriteBuffer(PChar(substr)^, i);
+    // MStream.WriteBuffer(MyList, 800);
     // MStream.Read(MyList, 1);
-   //    MStream.seek(0, 0);
-
+    // MStream.seek(0, 0);
     // mempr.sa
-      //MStream.Free;
-    end;
+    // MStream.Free;
+  end;
 end;
 
 procedure TFChatDB.btnCopyClick(Sender: TObject);
- type
-  PMyList = ^AList;
-  AList = record
-    I: Integer;
-    C: string;
-  end;
+// type
+// PMyList = ^AList;
+// AList = record
+// I: Integer;
+// C: string;
+// end;
 var
   fL: TStringList;
   I, j, counter, l: Integer;
   lengthP: Double;
   CountOrd, str: string;
-  MyList: TList;
-  ARecord: PMyList;
-
+  // MyList: TList;
+  // ARecord: PMyList;
 begin
-  MyList := TList.Create;
+  // MyList := TList.Create;
   Application.CreateForm(TFNewOrderFromChat, FNewOrderFromChat);
   memo1.Lines.Clear;
   fL := TStringList.Create;
@@ -455,7 +446,7 @@ begin
               Break;
             end;
           end;
-         // memo1.Lines.Add(globalSql);
+          // memo1.Lines.Add(globalSql);
           if globalSql <> '' then
           begin
             // with memPr do
@@ -509,16 +500,14 @@ begin
               Next;
               // end;
             end;
-
           end;
         end;
       end;
-
     end;
   finally
     fL.Free
   end;
-
+  FNewOrderFromChat.IDMarking := idClientChat;
   FNewOrderFromChat.Show;
   // Application.CreateForm(TFNewOrderFromChat, FNewOrderFromChat);
   // memo1.Lines.Clear;
