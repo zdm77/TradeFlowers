@@ -13,6 +13,7 @@
     Options.KeepDesignConnected = False
     PoolingOptions.MaxPoolSize = 100000
     PoolingOptions.ConnectionLifetime = 3
+    Pooling = True
     Username = 'uniflora_trade'
     LoginPrompt = False
     Left = 8

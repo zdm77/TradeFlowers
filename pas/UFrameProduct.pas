@@ -631,6 +631,7 @@ begin
     //
   end;
   lstTreeProducts.SetFocus;
+  DM1.db1.Connected:=false;
 end;
 
 end.

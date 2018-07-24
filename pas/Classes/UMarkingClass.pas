@@ -37,7 +37,7 @@ Type
 
     // TList объект мы использует в этом коде
     // Метод для показа содержимого нашего объекта списка
-  published
+  public
     property IDKargo: integer read FIDKargo write SetIDKargo;
     property IDTrack: integer read FIDTrack write SetIDTrack;
     property IDPricooling: integer read FIDPricooling write SetIDPricooling;
@@ -60,6 +60,7 @@ procedure TMarkingClass.setNameById(id: integer);
 begin
   with Query do
   begin
+    //dm1.db1.Pooling:=true;
     Connection := DM1.db1;
     sql.Text := 'select * from маркировки.маркировки where id=' + IntToStr(id);
     open;

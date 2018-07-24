@@ -11,7 +11,8 @@ uses
   cxGridTableView, cxGridCustomView, cxClasses, cxGridLevel, cxGrid, cxCheckBox,
   cxContainer, cxDropDownEdit, cxLookupEdit, cxDBLookupEdit, cxDBLookupComboBox,
   Vcl.ComCtrls, AdvDateTimePicker, cxTextEdit, cxLabel, cxMaskEdit,
-  cxButtonEdit, cxGroupBox,UMarkingClass;
+  cxButtonEdit, cxGroupBox, UMarkingClass, UOrderClass, UFrameSave,
+  UFrameTopPanel, Vcl.ImgList;
 
 type
   TFNewOrderFromChat = class(TForm)
@@ -44,15 +45,22 @@ type
     lblTrack: TcxLabel;
     lblPricooling: TcxLabel;
     edtFito: TcxLookupComboBox;
+    il1: TImageList;
+    Style1: TcxStyleRepository;
+    cxstyl1: TcxStyle;
+    cxGridTableViewStyleSheet1: TcxGridTableViewStyleSheet;
+    FrameTopPanel1: TFrameTopPanel;
+    FrameSave1: TFrameSave;
     procedure FormShow(Sender: TObject);
     procedure Table1DblClick(Sender: TObject);
   private
   var
-    Marking: TMarkingClass;
+    IDMarking: Integer;
+    Order: TOrderClass;
     { Private declarations }
   public
-    MStream: TStream;
-    IDMarking: Integer;
+    procedure setIDMarking(id : integer);
+    // MStream: TStream;
     { Public declarations }
   end;
 
@@ -63,17 +71,18 @@ implementation
 
 {$R *.dfm}
 
-uses USelectProduct;
-
+uses USelectProduct, UDataModule1;
+procedure TFNewOrderFromChat.setIDMarking(id : integer);
+begin
+   IDMarking:=id;
+end;
 procedure TFNewOrderFromChat.FormShow(Sender: TObject);
 begin
-  Marking := TMarkingClass.Create();
-  Marking.setNameById(IDMarking);
-  Marking.getDefaultParam;
-  edtMarking.Text := Marking.getName;
-  edtKargo.Text := Marking.NameKargo;
-  edtTrack.Text := Marking.NameTrack;
-  edtPricooling.Text := Marking.NamePricooling;
+  Order := TOrderClass.Create(IDMarking);
+  edtMarking.Text := Order.NameMarking;
+  edtKargo.Text := Order.NameKargo;
+  edtTrack.Text := Order.NameTrack;
+  edtPricooling.Text := Order.NamePricooling;
 end;
 
 procedure TFNewOrderFromChat.Table1DblClick(Sender: TObject);

@@ -408,7 +408,7 @@ begin
           // пытаемся определить тип
           Close;
           sql.Text := returnSQL('"продукция"."типы"', fL);
-          memo1.Lines.Add(sql.Text);
+         // memo1.Lines.Add(sql.Text);
           Open;
           if RecordCount > 0 then
           begin
@@ -459,6 +459,7 @@ begin
             Close;
             sql.Text := globalSql;
             Open;
+           // FNewOrderFromChat.Table1.DataController.BeginUpdate;
             if RecordCount = 0 then
             begin
               FNewOrderFromChat.Table1.DataController.Append;
@@ -507,7 +508,8 @@ begin
   finally
     fL.Free
   end;
-  FNewOrderFromChat.IDMarking := idClientChat;
+ //  FNewOrderFromChat.Table1.DataController. EndUpdate;
+  FNewOrderFromChat.setIDMarking(idClientChat) ;
   FNewOrderFromChat.Show;
   // Application.CreateForm(TFNewOrderFromChat, FNewOrderFromChat);
   // memo1.Lines.Clear;

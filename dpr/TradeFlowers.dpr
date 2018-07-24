@@ -211,7 +211,8 @@ uses
   ProductClass in '..\pas\ProductClass.pas',
   UNewOrderFromChat in '..\pas\Orders\UNewOrderFromChat.pas' {FNewOrderFromChat},
   USelectProduct in '..\pas\USelectProduct.pas' {FSelectProduct},
-  UMarkingClass in '..\pas\Classes\UMarkingClass.pas';
+  UMarkingClass in '..\pas\Classes\UMarkingClass.pas',
+  UOrderClass in '..\pas\Classes\UOrderClass.pas';
 
 {$R *.res}
 
