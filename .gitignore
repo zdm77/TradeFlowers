@@ -9,3 +9,5 @@ __history
 *.dsk
 *.identcache
 *.~dsk
+*.dsk
+*.local
