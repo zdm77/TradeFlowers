@@ -96,25 +96,6 @@ object FChat: TFChat
     TabOrder = 8
     ViewStyle = vsReport
   end
-  object sockClient: TClientSocket
-    Active = False
-    ClientType = ctNonBlocking
-    Port = 0
-    OnConnect = sockClientConnect
-    OnDisconnect = sockClientDisconnect
-    OnRead = sockClientRead
-    Left = 264
-    Top = 392
-  end
-  object sockServer: TServerSocket
-    Active = False
-    Port = 0
-    ServerType = stNonBlocking
-    OnClientConnect = sockServerClientConnect
-    OnClientDisconnect = sockServerClientDisconnect
-    Left = 320
-    Top = 392
-  end
   object img1: TImageList
     Left = 704
     Top = 24

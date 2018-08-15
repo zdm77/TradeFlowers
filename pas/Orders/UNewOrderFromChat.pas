@@ -20,7 +20,6 @@ type
     cxGrid1: TcxGrid;
     Table1: TcxGridTableView;
     columnName: TcxGridColumn;
-    btn1: TButton;
     columnID: TcxGridColumn;
     columnCountry: TcxGridColumn;
     columnType: TcxGridColumn;

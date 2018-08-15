@@ -92,10 +92,10 @@ object FChatDB: TFChatDB
         Align = alClient
         Lines.Strings = (
           'Ecuador, Roses, ABAX ROSES, Topaz, 110'
-          'Ecuador, Rose, Abax Roses, Creme de la Creme, 90'
-          'Ecuador, Rose, Abax Roses, '#1057'ool Water, 70'
-          'Ecuador, Rose, Abax Roses, High & Yellow Flame, 100'
-          'Ecuador, Rose, CANANVALLE, Aerobic, 100')
+          'Abax Roses, Creme de la Creme, 90'
+          #1057'ool Water, 70, Abax Roses'
+          'Abax Roses, High & Yellow Flame, 100'
+          'CANANVALLE, Aerobic, 100')
         Properties.ScrollBars = ssBoth
         TabOrder = 0
         OnKeyDown = memoMessageKeyDown
@@ -213,6 +213,7 @@ object FChatDB: TFChatDB
       Top = 72
       Properties.ScrollBars = ssBoth
       TabOrder = 1
+      Visible = False
       OnKeyDown = memoMessageKeyDown
       OnKeyUp = memoMessageKeyUp
       Height = 201
@@ -226,6 +227,7 @@ object FChatDB: TFChatDB
     Height = 25
     Caption = 'btn1'
     TabOrder = 5
+    Visible = False
     OnClick = btn1Click
   end
   object QueryUsers: TUniQuery
