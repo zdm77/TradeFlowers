@@ -41,6 +41,8 @@ object FChatDB: TFChatDB
       StyleHot.LookAndFeel.NativeStyle = False
       StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
       TabOrder = 0
+      ExplicitLeft = 1
+      ExplicitTop = -2
       Height = 49
       Width = 974
       object btnSend: TcxButton
@@ -55,7 +57,7 @@ object FChatDB: TFChatDB
         OnClick = btnSendClick
       end
       object btnCopy: TcxButton
-        Left = 87
+        Left = 311
         Top = 7
         Width = 146
         Height = 36
@@ -63,6 +65,7 @@ object FChatDB: TFChatDB
         LookAndFeel.NativeStyle = False
         LookAndFeel.SkinName = 'Office2007Blue'
         TabOrder = 1
+        Visible = False
         OnClick = btnCopyClick
       end
       object cxButton1: TcxButton
@@ -75,6 +78,17 @@ object FChatDB: TFChatDB
         LookAndFeel.SkinName = 'Office2007Blue'
         TabOrder = 2
         OnClick = btnSendClick
+      end
+      object btnOrder2: TcxButton
+        Left = 87
+        Top = 7
+        Width = 146
+        Height = 36
+        Caption = #1047#1072#1082#1072#1079' '#1080#1079' '#1089#1086#1086#1073#1097#1077#1085#1080#1103
+        LookAndFeel.NativeStyle = False
+        LookAndFeel.SkinName = 'Office2007Blue'
+        TabOrder = 3
+        OnClick = btnOrder2Click
       end
     end
     object cxGroupBox5: TcxGroupBox
@@ -91,11 +105,8 @@ object FChatDB: TFChatDB
         Top = 2
         Align = alClient
         Lines.Strings = (
-          'Ecuador, Roses, ABAX ROSES, Topaz, 110'
-          'Abax Roses, Creme de la Creme, 90'
-          #1057'ool Water, 70, Abax Roses'
-          'Abax Roses, High & Yellow Flame, 100'
-          'CANANVALLE, Aerobic, 100')
+          'abax roses'
+          '1 hb freedom 60')
         Properties.ScrollBars = ssBoth
         TabOrder = 0
         OnKeyDown = memoMessageKeyDown

@@ -11,6 +11,8 @@ object FSelectProduct: TFSelectProduct
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnClose = FormClose
+  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -21,8 +23,7 @@ object FSelectProduct: TFSelectProduct
     Height = 32
     Align = alTop
     TabOrder = 0
-    ExplicitLeft = -60
-    ExplicitWidth = 851
+    ExplicitWidth = 791
     ExplicitHeight = 32
     inherited barProduct: TdxBarManager
       DockControlHeights = (
@@ -79,11 +80,10 @@ object FSelectProduct: TFSelectProduct
     Height = 28
     Align = alTop
     TabOrder = 1
-    ExplicitLeft = -60
     ExplicitTop = 32
-    ExplicitWidth = 851
+    ExplicitWidth = 791
     inherited Group1: TcxGroupBox
-      ExplicitWidth = 851
+      ExplicitWidth = 791
       Width = 791
       inherited LabelName: TcxLabel
         Style.IsFontAssigned = True
@@ -118,14 +118,14 @@ object FSelectProduct: TFSelectProduct
     TabOrder = 3
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = False
-    ExplicitLeft = 8
-    ExplicitTop = 40
-    ExplicitWidth = 553
-    ExplicitHeight = 351
     object ViewStatWork: TcxGridDBTableView
       OnDblClick = ViewStatWorkDblClick
+      OnMouseDown = ViewStatWorkMouseDown
       Navigator.Buttons.CustomButtons = <>
       FilterBox.Visible = fvNever
+      OnCustomDrawCell = ViewStatWorkCustomDrawCell
+      DataController.DataModeController.GridMode = True
+      DataController.DataModeController.SmartRefresh = True
       DataController.DataSource = dsPr
       DataController.Filter.Options = [fcoCaseInsensitive, fcoSoftCompare]
       DataController.Filter.Active = True
@@ -141,17 +141,24 @@ object FSelectProduct: TFSelectProduct
       OptionsCustomize.ColumnsQuickCustomization = True
       OptionsData.Editing = False
       OptionsSelection.CellSelect = False
+      OptionsSelection.MultiSelect = True
       OptionsView.ColumnAutoWidth = True
-      object columnCountry: TcxGridDBColumn
-        DataBinding.FieldName = 'country'
-        Visible = False
-        GroupIndex = 0
-        Width = 80
+      object columnSelect: TcxGridDBColumn
+        PropertiesClassName = 'TcxCheckBoxProperties'
+        Properties.AllowGrayed = True
+        Properties.ValueChecked = '1'
+        Properties.ValueUnchecked = '0'
+        OnCustomDrawCell = columnSelectCustomDrawCell
       end
       object columnPlant: TcxGridDBColumn
         DataBinding.FieldName = 'tpe'
         Visible = False
-        GroupIndex = 1
+        GroupIndex = 0
+        Width = 80
+      end
+      object columnCountry: TcxGridDBColumn
+        DataBinding.FieldName = 'country'
+        Visible = False
         Width = 80
       end
       object columnType: TcxGridDBColumn
@@ -170,6 +177,15 @@ object FSelectProduct: TFSelectProduct
     object LevelStatWork: TcxGridLevel
       GridView = ViewStatWork
     end
+  end
+  object btnSelect: TButton
+    Left = 375
+    Top = 29
+    Width = 75
+    Height = 25
+    Caption = 'btnSelect'
+    TabOrder = 4
+    OnClick = btnSelectClick
   end
   object dataDriverP: TDataSetDriverEh
     ProviderDataSet = DM1.QueryProductLocal
@@ -192,7 +208,7 @@ object FSelectProduct: TFSelectProduct
     Left = 388
     Top = 205
     Bitmap = {
-      494C010102000500880010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101020005008C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       00000000000000000000000000000000000000000000FCFCFC04D0CFCE39CCCB
       CA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECBCA

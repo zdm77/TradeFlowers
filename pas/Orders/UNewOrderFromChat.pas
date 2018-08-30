@@ -50,6 +50,7 @@ type
     cxGridTableViewStyleSheet1: TcxGridTableViewStyleSheet;
     FrameTopPanel1: TFrameTopPanel;
     FrameSave1: TFrameSave;
+    columnPrice: TcxGridColumn;
     procedure FormShow(Sender: TObject);
     procedure Table1DblClick(Sender: TObject);
   private
@@ -71,6 +72,7 @@ implementation
 {$R *.dfm}
 
 uses USelectProduct, UDataModule1;
+
 procedure TFNewOrderFromChat.setIDMarking(id : integer);
 begin
    IDMarking:=id;

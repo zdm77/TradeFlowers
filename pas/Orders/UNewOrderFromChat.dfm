@@ -34,7 +34,7 @@
       DataController.Summary.SummaryGroups = <>
       FilterRow.Visible = True
       FilterRow.ApplyChanges = fracImmediately
-      OptionsData.Inserting = False
+      OptionsData.Appending = True
       OptionsSelection.InvertSelect = False
       OptionsSelection.MultiSelect = True
       OptionsSelection.CellMultiSelect = True
@@ -73,7 +73,10 @@
         Width = 255
       end
       object columnCount: TcxGridColumn
-        Caption = 'Count'
+        Caption = 'FB'
+      end
+      object columnPrice: TcxGridColumn
+        Caption = 'Price'
       end
     end
     object cxGrid1Level1: TcxGridLevel
@@ -388,13 +391,16 @@
         0
         0
         34)
+      inherited btnSave: TdxBarLargeButton
+        Enabled = False
+      end
     end
   end
   object il1: TImageList
     Left = 228
     Top = 333
     Bitmap = {
-      494C010102000500580010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102000500640010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       00000000000000000000000000000000000000000000FCFCFC04D0CFCE39CCCB
       CA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECBCA
