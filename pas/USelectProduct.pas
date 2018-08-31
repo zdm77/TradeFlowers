@@ -83,7 +83,7 @@ begin
   for i := 0 to ViewStatWork.DataController.FilteredRecordCount - 1 do
   begin
  //ShowMessage(inttostr(ViewStatWork.DataController.Values[ViewStatWork.DataController.FilteredRecordIndex[i],columnSelect.Index]));
- ShowMessage(inttostr(ViewStatWork.Controller.FocusedRow.Values[0]));
+ //ShowMessage(inttostr(ViewStatWork.Controller.FocusedRow.Values[0]));
   end;
 
 end;

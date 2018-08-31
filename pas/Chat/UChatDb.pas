@@ -51,6 +51,10 @@ type
     dataDriverP: TDataSetDriverEh;
     ClientDataSet1: TClientDataSet;
     btnOrder2: TcxButton;
+    cxGrid2: TcxGrid;
+    cxGridDBTableView2: TcxGridDBTableView;
+    cxGridLevel2: TcxGridLevel;
+    cxGridDBTableView2Column1: TcxGridDBColumn;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure btnSendClick(Sender: TObject);
@@ -344,6 +348,17 @@ begin
       AnsiUpperCase(trim(lst[I])) + '%'' ';
     // Result := Result + ' OR Upper(uni_name)=' + QuotedStr(AnsiUpperCase(trim(lst[I])));
   end;
+end;
+
+function returnSQLStr(name_table: string; str: string): string;
+var
+  I: Integer;
+begin
+  // TODO -cMM: returnSQL default body inserted
+  // Result := 'select id, uni_name from ' + name_table + ' where Upper(uni_name)=' +
+  // QuotedStr(AnsiUpperCase(trim(lst[0])));
+  Result := 'select id, uni_name from ' + name_table +
+    ' where  Upper(uni_name) Like ''%' + AnsiUpperCase(trim(str)) + '%'' ';
 end;
 
 procedure addGlobalSql(query: TUniQuery; field_name: string);
@@ -705,8 +720,9 @@ var
   fL: TStringList;
   I, j, counter, l: Integer;
   lengthP: Double;
-  str, plantName: string;
+  str, plantName, sortName, realSort, lenP, uni_name: string;
   CountOrd: Double;
+  strPlant: string;
 begin
   if idClientChat > 0 then
   begin
@@ -719,6 +735,7 @@ begin
       fL.Delimiter := ',';
       fL.StrictDelimiter := True;
       counter := 0;
+      // nextPlant := 0;
       with Query1 do
       begin
         for j := 0 to memoMessage.Lines.Count - 1 do
@@ -730,9 +747,13 @@ begin
           begin
             fL.DelimitedText := str;
             lengthP := 0;
+            // if nextPlant = 0 then
             globalSql := '';
             // ищем FB, HB , QB
             l := pos('FB', str);
+            lenP := '';
+            sortName := '';
+            uni_name := '';
             if l <> 0 then
               CountOrd := StrToInt(trim(str.Substring(0, l - 1)))
             else
@@ -747,22 +768,95 @@ begin
                   CountOrd := StrToFloat(trim(str.Substring(0, l - 1))) / 4
               end;
             end;
+            // nextPlant := 0;
             // если не нашли кол-во значит плантация
             if CountOrd = 0 then
             begin
+              strPlant := '';
+              // nextPlant := 1;
               Close;
               sql.Text := returnSQL('"продукция"."плантации"', fL);
               Open;
-              plantName := FieldByName('uni_name').AsString;
+              if RecordCount > 0 then
+              begin
+                plantName := FieldByName('uni_name').AsString;
+                // addGlobalSql(Query1, 'код_плантации');
+                strPlant := ' and код_плантации in (' + FieldByName('id')
+                  .AsString + ')';
+              end;
+
             end
             else
             begin
-              //ищем название
+              // ищем название
+              if l <> 0 then
+              begin
+                // до первой цифры
+                str := trim(str.Substring(l + 1, str.Length));
+                for I := 0 to str.Length - 1 do
+                begin
+                  if StrToIntDef(str.Substring(I, 1), 0) = 0 then
+                    sortName := sortName + str.Substring(I, 1)
+                  else
+                  begin
+                    l := I;
+                    Break;
+                  end;
+
+                end;
+                // сорт
+                Close;
+                sql.Text := returnSQLStr('"продукция"."сорта"', sortName);
+                Open;
+                if RecordCount > 0 then
+                begin
+                  realSort := FieldByName('uni_name').AsString;
+                  addGlobalSql(Query1, 'код_сорта');
+                end
+                else
+                  realSort := '';
+                // длина
+                str := trim(str.Substring(l, str.Length));
+                l := 0;
+                for I := 0 to str.Length - 1 do
+                begin
+                  if (StrToIntDef(str.Substring(I, 1), 0) <> 0) or
+                    (str.Substring(I, 1) = '0') then
+                  begin
+                    lenP := lenP + str.Substring(I, 1);
+                    l := I;
+
+                  end
+                  else
+
+                    Break;
+
+                end;
+                if (realSort <> '') and (l <> 0) then
+                  globalSql := globalSql + ' AND uni_name Like ''%' +
+                    AnsiUpperCase(lenP) + '%'''
+
+              end;
+              if globalSql <> '' then
+              begin
+                with Query2 do
+                begin
+                  Close;
+                  sql.Text := globalSql + strPlant;
+                  Open;
+                  uni_name := FieldByName('uni_name').AsString;
+
+                end;
+              end;
               FNewOrderFromChat.Table1.DataController.Append;
               FNewOrderFromChat.Table1.DataController.SetValue(counter, 7,
                 CountOrd);
               FNewOrderFromChat.Table1.DataController.SetValue(counter, 4,
                 plantName);
+              FNewOrderFromChat.Table1.DataController.SetValue(counter, 5,
+                sortName);
+              FNewOrderFromChat.Table1.DataController.SetValue(counter, 6,
+                uni_name);
               counter := counter + 1;
               FNewOrderFromChat.Table1.DataController.Post(True);
             end;
@@ -831,6 +925,7 @@ begin
     // idClientChat := lstClients.items[0].StateIndex;
   end;
   memoMessage.SetFocus;
+  // memPr.Active := True;
 end;
 
 procedure TFChatDB.lstClientsClick(Sender: TObject);

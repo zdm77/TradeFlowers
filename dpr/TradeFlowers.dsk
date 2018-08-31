@@ -1,28 +1,30 @@
 ﻿[Closed Files]
-File_0=TSourceModule,'D:\temp\TortoiseGit\UOrderClass-e1c8099.000.pas',0,1,76,28,33,0,0,,
-File_1=TSourceModule,'D:\Проекты\TradeFlowers\pas\Chat\UChat.pas',0,1,1,1,1,0,0,,
-File_2=TSourceModule,'C:\Проекты\TradeFlowers\pas\UFuncPeoduct.pas',0,1,1,1,1,0,0,,
-File_3=TSourceModule,'C:\Components\XE6\DX\Lib\D20\cxGridTableView.pas',0,1,13969,27,13990,0,0,,
-File_4=TSourceModule,'c:\program files (x86)\embarcadero\studio\14.0\source\data\dsnap\Datasnap.DBClient.pas',0,1,2383,3,2418,0,0,,
-File_5=TSourceModule,'C:\Проекты\TradeFlowers\pas\Dictonary\UDict.pas',0,1,395,12,417,0,0,,
-File_6=TSourceModule,'C:\Проекты\TradeFlowers\pas\Auction\UNewOrderAuc.pas',0,1,25,6,33,0,0,,
-File_7=TSourceModule,'c:\program files (x86)\embarcadero\studio\14.0\source\data\Data.DB.pas',0,1,2497,37,2518,0,0,,
-File_8=TSourceModule,'C:\Проекты\TradeFlowers\pas\Auction\UAuction.pas',0,1,27,11,57,0,0,,
-File_9=TSourceModule,'C:\Проекты\TradeFlowers\pas\ULogin.pas',0,1,22,13,42,0,0,,
-File_10=TSourceModule,'C:\Проекты\TradeFlowers\pas\Chat\UChat.pas',0,1,30,33,30,0,0,,
-File_11=TSourceModule,'C:\Проекты\TradeFlowers\pas\Chat\ChatClass.pas',0,1,1,13,5,0,0,,
-File_12=TSourceModule,'C:\Проекты\TradeFlowers\pas\UExcel.pas',0,1,1,1,1,0,0,,
-File_13=TSourceModule,'c:\program files (x86)\embarcadero\studio\14.0\SOURCE\VCL\Vcl.ComCtrls.pas',0,1,16770,1,16790,0,0,{{17007,0}
+File_0=TSourceModule,'C:\Components\XE6\DX\Lib\D20\cxSplitter.pas',0,1,1320,1,1340,0,0,,
+File_1=TSourceModule,'D:\temp\TortoiseGit\UOrderClass-e1c8099.000.pas',0,1,76,28,33,0,0,,
+File_2=TSourceModule,'D:\Проекты\TradeFlowers\pas\Chat\UChat.pas',0,1,1,1,1,0,0,,
+File_3=TSourceModule,'C:\Проекты\TradeFlowers\pas\UFuncPeoduct.pas',0,1,1,1,1,0,0,,
+File_4=TSourceModule,'C:\Components\XE6\DX\Lib\D20\cxGridTableView.pas',0,1,13969,27,13990,0,0,,
+File_5=TSourceModule,'c:\program files (x86)\embarcadero\studio\14.0\source\data\dsnap\Datasnap.DBClient.pas',0,1,2383,3,2418,0,0,,
+File_6=TSourceModule,'C:\Проекты\TradeFlowers\pas\Dictonary\UDict.pas',0,1,395,12,417,0,0,,
+File_7=TSourceModule,'C:\Проекты\TradeFlowers\pas\Auction\UNewOrderAuc.pas',0,1,25,6,33,0,0,,
+File_8=TSourceModule,'c:\program files (x86)\embarcadero\studio\14.0\source\data\Data.DB.pas',0,1,2497,37,2518,0,0,,
+File_9=TSourceModule,'C:\Проекты\TradeFlowers\pas\Auction\UAuction.pas',0,1,27,11,57,0,0,,
+File_10=TSourceModule,'C:\Проекты\TradeFlowers\pas\ULogin.pas',0,1,22,13,42,0,0,,
+File_11=TSourceModule,'C:\Проекты\TradeFlowers\pas\Chat\UChat.pas',0,1,30,33,30,0,0,,
+File_12=TSourceModule,'C:\Проекты\TradeFlowers\pas\Chat\ChatClass.pas',0,1,1,13,5,0,0,,
+File_13=TSourceModule,'C:\Проекты\TradeFlowers\pas\UExcel.pas',0,1,1,1,1,0,0,,
+File_14=TSourceModule,'c:\program files (x86)\embarcadero\studio\14.0\SOURCE\VCL\Vcl.ComCtrls.pas',0,1,16770,1,16790,0,0,{{17007,0}
 
 [Modules]
 Module0=D:\Проекты\TradeFlowers\pas\Chat\UChatDb.pas
-Module1=D:\Проекты\TradeFlowers\pas\Classes\UOrderClass.pas
+Module1=D:\Проекты\TradeFlowers\pas\USelectProduct.pas
 Module2=D:\Проекты\TradeFlowers\pas\Orders\UNewOrderFromChat.pas
 Module3=D:\Проекты\TradeFlowers\pas\UDataModule1.pas
-Module4=D:\Проекты\TradeFlowers\pas\UPasswd.pas
-Module5=C:\Components\XE6\DX\Lib\D20\cxGridCustomTableView.pas
-Module6=default.htm
-Count=7
+Module4=D:\Проекты\TradeFlowers\pas\Classes\UOrderClass.pas
+Module5=D:\Проекты\TradeFlowers\pas\UPasswd.pas
+Module6=C:\Components\XE6\DX\Lib\D20\cxGridCustomTableView.pas
+Module7=default.htm
+Count=8
 EditWindowCount=1
 
 [D:\Проекты\TradeFlowers\pas\Chat\UChatDb.pas]
@@ -30,10 +32,10 @@ ModuleType=TSourceModule
 FormState=1
 FormOnTop=0
 
-[D:\Проекты\TradeFlowers\pas\Classes\UOrderClass.pas]
+[D:\Проекты\TradeFlowers\pas\USelectProduct.pas]
 ModuleType=TSourceModule
-FormState=0
-FormOnTop=0
+FormState=1
+FormOnTop=1
 
 [D:\Проекты\TradeFlowers\pas\Orders\UNewOrderFromChat.pas]
 ModuleType=TSourceModule
@@ -43,6 +45,11 @@ FormOnTop=0
 [D:\Проекты\TradeFlowers\pas\UDataModule1.pas]
 ModuleType=TSourceModule
 FormState=1
+FormOnTop=1
+
+[D:\Проекты\TradeFlowers\pas\Classes\UOrderClass.pas]
+ModuleType=TSourceModule
+FormState=0
 FormOnTop=0
 
 [D:\Проекты\TradeFlowers\pas\UPasswd.pas]
@@ -70,8 +77,12 @@ FormOnTop=0
 FormState=1
 FormOnTop=0
 
+[D:\Проекты\TradeFlowers\pas\UFrameSearch.pas]
+FormState=1
+FormOnTop=0
+
 [EditWindow0]
-ViewCount=7
+ViewCount=8
 CurrentEditView=D:\Проекты\TradeFlowers\pas\Chat\UChatDb.pas
 View0=0
 View1=1
@@ -80,6 +91,7 @@ View3=3
 View4=4
 View5=5
 View6=6
+View7=7
 PercentageSizes=1
 Create=1
 Visible=1
@@ -100,8 +112,8 @@ LeftPanelSize=1896
 LeftPanelClients=PropertyInspector,DockSite3
 LeftPanelData=0000080001010100000009000000446F636B536974653322100000000000000168070000000000000100000000AF1C00001100000050726F7065727479496E73706563746F72FFFFFFFF
 RightPanelSize=2000
-RightPanelClients=DockSite2,DockSite4,MIDEXForm
-RightPanelData=0000080001010100000009000000446F636B5369746532221000000000000001D0070000000000000100000000A90F0000090000004D49444558466F726D0100000000AF1C000009000000446F636B5369746534FFFFFFFF
+RightPanelClients=DockSite2,DockSite4
+RightPanelData=0000080001010100000009000000446F636B5369746532221000000000000001D0070000000000000100000000AF1C000009000000446F636B5369746534FFFFFFFF
 BottomPanelSize=1519
 BottomPanelClients=DockSite1,MessageView
 BottomPanelData=0000080001020100000009000000446F636B5369746531724500000000000002EF050000000000000100000000724500000F0000004D65737361676556696577466F726DFFFFFFFF
@@ -116,15 +128,26 @@ WelcomePageURL=bds:/default.htm
 [View1]
 CustomEditViewType=TEditView
 Module=D:\Проекты\TradeFlowers\pas\Orders\UNewOrderFromChat.pas
-CursorX=3
-CursorY=67
-TopLine=51
+CursorX=1
+CursorY=79
+TopLine=76
 LeftCol=1
 Elisions=
-Bookmarks=
+Bookmarks={7,93,47}
 EditViewName=D:\Проекты\TradeFlowers\pas\Orders\UNewOrderFromChat.pas
 
 [View2]
+CustomEditViewType=TEditView
+Module=D:\Проекты\TradeFlowers\pas\USelectProduct.pas
+CursorX=4
+CursorY=86
+TopLine=52
+LeftCol=1
+Elisions=
+Bookmarks={1,86,1}{7,60,4}
+EditViewName=Borland.FormDesignerView
+
+[View3]
 CustomEditViewType=TEditView
 Module=D:\Проекты\TradeFlowers\pas\Classes\UOrderClass.pas
 CursorX=14
@@ -135,29 +158,29 @@ Elisions=
 Bookmarks=
 EditViewName=D:\Проекты\TradeFlowers\pas\Classes\UOrderClass.pas
 
-[View3]
-CustomEditViewType=TEditView
-Module=D:\Проекты\TradeFlowers\pas\Chat\UChatDb.pas
-CursorX=10
-CursorY=751
-TopLine=731
-LeftCol=1
-Elisions=
-Bookmarks={7,436,1}
-EditViewName=D:\Проекты\TradeFlowers\pas\Chat\UChatDb.pas
-
 [View4]
 CustomEditViewType=TEditView
+Module=D:\Проекты\TradeFlowers\pas\Chat\UChatDb.pas
+CursorX=61
+CursorY=802
+TopLine=779
+LeftCol=1
+Elisions=
+Bookmarks={7,447,1}
+EditViewName=D:\Проекты\TradeFlowers\pas\Chat\UChatDb.pas
+
+[View5]
+CustomEditViewType=TEditView
 Module=D:\Проекты\TradeFlowers\pas\UPasswd.pas
-CursorX=42
-CursorY=357
-TopLine=338
+CursorX=21
+CursorY=227
+TopLine=221
 LeftCol=1
 Elisions=
 Bookmarks=
 EditViewName=D:\Проекты\TradeFlowers\pas\UPasswd.pas
 
-[View5]
+[View6]
 CustomEditViewType=TEditView
 Module=D:\Проекты\TradeFlowers\pas\UDataModule1.pas
 CursorX=1
@@ -168,7 +191,7 @@ Elisions=
 Bookmarks=
 EditViewName=Borland.FormDesignerView
 
-[View6]
+[View7]
 CustomEditViewType=TEditView
 Module=C:\Components\XE6\DX\Lib\D20\cxGridCustomTableView.pas
 CursorX=29
@@ -181,13 +204,13 @@ EditViewName=C:\Components\XE6\DX\Lib\D20\cxGridCustomTableView.pas
 
 [Watches]
 Count=4
-Watch0='Length(MyList.List)',256,0,18,1,0,'Watches',1
+Watch0='globalSql',256,0,18,1,0,'Watches',1
 Watch1='QueryMessage.sql.text',256,0,18,1,0,'Watches',1
 Watch2='lstClients.Items[0].StateIndex',256,0,18,1,0,'Watches',1
 Watch3='l',256,0,18,1,0,'Watches',1
 
 [WatchWindow]
-WatchColumnWidth=120
+WatchColumnWidth=199
 WatchShowColumnHeaders=1
 PercentageSizes=1
 Create=1
@@ -208,7 +231,9 @@ Dockable=1
 StayOnTop=0
 
 [Breakpoints]
-Count=0
+Count=2
+Breakpoint0='D:\Проекты\TradeFlowers\pas\Chat\UChatDb.pas',784,'',0,1,'',1,0,0,'',1,'','','',0,''
+Breakpoint1='D:\Проекты\TradeFlowers\pas\Chat\UChatDb.pas',807,'',0,1,'',1,0,0,'',1,'','','',0,''
 
 [EmbarcaderoWin32Debugger_AddressBreakpoints]
 Count=0
@@ -274,32 +299,6 @@ LRDockWidth=2771
 Dockable=1
 StayOnTop=0
 
-[ConfigurationManager]
-PercentageSizes=1
-Create=1
-Visible=0
-Docked=0
-State=0
-Left=3531
-Top=2942
-Width=2932
-Height=4106
-MaxLeft=-5
-MaxTop=-10
-ClientWidth=2849
-ClientHeight=3731
-TBDockHeight=4106
-LRDockWidth=2932
-Dockable=1
-StayOnTop=0
-
-[TConfigMgrDlg]
-Column0=120
-Column1=120
-Column2=120
-Column3=100
-Column4=140
-
 [ToolForm]
 PercentageSizes=1
 Create=1
@@ -309,11 +308,11 @@ State=0
 Left=0
 Top=0
 Width=2000
-Height=3240
+Height=7404
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=2000
-ClientHeight=3240
+ClientHeight=7404
 TBDockHeight=7154
 LRDockWidth=2000
 Dockable=1
@@ -413,12 +412,12 @@ TBDockHeight=9019
 LRDockWidth=1896
 Dockable=1
 StayOnTop=0
-SplitPos=111
+SplitPos=151
 
 [PropInspDesignerSelection]
 ArrangeBy=Name
-SelectedItem=Action,OnCompareRowValuesForCellMerging
-ExpandedItems=Anchors=0,BorderIcons=0,Constraints=0,Font=0,GlassFrame=0,HorzScrollBar=0,Colors=0,LiveBindings=0,"LiveBindings Designer=0",LookAndFeel=0,Margins=0,OptionsImage=0,Properties=0,Style=0,StyleDisabled=0,StyleFocused=0,StyleHot=0,Touch=0,SpeedButtonOptions=0,Styles=0,DataBinding=0,Options=0,Summary=0
+SelectedItem=Name,OnMouseUp
+ExpandedItems=Anchors=0,BorderIcons=0,Constraints=0,Font=0,GlassFrame=0,HorzScrollBar=0,BackgroundBitmaps=0,DataController=1,DateTimeHandling=0,EditForm=1,FilterBox=0,Filtering=0,FilterRow=0,"LiveBindings Designer=0",Navigator=0,NewItemRow=0,OptionsBehavior=0,OptionsCustomize=0,OptionsData=1,OptionsSelection=1,OptionsView=1,Preview=0,Styles=0,DataController.Filter=0,DataController.Options=0,DataController.Summary=0,Properties=0,DataBinding=1,Options=1,Summary=0,Connection=0,Encryption=0,FilterOptions=0,RefreshOptions=0,SmartFetch=0,Transaction=0,DataController.DataModeController=1,DataController.DataSource=0,DataController.MultiThreadedOptions=0,LiveBindings=0,Properties.AssignedValues=0,Properties.ValidationOptions=0,Properties.ValueChecked=0,Properties.ValueGrayed=0,Properties.ValueUnchecked=0
 
 [TFileExplorerForm]
 PercentageSizes=1
@@ -689,28 +688,6 @@ LRDockWidth=1896
 Dockable=1
 StayOnTop=0
 
-[MIDEXForm]
-PercentageSizes=1
-Create=1
-Visible=1
-Docked=1
-State=0
-Left=0
-Top=23
-Width=2000
-Height=3904
-MaxLeft=-1
-MaxTop=-1
-ClientWidth=2000
-ClientHeight=3904
-TBDockHeight=3904
-LRDockWidth=2000
-Dockable=1
-StayOnTop=0
-Layout=0
-Split=141
-ContentsClosed=0
-
 [BorlandEditorCodeExplorer@EditWindow0]
 PercentageSizes=1
 Create=1
@@ -838,14 +815,14 @@ Visible=1
 Docked=1
 State=0
 Left=0
-Top=456
+Top=23
 Width=2000
-Height=3240
+Height=7404
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=2000
-ClientHeight=3240
-TBDockHeight=3240
+ClientHeight=7404
+TBDockHeight=6990
 LRDockWidth=2000
 Dockable=1
 StayOnTop=0

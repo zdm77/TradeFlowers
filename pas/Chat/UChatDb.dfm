@@ -41,8 +41,6 @@ object FChatDB: TFChatDB
       StyleHot.LookAndFeel.NativeStyle = False
       StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
       TabOrder = 0
-      ExplicitLeft = 1
-      ExplicitTop = -2
       Height = 49
       Width = 974
       object btnSend: TcxButton
@@ -58,7 +56,7 @@ object FChatDB: TFChatDB
       end
       object btnCopy: TcxButton
         Left = 311
-        Top = 7
+        Top = 9
         Width = 146
         Height = 36
         Caption = #1047#1072#1082#1072#1079' '#1080#1079' '#1089#1086#1086#1073#1097#1077#1085#1080#1103
@@ -106,7 +104,11 @@ object FChatDB: TFChatDB
         Align = alClient
         Lines.Strings = (
           'abax roses'
-          '1 hb freedom 60')
+          '1 hb freedom 60'
+          '1 hb freedom 70'
+          '1 hb freedom 80'
+          '1 hb freedom 90'
+          '1 hb freedom 1000')
         Properties.ScrollBars = ssBoth
         TabOrder = 0
         OnKeyDown = memoMessageKeyDown
@@ -229,6 +231,38 @@ object FChatDB: TFChatDB
       OnKeyUp = memoMessageKeyUp
       Height = 201
       Width = 552
+    end
+    object cxGrid2: TcxGrid
+      Left = 72
+      Top = 127
+      Width = 562
+      Height = 273
+      TabOrder = 2
+      LookAndFeel.Kind = lfOffice11
+      LookAndFeel.NativeStyle = False
+      object cxGridDBTableView2: TcxGridDBTableView
+        Navigator.Buttons.CustomButtons = <>
+        FilterBox.Visible = fvNever
+        DataController.DataSource = ds2
+        DataController.Filter.Options = [fcoCaseInsensitive]
+        DataController.Summary.DefaultGroupSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <>
+        DataController.Summary.SummaryGroups = <>
+        FilterRow.Visible = True
+        FilterRow.ApplyChanges = fracImmediately
+        OptionsCustomize.ColumnsQuickCustomization = True
+        OptionsData.Editing = False
+        OptionsSelection.CellSelect = False
+        OptionsView.CellAutoHeight = True
+        OptionsView.ColumnAutoWidth = True
+        OptionsView.GroupByBox = False
+        object cxGridDBTableView2Column1: TcxGridDBColumn
+          DataBinding.FieldName = 'uni_name'
+        end
+      end
+      object cxGridLevel2: TcxGridLevel
+        GridView = cxGridDBTableView2
+      end
     end
   end
   object btn1: TButton
@@ -464,7 +498,7 @@ object FChatDB: TFChatDB
       end>
   end
   object tmr1: TTimer
-    Interval = 5000
+    Interval = 50000
     OnTimer = tmr1Timer
     Left = 488
     Top = 88

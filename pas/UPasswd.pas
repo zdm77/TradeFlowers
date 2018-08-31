@@ -460,6 +460,7 @@ end;
 
 procedure TFPasswd.FormShow(Sender: TObject);
 begin
+  DM1.Monotor1.Active:=True;
   FOsn.Show;
   FOsn.Bar2.Visible := False;
   FOsn.mДанные.Visible := False;
