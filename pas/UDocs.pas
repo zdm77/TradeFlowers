@@ -49,7 +49,7 @@ uses
       
      
      
-    UFramePrice, UFrameReceipt;
+    UFramePrice, UFrameReceipt, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
 
 type
   TFDocs = class(TForm)

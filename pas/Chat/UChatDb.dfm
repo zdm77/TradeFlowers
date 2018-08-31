@@ -232,38 +232,6 @@ object FChatDB: TFChatDB
       Height = 201
       Width = 552
     end
-    object cxGrid2: TcxGrid
-      Left = 72
-      Top = 127
-      Width = 562
-      Height = 273
-      TabOrder = 2
-      LookAndFeel.Kind = lfOffice11
-      LookAndFeel.NativeStyle = False
-      object cxGridDBTableView2: TcxGridDBTableView
-        Navigator.Buttons.CustomButtons = <>
-        FilterBox.Visible = fvNever
-        DataController.DataSource = ds2
-        DataController.Filter.Options = [fcoCaseInsensitive]
-        DataController.Summary.DefaultGroupSummaryItems = <>
-        DataController.Summary.FooterSummaryItems = <>
-        DataController.Summary.SummaryGroups = <>
-        FilterRow.Visible = True
-        FilterRow.ApplyChanges = fracImmediately
-        OptionsCustomize.ColumnsQuickCustomization = True
-        OptionsData.Editing = False
-        OptionsSelection.CellSelect = False
-        OptionsView.CellAutoHeight = True
-        OptionsView.ColumnAutoWidth = True
-        OptionsView.GroupByBox = False
-        object cxGridDBTableView2Column1: TcxGridDBColumn
-          DataBinding.FieldName = 'uni_name'
-        end
-      end
-      object cxGridLevel2: TcxGridLevel
-        GridView = cxGridDBTableView2
-      end
-    end
   end
   object btn1: TButton
     Left = 32

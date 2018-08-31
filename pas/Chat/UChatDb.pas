@@ -51,10 +51,6 @@ type
     dataDriverP: TDataSetDriverEh;
     ClientDataSet1: TClientDataSet;
     btnOrder2: TcxButton;
-    cxGrid2: TcxGrid;
-    cxGridDBTableView2: TcxGridDBTableView;
-    cxGridLevel2: TcxGridLevel;
-    cxGridDBTableView2Column1: TcxGridDBColumn;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure btnSendClick(Sender: TObject);

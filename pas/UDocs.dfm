@@ -100,7 +100,7 @@
     Align = alClient
     TabOrder = 1
     Visible = False
-    Properties.ActivePage = TabПоступления
+    Properties.ActivePage = TabПедидо
     Properties.CustomButtons.Buttons = <>
     ClientRectBottom = 473
     ClientRectLeft = 4
