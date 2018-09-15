@@ -20,7 +20,6 @@ uses
   cxLookAndFeelPainters,
   cxStyles,
   dxSkinsCore,
-  
   dxSkinscxPCPainter,
   cxCustomData,
   cxFilter,
@@ -45,18 +44,9 @@ uses
   cxGroupBox,
   cxCurrencyEdit,
   cxCalc,
-  cxNavigator,    
-     
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue;
+  cxNavigator,
+  dxSkinDevExpressStyle,
+  dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters, cxLabel, cxTextEdit, cxMaskEdit, cxButtonEdit;
 
 type
   TFNewZakupka = class(TForm)
@@ -77,6 +67,8 @@ type
     ColumnDateF: TcxGridDBColumn;
     ColumnNumF: TcxGridDBColumn;
     ColumnItog: TcxGridDBColumn;
+    edtMarking: TcxButtonEdit;
+    lblMarking: TcxLabel;
     procedure btnAddClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -84,6 +76,7 @@ type
     procedure QueryGroupZakupkaAfterFetch(DataSet: TCustomDADataSet);
     procedure ViewOrderDblClick(Sender: TObject);
     procedure btnDelClick(Sender: TObject);
+    procedure edtMarkingPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
   private
     Sum_Fb: Double;
     { Private declarations }
@@ -95,6 +88,7 @@ type
     FB_Zakaz: Double;
     No_Compras: Double;
     s_date_fly: TDate;
+    idNew: boolean;
     /// <summary>
     /// Задействование кнопок
     /// </summary>
@@ -120,17 +114,25 @@ implementation
 uses
   UNewZakupkaDetail,
   USplash,
-  PGSQL;
+  PGSQL, USelect;
 
 procedure TFNewZakupka.btnAddClick(Sender: TObject);
 begin
+  if s_id_order_detail = 0 then
+  begin
+    // создаем закупку
+//    with Query1 do
+//    begin
+//     sql.Clear;
+//     SQL.Add('insert into "документы"."закупки"' );
+//    end;
+  end;
   Application.CreateForm(TFNewZakupkaDetail, FNewZakupkaDetail);
   with FNewZakupkaDetail do
   begin
     Max_FB := FB_Zakaz - Sum_Fb;
-    Group1.Caption := 'Основные сведенеия : FB в заказе - ' +
-      FloatToStr(FB_Zakaz) + '. FB продано - ' + FloatToStr(Sum_Fb) +
-      '. FB осталось - ' + FloatToStr(Max_FB);
+    Group1.Caption := 'Основные сведенеия : FB в заказе - ' + FloatToStr(FB_Zakaz) + '. FB продано - ' +
+      FloatToStr(Sum_Fb) + '. FB осталось - ' + FloatToStr(Max_FB);
     id_order_detail := s_id_order_detail;
     id_order_edit := s_id_order;
     // FrameProduct1.ShowProduct(0,' and ');
@@ -147,27 +149,25 @@ end;
 
 procedure TFNewZakupka.btnDelClick(Sender: TObject);
 begin
-  if Application.MessageBox('Вы действительно хотите удалить позицию?',
-    'Вопрос', MB_YESNO + MB_ICONQUESTION) = mrYes then
+  if Application.MessageBox('Вы действительно хотите удалить позицию?', 'Вопрос', MB_YESNO + MB_ICONQUESTION) = mrYes
+  then
   begin
     FSplash.Show;
     with Query1 do
     begin
       Close;
-      sql.Text := 'delete from "документы"."фактура_деталь" where код_фактуры='
-        + QueryGroupZakupka.FieldByName('код_фактуры').AsString;
-      ExecSQL;
-      Close;
-      sql.Text := 'delete from "документы"."фактуры" where id=' +
+      sql.Text := 'delete from "документы"."фактура_деталь" where код_фактуры=' +
         QueryGroupZakupka.FieldByName('код_фактуры').AsString;
       ExecSQL;
       Close;
-      sql.Text := 'delete from "документы"."закупки_деталь" where код_закупки='
-        + QueryGroupZakupka.FieldByName('id').AsString;
+      sql.Text := 'delete from "документы"."фактуры" where id=' + QueryGroupZakupka.FieldByName('код_фактуры').AsString;
       ExecSQL;
       Close;
-      sql.Text := 'delete from "документы"."закупки" where id=' +
+      sql.Text := 'delete from "документы"."закупки_деталь" where код_закупки=' +
         QueryGroupZakupka.FieldByName('id').AsString;
+      ExecSQL;
+      Close;
+      sql.Text := 'delete from "документы"."закупки" where id=' + QueryGroupZakupka.FieldByName('id').AsString;
       ExecSQL;
       QueryGroupZakupka.Refresh;
     end;
@@ -197,8 +197,7 @@ begin
     else
     begin
       edtDateFact.Date := QueryGroupZakupka.FieldByName('фактура_дата').Value;
-      edtNumFact.Text := QueryGroupZakupka.FieldByName('фактура_номер')
-        .AsString;
+      edtNumFact.Text := QueryGroupZakupka.FieldByName('фактура_номер').AsString;
     end;
     ShowProductsW;
     ShowDetail();
@@ -208,14 +207,36 @@ begin
   QueryGroupZakupka.Refresh;
 end;
 
+procedure TFNewZakupka.edtMarkingPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
+begin
+  Application.CreateForm(TFSelect, FSelect);
+  with FSelect do
+  begin
+    Caption := 'Выберите маркировку';
+    lstTree.Visible := True;
+    GridSelect.Visible := false;
+    ShowSelect('"маркировки"."маркировки"', '', false);
+    ShowModal;
+{$REGION 'Если выбрана маркировка'}
+    if FrameTopPanel1.id_select = True then
+    begin
+      // s_id_marking := QuerySelect.FieldByName('id').AsInteger;
+      s_id_marking := QuerySelect.FieldByName('id').AsInteger;
+      edtMarking.Text := QuerySelect.FieldByName('uni_name').AsString;
+    end
+    else
+      FSplash.Close;
+  end;
+end;
+
 procedure TFNewZakupka.EnableButton;
 begin
   with FrameTopPanel1 do
   begin
     if (QueryGroupZakupka.RecordCount <> 0) then
     begin
-      btnEdit.Enabled := true;
-      btnDel.Enabled := true;
+      btnEdit.Enabled := True;
+      btnDel.Enabled := True;
     end
     else
     begin
@@ -258,8 +279,8 @@ begin
   begin
     Close;
     sql.Text := 'SELECT sum(zd.fb) FROM  "документы"."закупки_деталь" zd' +
-      ' INNER JOIN "документы"."закупки" z ON (zd."код_закупки" = z.id)' +
-      ' where код_детали_заказа=' + IntToStr(s_id_order_detail);
+      ' INNER JOIN "документы"."закупки" z ON (zd."код_закупки" = z.id)' + ' where код_детали_заказа=' +
+      IntToStr(s_id_order_detail);
     Open;
     Sum_Fb := Fields[0].AsFloat;
   end;

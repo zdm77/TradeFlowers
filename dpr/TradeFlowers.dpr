@@ -212,7 +212,10 @@ uses
   UNewOrderFromChat in '..\pas\Orders\UNewOrderFromChat.pas' {FNewOrderFromChat},
   USelectProduct in '..\pas\USelectProduct.pas' {FSelectProduct},
   UMarkingClass in '..\pas\Classes\UMarkingClass.pas',
-  UOrderClass in '..\pas\Classes\UOrderClass.pas';
+  UOrderClass in '..\pas\Classes\UOrderClass.pas',
+  UNewPedido in '..\pas\Orders\UNewPedido.pas' {FNewPedido},
+  UNewPedidoPosition in '..\pas\Orders\UNewPedidoPosition.pas' {FNewPedidoPosition},
+  UFParamPosPedido in '..\pas\Orders\UFParamPosPedido.pas' {FParamPosPedido};
 
 {$R *.res}
 
@@ -225,6 +228,9 @@ begin
   Application.CreateForm(TFPasswd, FPasswd);
   Application.CreateForm(TFSync, FSync);
   Application.CreateForm(TFSplash, FSplash);
+ // Application.CreateForm(TFParamPosPedido, FParamPosPedido);
+  // Application.CreateForm(TFNewPedido, FNewPedido);
+  //Application.CreateForm(TFNewPedidoPosition, FNewPedidoPosition);
   //Application.CreateForm(TFSelectProduct, FSelectProduct);
   // Application.CreateForm(TFNewOrderFromChat, FNewOrderFromChat);
   ///Application.CreateForm(TFChatDB, FChatDB);

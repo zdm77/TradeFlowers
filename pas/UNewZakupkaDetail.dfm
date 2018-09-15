@@ -90,32 +90,6 @@ object FNewZakupkaDetail: TFNewZakupkaDetail
       Transparent = True
       Visible = False
     end
-    object edtLength: TAdvEdit
-      Left = 167
-      Top = 108
-      Width = 128
-      Height = 21
-      EmptyTextStyle = []
-      LabelPosition = lpLeftCenter
-      LabelTransparent = True
-      LabelFont.Charset = DEFAULT_CHARSET
-      LabelFont.Color = clWindowText
-      LabelFont.Height = -11
-      LabelFont.Name = 'Tahoma'
-      LabelFont.Style = []
-      Lookup.Font.Charset = DEFAULT_CHARSET
-      Lookup.Font.Color = clWindowText
-      Lookup.Font.Height = -11
-      Lookup.Font.Name = 'Arial'
-      Lookup.Font.Style = []
-      Lookup.Separator = ';'
-      Color = clWindow
-      Signed = True
-      TabOrder = 5
-      Text = '60'
-      Visible = True
-      Version = '3.3.2.0'
-    end
     object lblPrice: TcxLabel
       Left = 3
       Top = 90
@@ -139,7 +113,7 @@ object FNewZakupkaDetail: TFNewZakupkaDetail
       Enabled = False
       LookAndFeel.NativeStyle = False
       LookAndFeel.SkinName = 'Office2007Blue'
-      TabOrder = 9
+      TabOrder = 8
       OnClick = btnINSERTClick
     end
     object lblType: TcxLabel
@@ -249,7 +223,7 @@ object FNewZakupkaDetail: TFNewZakupkaDetail
       Width = 92
       Height = 21
       AutoSize = False
-      TabOrder = 12
+      TabOrder = 11
       OnChange = edtPriceChange
       OnKeyDown = edtPriceKeyDown
       BoundLabel.Indent = 0
@@ -264,6 +238,32 @@ object FNewZakupkaDetail: TFNewZakupkaDetail
       SkinData.SkinSection = 'EDIT'
       GlyphMode.Blend = 0
       GlyphMode.Grayed = False
+    end
+    object edtLength: TAdvEdit
+      Left = 167
+      Top = 108
+      Width = 128
+      Height = 21
+      EmptyTextStyle = []
+      LabelPosition = lpLeftCenter
+      LabelTransparent = True
+      LabelFont.Charset = DEFAULT_CHARSET
+      LabelFont.Color = clWindowText
+      LabelFont.Height = -11
+      LabelFont.Name = 'Tahoma'
+      LabelFont.Style = []
+      Lookup.Font.Charset = DEFAULT_CHARSET
+      Lookup.Font.Color = clWindowText
+      Lookup.Font.Height = -11
+      Lookup.Font.Name = 'Arial'
+      Lookup.Font.Style = []
+      Lookup.Separator = ';'
+      Color = clWindow
+      Signed = True
+      TabOrder = 12
+      Text = '60'
+      Visible = False
+      Version = '3.3.2.0'
     end
   end
   object cxGroupBox1: TcxGroupBox
@@ -289,9 +289,9 @@ object FNewZakupkaDetail: TFNewZakupkaDetail
       Height = 32
       Align = alTop
       TabOrder = 0
-      ExplicitLeft = 2
-      ExplicitTop = -2
-      ExplicitWidth = 670
+      ExplicitLeft = 3
+      ExplicitTop = 15
+      ExplicitWidth = 668
       ExplicitHeight = 32
       inherited barProduct: TdxBarManager
         Top = 16

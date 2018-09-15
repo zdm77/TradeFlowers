@@ -115,7 +115,6 @@ type
     QueryProduct: TUniQuery;
     dsProduct: TUniDataSource;
     cxLabel1: TcxLabel;
-    edtLength: TAdvEdit;
     lblPrice: TcxLabel;
     lblCount: TcxLabel;
     btnINSERT: TcxButton;
@@ -126,6 +125,7 @@ type
     edtType: TcxLookupComboBox;
     edtProduct: TcxLookupComboBox;
     edtPrice: TsCalcEdit;
+    edtLength: TAdvEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure FrameProduct1lstTreeProductsDblClick(Sender: TObject);

@@ -48,7 +48,7 @@ object FChatDB: TFChatDB
         Top = 7
         Width = 75
         Height = 36
-        Caption = #1054#1090#1087#1088#1072#1074#1080#1090#1100
+        Caption = 'Send'
         LookAndFeel.NativeStyle = False
         LookAndFeel.SkinName = 'Office2007Blue'
         TabOrder = 0
@@ -75,6 +75,7 @@ object FChatDB: TFChatDB
         LookAndFeel.NativeStyle = False
         LookAndFeel.SkinName = 'Office2007Blue'
         TabOrder = 2
+        Visible = False
         OnClick = btnSendClick
       end
       object btnOrder2: TcxButton
@@ -86,6 +87,7 @@ object FChatDB: TFChatDB
         LookAndFeel.NativeStyle = False
         LookAndFeel.SkinName = 'Office2007Blue'
         TabOrder = 3
+        Visible = False
         OnClick = btnOrder2Click
       end
     end
@@ -104,11 +106,13 @@ object FChatDB: TFChatDB
         Align = alClient
         Lines.Strings = (
           'abax roses'
-          '1 hb freedom 60'
-          '1 hb freedom 70'
-          '1 hb freedom 80'
-          '1 hb freedom 90'
-          '1 hb freedom 1000')
+          '1 hb freedom 60 100 0,25'
+          '1 hb freedom 70 200 0,25'
+          '1 hb freedom 80 200 0,25'
+          '1 hb freedom 90 200 0,25'
+          '1 hb freedom 100/200 200 0,25/0,30'
+          'AGRORAB'
+          '1 hb freedom 60 100 0,25')
         Properties.ScrollBars = ssBoth
         TabOrder = 0
         OnKeyDown = memoMessageKeyDown

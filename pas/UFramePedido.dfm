@@ -23,6 +23,10 @@
         ItemLinks = <
           item
             Visible = True
+            ItemName = 'btnAdd'
+          end
+          item
+            Visible = True
             ItemName = 'btnEdit'
           end
           item
@@ -44,7 +48,7 @@
           end>
       end
       inherited btnAdd: TdxBarLargeButton
-        Visible = ivNever
+        OnClick = btnAddClick
       end
       inherited btnEdit: TdxBarLargeButton
         OnClick = btnEditClick

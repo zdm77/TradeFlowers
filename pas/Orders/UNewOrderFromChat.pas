@@ -51,6 +51,10 @@ type
     FrameTopPanel1: TFrameTopPanel;
     FrameSave1: TFrameSave;
     columnPrice: TcxGridColumn;
+    columnIDPlant: TcxGridColumn;
+    columnIdSort: TcxGridColumn;
+    columnLength: TcxGridColumn;
+    columnSteems: TcxGridColumn;
     procedure FormShow(Sender: TObject);
     procedure Table1DblClick(Sender: TObject);
   private
@@ -93,9 +97,11 @@ begin
   Application.CreateForm(TFSelectProduct, FSelectProduct);
   with FSelectProduct do
   begin
+   ShowMessage(IntToStr(Order.IDOrder));
     ShowModal;
     if IDSelect = true then
     begin
+
       i := Table1.DataController.GetEditingRecordIndex;
       Table1.DataController.SetValue(i, FNewOrderFromChat.columnCountry.Index,
         memPr.FieldByName('country').AsString);

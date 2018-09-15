@@ -63,7 +63,7 @@ uses
 
   dxSkinDevExpressStyle,
 
-  cxButtonEdit, dxSkinsDefaultPainters;
+  cxButtonEdit, dxSkinsDefaultPainters, dxSkinOffice2007Blue;
 
 type
   TFSelect = class(TForm)
@@ -152,6 +152,7 @@ begin
   begin
     FrameTopPanel1.btnSelClick(Sender);
     try
+
       QuerySelect.Post;
     except
     end;

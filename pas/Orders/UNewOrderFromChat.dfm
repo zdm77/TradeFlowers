@@ -44,19 +44,6 @@
         PropertiesClassName = 'TcxCheckBoxProperties'
         Visible = False
       end
-      object columnID: TcxGridColumn
-        Options.Editing = False
-      end
-      object columnCountry: TcxGridColumn
-        Caption = 'Country'
-        Options.Editing = False
-        Width = 102
-      end
-      object columnType: TcxGridColumn
-        Caption = 'Type'
-        Options.Editing = False
-        Width = 128
-      end
       object columnPlant: TcxGridColumn
         Caption = 'Plant'
         Options.Editing = False
@@ -67,16 +54,46 @@
         Options.Editing = False
         Width = 86
       end
-      object columnName: TcxGridColumn
-        Caption = 'Name'
-        Options.Editing = False
-        Width = 255
+      object columnLength: TcxGridColumn
+        Caption = 'Length'
+      end
+      object columnSteems: TcxGridColumn
+        Caption = 'Steems'
+        Width = 77
       end
       object columnCount: TcxGridColumn
         Caption = 'FB'
       end
       object columnPrice: TcxGridColumn
         Caption = 'Price'
+      end
+      object columnCountry: TcxGridColumn
+        Caption = 'Country'
+        Visible = False
+        Options.Editing = False
+        Width = 102
+      end
+      object columnName: TcxGridColumn
+        Caption = 'Name'
+        Visible = False
+        Options.Editing = False
+        Width = 255
+      end
+      object columnType: TcxGridColumn
+        Caption = 'Type'
+        Visible = False
+        Options.Editing = False
+        Width = 128
+      end
+      object columnID: TcxGridColumn
+        Visible = False
+        Options.Editing = False
+      end
+      object columnIDPlant: TcxGridColumn
+        Visible = False
+      end
+      object columnIdSort: TcxGridColumn
+        Visible = False
       end
     end
     object cxGrid1Level1: TcxGridLevel
@@ -400,7 +417,7 @@
     Left = 228
     Top = 333
     Bitmap = {
-      494C010102000500640010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C0101020005006C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       00000000000000000000000000000000000000000000FCFCFC04D0CFCE39CCCB
       CA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECBCA

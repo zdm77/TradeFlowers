@@ -163,11 +163,43 @@ object FNewZakupka: TFNewZakupka
     Height = 25
     Width = 648
     object lblName: TLabel
-      Left = 8
-      Top = 6
+      Left = 443
+      Top = 3
       Width = 37
       Height = 13
       Caption = 'lblName'
+      Visible = False
+    end
+    object edtMarking: TcxButtonEdit
+      Left = 50
+      Top = 3
+      Properties.Buttons = <
+        item
+          Default = True
+          Kind = bkEllipsis
+        end>
+      Properties.ReadOnly = True
+      Properties.OnButtonClick = edtMarkingPropertiesButtonClick
+      Style.LookAndFeel.Kind = lfOffice11
+      Style.LookAndFeel.NativeStyle = False
+      Style.LookAndFeel.SkinName = ''
+      StyleDisabled.LookAndFeel.Kind = lfOffice11
+      StyleDisabled.LookAndFeel.NativeStyle = False
+      StyleDisabled.LookAndFeel.SkinName = ''
+      StyleFocused.LookAndFeel.Kind = lfOffice11
+      StyleFocused.LookAndFeel.NativeStyle = False
+      StyleFocused.LookAndFeel.SkinName = ''
+      StyleHot.LookAndFeel.Kind = lfOffice11
+      StyleHot.LookAndFeel.NativeStyle = False
+      StyleHot.LookAndFeel.SkinName = ''
+      TabOrder = 0
+      Width = 256
+    end
+    object lblMarking: TcxLabel
+      Left = 3
+      Top = 6
+      Caption = 'Marking'
+      Transparent = True
     end
   end
   object QueryGroupZakupka: TUniQuery

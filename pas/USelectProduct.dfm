@@ -11,6 +11,7 @@ object FSelectProduct: TFSelectProduct
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poMainFormCenter
   OnClose = FormClose
   OnCreate = FormCreate
   OnShow = FormShow
@@ -148,6 +149,7 @@ object FSelectProduct: TFSelectProduct
         Properties.AllowGrayed = True
         Properties.ValueChecked = '1'
         Properties.ValueUnchecked = '0'
+        Visible = False
         OnCustomDrawCell = columnSelectCustomDrawCell
       end
       object columnPlant: TcxGridDBColumn
@@ -180,11 +182,12 @@ object FSelectProduct: TFSelectProduct
   end
   object btnSelect: TButton
     Left = 375
-    Top = 29
+    Top = 38
     Width = 75
     Height = 25
     Caption = 'btnSelect'
     TabOrder = 4
+    Visible = False
     OnClick = btnSelectClick
   end
   object dataDriverP: TDataSetDriverEh
@@ -208,7 +211,7 @@ object FSelectProduct: TFSelectProduct
     Left = 388
     Top = 205
     Bitmap = {
-      494C0101020005008C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102000500980010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       00000000000000000000000000000000000000000000FCFCFC04D0CFCE39CCCB
       CA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECBCA

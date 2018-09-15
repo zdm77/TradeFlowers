@@ -11,7 +11,7 @@ uses
   cxDataStorage, cxEdit, cxNavigator, Data.DB, cxDBData, MemDS, DBAccess, Uni,
   cxGridLevel, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
   cxClasses, cxGridCustomView, cxGrid, UFrameTopPanel, Vcl.StdCtrls, Vcl.Grids,
-  Vcl.DBGrids, dxSkinsDefaultPainters;
+  Vcl.DBGrids, dxSkinsDefaultPainters, dxSkinOffice2007Blue;
 
 type
   TFramePrice = class(TFrame)

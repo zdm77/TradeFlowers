@@ -40,27 +40,22 @@ type
     columnSelect: TcxGridDBColumn;
     btnSelect: TButton;
     procedure btnSelectClick(Sender: TObject);
-    procedure columnSelectCustomDrawCell(Sender: TcxCustomGridTableView;
-      ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
-      var ADone: Boolean);
+    procedure columnSelectCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure FrameSearch1edtNameKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    procedure FrameSearch1edtNameKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure memPrFilterRecord(DataSet: TDataSet; var Accept: Boolean);
-    procedure ViewStatWorkCustomDrawCell(Sender: TcxCustomGridTableView;
-      ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
-      var ADone: Boolean);
+    procedure ViewStatWorkCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+      AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
     procedure ViewStatWorkDblClick(Sender: TObject);
-    procedure ViewStatWorkMouseDown(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: Integer);
+    procedure ViewStatWorkMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
   private
     AList: TList;
     function CheckList(ARecord: TcxCustomGridRecord): Boolean;
     { Private declarations }
   public
-
     NamePlant: String;
     IDSelect: Boolean;
     { Public declarations }
@@ -72,8 +67,7 @@ var
 implementation
 
 uses
-  UNewOrderFromChat;
-
+  UNewOrderFromChat, UFParamPosPedido, UNewPedidoPosition;
 {$R *.dfm}
 
 procedure TFSelectProduct.btnSelectClick(Sender: TObject);
@@ -82,10 +76,9 @@ var
 begin
   for i := 0 to ViewStatWork.DataController.FilteredRecordCount - 1 do
   begin
- //ShowMessage(inttostr(ViewStatWork.DataController.Values[ViewStatWork.DataController.FilteredRecordIndex[i],columnSelect.Index]));
- //ShowMessage(inttostr(ViewStatWork.Controller.FocusedRow.Values[0]));
+    // ShowMessage(inttostr(ViewStatWork.DataController.Values[ViewStatWork.DataController.FilteredRecordIndex[i],columnSelect.Index]));
+    // ShowMessage(inttostr(ViewStatWork.Controller.FocusedRow.Values[0]));
   end;
-
 end;
 
 procedure TFSelectProduct.FormCreate(Sender: TObject);
@@ -98,13 +91,11 @@ begin
   Result := AList.IndexOf(Pointer(ARecord.RecordIndex)) <> -1;
 end;
 
-procedure TFSelectProduct.columnSelectCustomDrawCell
-  (Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+procedure TFSelectProduct.columnSelectCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
   AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
 begin
   if AViewInfo.EditViewInfo is TcxCustomCheckBoxViewInfo then
-    TcxCustomCheckBoxViewInfo(AViewInfo.EditViewInfo).State :=
-      TcxCheckBoxState(CheckList(AViewInfo.GridRecord));
+    TcxCustomCheckBoxViewInfo(AViewInfo.EditViewInfo).State := TcxCheckBoxState(CheckList(AViewInfo.GridRecord));
 end;
 
 procedure TFSelectProduct.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -125,15 +116,13 @@ begin
   FrameSearch1.edtName.SetFocus;
 end;
 
-procedure TFSelectProduct.FrameSearch1edtNameKeyDown(Sender: TObject;
-  var Key: Word; Shift: TShiftState);
+procedure TFSelectProduct.FrameSearch1edtNameKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
 begin
   if Key = VK_RETURN then
   begin
     with memPr do
     begin
-      Filter := 'UPPER(uni_name) Like ''%' +
-        AnsiUpperCase(FrameSearch1.edtName.Text) + '%''';
+      Filter := 'UPPER(uni_name) Like ''%' + AnsiUpperCase(FrameSearch1.edtName.Text) + '%''';
       Filtered := true;
       Refresh;
       ViewStatWork.ViewData.Expand(true);
@@ -141,14 +130,12 @@ begin
   end;
 end;
 
-procedure TFSelectProduct.memPrFilterRecord(DataSet: TDataSet;
-  var Accept: Boolean);
+procedure TFSelectProduct.memPrFilterRecord(DataSet: TDataSet; var Accept: Boolean);
 begin
   DataSet.Filter := memPr.Filter;
 end;
 
-procedure TFSelectProduct.ViewStatWorkCustomDrawCell
-  (Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+procedure TFSelectProduct.ViewStatWorkCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
   AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
 begin
   with AViewInfo do
@@ -156,18 +143,35 @@ begin
       ACanvas.Brush.Color := clHighlight
     else
       ACanvas.Brush.Color := clWindow;
-
   ACanvas.Font.Color := clBlack;
 end;
 
 procedure TFSelectProduct.ViewStatWorkDblClick(Sender: TObject);
+var
+  i: Integer;
+  s: string;
 begin
-  IDSelect := true;
-  Close;
+  // IDSelect := true;
+  Application.CreateForm(TFParamPosPedido, FParamPosPedido);
+  with FParamPosPedido do
+  begin
+    ShowModal;
+    if IDSelect = true then
+    begin
+      s := memPr.FieldByName('uni_name').AsString;
+      i := LastDelimiter(',', s);
+      // ShowMessage(Trim(s.Substring(i,Length(s))));
+      FNewPedidoPosition.InsertPos(memPr.FieldByName('код_плантации').AsInteger,
+        memPr.FieldByName('код_сорта').AsInteger, Trim(s.Substring(i, Length(s))), edtFB.Text, edtCount.Text,
+        edtPrice.Text, memPr.FieldByName('id').AsInteger);
+      FNewPedidoPosition.showPedido;
+    end;
+  end;
+  // Close;
 end;
 
-procedure TFSelectProduct.ViewStatWorkMouseDown(Sender: TObject;
-  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+procedure TFSelectProduct.ViewStatWorkMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState;
+  X, Y: Integer);
 var
   AHitTest: TcxCustomGridHitTest;
   AGridRecord: TcxCustomGridRecord;
@@ -176,15 +180,12 @@ begin
   begin
     with TcxGridSite(Sender).GridView do
       AHitTest := ViewInfo.GetHitTest(X, Y);
-
-    if (AHitTest.HitTestCode = htCell) and
-      (TcxGridDBColumn(TcxGridRecordCellHitTest(AHitTest).Item)
+    if (AHitTest.HitTestCode = htCell) and (TcxGridDBColumn(TcxGridRecordCellHitTest(AHitTest).Item)
       .DataBinding.FieldName = '') then
       AGridRecord := TcxGridRecordCellHitTest(AHitTest).GridRecord
     else
       Exit;
   end;
-
   if (AGridRecord <> nil) then
     if CheckList(AGridRecord) then
       AList.Remove(Pointer(AGridRecord.RecordIndex))

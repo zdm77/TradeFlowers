@@ -12,7 +12,7 @@ uses
   cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator, Data.DB,
   cxDBData, MemDS, DBAccess, Uni, cxGridLevel, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxClasses, cxGridCustomView, cxGrid,
-  UFrameTopPanel;
+  UFrameTopPanel, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
 
 type
   TFrameReceipt = class(TFrame)
