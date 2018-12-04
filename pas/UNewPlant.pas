@@ -63,7 +63,7 @@ uses
 
   dxSkinDevExpressStyle,
 
-   dxSkinsDefaultPainters;
+   dxSkinsDefaultPainters, dxSkinOffice2007Blue;
 
 type
   TFNewPlant = class(TForm)

@@ -22,14 +22,15 @@ object FNewPlant: TFNewPlant
     Height = 450
     Align = alClient
     TabOrder = 0
-    Properties.ActivePage = TabOsn
+    Properties.ActivePage = TabSort
     Properties.CustomButtons.Buttons = <>
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = False
     LookAndFeel.SkinName = 'Office2007Blue'
-    ClientRectBottom = 450
-    ClientRectRight = 673
-    ClientRectTop = 24
+    ClientRectBottom = 444
+    ClientRectLeft = 3
+    ClientRectRight = 667
+    ClientRectTop = 26
     object TabOsn: TcxTabSheet
       Caption = #1054#1089#1085#1086#1074#1085#1099#1077
       ImageIndex = 0
@@ -43,8 +44,8 @@ object FNewPlant: TFNewPlant
         StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
         StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
         TabOrder = 0
-        Height = 426
-        Width = 673
+        Height = 418
+        Width = 664
         object mmoRemark: TcxMemo
           Left = 103
           Top = 93
@@ -278,18 +279,16 @@ object FNewPlant: TFNewPlant
         StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
         StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
         TabOrder = 0
-        Height = 426
-        Width = 673
+        Height = 418
+        Width = 664
         object GridType: TcxGrid
           Left = 2
           Top = 50
-          Width = 669
-          Height = 374
+          Width = 660
+          Height = 366
           Align = alClient
           TabOrder = 0
           LookAndFeel.Kind = lfOffice11
-          ExplicitWidth = 660
-          ExplicitHeight = 366
           object ViewType: TcxGridDBTableView
             Navigator.Buttons.CustomButtons = <>
             DataController.DataSource = dsType
@@ -334,13 +333,13 @@ object FNewPlant: TFNewPlant
         inline FrameTopPanel3: TFrameTopPanel
           Left = 2
           Top = 18
-          Width = 669
+          Width = 660
           Height = 32
           Align = alTop
           TabOrder = 1
           ExplicitLeft = 2
-          ExplicitTop = 5
-          ExplicitWidth = 669
+          ExplicitTop = 18
+          ExplicitWidth = 660
           ExplicitHeight = 32
           inherited barProduct: TdxBarManager
             DockControlHeights = (
@@ -388,15 +387,15 @@ object FNewPlant: TFNewPlant
       inline FramePlantSort1: TFramePlantSort
         Left = 0
         Top = 0
-        Width = 673
-        Height = 426
+        Width = 664
+        Height = 418
         Align = alClient
         TabOrder = 0
-        ExplicitWidth = 673
-        ExplicitHeight = 426
+        ExplicitWidth = 664
+        ExplicitHeight = 418
         inherited FrameTopPanel1: TFrameTopPanel
-          Width = 673
-          ExplicitWidth = 673
+          Width = 664
+          ExplicitWidth = 664
           inherited barProduct: TdxBarManager
             DockControlHeights = (
               0
@@ -409,8 +408,8 @@ object FNewPlant: TFNewPlant
           end
         end
         inherited GroupSelCountry: TcxGroupBox
-          ExplicitWidth = 673
-          Width = 673
+          ExplicitWidth = 664
+          Width = 664
           inherited edtType: TcxLookupComboBox
             Properties.OnEditValueChanged = FramePlantSort1edtTypePropertiesEditValueChanged
           end
@@ -419,13 +418,13 @@ object FNewPlant: TFNewPlant
           end
         end
         inherited GroupSort: TcxGroupBox
-          ExplicitWidth = 673
-          ExplicitHeight = 358
-          Height = 358
-          Width = 673
+          ExplicitWidth = 664
+          ExplicitHeight = 350
+          Height = 350
+          Width = 664
           inherited GridUsers: TcxGrid
-            Width = 669
-            Height = 338
+            Width = 658
+            Height = 325
             ExplicitLeft = 3
             ExplicitTop = 15
             ExplicitWidth = 658
@@ -443,11 +442,11 @@ object FNewPlant: TFNewPlant
       inline FrameTopPanel1: TFrameTopPanel
         Left = 0
         Top = 0
-        Width = 673
+        Width = 664
         Height = 34
         Align = alTop
         TabOrder = 0
-        ExplicitWidth = 673
+        ExplicitWidth = 664
         ExplicitHeight = 34
         inherited barProduct: TdxBarManager
           DockControlHeights = (
@@ -484,14 +483,12 @@ object FNewPlant: TFNewPlant
       object GridTarif: TcxGrid
         Left = 0
         Top = 34
-        Width = 673
-        Height = 392
+        Width = 664
+        Height = 384
         Align = alClient
         TabOrder = 1
         LookAndFeel.Kind = lfOffice11
         LookAndFeel.NativeStyle = False
-        ExplicitWidth = 665
-        ExplicitHeight = 388
         object cxGridDBTableView2: TcxGridDBTableView
           OnDblClick = cxGridDBTableView2DblClick
           Navigator.Buttons.CustomButtons = <>
@@ -527,11 +524,11 @@ object FNewPlant: TFNewPlant
       inline FrameTopPanel2: TFrameTopPanel
         Left = 0
         Top = 0
-        Width = 673
+        Width = 664
         Height = 34
         Align = alTop
         TabOrder = 0
-        ExplicitWidth = 673
+        ExplicitWidth = 664
         ExplicitHeight = 34
         inherited barProduct: TdxBarManager
           DockControlHeights = (
@@ -559,14 +556,12 @@ object FNewPlant: TFNewPlant
       object GridAcc: TcxGrid
         Left = 0
         Top = 34
-        Width = 673
-        Height = 392
+        Width = 664
+        Height = 384
         Align = alClient
         TabOrder = 1
         LookAndFeel.Kind = lfOffice11
         LookAndFeel.NativeStyle = False
-        ExplicitWidth = 664
-        ExplicitHeight = 384
         object GridAccount: TcxGridDBTableView
           Navigator.Buttons.CustomButtons = <>
           DataController.Summary.DefaultGroupSummaryItems = <>
@@ -903,7 +898,7 @@ object FNewPlant: TFNewPlant
     Connection = DM1.db1
     SQL.Strings = (
       'select * from "'#1087#1088#1086#1076#1091#1082#1094#1080#1103'"."'#1089#1090#1088#1072#1085#1099'"')
-    Left = 359
+    Left = 423
     Top = 237
   end
   object QueryContact: TUniQuery
@@ -945,7 +940,7 @@ object FNewPlant: TFNewPlant
     SQL.Strings = (
       'select * from  "'#1087#1088#1086#1076#1091#1082#1094#1080#1103'"."'#1082#1086#1085#1090#1072#1082#1090#1099'_'#1087#1083#1072#1085#1090#1072#1094#1080#1080'"')
     Left = 64
-    Top = 176
+    Top = 288
   end
   object dsContact: TDataSource
     DataSet = QueryContact
