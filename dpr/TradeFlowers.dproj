@@ -96,6 +96,7 @@
         <VerInfo_MajorVer>0</VerInfo_MajorVer>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <BT_BuildType>Debug</BT_BuildType>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
@@ -128,14 +129,12 @@
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\PGSQL.pas"/>
-        <DCCReference Include="..\pas\UFrameCountry.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameCountry.pas">
             <Form>FrameCountry</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\pas\UFramePlant.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFramePlant.pas">
             <Form>FramePlant</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\UNewUniName.pas">
@@ -147,9 +146,8 @@
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\pas\UFrameType.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameType.pas">
             <Form>FrameType</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\UType.pas">
@@ -169,9 +167,8 @@
             <Form>FNewPlant</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\UFrameSort.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameSort.pas">
             <Form>FrameSort</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\UNewSort.pas">
@@ -184,9 +181,8 @@
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\UDialogMy.pas"/>
-        <DCCReference Include="..\pas\UFrameLength.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameLength.pas">
             <Form>FrameLength</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\ULength.pas">
@@ -203,14 +199,12 @@
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\pas\UFrameProperties.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameProperties.pas">
             <Form>FrameProperties</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\pas\UFrameStruct.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameStruct.pas">
             <Form>FrameСтруктура</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\UNewProduct.pas">
@@ -222,27 +216,24 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\ULang.pas"/>
-        <DCCReference Include="..\pas\UFrameBankRussia.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameBankRussia.pas">
             <Form>FrameBank</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\pas\UFrameBankInter.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameBankInter.pas">
             <Form>FrameBankInter</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\UnewOrg.pas">
             <Form>FNewOrg</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\UFrameOrg.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameOrg.pas">
             <Form>FrameOrg</Form>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\pas\UFrameUsers.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameUsers.pas">
             <Form>FrameUsers</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\UNewUser.pas">
@@ -253,23 +244,20 @@
             <Form>FAddress</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\UFrameClient.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameClient.pas">
             <Form>FrameClient</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\UNewClient.pas">
             <Form>FNewClient</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\UFrameRole.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameRole.pas">
             <Form>FrameRole</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\pas\UFrameKargo.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameKargo.pas">
             <Form>FrameKargo</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\UNewKargo.pas">
@@ -292,9 +280,8 @@
             <Form>FNewInBank</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\UFrameAirLine.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameAirLine.pas">
             <Form>FrameAirLine</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\UNewAirLine.pas">
@@ -317,14 +304,12 @@
             <Form>FNewContract</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\UFrameMarking.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameMarking.pas">
             <Form>FrameMarking</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\pas\UFrameTrack.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameTrack.pas">
             <Form>FrameTrack</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\UNewTrack.pas">
@@ -476,9 +461,8 @@
             <Form>FAddValue</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\UFrameWarehouse.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameWarehouse.pas">
             <Form>FrameWarehouse</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\UNewOrgName.pas">
@@ -502,9 +486,8 @@
             <Form>FStandartReport</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\UFrameFito.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameFito.pas">
             <Form>FrameFITO</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\UReportClients.pas">
@@ -571,9 +554,8 @@
             <Form>FPackingCorrection</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\UFrameTypeLengthWeight.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameTypeLengthWeight.pas">
             <Form>FrameTypeLengthWeight</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\UNewTypeLengthWeight.pas">
@@ -584,9 +566,8 @@
             <Form>FNewCorrectPacking</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\UFrameBox.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameBox.pas">
             <Form>FrameBox</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\UNewBox.pas">
@@ -644,9 +625,8 @@
             <Form>FEditFactKargo</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\UFrameAccess.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameAccess.pas">
             <Form>FrameAccess</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\UParamPC.pas">
@@ -765,9 +745,8 @@
             <Form>FNewZakupDetailQuick</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\UFrameTypeClient.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameTypeClient.pas">
             <Form>FrameTypeClient</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\UNewTypeClient.pas">
@@ -805,9 +784,8 @@
             <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\pas\UFrameProductNew.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameProductNew.pas">
             <Form>FrameProductNew</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\UFImport.pas">
@@ -832,14 +810,12 @@
             <Form>FQuestionSort</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\UFrameReceipt.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameReceipt.pas">
             <Form>FrameReceipt</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\pas\UFrameNewReceipt.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameNewReceipt.pas">
             <Form>FrameNewReceipt</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\UNewReceipt.pas">
@@ -937,20 +913,16 @@
         </DCCReference>
         <DCCReference Include="..\pas\USelectClient.pas">
             <Form>FSelectClient</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\Auction\Orders\UFrameAucOrder.pas">
             <Form>FrameAucOrder</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\Auction\Orders\UfNewAucOrderBody.pas">
             <Form>fNewAucOrderBody</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\Auction\Orders\UfNewAucOrder.pas">
             <Form>fNewAucOrder</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\Chat\UChat.pas">
             <Form>FChat</Form>
@@ -961,25 +933,20 @@
         <DCCReference Include="..\pas\ProductClass.pas"/>
         <DCCReference Include="..\pas\Orders\UNewOrderFromChat.pas">
             <Form>FNewOrderFromChat</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\USelectProduct.pas">
             <Form>FSelectProduct</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\Classes\UMarkingClass.pas"/>
         <DCCReference Include="..\pas\Classes\UOrderClass.pas"/>
         <DCCReference Include="..\pas\Orders\UNewPedido.pas">
             <Form>FNewPedido</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\Orders\UNewPedidoPosition.pas">
             <Form>FNewPedidoPosition</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\Orders\UFParamPosPedido.pas">
             <Form>FParamPosPedido</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
