@@ -544,9 +544,8 @@
             <Form>FBuh</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\Buh\UFrameAWB.pas">
+        <DCCReference Include="..\pas\Buh\Vew\UFrameAWB.pas">
             <Form>FrameAWB</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\USubAWB.pas">
@@ -561,9 +560,8 @@
             <Form>FNewSubAWBDetail</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\Buh\UFrameBalance.pas">
+        <DCCReference Include="..\pas\Buh\Vew\UFrameBalance.pas">
             <Form>FrameBalance</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\UFacturPlant.pas">
@@ -659,18 +657,16 @@
             <Form>FNewFB</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\Buh\UFramePritenz.pas">
+        <DCCReference Include="..\pas\Buh\Vew\UFramePritenz.pas">
             <Form>FramePritenz</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\Buh\Control\UFEditPitenz.pas">
             <Form>FEditPritenz</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\Buh\UFrameOplataPlant.pas">
+        <DCCReference Include="..\pas\Buh\Vew\UFrameOplataPlant.pas">
             <Form>FrameOplataPlant</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\Buh\Control\UNewOplatPlant.pas">
@@ -681,9 +677,8 @@
             <Form>BackUp</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\Buh\UFrameStatFacturPlant.pas">
+        <DCCReference Include="..\pas\Buh\Vew\UFrameStatFacturPlant.pas">
             <Form>FrameStatFacturPlant</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\UFramePretenzEdit.pas">
@@ -744,9 +739,8 @@
             <Form>FPedido</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\Buh\UFramePrikulingBuh.pas">
+        <DCCReference Include="..\pas\Buh\Vew\UFramePrikulingBuh.pas">
             <Form>FramePrikulingBuh</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\Dictonary\View\UFrameProductNew.pas">
