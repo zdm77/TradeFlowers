@@ -209,12 +209,12 @@ uses
   UChat in '..\pas\Chat\UChat.pas' {FChat},
   UChatDb in '..\pas\Chat\UChatDb.pas' {FChatDB},
   ProductClass in '..\pas\ProductClass.pas',
-  UNewOrderFromChat in '..\pas\Orders\UNewOrderFromChat.pas' {FNewOrderFromChat},
+  UNewOrderFromChat in '..\pas\Buh\Edit\UNewOrderFromChat.pas' {FNewOrderFromChat},
   USelectProduct in '..\pas\USelectProduct.pas' {FSelectProduct},
   UMarkingClass in '..\pas\Classes\UMarkingClass.pas',
   UOrderClass in '..\pas\Classes\UOrderClass.pas',
-  UNewPedido in '..\pas\Orders\UNewPedido.pas' {FNewPedido},
-  UNewPedidoPosition in '..\pas\Orders\UNewPedidoPosition.pas' {FNewPedidoPosition},
+  UNewPedido in '..\pas\Buh\Edit\UNewPedido.pas' {FNewPedido},
+  UNewPedidoPosition in '..\pas\Buh\Edit\UNewPedidoPosition.pas' {FNewPedidoPosition},
   UFParamPosPedido in '..\pas\Orders\UFParamPosPedido.pas' {FParamPosPedido};
 
 {$R *.res}

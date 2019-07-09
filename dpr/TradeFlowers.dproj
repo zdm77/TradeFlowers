@@ -871,7 +871,7 @@
             <Form>FChatDB</Form>
         </DCCReference>
         <DCCReference Include="..\pas\ProductClass.pas"/>
-        <DCCReference Include="..\pas\Orders\UNewOrderFromChat.pas">
+        <DCCReference Include="..\pas\Buh\Edit\UNewOrderFromChat.pas">
             <Form>FNewOrderFromChat</Form>
         </DCCReference>
         <DCCReference Include="..\pas\USelectProduct.pas">
@@ -879,10 +879,10 @@
         </DCCReference>
         <DCCReference Include="..\pas\Classes\UMarkingClass.pas"/>
         <DCCReference Include="..\pas\Classes\UOrderClass.pas"/>
-        <DCCReference Include="..\pas\Orders\UNewPedido.pas">
+        <DCCReference Include="..\pas\Buh\Edit\UNewPedido.pas">
             <Form>FNewPedido</Form>
         </DCCReference>
-        <DCCReference Include="..\pas\Orders\UNewPedidoPosition.pas">
+        <DCCReference Include="..\pas\Buh\Edit\UNewPedidoPosition.pas">
             <Form>FNewPedidoPosition</Form>
         </DCCReference>
         <DCCReference Include="..\pas\Orders\UFParamPosPedido.pas">
