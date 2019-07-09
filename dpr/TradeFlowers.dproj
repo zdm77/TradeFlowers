@@ -167,9 +167,8 @@
         <DCCReference Include="..\pas\Dictonary\Edit\UNewSort.pas">
             <Form>FNewSort</Form>
         </DCCReference>
-        <DCCReference Include="..\pas\UFrameSearch.pas">
+        <DCCReference Include="..\pas\Helpers\UFrameSearch.pas">
             <Form>FrameSearch</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\Helpers\UDialogMy.pas"/>
@@ -252,9 +251,8 @@
         <DCCReference Include="..\pas\Dictonary\Edit\UNewInAccount.pas">
             <Form>FNewInAccount</Form>
         </DCCReference>
-        <DCCReference Include="..\pas\USelectInBank.pas">
+        <DCCReference Include="..\pas\Dictonary\View\Form\USelectInBank.pas">
             <Form>FSelectInBank</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\Dictonary\Edit\UNewInBank.pas">
             <Form>FNewInBank</Form>
@@ -296,9 +294,8 @@
         <DCCReference Include="..\pas\Dictonary\Edit\UNewAccountRus.pas">
             <Form>FNewAccountRus</Form>
         </DCCReference>
-        <DCCReference Include="..\pas\USelectRusBank.pas">
+        <DCCReference Include="..\pas\Dictonary\View\Form\USelectRusBank.pas">
             <Form>FSelectBankRus</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\Dictonary\Edit\UNewTarifTrack.pas">
             <Form>FNewTarifTrack</Form>
@@ -322,9 +319,8 @@
         <DCCReference Include="..\pas\Dictonary\Edit\UNewPriceMarking.pas">
             <Form>FNewPriceMarking</Form>
         </DCCReference>
-        <DCCReference Include="..\pas\UDocs.pas">
+        <DCCReference Include="..\pas\Buh\UDocs.pas">
             <Form>FDocs</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\Buh\Vew\UFrameOrder.pas">
             <Form>FrameOrder</Form>
@@ -376,9 +372,8 @@
             <Form>FrameFactura</Form>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\pas\USelectPlant.pas">
+        <DCCReference Include="..\pas\Dictonary\View\Form\USelectPlant.pas">
             <Form>FSelectPlant</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\Buh\Vew\Form\UFacturaDetail.pas">
             <Form>FFacturaDetail</Form>
@@ -389,17 +384,15 @@
         <DCCReference Include="..\pas\Helpers\USeparate.pas">
             <Form>FSeparate</Form>
         </DCCReference>
-        <DCCReference Include="..\pas\UReport.pas"/>
+        <DCCReference Include="..\pas\Dictonary\View\Form\UReport.pas"/>
         <DCCReference Include="..\pas\Buh\Vew\Form\UPrepReportPedido.pas">
             <Form>FPrepReportPedido</Form>
         </DCCReference>
-        <DCCReference Include="..\pas\USelectSort.pas">
+        <DCCReference Include="..\pas\Dictonary\View\Form\USelectSort.pas">
             <Form>FSelectSort</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\UFramePriceLength.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFramePriceLength.pas">
             <Form>FramePriceLength</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\Dictonary\Edit\UNewPriceLength.pas">
@@ -432,9 +425,8 @@
             <Form>FrameFITO</Form>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\pas\UReportClients.pas">
+        <DCCReference Include="..\pas\Dictonary\View\Form\UReportClients.pas">
             <Form>FReportClients</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\Dictonary\View\Form\UFCountry.pas">
             <Form>FCountry</Form>
@@ -454,9 +446,8 @@
         <DCCReference Include="..\pas\Helpers\USync.pas">
             <Form>FSync</Form>
         </DCCReference>
-        <DCCReference Include="..\pas\USelectSortInPlant.pas">
+        <DCCReference Include="..\pas\Dictonary\View\Form\USelectSortInPlant.pas">
             <Form>FSelectSortInPlant</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\tamog_packing.pas">
             <Form>Tamog_Packing</Form>
@@ -678,19 +669,16 @@
         <DCCReference Include="..\pas\Dictonary\View\Form\UFImport.pas">
             <Form>FImport</Form>
         </DCCReference>
-        <DCCReference Include="..\pas\UFramePrice.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFramePrice.pas">
             <Form>FramePrice</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\pas\UFramePriceDetail.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFramePriceDetail.pas">
             <Form>FramePriceDetail</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\pas\UPriceDetail.pas">
+        <DCCReference Include="..\pas\Dictonary\View\Form\UPriceDetail.pas">
             <Form>FPriceDetail</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\Dictonary\View\Form\UFQuestionSort.pas">
             <Form>FQuestionSort</Form>
@@ -792,7 +780,7 @@
             <Form>FLogin</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\USelectClient.pas">
+        <DCCReference Include="..\pas\Dictonary\View\Form\USelectClient.pas">
             <Form>FSelectClient</Form>
         </DCCReference>
         <DCCReference Include="..\pas\Auction\Orders\UFrameAucOrder.pas">
@@ -815,7 +803,7 @@
         <DCCReference Include="..\pas\Buh\Edit\UNewOrderFromChat.pas">
             <Form>FNewOrderFromChat</Form>
         </DCCReference>
-        <DCCReference Include="..\pas\USelectProduct.pas">
+        <DCCReference Include="..\pas\Dictonary\View\Form\USelectProduct.pas">
             <Form>FSelectProduct</Form>
         </DCCReference>
         <DCCReference Include="..\pas\Classes\UMarkingClass.pas"/>
