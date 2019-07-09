@@ -281,9 +281,8 @@
             <Form>FNewTimeFly</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\UNewTarifKargo.pas">
+        <DCCReference Include="..\pas\Dictonary\Edit\UNewTarifKargo.pas">
             <Form>FNewTarifKargo</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\Dictonary\Edit\UNewContract.pas">
             <Form>FNewContract</Form>
@@ -309,9 +308,8 @@
             <Form>FSelectBankRus</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\UNewTarifTrack.pas">
+        <DCCReference Include="..\pas\Dictonary\Edit\UNewTarifTrack.pas">
             <Form>FNewTarifTrack</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\UFramePricooling.pas">
             <Form>FrameProcooling</Form>
@@ -327,9 +325,8 @@
         <DCCReference Include="..\pas\Dictonary\Edit\UNewMarking.pas">
             <Form>FNewMarking</Form>
         </DCCReference>
-        <DCCReference Include="..\pas\UNewTarifPricooling.pas">
+        <DCCReference Include="..\pas\Dictonary\Edit\UNewTarifPricooling.pas">
             <Form>FNewTarifPricooling</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\Dictonary\Edit\UNewPriceMarking.pas">
             <Form>FNewPriceMarking</Form>
@@ -576,9 +573,8 @@
             <Form>FNewOpl</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\Buh\UBalanceKargo.pas">
+        <DCCReference Include="..\pas\Buh\Vew\Form\UBalanceKargo.pas">
             <Form>FrameBalanceKargo</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\UFacturKargo.pas">
