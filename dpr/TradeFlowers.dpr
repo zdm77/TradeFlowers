@@ -213,9 +213,11 @@ uses
   USelectProduct in '..\pas\USelectProduct.pas' {FSelectProduct} ,
   UMarkingClass in '..\pas\Classes\UMarkingClass.pas',
   UOrderClass in '..\pas\Classes\UOrderClass.pas',
+
   UNewPedido in '..\pas\Buh\Edit\UNewPedido.pas' {FNewPedido} ,
   UNewPedidoPosition in '..\pas\Buh\Edit\UNewPedidoPosition.pas' {FNewPedidoPosition} ,
   UFParamPosPedido in '..\pas\Buh\Vew\Form\UFParamPosPedido.pas' {FParamPosPedido};
+
 {$R *.res}
 
 begin
