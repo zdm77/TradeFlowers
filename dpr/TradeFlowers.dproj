@@ -135,9 +135,8 @@
             <Form>FramePlant</Form>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\pas\UNewUniName.pas">
+        <DCCReference Include="..\pas\Helpers\UNewUniName.pas">
             <Form>FNewUniName</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\Helpers\UFrameSave.pas">
             <Form>FrameSave</Form>
@@ -267,9 +266,8 @@
         <DCCReference Include="..\pas\Dictonary\Edit\UNewDaesWeek.pas">
             <Form>FNewDaysWeek</Form>
         </DCCReference>
-        <DCCReference Include="..\pas\UNewShedule.pas">
+        <DCCReference Include="..\pas\Helpers\UNewShedule.pas">
             <Form>FNewTimeFly</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\Dictonary\Edit\UNewTarifKargo.pas">
             <Form>FNewTarifKargo</Form>
@@ -346,9 +344,8 @@
             <Form>FramePedido</Form>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\pas\USelectOrder.pas">
+        <DCCReference Include="..\pas\Buh\Vew\Form\USelectOrder.pas">
             <Form>FSelectOrder</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\Helpers\UExcel.pas"/>
         <DCCReference Include="..\pas\Helpers\UMultiSelect.pas">
@@ -449,17 +446,15 @@
         <DCCReference Include="..\pas\Dictonary\View\Form\USelectSortInPlant.pas">
             <Form>FSelectSortInPlant</Form>
         </DCCReference>
-        <DCCReference Include="..\pas\tamog_packing.pas">
+        <DCCReference Include="..\pas\Buh\Vew\Form\tamog_packing.pas">
             <Form>Tamog_Packing</Form>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\pas\UNewPacking.pas">
+        <DCCReference Include="..\pas\Buh\Edit\UNewPacking.pas">
             <Form>FNewPacking</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\UNewAvtoForPacking.pas">
+        <DCCReference Include="..\pas\Buh\Edit\UNewAvtoForPacking.pas">
             <Form>FNewAvtoForPacking</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\Buh\Edit\UNewSubPacking.pas">
             <Form>FNewSubPacking</Form>
@@ -467,13 +462,11 @@
         <DCCReference Include="..\pas\Dictonary\Edit\UNewBoxForPacking.pas">
             <Form>FNewBoxForPacking</Form>
         </DCCReference>
-        <DCCReference Include="..\pas\UNewBoxForPackingDetail.pas">
+        <DCCReference Include="..\pas\Buh\Edit\UNewBoxForPackingDetail.pas">
             <Form>FNewBoxForPackingDetail</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\UDetailBoxPacking.pas">
+        <DCCReference Include="..\pas\Buh\Vew\Form\UDetailBoxPacking.pas">
             <Form>FDetailBoxPacking</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\Buh\Vew\Form\UPackingCorrection.pas">
             <Form>FPackingCorrection</Form>
@@ -485,9 +478,8 @@
         <DCCReference Include="..\pas\Dictonary\Edit\UNewTypeLengthWeight.pas">
             <Form>FNewTypeLengthWeight</Form>
         </DCCReference>
-        <DCCReference Include="..\pas\UNewCorrectPacking.pas">
+        <DCCReference Include="..\pas\Buh\Edit\UNewCorrectPacking.pas">
             <Form>FNewCorrectPacking</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\Dictonary\View\UFrameBox.pas">
             <Form>FrameBox</Form>
@@ -507,9 +499,8 @@
         <DCCReference Include="..\pas\Buh\Vew\Form\USubAWB.pas">
             <Form>FSubAWB</Form>
         </DCCReference>
-        <DCCReference Include="..\pas\Buh\Control\UNewAWB.pas">
+        <DCCReference Include="..\pas\Buh\Edit\UNewAWB.pas">
             <Form>FNewAWB</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\Buh\Edit\UNewSubAWBDetail.pas">
             <Form>FNewSubAWBDetail</Form>
@@ -593,17 +584,15 @@
             <Form>FramePritenz</Form>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\pas\Buh\Control\UFEditPitenz.pas">
+        <DCCReference Include="..\pas\Buh\Edit\UFEditPitenz.pas">
             <Form>FEditPritenz</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\Buh\Vew\UFrameOplataPlant.pas">
             <Form>FrameOplataPlant</Form>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
-        <DCCReference Include="..\pas\Buh\Control\UNewOplatPlant.pas">
+        <DCCReference Include="..\pas\Buh\Edit\UNewOplatPlant.pas">
             <Form>FNewOplatPlant</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\pas\Helpers\UBackUp.pas">
             <Form>BackUp</Form>
