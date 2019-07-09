@@ -14,7 +14,6 @@
     StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
     TabOrder = 0
     Transparent = True
-    Width = 130
   end
   inline FrameTopPanel1: TFrameTopPanel
     Left = 0
@@ -26,11 +25,7 @@
     ExplicitWidth = 982
     ExplicitHeight = 32
     inherited barProduct: TdxBarManager
-      DockControlHeights = (
-        0
-        0
-        34
-        0)
+      PixelsPerInch = 96
       inherited dxbrBardxbrmngr1Bar1: TdxBar
         ItemLinks = <
           item
@@ -81,9 +76,20 @@
         Visible = ivAlways
       end
       inherited btnLoadPrice: TdxBarLargeButton
-        Visible = ivNever
         OnClick = btnLoadPriceClick
       end
+    end
+    inherited pmПедидо: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmЗаказ: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmФактура: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmClients: TdxBarPopupMenu
+      PixelsPerInch = 96
     end
   end
   inline FrameSearch1: TFrameSearch
@@ -192,7 +198,6 @@
     TabOrder = 4
     Transparent = True
     OnClick = chkGroupClick
-    Width = 145
   end
   object chkLast: TcxCheckBox
     Left = 3
@@ -202,7 +207,6 @@
     TabOrder = 5
     Transparent = True
     OnClick = chkLastClick
-    Width = 152
   end
   object QueryProduct: TUniQuery
     SQLDelete.Strings = (
@@ -273,7 +277,7 @@
     Left = 331
     Top = 467
     Bitmap = {
-      494C010102000500BC0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102000500040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       00000000000000000000000000000000000000000000FCFCFC04D0CFCE39CCCB
       CA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECBCA

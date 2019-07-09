@@ -25,7 +25,8 @@ uses
   cxCheckBox, dxSkinscxPCPainter, cxFilter, cxData, cxDataStorage, cxNavigator,
   cxDBData, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
   cxGridLevel, cxGridCustomView, cxGrid, Vcl.StdCtrls, Vcl.ExtCtrls,
-  dxSkinOffice2007Blue, dxSkinsDefaultPainters;
+  dxSkinOffice2007Blue, dxSkinsDefaultPainters, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog,
+  System.ImageList;
 
 type
   TFrameProductNew = class(TFrame)
