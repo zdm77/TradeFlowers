@@ -25,11 +25,7 @@ object FMultiSelect: TFMultiSelect
     ExplicitTop = 409
     ExplicitWidth = 621
     inherited bardxbrmngr1: TdxBarManager
-      DockControlHeights = (
-        0
-        0
-        0
-        34)
+      PixelsPerInch = 96
       inherited btnSave: TdxBarLargeButton
         OnClick = FrameSave1btnSaveClick
       end
@@ -44,10 +40,6 @@ object FMultiSelect: TFMultiSelect
     Style.LookAndFeel.SkinName = 'Office2007Blue'
     StyleDisabled.LookAndFeel.NativeStyle = False
     StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleFocused.LookAndFeel.NativeStyle = False
-    StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleHot.LookAndFeel.NativeStyle = False
-    StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
     TabOrder = 1
     Height = 376
     Width = 32
@@ -103,8 +95,6 @@ object FMultiSelect: TFMultiSelect
     PanelStyle.Active = True
     Style.LookAndFeel.SkinName = 'Office2007Blue'
     StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
     TabOrder = 2
     Height = 376
     Width = 316
@@ -148,8 +138,6 @@ object FMultiSelect: TFMultiSelect
     PanelStyle.Active = True
     Style.LookAndFeel.SkinName = 'Office2007Blue'
     StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
     TabOrder = 3
     Height = 376
     Width = 273
@@ -195,10 +183,6 @@ object FMultiSelect: TFMultiSelect
     Style.LookAndFeel.SkinName = 'Office2007Blue'
     StyleDisabled.LookAndFeel.NativeStyle = False
     StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleFocused.LookAndFeel.NativeStyle = False
-    StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleHot.LookAndFeel.NativeStyle = False
-    StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
     TabOrder = 4
     Visible = False
     Height = 33

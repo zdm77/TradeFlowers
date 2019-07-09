@@ -19,7 +19,7 @@ uses
   dxSkinsCore,
 
   dxSkinscxPCPainter,
-  cxPCdxBarPopupMenu,
+
   cxPC,
   UFrameSave,
   cxContainer,
@@ -68,7 +68,7 @@ uses
 
   dxSkinDevExpressStyle,
 
-  cxButtonEdit, dxSkinsDefaultPainters;
+  cxButtonEdit, dxSkinsDefaultPainters, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog;
 
 type
   TFNewClient = class(TForm)

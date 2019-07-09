@@ -25,9 +25,7 @@ uses
 
   Vcl.ExtCtrls,
   ActiveX,
-  IWBaseComponent,
-  IWBaseHTMLComponent,
-  IWBaseHTML40Component,
+
   UTimer,
   AdvSmoothSplashScreen, cxLabel,
 

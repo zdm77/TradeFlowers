@@ -1,4 +1,11 @@
-DM1.db1.Server := 'pgsql.uniflora.mass.hc.ru';
-        DM1.db1.Password := 'Kkd37Ckqfm';
-        DM1.db1.Username := 'uniflora_trade';
+DM1.db1.Server := pgsql.uniflora.mass.hc.ru
+        DM1.db1.Password := Kkd37Ckqfm
+        DM1.db1.Username := uniflora_trade
       databae = wwwunifloragroup_trade
+
+
+uniflora_test
+wwwunifloragroup_test
+
+pgsql.uniflora.mass.hc.ru
+pgsql.uniflora.mass.hc.ru

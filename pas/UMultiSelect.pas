@@ -46,8 +46,7 @@ uses
   cxButtons,
   cxDBEdit,
   Vcl.DBCtrls,
-  sDBListBox,
-  sDBLookupListBox,
+ 
   cxLabel,
   cxTextEdit,
   cxMaskEdit,
@@ -66,7 +65,7 @@ uses
      
       
     
-     dxSkinXmas2008Blue;
+     dxSkinXmas2008Blue, dxSkinsDefaultPainters, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog;
 
 type
   TFMultiSelect = class(TForm)

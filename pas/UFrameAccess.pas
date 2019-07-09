@@ -21,7 +21,7 @@ uses
   dxSkinsCore,
   
   dxSkinscxPCPainter,
-  cxPCdxBarPopupMenu,
+
   cxStyles,
   cxCustomData,
   cxFilter,
@@ -58,7 +58,8 @@ uses
      
       
     
-     dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
+     dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters, dxDateRanges,
+  cxDataControllerConditionalFormattingRulesManagerDialog, System.ImageList, cxImageList;
 
 type
   TFrameAccess = class(TFrame)

@@ -1,4 +1,4 @@
-object FNewPricooling: TFNewPricooling
+﻿object FNewPricooling: TFNewPricooling
   Left = 0
   Top = 0
   Caption = #1055#1088#1080#1082#1091#1083#1080#1085#1075
@@ -25,11 +25,7 @@ object FNewPricooling: TFNewPricooling
     ExplicitTop = 228
     ExplicitWidth = 473
     inherited bardxbrmngr1: TdxBarManager
-      DockControlHeights = (
-        0
-        0
-        0
-        34)
+      PixelsPerInch = 96
       inherited btnSave: TdxBarLargeButton
         OnClick = FrameSave1btnSaveClick
       end
@@ -52,10 +48,6 @@ object FNewPricooling: TFNewPricooling
     object TabOsn: TcxTabSheet
       Caption = #1054#1089#1085#1086#1074#1085#1099#1077
       ImageIndex = 0
-      ExplicitLeft = 3
-      ExplicitTop = 26
-      ExplicitWidth = 464
-      ExplicitHeight = 196
       object lblDoc: TLabel
         Left = 7
         Top = 56
@@ -246,18 +238,7 @@ object FNewPricooling: TFNewPricooling
         Height = 21
         AutoSize = False
         TabOrder = 10
-        BoundLabel.Indent = 0
-        BoundLabel.Font.Charset = DEFAULT_CHARSET
-        BoundLabel.Font.Color = clWindowText
-        BoundLabel.Font.Height = -11
-        BoundLabel.Font.Name = 'Tahoma'
-        BoundLabel.Font.Style = []
-        BoundLabel.Layout = sclLeft
-        BoundLabel.MaxWidth = 0
-        BoundLabel.UseSkinColor = True
         SkinData.SkinSection = 'EDIT'
-        GlyphMode.Blend = 0
-        GlyphMode.Grayed = False
         DisplayFormat = '$### ### ##0.00;-$### ### ##0.00;0'
       end
       object edtDoc: TsCalcEdit
@@ -267,28 +248,13 @@ object FNewPricooling: TFNewPricooling
         Height = 21
         AutoSize = False
         TabOrder = 11
-        BoundLabel.Indent = 0
-        BoundLabel.Font.Charset = DEFAULT_CHARSET
-        BoundLabel.Font.Color = clWindowText
-        BoundLabel.Font.Height = -11
-        BoundLabel.Font.Name = 'Tahoma'
-        BoundLabel.Font.Style = []
-        BoundLabel.Layout = sclLeft
-        BoundLabel.MaxWidth = 0
-        BoundLabel.UseSkinColor = True
         SkinData.SkinSection = 'EDIT'
-        GlyphMode.Blend = 0
-        GlyphMode.Grayed = False
         DisplayFormat = '$### ### ##0.00;-$### ### ##0.00;0'
       end
     end
     object TabPriceMark: TcxTabSheet
       Caption = #1053#1072#1094#1077#1085#1082#1080' '#1085#1072' '#1084#1072#1088#1082#1080#1088#1086#1074#1082#1080
       ImageIndex = 1
-      ExplicitLeft = 3
-      ExplicitTop = 26
-      ExplicitWidth = 464
-      ExplicitHeight = 196
       inline FrameTopPanelPriceMark: TFrameTopPanel
         Left = 0
         Top = 0
@@ -296,9 +262,10 @@ object FNewPricooling: TFNewPricooling
         Height = 32
         Align = alTop
         TabOrder = 0
-        ExplicitWidth = 464
+        ExplicitWidth = 473
         ExplicitHeight = 32
         inherited barProduct: TdxBarManager
+          PixelsPerInch = 96
           DockControlHeights = (
             0
             0
@@ -318,6 +285,18 @@ object FNewPricooling: TFNewPricooling
           inherited btnRefresh: TdxBarLargeButton
             OnClick = btnRefreshClick
           end
+        end
+        inherited pmПедидо: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmЗаказ: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmФактура: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmClients: TdxBarPopupMenu
+          PixelsPerInch = 96
         end
       end
       object GridAcc: TcxGrid
@@ -365,10 +344,6 @@ object FNewPricooling: TFNewPricooling
     object TabAlarm: TcxTabSheet
       Caption = #1054#1087#1086#1074#1077#1097#1077#1085#1080#1103
       ImageIndex = 2
-      ExplicitLeft = 3
-      ExplicitTop = 26
-      ExplicitWidth = 464
-      ExplicitHeight = 196
       object lblMaxDayDolg: TcxLabel
         Left = 0
         Top = 3
@@ -496,7 +471,6 @@ object FNewPricooling: TFNewPricooling
         TabOrder = 6
         Transparent = True
         Visible = False
-        Width = 169
       end
       object edtMaxDolg: TsCalcEdit
         Left = 166
@@ -505,18 +479,7 @@ object FNewPricooling: TFNewPricooling
         Height = 21
         AutoSize = False
         TabOrder = 7
-        BoundLabel.Indent = 0
-        BoundLabel.Font.Charset = DEFAULT_CHARSET
-        BoundLabel.Font.Color = clWindowText
-        BoundLabel.Font.Height = -11
-        BoundLabel.Font.Name = 'Tahoma'
-        BoundLabel.Font.Style = []
-        BoundLabel.Layout = sclLeft
-        BoundLabel.MaxWidth = 0
-        BoundLabel.UseSkinColor = True
         SkinData.SkinSection = 'EDIT'
-        GlyphMode.Blend = 0
-        GlyphMode.Grayed = False
         DisplayFormat = '$### ### ##0.00;-$### ### ##0.00;0'
         Value = 5000.000000000000000000
       end
@@ -527,18 +490,7 @@ object FNewPricooling: TFNewPricooling
         Height = 21
         AutoSize = False
         TabOrder = 8
-        BoundLabel.Indent = 0
-        BoundLabel.Font.Charset = DEFAULT_CHARSET
-        BoundLabel.Font.Color = clWindowText
-        BoundLabel.Font.Height = -11
-        BoundLabel.Font.Name = 'Tahoma'
-        BoundLabel.Font.Style = []
-        BoundLabel.Layout = sclLeft
-        BoundLabel.MaxWidth = 0
-        BoundLabel.UseSkinColor = True
         SkinData.SkinSection = 'EDIT'
-        GlyphMode.Blend = 0
-        GlyphMode.Grayed = False
         DisplayFormat = '$### ### ##0.00;-$### ### ##0.00;0'
         Value = 5000.000000000000000000
       end

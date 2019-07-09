@@ -1,4 +1,4 @@
-object FNewKargo: TFNewKargo
+﻿object FNewKargo: TFNewKargo
   Left = 0
   Top = 0
   Caption = #1050#1072#1088#1075#1086
@@ -25,11 +25,7 @@ object FNewKargo: TFNewKargo
     ExplicitTop = 236
     ExplicitWidth = 610
     inherited bardxbrmngr1: TdxBarManager
-      DockControlHeights = (
-        0
-        0
-        0
-        34)
+      PixelsPerInch = 96
       inherited btnSave: TdxBarLargeButton
         Enabled = False
         OnClick = FrameSave1btnSaveClick
@@ -54,10 +50,6 @@ object FNewKargo: TFNewKargo
     object TabOsn: TcxTabSheet
       Caption = #1054#1089#1085#1086#1074#1085#1099#1077' '#1089#1074#1077#1076#1077#1085#1080#1103
       ImageIndex = 0
-      ExplicitLeft = 3
-      ExplicitTop = 26
-      ExplicitWidth = 601
-      ExplicitHeight = 204
       object lblName: TcxLabel
         Left = 1
         Top = 5
@@ -331,6 +323,7 @@ object FNewKargo: TFNewKargo
         ExplicitWidth = 601
         ExplicitHeight = 34
         inherited barProduct: TdxBarManager
+          PixelsPerInch = 96
           DockControlHeights = (
             0
             0
@@ -360,6 +353,18 @@ object FNewKargo: TFNewKargo
           inherited btnDel: TdxBarLargeButton
             OnClick = FrameTopPanelContactbtnDelClick
           end
+        end
+        inherited pmПедидо: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmЗаказ: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmФактура: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmClients: TdxBarPopupMenu
+          PixelsPerInch = 96
         end
       end
       object GridContact: TcxGrid
@@ -422,6 +427,7 @@ object FNewKargo: TFNewKargo
         ExplicitWidth = 601
         ExplicitHeight = 34
         inherited barProduct: TdxBarManager
+          PixelsPerInch = 96
           DockControlHeights = (
             0
             0
@@ -451,6 +457,18 @@ object FNewKargo: TFNewKargo
           inherited btnDel: TdxBarLargeButton
             OnClick = FrameTopPanelBankbtnDelClick
           end
+        end
+        inherited pmПедидо: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmЗаказ: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmФактура: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmClients: TdxBarPopupMenu
+          PixelsPerInch = 96
         end
       end
       object GridAcc: TcxGrid
@@ -508,6 +526,7 @@ object FNewKargo: TFNewKargo
         ExplicitWidth = 601
         ExplicitHeight = 34
         inherited barProduct: TdxBarManager
+          PixelsPerInch = 96
           DockControlHeights = (
             0
             0
@@ -537,6 +556,18 @@ object FNewKargo: TFNewKargo
           inherited btnDel: TdxBarLargeButton
             OnClick = btnDelClick
           end
+        end
+        inherited pmПедидо: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmЗаказ: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmФактура: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmClients: TdxBarPopupMenu
+          PixelsPerInch = 96
         end
       end
       object GridTarif: TcxGrid
@@ -575,10 +606,6 @@ object FNewKargo: TFNewKargo
     object TabTarifMarking: TcxTabSheet
       Caption = #1053#1072#1094#1077#1085#1082#1080' '#1085#1072' '#1084#1072#1088#1082#1080#1088#1086#1074#1082#1080
       ImageIndex = 5
-      ExplicitLeft = 3
-      ExplicitTop = 26
-      ExplicitWidth = 601
-      ExplicitHeight = 204
       inline FrameTopPanelPriceMark: TFrameTopPanel
         Left = 0
         Top = 0
@@ -586,9 +613,10 @@ object FNewKargo: TFNewKargo
         Height = 32
         Align = alTop
         TabOrder = 0
-        ExplicitWidth = 601
+        ExplicitWidth = 610
         ExplicitHeight = 32
         inherited barProduct: TdxBarManager
+          PixelsPerInch = 96
           DockControlHeights = (
             0
             0
@@ -608,6 +636,18 @@ object FNewKargo: TFNewKargo
           inherited btnRefresh: TdxBarLargeButton
             OnClick = FrameTopPanelPriceMarkbtnRefreshClick
           end
+        end
+        inherited pmПедидо: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmЗаказ: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmФактура: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmClients: TdxBarPopupMenu
+          PixelsPerInch = 96
         end
       end
       object cxGrid1: TcxGrid
@@ -650,10 +690,6 @@ object FNewKargo: TFNewKargo
     object TabAlarm: TcxTabSheet
       Caption = #1054#1087#1086#1074#1077#1097#1077#1085#1080#1103
       ImageIndex = 4
-      ExplicitLeft = 3
-      ExplicitTop = 26
-      ExplicitWidth = 601
-      ExplicitHeight = 204
       object lblMaxDayDolg: TcxLabel
         Left = 0
         Top = 3
@@ -757,7 +793,6 @@ object FNewKargo: TFNewKargo
         TabOrder = 4
         Transparent = True
         Visible = False
-        Width = 169
       end
       object edtMaxSrokDolg: TcxSpinEdit
         Left = 166
@@ -788,6 +823,7 @@ object FNewKargo: TFNewKargo
         Top = 49
         Width = 108
         Height = 21
+        DefaultHandling = True
         EditType = etMoney
         EmptyTextStyle = []
         Precision = 2
@@ -810,13 +846,14 @@ object FNewKargo: TFNewKargo
         TabOrder = 7
         Text = '5'#160'000,00'
         Visible = True
-        Version = '3.3.2.0'
+        Version = '3.4.7.0'
       end
       object edtSumAlarm: TAdvEdit
         Left = 166
         Top = 72
         Width = 108
         Height = 21
+        DefaultHandling = True
         EditType = etMoney
         EmptyTextStyle = []
         Precision = 2
@@ -839,7 +876,7 @@ object FNewKargo: TFNewKargo
         TabOrder = 8
         Text = '5'#160'000,00'
         Visible = True
-        Version = '3.3.2.0'
+        Version = '3.4.7.0'
       end
       object lblMaxDolg: TcxLabel
         Left = 0

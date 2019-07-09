@@ -18,7 +18,7 @@ uses
   DASQLMonitor,
   UniSQLMonitor,
   DADump,
-  UniDump, dxmdaset, Bde.DBTables;
+  UniDump, dxmdaset;
 
 type
   TDM1 = class(TDataModule)

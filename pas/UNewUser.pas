@@ -39,7 +39,7 @@ uses
   DBAccess,
   Uni,
   dxSkinscxPCPainter,
-  cxPCdxBarPopupMenu,
+
   cxStyles,
   cxCustomData,
   cxFilter,
@@ -61,7 +61,7 @@ uses
 
   dxSkinDevExpressStyle,
 
-   dxSkinsDefaultPainters;
+   dxSkinsDefaultPainters, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog;
 
 type
   TFNewUser = class(TForm)

@@ -19,7 +19,7 @@ uses
   dxSkinsCore,
 
   dxSkinscxPCPainter,
-  cxPCdxBarPopupMenu,
+
   cxContainer,
   cxEdit,
   cxStyles,
@@ -61,7 +61,7 @@ uses
 
   dxSkinDevExpressStyle,
 
-   dxSkinsDefaultPainters;
+   dxSkinsDefaultPainters, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog;
 
 type
   TFNewOrg = class(TForm)

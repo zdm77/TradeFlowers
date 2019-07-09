@@ -19,7 +19,7 @@ uses
   dxSkinsCore,
 
   dxSkinscxPCPainter,
-  cxPCdxBarPopupMenu,
+
   cxContainer,
   cxEdit,
   cxStyles,
@@ -63,7 +63,7 @@ uses
 
   dxSkinDevExpressStyle,
 
-   dxSkinsDefaultPainters, dxSkinOffice2007Blue;
+   dxSkinsDefaultPainters, dxSkinOffice2007Blue, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog;
 
 type
   TFNewPlant = class(TForm)

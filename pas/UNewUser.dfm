@@ -40,8 +40,6 @@
         PanelStyle.Active = True
         Style.LookAndFeel.SkinName = 'Office2007Blue'
         StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-        StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-        StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
         TabOrder = 0
         Height = 237
         Width = 637
@@ -333,6 +331,7 @@
         ExplicitWidth = 637
         ExplicitHeight = 38
         inherited barProduct: TdxBarManager
+          PixelsPerInch = 96
           DockControlHeights = (
             0
             0
@@ -354,6 +353,18 @@
             Caption = #1056#1072#1079#1088#1077#1096#1080#1090#1100
             Hint = #1056#1072#1079#1088#1077#1096#1080#1090#1100
           end
+        end
+        inherited pmПедидо: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmЗаказ: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmФактура: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmClients: TdxBarPopupMenu
+          PixelsPerInch = 96
         end
       end
       object GridStatWork: TcxGrid
@@ -425,11 +436,7 @@
     ExplicitTop = 261
     ExplicitWidth = 637
     inherited bardxbrmngr1: TdxBarManager
-      DockControlHeights = (
-        0
-        0
-        0
-        34)
+      PixelsPerInch = 96
       inherited btnSave: TdxBarLargeButton
         Enabled = False
         OnClick = FrameSave1btnSaveClick

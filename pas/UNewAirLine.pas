@@ -19,7 +19,7 @@ uses
   dxSkinsCore,
 
   dxSkinscxPCPainter,
-  cxPCdxBarPopupMenu,
+
   cxPC,
   UFrameSave,
   UFrameUniName,
@@ -48,7 +48,7 @@ uses
 
   dxSkinDevExpressStyle,
 
-   dxSkinsDefaultPainters;
+   dxSkinsDefaultPainters, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog;
 
 type
   TFNewAirLine = class(TForm)

@@ -41,7 +41,7 @@ uses
   cxGridCustomView,
   cxGrid,
   UFrameTopPanel,
-  cxPCdxBarPopupMenu,
+
   cxPC,
   cxGridExportLink,
   Winapi.ShellAPI,
@@ -64,7 +64,7 @@ uses
      
       
     
-     dxSkinXmas2008Blue;
+     dxSkinXmas2008Blue, dxSkinsDefaultPainters, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog;
 
 type
   TFFacturKargo = class(TForm)

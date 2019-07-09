@@ -49,7 +49,7 @@ uses
   DBAccess,
   Uni,
   cxCalc,
-  cxPCdxBarPopupMenu,
+
   cxPC,
   Vcl.ComCtrls,
   sCurrEdit,    
@@ -63,7 +63,7 @@ uses
      
       
     
-     dxSkinXmas2008Blue;
+     dxSkinXmas2008Blue, dxSkinsDefaultPainters, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog;
 
 type
   TFEditFact = class(TForm)

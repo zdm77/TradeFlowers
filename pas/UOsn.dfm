@@ -21,8 +21,8 @@
   TextHeight = 13
   object stat1: TdxStatusBar
     Left = 0
-    Top = 652
-    Width = 952
+    Top = 686
+    Width = 966
     Height = 20
     Panels = <
       item
@@ -35,6 +35,8 @@
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
+    ExplicitTop = 652
+    ExplicitWidth = 952
   end
   object btn1: TButton
     Left = 78
@@ -47,6 +49,7 @@
     OnClick = btn1Click
   end
   object imgMidle: TcxImageList
+    SourceDPI = 96
     Height = 24
     Width = 24
     FormatVersion = 1
@@ -2525,6 +2528,7 @@
       end>
   end
   object imgSmall: TcxImageList
+    SourceDPI = 96
     FormatVersion = 1
     DesignInfo = 17826384
     ImageInfo = <
@@ -2610,6 +2614,7 @@
       end>
   end
   object imgLarge: TcxImageList
+    SourceDPI = 96
     Height = 32
     Width = 32
     FormatVersion = 1
@@ -3857,6 +3862,7 @@
     UseSystemFont = True
     Left = 296
     Top = 176
+    PixelsPerInch = 96
     DockControlHeights = (
       0
       0
@@ -3929,10 +3935,10 @@
       Category = 0
       Hint = #1057#1087#1088#1072#1074#1086#1095#1085#1080#1082#1080
       Visible = ivAlways
-      LargeImageIndex = 0
       OnClick = btnDictClick
       AutoGrayScale = False
       GlyphLayout = glLeft
+      LargeImageIndex = 0
     end
     object btnTorg: TdxBarLargeButton
       Caption = #1047#1072#1082#1091#1087#1082#1072' '#1080' '#1088#1077#1072#1083#1080#1079#1072#1094#1080#1103
@@ -3940,20 +3946,20 @@
       Hint = #1047#1072#1082#1091#1087#1082#1072' '#1080' '#1088#1077#1072#1083#1080#1079#1072#1094#1080#1103
       MergeKind = mkMergeByCaption
       Visible = ivAlways
-      LargeImageIndex = 1
       PaintStyle = psCaptionInMenu
       OnClick = btnTorgClick
       AutoGrayScale = False
       GlyphLayout = glLeft
+      LargeImageIndex = 1
     end
     object btnSett: TdxBarLargeButton
       Caption = #1053#1072#1089#1090#1088#1086#1081#1082#1080
       Category = 0
       Hint = #1053#1072#1089#1090#1088#1086#1081#1082#1080
       Visible = ivAlways
-      LargeImageIndex = 2
       AutoGrayScale = False
       GlyphLayout = glLeft
+      LargeImageIndex = 2
     end
     object dxBarSubItem1: TdxBarSubItem
       Caption = 'New SubItem'
@@ -3973,27 +3979,27 @@
       Category = 0
       Hint = #1057#1086#1086#1073#1097#1077#1085#1080#1103' '#1082#1083#1080#1077#1085#1090#1086#1074
       Visible = ivAlways
-      LargeImageIndex = 3
       AutoGrayScale = False
       GlyphLayout = glLeft
+      LargeImageIndex = 3
     end
     object btnReport: TdxBarLargeButton
       Caption = #1054#1090#1095#1077#1090#1099
       Category = 0
       Hint = #1054#1090#1095#1077#1090#1099
       Visible = ivAlways
-      LargeImageIndex = 4
       AutoGrayScale = False
       GlyphLayout = glLeft
+      LargeImageIndex = 4
     end
     object btnAlarm: TdxBarLargeButton
       Caption = #1054#1087#1086#1074#1077#1097#1077#1085#1080#1103
       Category = 0
       Hint = #1054#1087#1086#1074#1077#1097#1077#1085#1080#1103
       Visible = ivAlways
-      LargeImageIndex = 5
       AutoGrayScale = False
       GlyphLayout = glLeft
+      LargeImageIndex = 5
     end
     object btnOrg: TdxBarLargeButton
       Caption = #1054#1088#1075#1072#1085#1080#1079#1072#1094#1080#1080
@@ -4008,30 +4014,30 @@
       Category = 0
       Hint = #1041#1091#1093#1075#1072#1083#1090#1077#1088#1080#1103
       Visible = ivAlways
-      LargeImageIndex = 6
       OnClick = btnBalanceClick
       AutoGrayScale = False
       GlyphLayout = glLeft
+      LargeImageIndex = 6
     end
     object dxBarLargeButton1: TdxBarLargeButton
       Caption = #1040#1091#1082#1094#1080#1086#1085
       Category = 0
       Hint = #1040#1091#1082#1094#1080#1086#1085
       Visible = ivAlways
-      LargeImageIndex = 7
       OnClick = dxBarLargeButton1Click
       AutoGrayScale = False
       GlyphLayout = glLeft
+      LargeImageIndex = 7
     end
     object btnChat: TdxBarLargeButton
       Caption = #1063#1072#1090
       Category = 0
       Hint = #1063#1072#1090
       Visible = ivAlways
-      LargeImageIndex = 8
       OnClick = btnChatClick
       AutoGrayScale = False
       GlyphLayout = glLeft
+      LargeImageIndex = 8
     end
   end
   object Tab1: TdxTabbedMDIManager
@@ -4043,6 +4049,7 @@
     TabProperties.Style = 8
     Left = 40
     Top = 160
+    PixelsPerInch = 96
   end
   object mm1: TMainMenu
     Left = 208
@@ -4241,6 +4248,7 @@
   object EdtRepos1: TcxEditRepository
     Left = 264
     Top = 120
+    PixelsPerInch = 96
     object Рубль: TcxEditRepositoryCurrencyItem
       Tag = 2
     end
@@ -4308,6 +4316,7 @@
     Top = 120
   end
   object imgVerySmall: TcxImageList
+    SourceDPI = 96
     Height = 8
     Width = 8
     FormatVersion = 1

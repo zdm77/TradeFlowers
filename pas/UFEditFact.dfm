@@ -27,11 +27,7 @@
     ExplicitTop = 485
     ExplicitWidth = 688
     inherited bardxbrmngr1: TdxBarManager
-      DockControlHeights = (
-        0
-        0
-        0
-        34)
+      PixelsPerInch = 96
       inherited btnSave: TdxBarLargeButton
         OnClick = FrameSave1btnSaveClick
       end
@@ -44,8 +40,6 @@
     PanelStyle.Active = True
     Style.LookAndFeel.SkinName = 'Office2007Blue'
     StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
     TabOrder = 1
     Height = 49
     Width = 688
@@ -98,6 +92,7 @@
       Top = 22
       Width = 76
       Height = 21
+      DefaultHandling = True
       EditType = etFloat
       EmptyTextStyle = []
       ExcelStyleDecimalSeparator = True
@@ -121,13 +116,14 @@
       Visible = True
       OnChange = edtFBChange
       OnKeyDown = edtFBKeyDown
-      Version = '3.3.2.0'
+      Version = '3.4.7.0'
     end
     object edtBox: TAdvEdit
       Left = 425
       Top = 22
       Width = 76
       Height = 21
+      DefaultHandling = True
       EditType = etFloat
       EmptyTextStyle = []
       ExcelStyleDecimalSeparator = True
@@ -148,15 +144,15 @@
       Text = '0'
       Visible = True
       OnChange = edtBoxChange
-      Version = '3.3.2.0'
+      Version = '3.4.7.0'
     end
     object edtDateFact: TDateTimePicker
       Left = 3
       Top = 22
       Width = 97
       Height = 21
-      Date = 41535.395268159720000000
-      Time = 41535.395268159720000000
+      Date = 41535.000000000000000000
+      Time = 0.395268159722036200
       ShowCheckbox = True
       TabOrder = 3
     end
@@ -169,18 +165,7 @@
       TabOrder = 4
       OnChange = edtWeightChange
       OnKeyDown = edtWeightKeyDown
-      BoundLabel.Indent = 0
-      BoundLabel.Font.Charset = DEFAULT_CHARSET
-      BoundLabel.Font.Color = clWindowText
-      BoundLabel.Font.Height = -11
-      BoundLabel.Font.Name = 'Tahoma'
-      BoundLabel.Font.Style = []
-      BoundLabel.Layout = sclLeft
-      BoundLabel.MaxWidth = 0
-      BoundLabel.UseSkinColor = True
       SkinData.SkinSection = 'EDIT'
-      GlyphMode.Blend = 0
-      GlyphMode.Grayed = False
     end
   end
   object GroupПретензия: TcxGroupBox
@@ -190,8 +175,6 @@
     Caption = #1055#1088#1077#1090#1077#1085#1079#1080#1103
     Style.LookAndFeel.SkinName = 'Office2007Blue'
     StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
     TabOrder = 2
     Height = 436
     Width = 688
@@ -203,10 +186,11 @@
       Align = alTop
       TabOrder = 0
       ExplicitLeft = 2
-      ExplicitTop = 5
+      ExplicitTop = 18
       ExplicitWidth = 684
       ExplicitHeight = 38
       inherited barProduct: TdxBarManager
+        PixelsPerInch = 96
         DockControlHeights = (
           0
           0
@@ -221,6 +205,18 @@
         inherited btnDel: TdxBarLargeButton
           OnClick = FrameTopPanel1btnDelClick
         end
+      end
+      inherited pmПедидо: TdxBarPopupMenu
+        PixelsPerInch = 96
+      end
+      inherited pmЗаказ: TdxBarPopupMenu
+        PixelsPerInch = 96
+      end
+      inherited pmФактура: TdxBarPopupMenu
+        PixelsPerInch = 96
+      end
+      inherited pmClients: TdxBarPopupMenu
+        PixelsPerInch = 96
       end
     end
     object GridUsers: TcxGrid

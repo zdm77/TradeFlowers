@@ -25,11 +25,7 @@
     ExplicitTop = 438
     ExplicitWidth = 817
     inherited bardxbrmngr1: TdxBarManager
-      DockControlHeights = (
-        0
-        0
-        0
-        34)
+      PixelsPerInch = 96
       inherited btnSave: TdxBarLargeButton
         OnClick = FrameSave1btnSaveClick
       end
@@ -62,29 +58,25 @@
         Style.LookAndFeel.SkinName = 'Office2007Blue'
         StyleDisabled.LookAndFeel.NativeStyle = False
         StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-        StyleFocused.LookAndFeel.NativeStyle = False
-        StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-        StyleHot.LookAndFeel.NativeStyle = False
-        StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
         TabOrder = 0
         Height = 93
         Width = 809
         inline FrameUniName1: TFrameUniName
-          Left = 3
-          Top = 15
-          Width = 803
-          Height = 68
+          Left = 2
+          Top = 18
+          Width = 805
+          Height = 73
           Align = alClient
           TabOrder = 0
           ExplicitLeft = 2
-          ExplicitTop = -2
+          ExplicitTop = 18
           ExplicitWidth = 805
-          ExplicitHeight = 93
+          ExplicitHeight = 73
           inherited Group1: TcxGroupBox
             ExplicitWidth = 805
-            ExplicitHeight = 93
-            Height = 68
-            Width = 803
+            ExplicitHeight = 73
+            Height = 73
+            Width = 805
             inherited edtUniName: TcxTextEdit
               Properties.OnChange = nil
               Properties.OnEditValueChanged = FrameUniName1edtUniNamePropertiesEditValueChanged
@@ -119,26 +111,22 @@
         Style.LookAndFeel.SkinName = 'Office2007Blue'
         StyleDisabled.LookAndFeel.NativeStyle = False
         StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-        StyleFocused.LookAndFeel.NativeStyle = False
-        StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-        StyleHot.LookAndFeel.NativeStyle = False
-        StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
         TabOrder = 1
         Height = 337
         Width = 289
         inline FrameSearch1: TFrameSearch
-          Left = 3
-          Top = 15
-          Width = 283
+          Left = 2
+          Top = 18
+          Width = 285
           Height = 28
           Align = alTop
           TabOrder = 0
           ExplicitLeft = 2
-          ExplicitTop = -2
+          ExplicitTop = 18
           ExplicitWidth = 285
           inherited Group1: TcxGroupBox
             ExplicitWidth = 285
-            Width = 283
+            Width = 285
             inherited LabelName: TcxLabel
               Style.IsFontAssigned = True
             end
@@ -153,10 +141,10 @@
           end
         end
         object lstTreeProducts: TcxDBTreeList
-          Left = 3
-          Top = 43
-          Width = 283
-          Height = 284
+          Left = 2
+          Top = 46
+          Width = 285
+          Height = 289
           Align = alClient
           Bands = <
             item
@@ -183,10 +171,6 @@
           RootValue = -1
           TabOrder = 1
           OnDblClick = lstTreeProductsDblClick
-          ExplicitLeft = 2
-          ExplicitTop = 46
-          ExplicitWidth = 285
-          ExplicitHeight = 289
           object ColumnName: TcxDBTreeListColumn
             PropertiesClassName = 'TcxLabelProperties'
             Properties.Alignment.Vert = taVCenter
@@ -210,26 +194,18 @@
         Style.LookAndFeel.SkinName = 'Office2007Blue'
         StyleDisabled.LookAndFeel.NativeStyle = False
         StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-        StyleFocused.LookAndFeel.NativeStyle = False
-        StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-        StyleHot.LookAndFeel.NativeStyle = False
-        StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
         TabOrder = 2
         Height = 337
         Width = 512
         object GridOrder: TcxGrid
-          Left = 3
-          Top = 47
-          Width = 506
-          Height = 280
+          Left = 2
+          Top = 50
+          Width = 508
+          Height = 285
           Align = alClient
           TabOrder = 1
           LookAndFeel.Kind = lfOffice11
           LookAndFeel.NativeStyle = False
-          ExplicitLeft = 2
-          ExplicitTop = 50
-          ExplicitWidth = 508
-          ExplicitHeight = 285
           object ViewOrder: TcxGridDBTableView
             OnDblClick = ViewOrderDblClick
             Navigator.Buttons.CustomButtons = <>
@@ -281,17 +257,18 @@
           end
         end
         inline FrameTopPanel1: TFrameTopPanel
-          Left = 3
-          Top = 15
-          Width = 506
+          Left = 2
+          Top = 18
+          Width = 508
           Height = 32
           Align = alTop
           TabOrder = 0
           ExplicitLeft = 2
-          ExplicitTop = -2
+          ExplicitTop = 18
           ExplicitWidth = 508
           ExplicitHeight = 32
           inherited barProduct: TdxBarManager
+            PixelsPerInch = 96
             DockControlHeights = (
               0
               0
@@ -310,6 +287,18 @@
               Visible = ivNever
             end
           end
+          inherited pmПедидо: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmЗаказ: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmФактура: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmClients: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
         end
       end
       object cxspltr1: TcxSplitter
@@ -326,7 +315,7 @@
     Left = 84
     Top = 189
     Bitmap = {
-      494C010102000500200010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102000500040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       00000000000000000000000000000000000000000000FCFCFC04D0CFCE39CCCB
       CA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECBCA

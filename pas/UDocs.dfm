@@ -109,6 +109,10 @@
     object TabOrder: TcxTabSheet
       Caption = #1047#1072#1082#1072#1079#1099
       ImageIndex = 0
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       inline FrameOrder1: TFrameOrder
         Left = 0
         Top = 0
@@ -116,17 +120,25 @@
         Height = 449
         Align = alClient
         TabOrder = 0
-        ExplicitWidth = 548
-        ExplicitHeight = 449
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         inherited FrameTopPanel1: TFrameTopPanel
           Width = 548
-          ExplicitWidth = 548
+          ExplicitWidth = 0
           inherited barProduct: TdxBarManager
-            DockControlHeights = (
-              0
-              0
-              69
-              0)
+            PixelsPerInch = 96
+          end
+          inherited pmПедидо: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmЗаказ: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmФактура: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmClients: TdxBarPopupMenu
+            PixelsPerInch = 96
           end
         end
         inherited GridOrder: TcxGrid
@@ -144,6 +156,10 @@
     object TabПедидо: TcxTabSheet
       Caption = #1055#1077#1076#1080#1076#1086
       ImageIndex = 1
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       inline FramePedidoALL1: TFramePedidoAll
         Left = 0
         Top = 0
@@ -151,17 +167,30 @@
         Height = 449
         Align = alClient
         TabOrder = 0
-        ExplicitWidth = 548
-        ExplicitHeight = 449
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         inherited FrameTopPanel1: TFrameTopPanel
           Width = 548
-          ExplicitWidth = 548
+          ExplicitWidth = 0
           inherited barProduct: TdxBarManager
+            PixelsPerInch = 96
             DockControlHeights = (
               0
               0
               69
               0)
+          end
+          inherited pmПедидо: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmЗаказ: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmФактура: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmClients: TdxBarPopupMenu
+            PixelsPerInch = 96
           end
         end
         inherited GridPedidoALL: TcxGrid
@@ -178,6 +207,10 @@
     object TabФактура: TcxTabSheet
       Caption = #1060#1072#1082#1090#1091#1088#1099
       ImageIndex = 2
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       inline FrameFactura1: TFrameFactura
         Left = 0
         Top = 0
@@ -185,25 +218,35 @@
         Height = 449
         Align = alClient
         TabOrder = 0
-        ExplicitWidth = 548
-        ExplicitHeight = 449
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         inherited FrameTopPanel1: TFrameTopPanel
           Width = 548
-          ExplicitWidth = 548
+          ExplicitWidth = 0
           inherited barProduct: TdxBarManager
+            PixelsPerInch = 96
             DockControlHeights = (
               0
               0
               69
               0)
           end
+          inherited pmПедидо: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmЗаказ: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmФактура: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmClients: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
         end
         inherited Group1: TcxGroupBox
           ExplicitWidth = 548
           Width = 548
-          inherited edtDateDo: TAdvDateTimePicker
-            OnChange = FrameFactura1edtDateDoChange
-          end
         end
         inherited GridFactura: TcxGrid
           Width = 548
@@ -216,6 +259,10 @@
     object tabPacking: TcxTabSheet
       Caption = #1055#1072#1082#1080#1085#1075
       ImageIndex = 3
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       inline Tamog_Packing1: TTamog_Packing
         Left = 0
         Top = 0
@@ -223,17 +270,30 @@
         Height = 449
         Align = alClient
         TabOrder = 0
-        ExplicitWidth = 548
-        ExplicitHeight = 449
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         inherited FrameTopPanel1: TFrameTopPanel
           Width = 548
-          ExplicitWidth = 548
+          ExplicitWidth = 0
           inherited barProduct: TdxBarManager
+            PixelsPerInch = 96
             DockControlHeights = (
               0
               0
               69
               0)
+          end
+          inherited pmПедидо: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmЗаказ: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmФактура: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmClients: TdxBarPopupMenu
+            PixelsPerInch = 96
           end
         end
         inherited GroupOsn: TcxGroupBox
@@ -251,6 +311,10 @@
     object tabPrice: TcxTabSheet
       Caption = #1055#1088#1072#1081#1089
       ImageIndex = 4
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       inline FramePrice1: TFramePrice
         Left = 0
         Top = 0
@@ -258,23 +322,31 @@
         Height = 449
         Align = alClient
         TabOrder = 0
-        ExplicitWidth = 548
-        ExplicitHeight = 449
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         inherited FrameTopPanel1: TFrameTopPanel
           Width = 548
-          ExplicitWidth = 548
+          ExplicitWidth = 0
           inherited barProduct: TdxBarManager
-            DockControlHeights = (
-              0
-              0
-              69
-              0)
+            PixelsPerInch = 96
             inherited btnEdit: TdxBarLargeButton
               OnClick = btnEditClick
             end
             inherited btnRefresh: TdxBarLargeButton
               OnClick = btnRefreshClick
             end
+          end
+          inherited pmПедидо: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmЗаказ: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmФактура: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmClients: TdxBarPopupMenu
+            PixelsPerInch = 96
           end
         end
         inherited GridPedidoALL: TcxGrid
@@ -304,11 +376,19 @@
           Width = 548
           ExplicitWidth = 548
           inherited barProduct: TdxBarManager
-            DockControlHeights = (
-              0
-              0
-              69
-              0)
+            PixelsPerInch = 96
+          end
+          inherited pmПедидо: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmЗаказ: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmФактура: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmClients: TdxBarPopupMenu
+            PixelsPerInch = 96
           end
         end
         inherited GridStatWork: TcxGrid

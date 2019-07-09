@@ -1,4 +1,4 @@
-object FNewPlant: TFNewPlant
+﻿object FNewPlant: TFNewPlant
   Left = 0
   Top = 0
   Caption = #1055#1083#1072#1085#1090#1072#1094#1080#1103
@@ -27,13 +27,16 @@ object FNewPlant: TFNewPlant
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = False
     LookAndFeel.SkinName = 'Office2007Blue'
-    ClientRectBottom = 444
-    ClientRectLeft = 3
-    ClientRectRight = 667
-    ClientRectTop = 26
+    ClientRectBottom = 450
+    ClientRectRight = 673
+    ClientRectTop = 24
     object TabOsn: TcxTabSheet
       Caption = #1054#1089#1085#1086#1074#1085#1099#1077
       ImageIndex = 0
+      ExplicitLeft = 3
+      ExplicitTop = 26
+      ExplicitWidth = 664
+      ExplicitHeight = 418
       object Group1: TcxGroupBox
         Left = 0
         Top = 0
@@ -41,11 +44,11 @@ object FNewPlant: TFNewPlant
         PanelStyle.Active = True
         Style.LookAndFeel.SkinName = 'Office2007Blue'
         StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-        StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-        StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
         TabOrder = 0
-        Height = 418
-        Width = 664
+        ExplicitWidth = 664
+        ExplicitHeight = 418
+        Height = 426
+        Width = 673
         object mmoRemark: TcxMemo
           Left = 103
           Top = 93
@@ -268,6 +271,9 @@ object FNewPlant: TFNewPlant
       Caption = #1058#1080#1087#1099
       ImageIndex = 5
       TabVisible = False
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object GroupType: TcxGroupBox
         Left = 0
         Top = 0
@@ -276,19 +282,21 @@ object FNewPlant: TFNewPlant
         Style.Edges = []
         Style.LookAndFeel.SkinName = 'Office2007Blue'
         StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-        StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-        StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
         TabOrder = 0
-        Height = 418
-        Width = 664
+        ExplicitWidth = 664
+        ExplicitHeight = 418
+        Height = 426
+        Width = 673
         object GridType: TcxGrid
           Left = 2
           Top = 50
-          Width = 660
-          Height = 366
+          Width = 669
+          Height = 374
           Align = alClient
           TabOrder = 0
           LookAndFeel.Kind = lfOffice11
+          ExplicitWidth = 660
+          ExplicitHeight = 366
           object ViewType: TcxGridDBTableView
             Navigator.Buttons.CustomButtons = <>
             DataController.DataSource = dsType
@@ -333,7 +341,7 @@ object FNewPlant: TFNewPlant
         inline FrameTopPanel3: TFrameTopPanel
           Left = 2
           Top = 18
-          Width = 660
+          Width = 669
           Height = 32
           Align = alTop
           TabOrder = 1
@@ -342,11 +350,7 @@ object FNewPlant: TFNewPlant
           ExplicitWidth = 660
           ExplicitHeight = 32
           inherited barProduct: TdxBarManager
-            DockControlHeights = (
-              0
-              0
-              34
-              0)
+            PixelsPerInch = 96
             inherited dxbrBardxbrmngr1Bar1: TdxBar
               ItemLinks = <
                 item
@@ -378,53 +382,77 @@ object FNewPlant: TFNewPlant
               OnClick = FrameTopPanel3btnRefreshClick
             end
           end
+          inherited pmПедидо: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmЗаказ: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmФактура: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmClients: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
         end
       end
     end
     object TabSort: TcxTabSheet
       Caption = #1057#1086#1088#1090#1072
       ImageIndex = 4
+      ExplicitLeft = 3
+      ExplicitTop = 26
+      ExplicitWidth = 664
+      ExplicitHeight = 418
       inline FramePlantSort1: TFramePlantSort
         Left = 0
         Top = 0
-        Width = 664
-        Height = 418
+        Width = 673
+        Height = 426
         Align = alClient
         TabOrder = 0
         ExplicitWidth = 664
         ExplicitHeight = 418
         inherited FrameTopPanel1: TFrameTopPanel
-          Width = 664
+          Width = 673
           ExplicitWidth = 664
           inherited barProduct: TdxBarManager
-            DockControlHeights = (
-              0
-              0
-              34
-              0)
+            PixelsPerInch = 96
             inherited btnAdd: TdxBarLargeButton
               OnClick = FrameTopPanel1btnAddClick
             end
           end
+          inherited pmПедидо: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmЗаказ: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmФактура: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmClients: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
         end
         inherited GroupSelCountry: TcxGroupBox
           ExplicitWidth = 664
-          Width = 664
+          Width = 673
           inherited edtType: TcxLookupComboBox
             Properties.OnEditValueChanged = FramePlantSort1edtTypePropertiesEditValueChanged
           end
           inherited chkDel: TcxCheckBox
-            ExplicitHeight = 21
+            ExplicitWidth = 121
           end
         end
         inherited GroupSort: TcxGroupBox
           ExplicitWidth = 664
           ExplicitHeight = 350
-          Height = 350
-          Width = 664
+          Height = 358
+          Width = 673
           inherited GridUsers: TcxGrid
-            Width = 658
-            Height = 325
+            Width = 669
+            Height = 338
             ExplicitLeft = 3
             ExplicitTop = 15
             ExplicitWidth = 658
@@ -439,16 +467,20 @@ object FNewPlant: TFNewPlant
     object TabContact: TcxTabSheet
       Caption = 'Contacts'
       ImageIndex = 1
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       inline FrameTopPanel1: TFrameTopPanel
         Left = 0
         Top = 0
-        Width = 664
+        Width = 673
         Height = 34
         Align = alTop
         TabOrder = 0
         ExplicitWidth = 664
         ExplicitHeight = 34
         inherited barProduct: TdxBarManager
+          PixelsPerInch = 96
           DockControlHeights = (
             0
             0
@@ -479,16 +511,30 @@ object FNewPlant: TFNewPlant
             OnClick = FrameTopPanel1btnDelClick
           end
         end
+        inherited pmПедидо: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmЗаказ: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmФактура: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmClients: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
       end
       object GridTarif: TcxGrid
         Left = 0
         Top = 34
-        Width = 664
-        Height = 384
+        Width = 673
+        Height = 392
         Align = alClient
         TabOrder = 1
         LookAndFeel.Kind = lfOffice11
         LookAndFeel.NativeStyle = False
+        ExplicitWidth = 664
+        ExplicitHeight = 384
         object cxGridDBTableView2: TcxGridDBTableView
           OnDblClick = cxGridDBTableView2DblClick
           Navigator.Buttons.CustomButtons = <>
@@ -521,16 +567,20 @@ object FNewPlant: TFNewPlant
     object TabAccounts: TcxTabSheet
       Caption = 'Bank details'
       ImageIndex = 2
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       inline FrameTopPanel2: TFrameTopPanel
         Left = 0
         Top = 0
-        Width = 664
+        Width = 673
         Height = 34
         Align = alTop
         TabOrder = 0
         ExplicitWidth = 664
         ExplicitHeight = 34
         inherited barProduct: TdxBarManager
+          PixelsPerInch = 96
           DockControlHeights = (
             0
             0
@@ -552,16 +602,30 @@ object FNewPlant: TFNewPlant
               end>
           end
         end
+        inherited pmПедидо: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmЗаказ: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmФактура: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmClients: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
       end
       object GridAcc: TcxGrid
         Left = 0
         Top = 34
-        Width = 664
-        Height = 384
+        Width = 673
+        Height = 392
         Align = alClient
         TabOrder = 1
         LookAndFeel.Kind = lfOffice11
         LookAndFeel.NativeStyle = False
+        ExplicitWidth = 664
+        ExplicitHeight = 384
         object GridAccount: TcxGridDBTableView
           Navigator.Buttons.CustomButtons = <>
           DataController.Summary.DefaultGroupSummaryItems = <>
@@ -590,6 +654,10 @@ object FNewPlant: TFNewPlant
     object TabAlarm: TcxTabSheet
       Caption = 'Settings and Annunciator'
       ImageIndex = 3
+      ExplicitLeft = 3
+      ExplicitTop = 26
+      ExplicitWidth = 664
+      ExplicitHeight = 418
       object lbl2: TcxLabel
         Left = 0
         Top = 26
@@ -828,7 +896,6 @@ object FNewPlant: TFNewPlant
         StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
         TabOrder = 12
         Transparent = True
-        Width = 169
       end
     end
   end
@@ -842,11 +909,7 @@ object FNewPlant: TFNewPlant
     ExplicitTop = 450
     ExplicitWidth = 673
     inherited bardxbrmngr1: TdxBarManager
-      DockControlHeights = (
-        0
-        0
-        0
-        34)
+      PixelsPerInch = 96
       inherited btnSave: TdxBarLargeButton
         OnClick = FrameSave1btnSaveClick
       end

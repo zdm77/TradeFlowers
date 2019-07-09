@@ -27,7 +27,7 @@ uses
   AdvEdit,
   cxGroupBox,
   dxSkinscxPCPainter,
-  cxPCdxBarPopupMenu,
+
   cxStyles,
   cxCustomData,
   cxFilter,
@@ -62,7 +62,7 @@ uses
 
   dxSkinDevExpressStyle,
 
-   dxSkinsDefaultPainters;
+   dxSkinsDefaultPainters, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog;
 
 type
   TFNewPricooling = class(TForm)

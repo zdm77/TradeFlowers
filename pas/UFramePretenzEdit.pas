@@ -50,7 +50,7 @@ uses
   sTooledit,
   cxGroupBox,
   UFrameProduct,
-  cxPCdxBarPopupMenu,
+
   cxPC,
   cxLabel,
   cxTextEdit,
@@ -71,7 +71,7 @@ uses
      
       
     
-     dxSkinXmas2008Blue;
+     dxSkinXmas2008Blue, dxSkinsDefaultPainters, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog;
 
 type
   TFramePretenzEdit = class(TFrame)

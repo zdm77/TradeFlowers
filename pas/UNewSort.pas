@@ -38,7 +38,7 @@ uses
   cxMemo,
   cxGroupBox,
   dxSkinscxPCPainter,
-  cxPCdxBarPopupMenu,
+
   cxStyles,
   cxCustomData,
   cxFilter,
@@ -69,7 +69,7 @@ uses
 
   dxSkinDevExpressStyle,
 
-   dxSkinsDefaultPainters;
+   dxSkinsDefaultPainters, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog;
 
 type
   TFNewSort = class(TForm)

@@ -23,7 +23,7 @@ uses
   dxSkinsCore,
 
   dxSkinscxPCPainter,
-  cxPCdxBarPopupMenu,
+
   cxPC,
   cxSplitter,
   UFrameCountry,

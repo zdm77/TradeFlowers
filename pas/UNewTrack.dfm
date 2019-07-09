@@ -1,4 +1,4 @@
-object FNewTrack: TFNewTrack
+﻿object FNewTrack: TFNewTrack
   Left = 0
   Top = 0
   Caption = #1058#1088#1072#1082
@@ -25,11 +25,7 @@ object FNewTrack: TFNewTrack
     ExplicitTop = 296
     ExplicitWidth = 652
     inherited bardxbrmngr1: TdxBarManager
-      DockControlHeights = (
-        0
-        0
-        0
-        34)
+      PixelsPerInch = 96
       inherited btnSave: TdxBarLargeButton
         Enabled = False
         OnClick = FrameSave1btnSaveClick
@@ -54,10 +50,6 @@ object FNewTrack: TFNewTrack
     object TabOsn: TcxTabSheet
       Caption = #1054#1089#1085#1086#1074#1085#1099#1077' '#1089#1074#1077#1076#1077#1085#1080#1103
       ImageIndex = 0
-      ExplicitLeft = 3
-      ExplicitTop = 26
-      ExplicitWidth = 643
-      ExplicitHeight = 264
       object lblName: TcxLabel
         Left = 1
         Top = 5
@@ -336,6 +328,7 @@ object FNewTrack: TFNewTrack
         ExplicitWidth = 643
         ExplicitHeight = 34
         inherited barProduct: TdxBarManager
+          PixelsPerInch = 96
           DockControlHeights = (
             0
             0
@@ -365,6 +358,18 @@ object FNewTrack: TFNewTrack
           inherited btnDel: TdxBarLargeButton
             OnClick = FrameTopPanelContactbtnDelClick
           end
+        end
+        inherited pmПедидо: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmЗаказ: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmФактура: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmClients: TdxBarPopupMenu
+          PixelsPerInch = 96
         end
       end
       object GridContact: TcxGrid
@@ -425,6 +430,7 @@ object FNewTrack: TFNewTrack
         ExplicitWidth = 643
         ExplicitHeight = 34
         inherited barProduct: TdxBarManager
+          PixelsPerInch = 96
           DockControlHeights = (
             0
             0
@@ -454,6 +460,18 @@ object FNewTrack: TFNewTrack
           inherited btnDel: TdxBarLargeButton
             OnClick = FrameTopPanelBankbtnDelClick
           end
+        end
+        inherited pmПедидо: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmЗаказ: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmФактура: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmClients: TdxBarPopupMenu
+          PixelsPerInch = 96
         end
       end
       object PageBank: TcxPageControl
@@ -601,8 +619,6 @@ object FNewTrack: TFNewTrack
             PanelStyle.Active = True
             Style.LookAndFeel.SkinName = 'Office2007Blue'
             StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-            StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-            StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
             TabOrder = 0
             Height = 210
             Width = 644
@@ -663,8 +679,6 @@ object FNewTrack: TFNewTrack
             PanelStyle.Active = True
             Style.LookAndFeel.SkinName = 'Office2007Blue'
             StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-            StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-            StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
             TabOrder = 0
             Height = 210
             Width = 644
@@ -721,6 +735,7 @@ object FNewTrack: TFNewTrack
         ExplicitWidth = 643
         ExplicitHeight = 34
         inherited barProduct: TdxBarManager
+          PixelsPerInch = 96
           DockControlHeights = (
             0
             0
@@ -750,6 +765,18 @@ object FNewTrack: TFNewTrack
             OnClick = btnDelClick
           end
         end
+        inherited pmПедидо: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmЗаказ: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmФактура: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmClients: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
       end
     end
     object TabPriceMarking: TcxTabSheet
@@ -765,9 +792,10 @@ object FNewTrack: TFNewTrack
         Height = 32
         Align = alTop
         TabOrder = 0
-        ExplicitWidth = 643
+        ExplicitWidth = 652
         ExplicitHeight = 32
         inherited barProduct: TdxBarManager
+          PixelsPerInch = 96
           DockControlHeights = (
             0
             0
@@ -777,6 +805,18 @@ object FNewTrack: TFNewTrack
             Caption = #1047#1072#1087#1086#1083#1085#1080#1090#1100
             Hint = #1047#1072#1087#1086#1083#1085#1080#1090#1100
           end
+        end
+        inherited pmПедидо: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmЗаказ: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmФактура: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmClients: TdxBarPopupMenu
+          PixelsPerInch = 96
         end
       end
       object PagePriceMarking: TcxPageControl
@@ -812,8 +852,6 @@ object FNewTrack: TFNewTrack
             PanelStyle.Active = True
             Style.LookAndFeel.SkinName = 'Office2007Blue'
             StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-            StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-            StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
             TabOrder = 0
             Height = 212
             Width = 644
@@ -874,8 +912,6 @@ object FNewTrack: TFNewTrack
             PanelStyle.Active = True
             Style.LookAndFeel.SkinName = 'Office2007Blue'
             StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-            StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-            StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
             TabOrder = 0
             Height = 212
             Width = 644
@@ -926,10 +962,6 @@ object FNewTrack: TFNewTrack
     object TabAlarm: TcxTabSheet
       Caption = #1054#1087#1086#1074#1077#1097#1077#1085#1080#1103
       ImageIndex = 4
-      ExplicitLeft = 3
-      ExplicitTop = 26
-      ExplicitWidth = 643
-      ExplicitHeight = 264
       object lblMaxDayDolg: TcxLabel
         Left = 0
         Top = 3
@@ -1033,7 +1065,6 @@ object FNewTrack: TFNewTrack
         TabOrder = 10
         Transparent = True
         Visible = False
-        Width = 169
       end
       object edtMaxSrokDolg: TcxSpinEdit
         Left = 166
@@ -1064,6 +1095,7 @@ object FNewTrack: TFNewTrack
         Top = 49
         Width = 108
         Height = 21
+        DefaultHandling = True
         EditType = etMoney
         EmptyTextStyle = []
         Precision = 2
@@ -1086,13 +1118,14 @@ object FNewTrack: TFNewTrack
         TabOrder = 6
         Text = '5'#160'000,00'
         Visible = True
-        Version = '3.3.2.0'
+        Version = '3.4.7.0'
       end
       object edtSumAlarm: TAdvEdit
         Left = 166
         Top = 72
         Width = 108
         Height = 21
+        DefaultHandling = True
         EditType = etMoney
         EmptyTextStyle = []
         Precision = 2
@@ -1115,7 +1148,7 @@ object FNewTrack: TFNewTrack
         TabOrder = 7
         Text = '5'#160'000,00'
         Visible = True
-        Version = '3.3.2.0'
+        Version = '3.4.7.0'
       end
       object lblMaxDolg: TcxLabel
         Left = 0

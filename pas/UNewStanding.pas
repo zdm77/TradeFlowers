@@ -52,7 +52,7 @@ uses
   cxTLData,
   UFrameSearch,
   Vcl.ImgList,
-  cxPCdxBarPopupMenu,
+
   cxPC,
   cxMaskEdit,
   cxNavigator,
@@ -67,7 +67,8 @@ uses
      
       
     
-     dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
+     dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters,
+  cxDataControllerConditionalFormattingRulesManagerDialog, dxDateRanges, System.ImageList;
 
 type
   TFNewStanding = class(TForm)

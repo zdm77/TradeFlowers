@@ -18,7 +18,6 @@ uses
   cxLookAndFeelPainters,
   cxStyles,
   dxSkinsCore,
-  
   dxSkinscxPCPainter,
   cxCustomData,
   cxFilter,
@@ -42,18 +41,11 @@ uses
   cxGridCustomView,
   cxGrid,
   UFrameTopPanel,
-  cxNavigator,    
-     
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
+  cxNavigator,
+  dxSkinDevExpressStyle,
+  dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters, dxDateRanges,
+  cxDataControllerConditionalFormattingRulesManagerDialog, Vcl.StdCtrls, Vcl.Mask, sMaskEdit, sCustomComboEdit,
+  sToolEdit;
 
 type
   TFrameOrder = class(TFrame)
@@ -62,8 +54,6 @@ type
     ViewOrder: TcxGridDBTableView;
     GridLevelOrder: TcxGridLevel;
     Group1: TcxGroupBox;
-    edtOt: TAdvDateTimePicker;
-    edtDo: TAdvDateTimePicker;
     QueryOrder: TUniQuery;
     dsOrder: TDataSource;
     ColumnN: TcxGridDBColumn;
@@ -73,6 +63,8 @@ type
     ColumnViewOrderlogin: TcxGridDBColumn;
     ColumnViewOrderm_name: TcxGridDBColumn;
     Query1: TUniQuery;
+    edtOt: TDateTimePicker;
+    edtDo: TDateTimePicker;
     procedure btnAddClick(Sender: TObject);
     procedure btnEditClick(Sender: TObject);
     procedure btnDelClick(Sender: TObject);
@@ -113,8 +105,7 @@ begin
       with Query2 do
       begin
         Close;
-        sql.Text :=
-          'select cast(max(номер) as integer) from "документы"."заказы"';
+        sql.Text := 'select cast(max(номер) as integer) from "документы"."заказы"';
         Open;
         if Fields[0].AsString = '' then
           edtNum.Text := '1'
@@ -130,8 +121,7 @@ begin
 end;
 
 procedure TFrameOrder.btnDelClick(Sender: TObject);
-var
-  s, s1: string;
+var s, s1: string;
 begin
   FSplash.Show();
   FSplash.Update;
@@ -139,19 +129,17 @@ begin
   with Query1 do
   begin
     Close;
-    sql.Text :=
-      'SELECT z."код_детали_заказа", zp."дата_вылета", p.name, p.uni_name, p.reg_name FROM'
-      + ' "документы"."закупки_деталь" zd INNER JOIN "документы"."закупки" z ON (zd."код_закупки" = z.id)'
-      + ' INNER JOIN "документы"."заказы_деталь" zdt ON (z."код_детали_заказа" = zdt.id)'
-      + ' INNER JOIN "документы"."заказы" zp ON (zdt."код_заказа" = zp.id)' +
-      ' left join "продукция"."продукция" p on (p.id=zd."код_товара")' +
-      ' where zp.id=' + QueryOrder.FieldByName('id').AsString;
+    sql.Text := 'SELECT z."код_детали_заказа", zp."дата_вылета", p.name, p.uni_name, p.reg_name FROM' +
+      ' "документы"."закупки_деталь" zd INNER JOIN "документы"."закупки" z ON (zd."код_закупки" = z.id)' +
+      ' INNER JOIN "документы"."заказы_деталь" zdt ON (z."код_детали_заказа" = zdt.id)' +
+      ' INNER JOIN "документы"."заказы" zp ON (zdt."код_заказа" = zp.id)' +
+      ' left join "продукция"."продукция" p on (p.id=zd."код_товара")' + ' where zp.id=' +
+      QueryOrder.FieldByName('id').AsString;
     Open;
     if Fields[0].AsString = '' then
     begin
       FSplash.Close;
-      PGSQL.StandartDelete(QueryOrder.FieldByName('id').AsString,
-        '"документы"."заказы"', QueryOrder, '', '', '', '');
+      PGSQL.StandartDelete(QueryOrder.FieldByName('id').AsString, '"документы"."заказы"', QueryOrder, '', '', '', '');
     end
     else
     begin
@@ -160,22 +148,20 @@ begin
         case FPasswd.edtLang.ItemIndex of
           0:
             begin
-              s := s + 'Код заказа: ' + Fields[0].AsString + ', дата вылета: ' +
-                Fields[1].AsString + ', позиция: ' + Fields[2].AsString + #13;
+              s := s + 'Код заказа: ' + Fields[0].AsString + ', дата вылета: ' + Fields[1].AsString + ', позиция: ' +
+                Fields[2].AsString + #13;
               s1 := 'Связанные закупки';
             end;
           1:
             begin
-              s := s + 'Order code: ' + Fields[0].AsString +
-                ', Date of departure: ' + Fields[1].AsString + ', position: ' +
-                Fields[3].AsString + #13;
+              s := s + 'Order code: ' + Fields[0].AsString + ', Date of departure: ' + Fields[1].AsString +
+                ', position: ' + Fields[3].AsString + #13;
               s1 := 'Associated procurement';
             end;
           2:
             begin
-              s := s + 'Código del encargo: ' + Fields[0].AsString +
-                ', Fecha del vuelo: ' + Fields[1].AsString + ', posición: ' +
-                Fields[4].AsString + #13;
+              s := s + 'Código del encargo: ' + Fields[0].AsString + ', Fecha del vuelo: ' + Fields[1].AsString +
+                ', posición: ' + Fields[4].AsString + #13;
               s1 := 'Сompras vinculadas';
             end;
         end;
@@ -186,11 +172,9 @@ begin
         0:
           ErrorDialog('Удаление невозможно.', s, 'Есть связанные данные.', s1);
         1:
-          ErrorDialog('Removal is impossible', s,
-            'There are associated data.', s1);
+          ErrorDialog('Removal is impossible', s, 'There are associated data.', s1);
         2:
-          ErrorDialog('La desaparición es imposible', s,
-            'Hay unos datos vinculados.', s1);
+          ErrorDialog('La desaparición es imposible', s, 'Hay unos datos vinculados.', s1);
       end;
     end;
   end;
@@ -292,15 +276,14 @@ begin
   with QueryOrder do
   begin
     Close;
-    sql.Text :=
-      'SELECT doc.id, doc."код_маркировки", doc."дата_вылета",doc.код_фито, doc."код_карго",'
-      + 'doc."код_трака", doc."код_прикулинга", doc."дата_исполнения", doc."код_пользователя",'
-      + ' u.name  u_name, u.login, m.name  m_name, k.name k_name, k.reg_name k_reg_name,'
-      + ' k.uni_name k_uni_name, p.name p_name, doc."номер", m.uni_name m_uni_name, m.reg_name m_reg_name,'
-      + ' t.uni_name t_uni_name, t.reg_name t_reg_name, t.name t_name FROM' +
-      ' "документы"."заказы" doc INNER JOIN "пользователи"."пользователи" u ON (doc."код_пользователя" = u.id)'
-      + '  LEFT OUTER JOIN "прикулинг"."агенства" p ON (doc."код_прикулинга" = p.id)'
-      + '  LEFT OUTER JOIN "карго"."агенства" k ON (doc."код_карго" = k.id)' +
+    sql.Text := 'SELECT doc.id, doc."код_маркировки", doc."дата_вылета",doc.код_фито, doc."код_карго",' +
+      'doc."код_трака", doc."код_прикулинга", doc."дата_исполнения", doc."код_пользователя",' +
+      ' u.name  u_name, u.login, m.name  m_name, k.name k_name, k.reg_name k_reg_name,' +
+      ' k.uni_name k_uni_name, p.name p_name, doc."номер", m.uni_name m_uni_name, m.reg_name m_reg_name,' +
+      ' t.uni_name t_uni_name, t.reg_name t_reg_name, t.name t_name FROM' +
+      ' "документы"."заказы" doc INNER JOIN "пользователи"."пользователи" u ON (doc."код_пользователя" = u.id)' +
+      '  LEFT OUTER JOIN "прикулинг"."агенства" p ON (doc."код_прикулинга" = p.id)' +
+      '  LEFT OUTER JOIN "карго"."агенства" k ON (doc."код_карго" = k.id)' +
       '  LEFT OUTER JOIN "траки"."траки" t ON (doc."код_трака" = t.id)' +
       '  INNER JOIN "маркировки"."маркировки" m ON (doc."код_маркировки" = m.id) where 1=1';
     if edtOt.Checked = true then

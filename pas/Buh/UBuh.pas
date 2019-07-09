@@ -20,7 +20,7 @@ uses
 
   dxSkinsdxNavBarPainter,
   dxSkinscxPCPainter,
-  cxPCdxBarPopupMenu,
+
   cxPC,
   dxNavBarCollns,
   cxClasses,

@@ -38,7 +38,7 @@ uses
   UFrameSave,
   UFrameUniName,
   dxSkinscxPCPainter,
-  cxPCdxBarPopupMenu,
+
   cxStyles,
   cxCustomData,
   cxFilter,
@@ -61,7 +61,7 @@ uses
 
   dxSkinDevExpressStyle,
 
-   dxSkinsDefaultPainters;
+   dxSkinsDefaultPainters, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog;
 
 type
   TFNewMarking = class(TForm)

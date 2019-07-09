@@ -116,36 +116,48 @@
     Properties.Style = 11
     LookAndFeel.NativeStyle = False
     LookAndFeel.SkinName = 'Office2007Blue'
-    ClientRectBottom = 501
-    ClientRectLeft = 3
-    ClientRectRight = 821
-    ClientRectTop = 28
+    ClientRectBottom = 505
+    ClientRectLeft = 2
+    ClientRectRight = 825
+    ClientRectTop = 31
     object TabAWB: TcxTabSheet
       Caption = 'AWB'
       ImageIndex = 22
+      ExplicitLeft = 3
+      ExplicitTop = 28
+      ExplicitWidth = 818
+      ExplicitHeight = 473
       inline FrameAWB1: TFrameAWB
         Left = 0
         Top = 0
-        Width = 818
-        Height = 473
+        Width = 823
+        Height = 474
         Align = alClient
         TabOrder = 0
         ExplicitWidth = 818
         ExplicitHeight = 473
         inherited FrameTopPanel1: TFrameTopPanel
-          Width = 818
+          Width = 823
           ExplicitWidth = 818
           inherited barProduct: TdxBarManager
-            DockControlHeights = (
-              0
-              0
-              34
-              0)
+            PixelsPerInch = 96
+          end
+          inherited pmПедидо: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmЗаказ: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmФактура: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmClients: TdxBarPopupMenu
+            PixelsPerInch = 96
           end
         end
         inherited GridAWB: TcxGrid
-          Width = 818
-          Height = 437
+          Width = 823
+          Height = 438
           ExplicitWidth = 818
           ExplicitHeight = 437
           inherited ViewAWB: TcxGridDBTableView
@@ -187,29 +199,41 @@
     object TabБаланс: TcxTabSheet
       Caption = #1041#1072#1083#1072#1085#1089' '#1087#1083#1072#1085#1090#1072#1094#1080#1081
       ImageIndex = 1
+      ExplicitLeft = 3
+      ExplicitTop = 28
+      ExplicitWidth = 818
+      ExplicitHeight = 473
       inline FrameBalance1: TFrameBalance
         Left = 0
         Top = 0
-        Width = 818
-        Height = 473
+        Width = 823
+        Height = 474
         Align = alClient
         TabOrder = 0
         ExplicitWidth = 818
         ExplicitHeight = 473
         inherited FrameTopPanel1: TFrameTopPanel
-          Width = 818
+          Width = 823
           ExplicitWidth = 818
           inherited barProduct: TdxBarManager
-            DockControlHeights = (
-              0
-              0
-              34
-              0)
+            PixelsPerInch = 96
+          end
+          inherited pmПедидо: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmЗаказ: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmФактура: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmClients: TdxBarPopupMenu
+            PixelsPerInch = 96
           end
         end
         inherited GridBalance: TcxGrid
-          Width = 818
-          Height = 400
+          Width = 823
+          Height = 401
           LookAndFeel.SkinName = ''
           ExplicitWidth = 818
           ExplicitHeight = 400
@@ -258,36 +282,48 @@
         end
         inherited cxGroupBox1: TcxGroupBox
           ExplicitWidth = 818
-          Width = 818
+          Width = 823
         end
       end
     end
     object tabБалансКарго: TcxTabSheet
       Caption = #1041#1072#1083#1072#1085#1089' '#1050#1072#1088#1075#1086
       ImageIndex = 2
+      ExplicitLeft = 3
+      ExplicitTop = 28
+      ExplicitWidth = 818
+      ExplicitHeight = 473
       inline FrameBalanceKargo1: TFrameBalanceKargo
         Left = 0
         Top = 0
-        Width = 818
-        Height = 473
+        Width = 823
+        Height = 474
         Align = alClient
         TabOrder = 0
         ExplicitWidth = 818
         ExplicitHeight = 473
         inherited FrameTopPanel1: TFrameTopPanel
-          Width = 818
+          Width = 823
           ExplicitWidth = 818
           inherited barProduct: TdxBarManager
-            DockControlHeights = (
-              0
-              0
-              34
-              0)
+            PixelsPerInch = 96
+          end
+          inherited pmПедидо: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmЗаказ: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmФактура: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmClients: TdxBarPopupMenu
+            PixelsPerInch = 96
           end
         end
         inherited GridBalance: TcxGrid
-          Width = 818
-          Height = 435
+          Width = 823
+          Height = 436
           ExplicitWidth = 818
           ExplicitHeight = 435
           inherited GridBalanceDBBandedTableView1: TcxGridDBBandedTableView
@@ -329,29 +365,46 @@
     object TabПритензии: TcxTabSheet
       Caption = #1055#1088#1077#1090#1077#1085#1079#1080#1080
       ImageIndex = 3
+      ExplicitLeft = 3
+      ExplicitTop = 28
+      ExplicitWidth = 818
+      ExplicitHeight = 473
       inline FramePritenz1: TFramePritenz
         Left = 0
         Top = 0
-        Width = 818
-        Height = 473
+        Width = 823
+        Height = 474
         Align = alClient
         TabOrder = 0
         ExplicitWidth = 818
         ExplicitHeight = 473
         inherited FrameTopPanel1: TFrameTopPanel
-          Width = 818
+          Width = 823
           ExplicitWidth = 818
           inherited barProduct: TdxBarManager
+            PixelsPerInch = 96
             DockControlHeights = (
               0
               0
               69
               0)
           end
+          inherited pmПедидо: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmЗаказ: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmФактура: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmClients: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
         end
         inherited GridPritenz: TcxGrid
-          Width = 818
-          Height = 435
+          Width = 823
+          Height = 436
           ExplicitWidth = 818
           ExplicitHeight = 435
         end
@@ -360,29 +413,46 @@
     object TabОплаты: TcxTabSheet
       Caption = #1054#1087#1083#1072#1090#1099' '#1087#1083#1072#1085#1090#1072#1094#1080#1081
       ImageIndex = 4
+      ExplicitLeft = 3
+      ExplicitTop = 28
+      ExplicitWidth = 818
+      ExplicitHeight = 473
       inline FrameOplataPlant1: TFrameOplataPlant
         Left = 0
         Top = 0
-        Width = 818
-        Height = 473
+        Width = 823
+        Height = 474
         Align = alClient
         TabOrder = 0
         ExplicitWidth = 818
         ExplicitHeight = 473
         inherited FrameTopPanel1: TFrameTopPanel
-          Width = 818
+          Width = 823
           ExplicitWidth = 818
           inherited barProduct: TdxBarManager
+            PixelsPerInch = 96
             DockControlHeights = (
               0
               0
               69
               0)
           end
+          inherited pmПедидо: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmЗаказ: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmФактура: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmClients: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
         end
         inherited GridUsers: TcxGrid
-          Width = 818
-          Height = 435
+          Width = 823
+          Height = 436
           ExplicitWidth = 818
           ExplicitHeight = 435
           inherited ViewStatWork: TcxGridDBTableView
@@ -399,11 +469,15 @@
     object TabСтатФактуры: TcxTabSheet
       Caption = #1060#1072#1082#1090#1091#1088#1099' '#1087#1083#1072#1085#1090#1072#1094#1080#1081
       ImageIndex = 5
+      ExplicitLeft = 3
+      ExplicitTop = 28
+      ExplicitWidth = 818
+      ExplicitHeight = 473
       inline FrameStatFacturPlant1: TFrameStatFacturPlant
         Left = 0
         Top = 0
-        Width = 818
-        Height = 473
+        Width = 823
+        Height = 474
         Align = alClient
         TabOrder = 0
         ExplicitWidth = 818
@@ -412,7 +486,7 @@
           ExplicitWidth = 818
           ExplicitHeight = 35
           Height = 35
-          Width = 818
+          Width = 823
           inherited Label1: TLabel
             Top = 11
             ExplicitTop = 11
@@ -436,8 +510,8 @@
         end
         inherited GridStatFact: TcxGrid
           Top = 35
-          Width = 818
-          Height = 438
+          Width = 823
+          Height = 439
           ExplicitTop = 35
           ExplicitWidth = 818
           ExplicitHeight = 438
@@ -470,19 +544,24 @@
     object TabПрикул: TcxTabSheet
       Caption = #1055#1088#1080#1082#1091#1083#1080#1085#1075
       ImageIndex = 6
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       inline FramePrikulingBuh1: TFramePrikulingBuh
         Left = 0
         Top = 0
-        Width = 818
-        Height = 473
+        Width = 823
+        Height = 474
         Align = alClient
         TabOrder = 0
         ExplicitWidth = 818
         ExplicitHeight = 473
         inherited FrameTopPanel1: TFrameTopPanel
-          Width = 818
+          Width = 823
           ExplicitWidth = 818
           inherited barProduct: TdxBarManager
+            PixelsPerInch = 96
             DockControlHeights = (
               0
               0
@@ -543,10 +622,22 @@
                 end>
             end
           end
+          inherited pmПедидо: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmЗаказ: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmФактура: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
+          inherited pmClients: TdxBarPopupMenu
+            PixelsPerInch = 96
+          end
         end
         inherited GridAWB: TcxGrid
-          Width = 818
-          Height = 437
+          Width = 823
+          Height = 438
           ExplicitWidth = 818
           ExplicitHeight = 437
           inherited ViewAWB: TcxGridDBTableView

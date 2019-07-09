@@ -27,11 +27,7 @@
     ExplicitTop = 316
     ExplicitWidth = 461
     inherited bardxbrmngr1: TdxBarManager
-      DockControlHeights = (
-        0
-        0
-        0
-        34)
+      PixelsPerInch = 96
       inherited btnSave: TdxBarLargeButton
         OnClick = FrameSave1btnSaveClick
       end
@@ -56,10 +52,6 @@
     object TabOsn: TcxTabSheet
       Caption = #1054#1089#1085#1086#1074#1085#1099#1077' '#1089#1074#1077#1076#1077#1085#1080#1103
       ImageIndex = 0
-      ExplicitLeft = 3
-      ExplicitTop = 26
-      ExplicitWidth = 452
-      ExplicitHeight = 284
       object Group1: TcxGroupBox
         Left = 0
         Top = 0
@@ -67,11 +59,7 @@
         PanelStyle.Active = True
         Style.LookAndFeel.SkinName = 'Office2007Blue'
         StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-        StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-        StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
         TabOrder = 0
-        ExplicitWidth = 452
-        ExplicitHeight = 284
         Height = 292
         Width = 461
         inline FrameUniName1: TFrameUniName
@@ -83,11 +71,11 @@
           TabOrder = 0
           ExplicitLeft = 2
           ExplicitTop = 2
-          ExplicitWidth = 448
+          ExplicitWidth = 457
           ExplicitHeight = 91
           inherited Group1: TcxGroupBox
             Caption = #1053#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1077
-            ExplicitWidth = 448
+            ExplicitWidth = 457
             ExplicitHeight = 91
             Height = 91
             Width = 457
@@ -142,11 +130,7 @@
           Caption = #1054#1089#1085#1086#1074#1085#1099#1077' '#1089#1074#1077#1076#1077#1085#1080#1103
           Style.LookAndFeel.SkinName = 'Office2007Blue'
           StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-          StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-          StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
           TabOrder = 1
-          ExplicitWidth = 448
-          ExplicitHeight = 189
           Height = 197
           Width = 457
           object label6: TcxLabel
@@ -232,7 +216,6 @@
             TabOrder = 5
             Transparent = True
             OnClick = chkAddrClientClick
-            Width = 400
           end
           object cxLabel1: TcxLabel
             Left = 3
@@ -335,10 +318,6 @@
     object TabConnect: TcxTabSheet
       Caption = #1055#1088#1080#1074#1103#1079#1082#1072
       ImageIndex = 2
-      ExplicitLeft = 3
-      ExplicitTop = 26
-      ExplicitWidth = 452
-      ExplicitHeight = 284
       object cxLabel2: TcxLabel
         Left = 3
         Top = 5
@@ -549,9 +528,10 @@
         Height = 32
         Align = alTop
         TabOrder = 0
-        ExplicitWidth = 452
+        ExplicitWidth = 461
         ExplicitHeight = 32
         inherited barProduct: TdxBarManager
+          PixelsPerInch = 96
           DockControlHeights = (
             0
             0
@@ -566,6 +546,18 @@
           inherited btnDel: TdxBarLargeButton
             Visible = ivNever
           end
+        end
+        inherited pmПедидо: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmЗаказ: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmФактура: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmClients: TdxBarPopupMenu
+          PixelsPerInch = 96
         end
       end
       object PageLock: TcxPageControl
@@ -709,10 +701,6 @@
     object TabContact: TcxTabSheet
       Caption = #1044#1086#1087#1086#1083#1085#1080#1090#1077#1083#1100#1085#1099#1077' '#1082#1086#1085#1090#1072#1082#1090#1099
       ImageIndex = 3
-      ExplicitLeft = 3
-      ExplicitTop = 26
-      ExplicitWidth = 452
-      ExplicitHeight = 284
       inline FrameTopPanel1: TFrameTopPanel
         Left = 0
         Top = 0
@@ -720,9 +708,10 @@
         Height = 38
         Align = alTop
         TabOrder = 0
-        ExplicitWidth = 452
+        ExplicitWidth = 461
         ExplicitHeight = 38
         inherited barProduct: TdxBarManager
+          PixelsPerInch = 96
           DockControlHeights = (
             0
             0
@@ -737,6 +726,18 @@
           inherited btnDel: TdxBarLargeButton
             OnClick = FrameTopPanel1btnDelClick
           end
+        end
+        inherited pmПедидо: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmЗаказ: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmФактура: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmClients: TdxBarPopupMenu
+          PixelsPerInch = 96
         end
       end
       object GridContact: TcxGrid

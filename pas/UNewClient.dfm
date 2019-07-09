@@ -32,11 +32,7 @@
     ExplicitTop = 499
     ExplicitWidth = 688
     inherited bardxbrmngr1: TdxBarManager
-      DockControlHeights = (
-        0
-        0
-        0
-        34)
+      PixelsPerInch = 96
       inherited btnSave: TdxBarLargeButton
         OnClick = FrameSave1btnSaveClick
       end
@@ -60,10 +56,6 @@
     object TabOsn: TcxTabSheet
       Caption = #1054#1089#1085#1086#1074#1085#1099#1077' '#1089#1074#1077#1076#1077#1085#1080#1103
       ImageIndex = 0
-      ExplicitLeft = 3
-      ExplicitTop = 26
-      ExplicitWidth = 679
-      ExplicitHeight = 467
       object Group1: TcxGroupBox
         Left = 0
         Top = 0
@@ -72,11 +64,7 @@
         Caption = #1054#1073#1097#1080#1077' '#1089#1074#1077#1076#1077#1085#1080#1103
         Style.LookAndFeel.SkinName = 'Office2007Blue'
         StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-        StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-        StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
         TabOrder = 0
-        ExplicitWidth = 679
-        ExplicitHeight = 467
         Height = 475
         Width = 688
         object lblName: TcxLabel
@@ -290,10 +278,6 @@
     object tabType: TcxTabSheet
       Caption = #1054#1089#1085#1086#1074#1085#1099#1077' '#1085#1072#1089#1090#1088#1086#1081#1082#1080
       ImageIndex = 1
-      ExplicitLeft = 3
-      ExplicitTop = 26
-      ExplicitWidth = 679
-      ExplicitHeight = 467
       inline FrameTypeClient1: TFrameTypeClient
         Left = 0
         Top = 0
@@ -301,25 +285,33 @@
         Height = 475
         Align = alClient
         TabOrder = 0
-        ExplicitWidth = 679
-        ExplicitHeight = 467
+        ExplicitWidth = 688
+        ExplicitHeight = 475
         inherited Group1: TcxGroupBox
-          ExplicitWidth = 679
-          ExplicitHeight = 268
+          ExplicitWidth = 688
+          ExplicitHeight = 276
           Height = 276
           Width = 688
           inherited FrameTopPanel1: TFrameTopPanel
             Width = 684
-            ExplicitWidth = 675
+            ExplicitWidth = 684
             inherited barProduct: TdxBarManager
-              DockControlHeights = (
-                0
-                0
-                69
-                0)
+              PixelsPerInch = 96
               inherited btnAdd: TdxBarLargeButton
                 OnClick = btnAddClick
               end
+            end
+            inherited pmПедидо: TdxBarPopupMenu
+              PixelsPerInch = 96
+            end
+            inherited pmЗаказ: TdxBarPopupMenu
+              PixelsPerInch = 96
+            end
+            inherited pmФактура: TdxBarPopupMenu
+              PixelsPerInch = 96
+            end
+            inherited pmClients: TdxBarPopupMenu
+              PixelsPerInch = 96
             end
           end
           inherited GridType: TcxGrid
@@ -331,20 +323,28 @@
         end
         inherited cxGroupBox1: TcxGroupBox
           Top = 276
-          ExplicitTop = 268
-          ExplicitWidth = 679
+          ExplicitTop = 276
+          ExplicitWidth = 688
           ExplicitHeight = 199
           Height = 199
           Width = 688
           inherited FrameTopPanel2: TFrameTopPanel
             Width = 684
-            ExplicitWidth = 675
+            ExplicitWidth = 684
             inherited barProduct: TdxBarManager
-              DockControlHeights = (
-                0
-                0
-                69
-                0)
+              PixelsPerInch = 96
+            end
+            inherited pmПедидо: TdxBarPopupMenu
+              PixelsPerInch = 96
+            end
+            inherited pmЗаказ: TdxBarPopupMenu
+              PixelsPerInch = 96
+            end
+            inherited pmФактура: TdxBarPopupMenu
+              PixelsPerInch = 96
+            end
+            inherited pmClients: TdxBarPopupMenu
+              PixelsPerInch = 96
             end
           end
           inherited GridVid: TcxGrid
@@ -372,11 +372,7 @@
         ParentBiDiMode = False
         Style.LookAndFeel.SkinName = 'Office2007Blue'
         StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-        StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-        StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
         TabOrder = 0
-        ExplicitWidth = 679
-        ExplicitHeight = 219
         Height = 227
         Width = 688
         object label11: TcxLabel
@@ -565,7 +561,6 @@
           Top = 137
           Caption = #1048#1085#1076#1080#1074#1080#1076#1091#1072#1083#1100#1085#1099#1081' '#1087#1088#1077#1076#1087#1088#1080#1085#1080#1084#1072#1090#1077#1083#1100
           TabOrder = 18
-          Width = 240
         end
       end
       object Group4: TcxGroupBox
@@ -575,11 +570,8 @@
         Caption = #1055#1072#1089#1087#1086#1088#1090#1085#1099#1077' '#1076#1072#1085#1085#1099#1077
         Style.LookAndFeel.SkinName = 'Office2007Blue'
         StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-        StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-        StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
         TabOrder = 1
         ExplicitTop = 219
-        ExplicitWidth = 679
         Height = 248
         Width = 688
         object edtPasportCod: TcxTextEdit
@@ -647,8 +639,8 @@
           Top = 48
           Width = 97
           Height = 21
-          Date = 41535.395268159720000000
-          Time = 41535.395268159720000000
+          Date = 41535.000000000000000000
+          Time = 0.395268159722036200
           ShowCheckbox = True
           Checked = False
           TabOrder = 7
@@ -692,10 +684,6 @@
     object TabДоговора: TcxTabSheet
       Caption = #1044#1086#1075#1086#1074#1086#1088#1072
       ImageIndex = 2
-      ExplicitLeft = 3
-      ExplicitTop = 26
-      ExplicitWidth = 679
-      ExplicitHeight = 467
       inline FrameTopPanel1: TFrameTopPanel
         Left = 0
         Top = 0
@@ -703,9 +691,10 @@
         Height = 32
         Align = alTop
         TabOrder = 0
-        ExplicitWidth = 679
+        ExplicitWidth = 688
         ExplicitHeight = 32
         inherited barProduct: TdxBarManager
+          PixelsPerInch = 96
           DockControlHeights = (
             0
             0
@@ -723,6 +712,18 @@
           inherited btnRefresh: TdxBarLargeButton
             OnClick = FrameTopPanel1btnRefreshClick
           end
+        end
+        inherited pmПедидо: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmЗаказ: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmФактура: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmClients: TdxBarPopupMenu
+          PixelsPerInch = 96
         end
       end
       object GridTarif: TcxGrid
@@ -762,11 +763,7 @@
         Caption = #1054#1087#1086#1074#1077#1097#1077#1085#1080#1103' '#1080' '#1073#1083#1086#1082#1080#1088#1086#1074#1082#1072
         Style.LookAndFeel.SkinName = 'Office2007Blue'
         StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-        StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-        StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
         TabOrder = 2
-        ExplicitWidth = 679
-        ExplicitHeight = 282
         Height = 290
         Width = 688
         object Label40: TcxLabel
@@ -914,18 +911,7 @@
           Height = 21
           AutoSize = False
           TabOrder = 6
-          BoundLabel.Indent = 0
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'Tahoma'
-          BoundLabel.Font.Style = []
-          BoundLabel.Layout = sclLeft
-          BoundLabel.MaxWidth = 0
-          BoundLabel.UseSkinColor = True
           SkinData.SkinSection = 'EDIT'
-          GlyphMode.Blend = 0
-          GlyphMode.Grayed = False
           DecimalPlaces = 0
           DisplayFormat = '### ### ##0;-### ### ##0;0'
           Value = 14.000000000000000000
@@ -937,18 +923,7 @@
           Height = 21
           AutoSize = False
           TabOrder = 7
-          BoundLabel.Indent = 0
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'Tahoma'
-          BoundLabel.Font.Style = []
-          BoundLabel.Layout = sclLeft
-          BoundLabel.MaxWidth = 0
-          BoundLabel.UseSkinColor = True
           SkinData.SkinSection = 'EDIT'
-          GlyphMode.Blend = 0
-          GlyphMode.Grayed = False
           DisplayFormat = '### ### ##0;-### ### ##0;0'
           Value = 14.000000000000000000
         end
@@ -959,18 +934,7 @@
           Height = 21
           AutoSize = False
           TabOrder = 8
-          BoundLabel.Indent = 0
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'Tahoma'
-          BoundLabel.Font.Style = []
-          BoundLabel.Layout = sclLeft
-          BoundLabel.MaxWidth = 0
-          BoundLabel.UseSkinColor = True
           SkinData.SkinSection = 'EDIT'
-          GlyphMode.Blend = 0
-          GlyphMode.Grayed = False
           Value = 5000.000000000000000000
         end
         object lblManager: TcxLabel
@@ -1011,10 +975,6 @@
     object TabContacts: TcxTabSheet
       Caption = #1044#1086#1087#1086#1083#1085#1080#1090#1077#1083#1100#1085#1099#1077' '#1082#1086#1085#1090#1072#1082#1090#1099
       ImageIndex = 3
-      ExplicitLeft = 3
-      ExplicitTop = 26
-      ExplicitWidth = 679
-      ExplicitHeight = 467
       inline FrameTopPanel2: TFrameTopPanel
         Left = 0
         Top = 0
@@ -1022,9 +982,10 @@
         Height = 33
         Align = alTop
         TabOrder = 0
-        ExplicitWidth = 679
+        ExplicitWidth = 688
         ExplicitHeight = 33
         inherited barProduct: TdxBarManager
+          PixelsPerInch = 96
           DockControlHeights = (
             0
             0
@@ -1042,6 +1003,18 @@
           inherited btnRefresh: TdxBarLargeButton
             OnClick = FrameTopPanel2btnRefreshClick
           end
+        end
+        inherited pmПедидо: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmЗаказ: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmФактура: TdxBarPopupMenu
+          PixelsPerInch = 96
+        end
+        inherited pmClients: TdxBarPopupMenu
+          PixelsPerInch = 96
         end
       end
       object GridContact: TcxGrid
@@ -1090,10 +1063,6 @@
     object tabAccess: TcxTabSheet
       Caption = #1044#1086#1089#1090#1091#1087
       ImageIndex = 5
-      ExplicitLeft = 3
-      ExplicitTop = 26
-      ExplicitWidth = 679
-      ExplicitHeight = 467
       object Label4: TLabel
         Left = 5
         Top = 7
@@ -1188,21 +1157,18 @@
         Top = 80
         Caption = #1056#1072#1079#1088#1077#1096#1077#1085' '#1074#1093#1086#1076' '#1074' '#1089#1080#1089#1090#1077#1084#1091
         TabOrder = 5
-        Width = 190
       end
       object chkOstatok: TcxCheckBox
         Left = 3
         Top = 104
         Caption = #1056#1072#1079#1088#1077#1096#1077#1085#1086' '#1087#1088#1086#1089#1084#1072#1090#1088#1080#1074#1072#1090#1100' '#1086#1089#1090#1072#1090#1082#1080' '#1085#1072' '#1089#1082#1083#1072#1076#1072#1093
         TabOrder = 6
-        Width = 238
       end
       object chkZakupka: TcxCheckBox
         Left = 3
         Top = 128
         Caption = #1056#1072#1079#1088#1077#1096#1077#1085#1086' '#1087#1088#1086#1080#1079#1074#1086#1076#1080#1090#1100' '#1079#1072#1082#1091#1087#1082#1091' '#1080' '#1088#1072#1079#1084#1077#1097#1072#1090#1100' '#1079#1072#1082#1072#1079#1099
         TabOrder = 7
-        Width = 339
       end
       object chkSubClient: TcxCheckBox
         Left = 3
@@ -1210,7 +1176,6 @@
         Caption = #1044#1072#1085#1085#1099#1081' '#1082#1083#1080#1077#1085#1090' '#1087#1088#1080#1074#1103#1079#1072#1085' '#1082' '#1076#1088#1091#1075#1086#1084#1091' '#1082#1083#1080#1077#1085#1090#1091
         TabOrder = 8
         OnClick = chkSubClientClick
-        Width = 339
       end
       object lblSubClient: TcxLabel
         Left = 21

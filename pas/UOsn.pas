@@ -44,7 +44,7 @@ uses
   Vcl.ImgList,
 
   cxPC,
-  cxPCdxBarPopupMenu,
+
   dxTabbedMDI,
   dxSkinsdxStatusBarPainter,
   dxStatusBar,
@@ -53,7 +53,7 @@ uses
   DBAccess,
   Uni,
   cxEditRepositoryItems,
-  dxBarBuiltInMenu, dxSkinsDefaultPainters, dxSkinOffice2007Blue;
+  dxBarBuiltInMenu, dxSkinsDefaultPainters, dxSkinOffice2007Blue, System.ImageList, cxImageList;
 
 type
   TFOsn = class(TForm)

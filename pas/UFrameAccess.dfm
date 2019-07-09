@@ -13,8 +13,6 @@
     PanelStyle.Active = True
     Style.LookAndFeel.SkinName = 'Office2007Blue'
     StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
     TabOrder = 0
     Height = 453
     Width = 689
@@ -35,6 +33,9 @@
       object TabDict: TcxTabSheet
         Caption = #1057#1087#1088#1072#1074#1086#1095#1085#1080#1082#1080
         ImageIndex = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object GroupAccesDict: TcxGroupBox
           Left = 0
           Top = 0
@@ -43,8 +44,6 @@
           Style.Edges = [bLeft, bTop, bRight]
           Style.LookAndFeel.SkinName = 'Office2007Blue'
           StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-          StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-          StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
           TabOrder = 0
           Height = 25
           Width = 685
@@ -60,7 +59,6 @@
             StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
             TabOrder = 0
             Transparent = True
-            Width = 121
           end
         end
         object PageDictAccess: TcxPageControl
@@ -86,8 +84,6 @@
               Caption = #1053#1086#1084#1077#1085#1082#1083#1072#1090#1091#1088#1072
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 0
               Height = 102
               Width = 114
@@ -103,7 +99,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox2: TcxDBCheckBox
                 Left = 3
@@ -117,7 +112,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 166
               end
               object cxDBCheckBox3: TcxDBCheckBox
                 Left = 3
@@ -131,7 +125,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 118
               end
               object cxDBCheckBox4: TcxDBCheckBox
                 Left = 3
@@ -145,7 +138,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 3
                 Transparent = True
-                Width = 118
               end
             end
             object cxDBCheckBox5: TcxDBCheckBox
@@ -160,7 +152,6 @@
               StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 1
               Transparent = True
-              Width = 121
             end
             object cxGroupBox7: TcxGroupBox
               Left = 124
@@ -168,8 +159,6 @@
               Caption = #1050#1083#1080#1077#1085#1090#1099
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 2
               Height = 102
               Width = 114
@@ -185,7 +174,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox7: TcxDBCheckBox
                 Left = 3
@@ -199,7 +187,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 166
               end
               object cxDBCheckBox8: TcxDBCheckBox
                 Left = 3
@@ -213,7 +200,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 118
               end
               object cxDBCheckBox9: TcxDBCheckBox
                 Left = 3
@@ -227,7 +213,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 3
                 Transparent = True
-                Width = 118
               end
             end
             object cxGroupBox8: TcxGroupBox
@@ -236,8 +221,6 @@
               Caption = #1055#1086#1089#1090#1072#1074#1097#1080#1082#1080
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 3
               Height = 102
               Width = 114
@@ -253,7 +236,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox11: TcxDBCheckBox
                 Left = 3
@@ -267,7 +249,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 166
               end
               object cxDBCheckBox12: TcxDBCheckBox
                 Left = 3
@@ -281,7 +262,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 118
               end
               object cxDBCheckBox16: TcxDBCheckBox
                 Left = 3
@@ -295,7 +275,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 3
                 Transparent = True
-                Width = 118
               end
             end
           end
@@ -314,7 +293,6 @@
               StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 0
               Transparent = True
-              Width = 121
             end
             object cxGroupBox5: TcxGroupBox
               Left = 4
@@ -322,8 +300,6 @@
               Caption = #1057#1090#1088#1072#1085#1099
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 1
               Height = 102
               Width = 114
@@ -339,7 +315,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox25: TcxDBCheckBox
                 Left = 3
@@ -353,7 +328,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 166
               end
               object cxDBCheckBox26: TcxDBCheckBox
                 Left = 3
@@ -367,7 +341,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 118
               end
               object cxDBCheckBox27: TcxDBCheckBox
                 Left = 3
@@ -381,7 +354,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 3
                 Transparent = True
-                Width = 118
               end
             end
             object cxGroupBox9: TcxGroupBox
@@ -390,8 +362,6 @@
               Caption = #1058#1080#1087#1099
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 2
               Height = 102
               Width = 114
@@ -407,7 +377,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox29: TcxDBCheckBox
                 Left = 3
@@ -421,7 +390,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 166
               end
               object cxDBCheckBox30: TcxDBCheckBox
                 Left = 3
@@ -435,7 +403,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 118
               end
               object cxDBCheckBox31: TcxDBCheckBox
                 Left = 3
@@ -449,7 +416,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 3
                 Transparent = True
-                Width = 118
               end
             end
             object cxGroupBox10: TcxGroupBox
@@ -458,8 +424,6 @@
               Caption = #1057#1074#1086#1081#1089#1090#1074#1072
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 3
               Height = 102
               Width = 114
@@ -475,7 +439,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox33: TcxDBCheckBox
                 Left = 3
@@ -489,7 +452,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 166
               end
               object cxDBCheckBox34: TcxDBCheckBox
                 Left = 3
@@ -503,7 +465,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 118
               end
               object cxDBCheckBox35: TcxDBCheckBox
                 Left = 3
@@ -517,7 +478,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 3
                 Transparent = True
-                Width = 118
               end
             end
             object cxGroupBox11: TcxGroupBox
@@ -526,8 +486,6 @@
               Caption = #1055#1083#1072#1085#1090#1072#1094#1080#1080
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 4
               Height = 102
               Width = 114
@@ -543,7 +501,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox37: TcxDBCheckBox
                 Left = 3
@@ -557,7 +514,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 166
               end
               object cxDBCheckBox38: TcxDBCheckBox
                 Left = 3
@@ -571,7 +527,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 118
               end
               object cxDBCheckBox39: TcxDBCheckBox
                 Left = 3
@@ -585,7 +540,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 3
                 Transparent = True
-                Width = 118
               end
             end
             object cxGroupBox12: TcxGroupBox
@@ -594,8 +548,6 @@
               Caption = #1057#1086#1088#1090#1072
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 5
               Height = 102
               Width = 114
@@ -611,7 +563,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox41: TcxDBCheckBox
                 Left = 3
@@ -625,7 +576,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 166
               end
               object cxDBCheckBox42: TcxDBCheckBox
                 Left = 3
@@ -639,7 +589,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 118
               end
               object cxDBCheckBox43: TcxDBCheckBox
                 Left = 3
@@ -653,7 +602,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 3
                 Transparent = True
-                Width = 118
               end
             end
             object cxGroupBox13: TcxGroupBox
@@ -662,8 +610,6 @@
               Caption = #1044#1083#1080#1085#1072'-'#1042#1077#1089
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 6
               Height = 102
               Width = 114
@@ -679,7 +625,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox45: TcxDBCheckBox
                 Left = 3
@@ -693,7 +638,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 166
               end
               object cxDBCheckBox46: TcxDBCheckBox
                 Left = 3
@@ -707,7 +651,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 118
               end
               object cxDBCheckBox47: TcxDBCheckBox
                 Left = 3
@@ -721,7 +664,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 3
                 Transparent = True
-                Width = 118
               end
             end
             object cxGroupBox14: TcxGroupBox
@@ -730,8 +672,6 @@
               Caption = #1059#1087#1072#1082#1086#1074#1082#1072
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 7
               Height = 102
               Width = 114
@@ -747,7 +687,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox49: TcxDBCheckBox
                 Left = 3
@@ -761,7 +700,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 166
               end
               object cxDBCheckBox50: TcxDBCheckBox
                 Left = 3
@@ -775,7 +713,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 118
               end
               object cxDBCheckBox51: TcxDBCheckBox
                 Left = 3
@@ -789,7 +726,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 3
                 Transparent = True
-                Width = 118
               end
             end
           end
@@ -808,7 +744,6 @@
               StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 0
               Transparent = True
-              Width = 121
             end
             object cxGroupBox15: TcxGroupBox
               Left = 4
@@ -816,8 +751,6 @@
               Caption = #1052#1072#1088#1082#1080#1088#1086#1074#1082#1080
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 1
               Height = 102
               Width = 114
@@ -833,7 +766,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox53: TcxDBCheckBox
                 Left = 3
@@ -847,7 +779,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 166
               end
               object cxDBCheckBox54: TcxDBCheckBox
                 Left = 3
@@ -861,7 +792,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 118
               end
               object cxDBCheckBox55: TcxDBCheckBox
                 Left = 3
@@ -875,7 +805,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 3
                 Transparent = True
-                Width = 118
               end
             end
             object cxGroupBox16: TcxGroupBox
@@ -884,8 +813,6 @@
               Caption = #1040#1074#1080#1072#1083#1080#1085#1080#1080
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 2
               Height = 102
               Width = 114
@@ -901,7 +828,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox57: TcxDBCheckBox
                 Left = 3
@@ -915,7 +841,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 166
               end
               object cxDBCheckBox58: TcxDBCheckBox
                 Left = 3
@@ -929,7 +854,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 118
               end
               object cxDBCheckBox59: TcxDBCheckBox
                 Left = 3
@@ -943,7 +867,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 3
                 Transparent = True
-                Width = 118
               end
             end
             object cxGroupBox17: TcxGroupBox
@@ -952,8 +875,6 @@
               Caption = #1050#1072#1088#1075#1086
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 3
               Height = 102
               Width = 114
@@ -969,7 +890,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox61: TcxDBCheckBox
                 Left = 3
@@ -983,7 +903,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 166
               end
               object cxDBCheckBox62: TcxDBCheckBox
                 Left = 3
@@ -997,7 +916,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 118
               end
               object cxDBCheckBox63: TcxDBCheckBox
                 Left = 3
@@ -1011,7 +929,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 3
                 Transparent = True
-                Width = 118
               end
             end
             object cxGroupBox18: TcxGroupBox
@@ -1020,8 +937,6 @@
               Caption = #1058#1088#1072#1082#1080
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 4
               Height = 102
               Width = 114
@@ -1037,7 +952,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox65: TcxDBCheckBox
                 Left = 3
@@ -1051,7 +965,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 166
               end
               object cxDBCheckBox66: TcxDBCheckBox
                 Left = 3
@@ -1065,7 +978,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 118
               end
               object cxDBCheckBox67: TcxDBCheckBox
                 Left = 3
@@ -1079,7 +991,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 3
                 Transparent = True
-                Width = 118
               end
             end
             object cxGroupBox19: TcxGroupBox
@@ -1088,8 +999,6 @@
               Caption = #1055#1088#1080#1082#1091#1083#1080#1085#1075
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 5
               Height = 102
               Width = 114
@@ -1105,7 +1014,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox69: TcxDBCheckBox
                 Left = 3
@@ -1119,7 +1027,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 166
               end
               object cxDBCheckBox70: TcxDBCheckBox
                 Left = 3
@@ -1133,7 +1040,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 118
               end
               object cxDBCheckBox71: TcxDBCheckBox
                 Left = 3
@@ -1147,7 +1053,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 3
                 Transparent = True
-                Width = 118
               end
             end
             object cxGroupBox20: TcxGroupBox
@@ -1156,8 +1061,6 @@
               Caption = #1060#1080#1090#1086
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 6
               Height = 102
               Width = 114
@@ -1173,7 +1076,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox73: TcxDBCheckBox
                 Left = 3
@@ -1187,7 +1089,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 166
               end
               object cxDBCheckBox74: TcxDBCheckBox
                 Left = 3
@@ -1201,7 +1102,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 118
               end
               object cxDBCheckBox75: TcxDBCheckBox
                 Left = 3
@@ -1215,7 +1115,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 3
                 Transparent = True
-                Width = 118
               end
             end
             object cxGroupBox21: TcxGroupBox
@@ -1224,8 +1123,6 @@
               Caption = #1057#1090#1077#1085#1076#1080#1085#1075
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 7
               Height = 102
               Width = 114
@@ -1241,7 +1138,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox77: TcxDBCheckBox
                 Left = 3
@@ -1255,7 +1151,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 166
               end
               object cxDBCheckBox78: TcxDBCheckBox
                 Left = 3
@@ -1269,7 +1164,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 118
               end
               object cxDBCheckBox79: TcxDBCheckBox
                 Left = 3
@@ -1283,7 +1177,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 3
                 Transparent = True
-                Width = 118
               end
             end
           end
@@ -1302,7 +1195,6 @@
               StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 0
               Transparent = True
-              Width = 121
             end
             object cxGroupBox22: TcxGroupBox
               Left = 4
@@ -1310,8 +1202,6 @@
               Caption = #1054#1088#1075#1072#1085#1080#1079#1072#1094#1080#1080
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 1
               Height = 102
               Width = 114
@@ -1327,7 +1217,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox81: TcxDBCheckBox
                 Left = 3
@@ -1341,7 +1230,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 166
               end
               object cxDBCheckBox82: TcxDBCheckBox
                 Left = 3
@@ -1355,7 +1243,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 118
               end
               object cxDBCheckBox83: TcxDBCheckBox
                 Left = 3
@@ -1369,7 +1256,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 3
                 Transparent = True
-                Width = 118
               end
             end
             object cxGroupBox23: TcxGroupBox
@@ -1378,8 +1264,6 @@
               Caption = #1055#1088#1072#1081#1089
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 2
               Height = 102
               Width = 114
@@ -1395,7 +1279,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox85: TcxDBCheckBox
                 Left = 3
@@ -1409,7 +1292,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 166
               end
               object cxDBCheckBox86: TcxDBCheckBox
                 Left = 3
@@ -1423,7 +1305,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 118
               end
               object cxDBCheckBox87: TcxDBCheckBox
                 Left = 3
@@ -1437,7 +1318,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 3
                 Transparent = True
-                Width = 118
               end
             end
             object cxGroupBox24: TcxGroupBox
@@ -1446,8 +1326,6 @@
               Caption = #1062#1077#1093#1072
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 3
               Height = 102
               Width = 114
@@ -1463,7 +1341,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox89: TcxDBCheckBox
                 Left = 3
@@ -1477,7 +1354,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 166
               end
               object cxDBCheckBox90: TcxDBCheckBox
                 Left = 3
@@ -1491,7 +1367,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 118
               end
               object cxDBCheckBox91: TcxDBCheckBox
                 Left = 3
@@ -1505,7 +1380,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 3
                 Transparent = True
-                Width = 118
               end
             end
           end
@@ -1524,7 +1398,6 @@
               StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 0
               Transparent = True
-              Width = 121
             end
             object cxGroupBox25: TcxGroupBox
               Left = 4
@@ -1532,8 +1405,6 @@
               Caption = #1055#1086#1083#1100#1079#1086#1074#1072#1090#1077#1083#1080
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 1
               Height = 102
               Width = 114
@@ -1549,7 +1420,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox93: TcxDBCheckBox
                 Left = 3
@@ -1563,7 +1433,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 166
               end
               object cxDBCheckBox94: TcxDBCheckBox
                 Left = 3
@@ -1577,7 +1446,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 118
               end
               object cxDBCheckBox95: TcxDBCheckBox
                 Left = 3
@@ -1591,7 +1459,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 3
                 Transparent = True
-                Width = 118
               end
             end
             object cxGroupBox26: TcxGroupBox
@@ -1600,8 +1467,6 @@
               Caption = #1056#1086#1083#1080
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 2
               Height = 102
               Width = 114
@@ -1617,7 +1482,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox97: TcxDBCheckBox
                 Left = 3
@@ -1631,7 +1495,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 166
               end
               object cxDBCheckBox98: TcxDBCheckBox
                 Left = 3
@@ -1645,7 +1508,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 118
               end
               object cxDBCheckBox99: TcxDBCheckBox
                 Left = 3
@@ -1659,7 +1521,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 3
                 Transparent = True
-                Width = 118
               end
             end
           end
@@ -1668,6 +1529,9 @@
       object tabБухгалтерия: TcxTabSheet
         Caption = #1041#1091#1093#1075#1072#1083#1090#1077#1088#1080#1103
         ImageIndex = 3
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object cxGroupBox27: TcxGroupBox
           Left = 0
           Top = 0
@@ -1676,8 +1540,6 @@
           Style.Edges = [bLeft, bTop, bRight]
           Style.LookAndFeel.SkinName = 'Office2007Blue'
           StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-          StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-          StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
           TabOrder = 0
           Height = 25
           Width = 685
@@ -1693,7 +1555,6 @@
             StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
             TabOrder = 0
             Transparent = True
-            Width = 121
           end
         end
         object cxPageControl1: TcxPageControl
@@ -1708,10 +1569,9 @@
           LookAndFeel.Kind = lfOffice11
           LookAndFeel.NativeStyle = False
           LookAndFeel.SkinName = 'Office2007Blue'
-          ClientRectBottom = 394
-          ClientRectLeft = 3
-          ClientRectRight = 679
-          ClientRectTop = 26
+          ClientRectBottom = 400
+          ClientRectRight = 685
+          ClientRectTop = 24
           object cxTabSheet1: TcxTabSheet
             Caption = #1054#1089#1085#1086#1074#1085#1099#1077
             ImageIndex = 0
@@ -1721,8 +1581,6 @@
               Caption = 'AWB'
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 0
               Height = 102
               Width = 114
@@ -1738,7 +1596,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox102: TcxDBCheckBox
                 Left = 3
@@ -1752,7 +1609,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 166
               end
               object cxDBCheckBox103: TcxDBCheckBox
                 Left = 3
@@ -1766,7 +1622,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 118
               end
               object cxDBCheckBox104: TcxDBCheckBox
                 Left = 3
@@ -1780,7 +1635,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 3
                 Transparent = True
-                Width = 118
               end
             end
             object cxGroupBox29: TcxGroupBox
@@ -1789,8 +1643,6 @@
               Caption = #1041#1072#1083#1072#1085#1089' '#1087#1083#1072#1085#1090#1072#1094#1080#1081
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 1
               Height = 173
               Width = 181
@@ -1806,7 +1658,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox108: TcxDBCheckBox
                 Left = 3
@@ -1820,7 +1671,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 175
               end
               object cxDBCheckBox119: TcxDBCheckBox
                 Left = 3
@@ -1834,7 +1684,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 175
               end
               object cxDBCheckBox120: TcxDBCheckBox
                 Left = 3
@@ -1848,7 +1697,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 3
                 Transparent = True
-                Width = 175
               end
               object cxDBCheckBox121: TcxDBCheckBox
                 Left = 3
@@ -1862,7 +1710,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 4
                 Transparent = True
-                Width = 175
               end
               object cxDBCheckBox122: TcxDBCheckBox
                 Left = 3
@@ -1876,7 +1723,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 5
                 Transparent = True
-                Width = 175
               end
               object cxDBCheckBox123: TcxDBCheckBox
                 Left = 3
@@ -1890,7 +1736,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 6
                 Transparent = True
-                Width = 175
               end
             end
             object cxGroupBox30: TcxGroupBox
@@ -1899,8 +1744,6 @@
               Caption = #1041#1072#1083#1072#1085#1089' '#1050#1072#1088#1075#1086
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 2
               Height = 102
               Width = 114
@@ -1916,7 +1759,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox112: TcxDBCheckBox
                 Left = 3
@@ -1930,7 +1772,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 118
               end
             end
             object cxGroupBox31: TcxGroupBox
@@ -1941,11 +1782,9 @@
               Style.Edges = [bLeft, bTop, bRight]
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 3
               Height = 25
-              Width = 676
+              Width = 685
               object cxDBCheckBox105: TcxDBCheckBox
                 Left = 3
                 Top = 3
@@ -1958,7 +1797,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 121
               end
             end
             object cxGroupBox37: TcxGroupBox
@@ -1967,8 +1805,6 @@
               Caption = #1055#1088#1080#1090#1077#1085#1079#1080#1080
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 4
               Height = 102
               Width = 126
@@ -1984,7 +1820,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox117: TcxDBCheckBox
                 Left = 3
@@ -1998,7 +1833,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 118
               end
               object cxDBCheckBox118: TcxDBCheckBox
                 Left = 3
@@ -2012,7 +1846,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 118
               end
             end
           end
@@ -2021,6 +1854,9 @@
       object TabWork: TcxTabSheet
         Caption = #1047#1072#1082#1091#1087#1082#1072' '#1080' '#1088#1077#1072#1083#1080#1079#1072#1094#1080#1103
         ImageIndex = 1
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object cxGroupBox3: TcxGroupBox
           Left = 0
           Top = 0
@@ -2029,8 +1865,6 @@
           Style.Edges = [bLeft, bTop, bRight]
           Style.LookAndFeel.SkinName = 'Office2007Blue'
           StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-          StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-          StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
           TabOrder = 0
           Height = 25
           Width = 685
@@ -2046,7 +1880,6 @@
             StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
             TabOrder = 0
             Transparent = True
-            Width = 121
           end
         end
         object cxPageControl2: TcxPageControl
@@ -2072,8 +1905,6 @@
               Caption = #1047#1072#1082#1072#1079#1099
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 0
               Height = 102
               Width = 114
@@ -2089,7 +1920,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox15: TcxDBCheckBox
                 Left = 3
@@ -2103,7 +1933,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 166
               end
               object cxDBCheckBox17: TcxDBCheckBox
                 Left = 3
@@ -2117,7 +1946,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 118
               end
               object cxDBCheckBox18: TcxDBCheckBox
                 Left = 3
@@ -2131,7 +1959,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 3
                 Transparent = True
-                Width = 118
               end
             end
             object cxGroupBox35: TcxGroupBox
@@ -2142,8 +1969,6 @@
               Style.Edges = [bLeft, bTop, bRight]
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 1
               Height = 25
               Width = 677
@@ -2159,7 +1984,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 121
               end
             end
             object cxGroupBox34: TcxGroupBox
@@ -2168,8 +1992,6 @@
               Caption = #1055#1077#1076#1080#1076#1086
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 2
               Height = 102
               Width = 114
@@ -2185,7 +2007,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox109: TcxDBCheckBox
                 Left = 3
@@ -2199,7 +2020,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 118
               end
             end
           end
@@ -2214,8 +2034,6 @@
               Style.Edges = [bLeft, bTop, bRight]
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 0
               Height = 25
               Width = 677
@@ -2231,7 +2049,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 121
               end
             end
             object cxGroupBox36: TcxGroupBox
@@ -2240,8 +2057,6 @@
               Caption = #1055#1072#1082#1080#1085#1075
               Style.LookAndFeel.SkinName = 'Office2007Blue'
               StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-              StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
               TabOrder = 1
               Height = 102
               Width = 114
@@ -2257,7 +2072,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 0
                 Transparent = True
-                Width = 78
               end
               object cxDBCheckBox113: TcxDBCheckBox
                 Left = 3
@@ -2271,7 +2085,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 1
                 Transparent = True
-                Width = 166
               end
               object cxDBCheckBox114: TcxDBCheckBox
                 Left = 3
@@ -2285,7 +2098,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 2
                 Transparent = True
-                Width = 118
               end
               object cxDBCheckBox115: TcxDBCheckBox
                 Left = 3
@@ -2299,7 +2111,6 @@
                 StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
                 TabOrder = 3
                 Transparent = True
-                Width = 118
               end
             end
           end
@@ -2316,8 +2127,6 @@
           Style.Edges = [bLeft, bTop, bRight]
           Style.LookAndFeel.SkinName = 'Office2007Blue'
           StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-          StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-          StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
           TabOrder = 0
           Height = 425
           Width = 685
@@ -2333,7 +2142,6 @@
             StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
             TabOrder = 0
             Transparent = True
-            Width = 121
           end
         end
       end
@@ -2348,26 +2156,18 @@
     Style.LookAndFeel.SkinName = 'Office2007Blue'
     StyleDisabled.LookAndFeel.NativeStyle = False
     StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleFocused.LookAndFeel.NativeStyle = False
-    StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleHot.LookAndFeel.NativeStyle = False
-    StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
     TabOrder = 1
     Height = 453
     Width = 200
     object GridRoles: TcxGrid
-      Left = 3
-      Top = 15
-      Width = 194
-      Height = 428
+      Left = 2
+      Top = 18
+      Width = 196
+      Height = 433
       Align = alClient
       TabOrder = 0
       LookAndFeel.Kind = lfOffice11
       LookAndFeel.NativeStyle = False
-      ExplicitLeft = 2
-      ExplicitTop = 18
-      ExplicitWidth = 196
-      ExplicitHeight = 433
       object ViewOrg: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         DataController.DataSource = dsRole
@@ -2406,10 +2206,6 @@
     Style.LookAndFeel.SkinName = 'Office2007Blue'
     StyleDisabled.LookAndFeel.NativeStyle = False
     StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleFocused.LookAndFeel.NativeStyle = False
-    StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleHot.LookAndFeel.NativeStyle = False
-    StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
     TabOrder = 3
     Height = 37
     Width = 897
@@ -2777,6 +2573,7 @@
     Top = 248
   end
   object cxmglst1: TcxImageList
+    SourceDPI = 96
     Height = 24
     Width = 24
     FormatVersion = 1

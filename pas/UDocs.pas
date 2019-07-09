@@ -21,7 +21,7 @@ uses
   dxSkinsdxNavBarPainter,
   dxNavBar,
   dxSkinscxPCPainter,
-  cxPCdxBarPopupMenu,
+
   cxPC,
   dxNavBarCollns,
   cxClasses,
@@ -49,7 +49,10 @@ uses
       
      
      
-    UFramePrice, UFrameReceipt, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
+    UFramePrice, UFrameReceipt, dxSkinOffice2007Blue, dxSkinsDefaultPainters,
+  dxSkinOffice2016Colorful, dxSkinOffice2016Dark, dxSkinTheBezier,
+  dxSkinVisualStudio2013Blue, dxSkinVisualStudio2013Dark,
+  dxSkinVisualStudio2013Light;
 
 type
   TFDocs = class(TForm)
@@ -270,9 +273,9 @@ begin
     // SetLang;
     if QueryOrder.Active = false then
     begin
-      edtOt.Date := Now;
-      edtDo.Date := Now;
-      edtDo.Checked := false;
+//      edtOt.Date := Now;
+//      edtDo.Date := Now;
+//      edtDo.Checked := false;
       ShowOrders();
     end;
   end;

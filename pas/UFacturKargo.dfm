@@ -31,11 +31,7 @@
     inherited barProduct: TdxBarManager
       Left = 248
       Top = 8
-      DockControlHeights = (
-        0
-        0
-        34
-        0)
+      PixelsPerInch = 96
       inherited dxbrBardxbrmngr1Bar1: TdxBar
         ItemLinks = <
           item
@@ -103,6 +99,18 @@
         OnClick = btnExportClick
       end
     end
+    inherited pmПедидо: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmЗаказ: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmФактура: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmClients: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
   end
   object Page1: TcxPageControl
     Left = 0
@@ -118,13 +126,11 @@
     LookAndFeel.NativeStyle = False
     LookAndFeel.SkinName = 'Office2007Blue'
     OnChange = Page1Change
-    ClientRectBottom = 521
-    ClientRectLeft = 3
-    ClientRectRight = 1236
-    ClientRectTop = 26
+    ClientRectBottom = 527
+    ClientRectRight = 1242
+    ClientRectTop = 24
     object tabOsn: TcxTabSheet
       Caption = #1060#1072#1082#1090#1091#1088#1099
-      ExplicitLeft = 0
       ExplicitTop = 0
       ExplicitWidth = 0
       ExplicitHeight = 0
@@ -310,10 +316,10 @@
     object tabOpl: TcxTabSheet
       Caption = #1042#1089#1077' '#1086#1087#1083#1072#1090#1099
       ImageIndex = 1
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      ExplicitLeft = 3
+      ExplicitTop = 26
+      ExplicitWidth = 1233
+      ExplicitHeight = 495
       object cxGroupBox1: TcxGroupBox
         Left = 0
         Top = 0
@@ -323,13 +329,10 @@
         Style.LookAndFeel.SkinName = 'Office2007Blue'
         StyleDisabled.LookAndFeel.NativeStyle = False
         StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-        StyleFocused.LookAndFeel.NativeStyle = False
-        StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-        StyleHot.LookAndFeel.NativeStyle = False
-        StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
         TabOrder = 0
+        ExplicitWidth = 1233
         Height = 33
-        Width = 1233
+        Width = 1242
         object lblDo: TLabel
           Left = 246
           Top = 10
@@ -357,18 +360,7 @@
           MaxLength = 10
           TabOrder = 1
           OnKeyDown = edtOtKeyDown
-          BoundLabel.Indent = 0
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'Tahoma'
-          BoundLabel.Font.Style = []
-          BoundLabel.Layout = sclLeft
-          BoundLabel.MaxWidth = 0
-          BoundLabel.UseSkinColor = True
           SkinData.SkinSection = 'EDIT'
-          GlyphMode.Blend = 0
-          GlyphMode.Grayed = False
           OnCloseUp = edtOtCloseUp
           DefaultToday = True
         end
@@ -385,30 +377,21 @@
           Text = '  .  .    '
           OnChange = edtDoChange
           OnKeyDown = edtDoKeyDown
-          BoundLabel.Indent = 0
-          BoundLabel.Font.Charset = DEFAULT_CHARSET
-          BoundLabel.Font.Color = clWindowText
-          BoundLabel.Font.Height = -11
-          BoundLabel.Font.Name = 'Tahoma'
-          BoundLabel.Font.Style = []
-          BoundLabel.Layout = sclLeft
-          BoundLabel.MaxWidth = 0
-          BoundLabel.UseSkinColor = True
           SkinData.SkinSection = 'EDIT'
-          GlyphMode.Blend = 0
-          GlyphMode.Grayed = False
           OnCloseUp = edtDoCloseUp
         end
       end
       object GridOPl: TcxGrid
         Left = 0
         Top = 33
-        Width = 1233
-        Height = 462
+        Width = 1242
+        Height = 470
         Align = alClient
         TabOrder = 1
         LookAndFeel.Kind = lfOffice11
         LookAndFeel.NativeStyle = False
+        ExplicitWidth = 1233
+        ExplicitHeight = 462
         object GridOPlDBTableView1: TcxGridDBTableView
           Navigator.Buttons.CustomButtons = <>
           DataController.DataSource = dsOplAll

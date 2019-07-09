@@ -14,11 +14,7 @@
     ExplicitWidth = 910
     ExplicitHeight = 33
     inherited barProduct: TdxBarManager
-      DockControlHeights = (
-        0
-        0
-        34
-        0)
+      PixelsPerInch = 96
       inherited dxbrBardxbrmngr1Bar1: TdxBar
         ItemLinks = <
           item
@@ -81,6 +77,18 @@
         OnClick = FrameTopPanel1btnRazdelClick
       end
     end
+    inherited pmПедидо: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmЗаказ: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmФактура: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmClients: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
   end
   object Group1: TcxGroupBox
     Left = 0
@@ -91,79 +99,9 @@
     Style.LookAndFeel.SkinName = 'Office2007Blue'
     StyleDisabled.LookAndFeel.NativeStyle = False
     StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleFocused.LookAndFeel.NativeStyle = False
-    StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleHot.LookAndFeel.NativeStyle = False
-    StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
     TabOrder = 1
     Height = 37
     Width = 910
-    object edtOt: TAdvDateTimePicker
-      Left = 96
-      Top = 10
-      Width = 105
-      Height = 21
-      Date = 41137.475810185180000000
-      Format = ''
-      Time = 41137.475810185180000000
-      DoubleBuffered = True
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      Kind = dkDate
-      ParentDoubleBuffered = False
-      ParentFont = False
-      TabOrder = 0
-      OnChange = edtOtChange
-      BorderStyle = bsSingle
-      Ctl3D = True
-      DateTime = 41137.475810185180000000
-      Version = '1.2.0.6'
-      LabelCaption = #1044#1072#1090#1072' '#1092#1072#1082#1090#1091#1088#1099' c:'
-      LabelPosition = lpLeftCenter
-      LabelTransparent = True
-      LabelFont.Charset = DEFAULT_CHARSET
-      LabelFont.Color = clWindowText
-      LabelFont.Height = -11
-      LabelFont.Name = 'Tahoma'
-      LabelFont.Style = []
-    end
-    object edtDateDo: TAdvDateTimePicker
-      Left = 236
-      Top = 10
-      Width = 105
-      Height = 21
-      Date = 41137.475810185180000000
-      Format = ''
-      Time = 41137.475810185180000000
-      ShowCheckbox = True
-      Checked = False
-      DoubleBuffered = True
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -11
-      Font.Name = 'Tahoma'
-      Font.Style = []
-      Kind = dkDate
-      ParentDoubleBuffered = False
-      ParentFont = False
-      TabOrder = 1
-      OnChange = edtOtChange
-      BorderStyle = bsSingle
-      Ctl3D = True
-      DateTime = 41137.475810185180000000
-      Version = '1.2.0.6'
-      LabelCaption = #1087#1086':'
-      LabelPosition = lpLeftCenter
-      LabelTransparent = True
-      LabelFont.Charset = DEFAULT_CHARSET
-      LabelFont.Color = clWindowText
-      LabelFont.Height = -11
-      LabelFont.Name = 'Tahoma'
-      LabelFont.Style = []
-    end
   end
   object GridFactura: TcxGrid
     Left = 0
