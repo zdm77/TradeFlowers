@@ -19,7 +19,6 @@ uses
   cxContainer,
   cxEdit,
   dxSkinsCore,
-
   cxStyles,
   dxSkinscxPCPainter,
   cxCustomData,
@@ -57,10 +56,9 @@ uses
   cxDBLookupEdit,
   cxDBLookupComboBox,
   cxNavigator,
-
   dxSkinDevExpressStyle,
-
-   dxSkinsDefaultPainters, dxSkinOffice2007Blue;
+  dxSkinsDefaultPainters, dxSkinOffice2007Blue, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog,
+  System.ImageList;
 
 type
   TFrameSort = class(TFrame)
@@ -152,8 +150,7 @@ begin
 end;
 
 procedure TFrameSort.FrameTopPanel1btnDelClick(Sender: TObject);
-var
-  pid: string;
+var pid: string;
 begin
   if QuerySort.Fields[0].AsString <> '' then
   begin
@@ -177,41 +174,34 @@ begin
         try
           Close;
           sql.text := 'delete from "продукция"."продукция" where pid in(' +
-            ' select id from "продукция"."продукция" where код_структуры=5 and код_детализации='
-            + QuerySort.FieldByName('id').AsString + ' and pid in(' +
-            ' select id from "продукция"."продукция" where код_структуры=4 and код_детализации in('
-            + ' select id from "продукция"."плантации" where код_страны=' +
-            IntToStr(edtCountry.EditValue) + ')))';
+            ' select id from "продукция"."продукция" where код_структуры=5 and код_детализации=' +
+            QuerySort.FieldByName('id').AsString + ' and pid in(' +
+            ' select id from "продукция"."продукция" where код_структуры=4 and код_детализации in(' +
+            ' select id from "продукция"."плантации" where код_страны=' + IntToStr(edtCountry.EditValue) + ')))';
           ExecSQL;
           Close;
-          sql.text :=
-            'delete from "продукция"."продукция" where код_структуры=5 and код_детализации='
-            + QuerySort.FieldByName('id').AsString + ' and pid in(' +
-            ' select id from "продукция"."продукция" where код_структуры=4 and код_детализации in('
-            + ' select id from "продукция"."плантации" where код_страны=' +
-            IntToStr(edtCountry.EditValue) + '))';
+          sql.text := 'delete from "продукция"."продукция" where код_структуры=5 and код_детализации=' +
+            QuerySort.FieldByName('id').AsString + ' and pid in(' +
+            ' select id from "продукция"."продукция" where код_структуры=4 and код_детализации in(' +
+            ' select id from "продукция"."плантации" where код_страны=' + IntToStr(edtCountry.EditValue) + '))';
           ExecSQL;
           Close;
-          sql.text := 'delete from продукция.сорт_страна where код_сорта=' +
-            QuerySort.FieldByName('id').AsString + ' and код_страны=' +
-            IntToStr(edtCountry.EditValue);
+          sql.text := 'delete from продукция.сорт_страна where код_сорта=' + QuerySort.FieldByName('id').AsString +
+            ' and код_страны=' + IntToStr(edtCountry.EditValue);
           ExecSQL;
           Close;
-          sql.text :=
-            'delete from "продукция"."сорт_плантация" where код_сорта=' +
-            QuerySort.FieldByName('id').AsString +
-            ' and код_плантации in (select id from "продукция"."плантации" where код_страны='
-            + IntToStr(edtCountry.EditValue) + ')';
+          sql.text := 'delete from "продукция"."сорт_плантация" where код_сорта=' + QuerySort.FieldByName('id').AsString
+            + ' and код_плантации in (select id from "продукция"."плантации" where код_страны=' +
+            IntToStr(edtCountry.EditValue) + ')';
           ExecSQL;
           Close;
-          sql.text := 'select * from "продукция"."сорт_страна" where код_сорта='
-            + IntToStr(edtCountry.EditValue) + ' limit 1';
+          sql.text := 'select * from "продукция"."сорт_страна" where код_сорта=' + IntToStr(edtCountry.EditValue) +
+            ' limit 1';
           Open;
           if Fields[0].AsString = '' then
           begin
             Close;
-            sql.text := 'delete from продукция.сорта where id=' +
-              QuerySort.FieldByName('id').AsString;
+            sql.text := 'delete from продукция.сорта where id=' + QuerySort.FieldByName('id').AsString;
             ExecSQL;
           end;
           { смотрим, остались-ли вообще привязки }
@@ -233,14 +223,11 @@ begin
         except
           case FPasswd.edtLang.ItemIndex of
             0:
-              ErrorDialog('Удаление невозможно.', '',
-                'Есть операции, в которых участвовал сорт.');
+              ErrorDialog('Удаление невозможно.', '', 'Есть операции, в которых участвовал сорт.');
             1:
-              ErrorDialog('Removal is impossible', '',
-                'There are operations in which the grade participated. ');
+              ErrorDialog('Removal is impossible', '', 'There are operations in which the grade participated. ');
             2:
-              ErrorDialog('La desaparición es imposible', '',
-                'Hay unas operaciones, en que participaba la clase.');
+              ErrorDialog('La desaparición es imposible', '', 'Hay unas operaciones, en que participaba la clase.');
           end;
           // DM1.dbUpd.Rollback;
         end;
@@ -344,8 +331,7 @@ begin
   begin
     Close;
     sql.text := 'select  * from "продукция"."сорта" ' + ' where id ' +
-      ' in (select код_сорта from "продукция"."сорт_страна" where код_страны=' +
-      IntToStr(edtCountry.EditValue) + ')';
+      ' in (select код_сорта from "продукция"."сорт_страна" where код_страны=' + IntToStr(edtCountry.EditValue) + ')';
     if s_select_not <> '' then
       sql.Add(' and id not in(' + s_select_not + ')');
     case FPasswd.Lang of
@@ -391,8 +377,7 @@ begin
   begin
     Close;
     sql.text := 'select * from "продукция"."типы" where id in ' +
-      ' (select код_типа from "продукция"."тип_страна" where код_страны=' +
-      IntToStr(edtCountry.EditValue);
+      ' (select код_типа from "продукция"."тип_страна" where код_страны=' + IntToStr(edtCountry.EditValue);
     if s_id_type_sort <> 0 then
       sql.Add(' and код_типа=' + IntToStr(s_id_type_sort));
     sql.Add(') order by name');

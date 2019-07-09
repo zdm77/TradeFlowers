@@ -1,4 +1,4 @@
-object FrameSort: TFrameSort
+﻿object FrameSort: TFrameSort
   Left = 0
   Top = 0
   Width = 806
@@ -14,11 +14,7 @@ object FrameSort: TFrameSort
     ExplicitWidth = 806
     ExplicitHeight = 32
     inherited barProduct: TdxBarManager
-      DockControlHeights = (
-        0
-        0
-        34
-        0)
+      PixelsPerInch = 96
       inherited dxbrBardxbrmngr1Bar1: TdxBar
         ItemLinks = <
           item
@@ -52,6 +48,18 @@ object FrameSort: TFrameSort
         OnClick = FrameTopPanel1btnRefreshClick
       end
     end
+    inherited pmПедидо: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmЗаказ: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmФактура: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmClients: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
   end
   object GroupType: TcxGroupBox
     Left = 0
@@ -62,18 +70,14 @@ object FrameSort: TFrameSort
     Style.LookAndFeel.SkinName = 'Office2007Blue'
     StyleDisabled.LookAndFeel.NativeStyle = False
     StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleFocused.LookAndFeel.NativeStyle = False
-    StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleHot.LookAndFeel.NativeStyle = False
-    StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
     TabOrder = 1
     Height = 555
     Width = 205
     object cxGrid1: TcxGrid
-      Left = 3
-      Top = 15
-      Width = 199
-      Height = 530
+      Left = 2
+      Top = 18
+      Width = 201
+      Height = 535
       Align = alClient
       TabOrder = 0
       LookAndFeel.Kind = lfOffice11
@@ -129,23 +133,18 @@ object FrameSort: TFrameSort
     Style.LookAndFeel.SkinName = 'Office2007Blue'
     StyleDisabled.LookAndFeel.NativeStyle = False
     StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleFocused.LookAndFeel.NativeStyle = False
-    StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleHot.LookAndFeel.NativeStyle = False
-    StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
     TabOrder = 3
     Height = 555
     Width = 593
     object GridUsers: TcxGrid
-      Left = 3
-      Top = 15
-      Width = 587
-      Height = 530
+      Left = 2
+      Top = 18
+      Width = 589
+      Height = 535
       Align = alClient
       TabOrder = 0
       LookAndFeel.Kind = lfOffice11
       LookAndFeel.NativeStyle = False
-      ExplicitLeft = 4
       object ViewUsers: TcxGridDBTableView
         OnDblClick = ViewUsersDblClick
         Navigator.Buttons.CustomButtons = <>
@@ -206,10 +205,6 @@ object FrameSort: TFrameSort
     Style.LookAndFeel.SkinName = 'Office2007Blue'
     StyleDisabled.LookAndFeel.NativeStyle = False
     StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleFocused.LookAndFeel.NativeStyle = False
-    StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleHot.LookAndFeel.NativeStyle = False
-    StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
     TabOrder = 4
     Height = 33
     Width = 806
@@ -335,7 +330,7 @@ object FrameSort: TFrameSort
     Left = 28
     Top = 269
     Bitmap = {
-      494C010102000500680010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102000500040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       00000000000000000000000000000000000000000000FCFCFC04D0CFCE39CCCB
       CA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECBCA
@@ -525,10 +520,11 @@ object FrameSort: TFrameSort
     CommonButtons = []
     DefaultButton = 0
     DefaultRadioButton = 200
+    FooterTextColor = clWindowText
     Instruction = #1074#1072#1072#1074#1074#1072
     Content = #1072#1072#1072#1072
     Options = []
-    Version = '1.8.4.0'
+    Version = '2.0.5.2'
     Left = 320
     Top = 120
   end
