@@ -229,12 +229,8 @@
     <File Path="..\pas\Buh\Edit\UNewOrderDetail.dfm"/>
     <File Path="..\pas\Buh\Edit\UNewOrderFromChat.pas"/>
     <File Path="..\pas\Buh\Edit\UNewOrderFromChat.dfm"/>
-    <File Path="..\pas\Buh\Edit\UNewPedido.pas"/>
-    <File Path="..\pas\Buh\Edit\UNewPedido.dfm"/>
     <File Path="..\pas\Buh\Edit\UNewPedidoAWBDetail.pas"/>
     <File Path="..\pas\Buh\Edit\UNewPedidoAWBDetail.dfm"/>
-    <File Path="..\pas\Buh\Edit\UNewPedidoPosition.pas"/>
-    <File Path="..\pas\Buh\Edit\UNewPedidoPosition.dfm"/>
     <File Path="..\pas\Buh\Edit\UNewPeduidoAWB.pas"/>
     <File Path="..\pas\Buh\Edit\UNewPeduidoAWB.dfm"/>
     <File Path="..\pas\Buh\Edit\UNewPretenzDetail.pas"/>
@@ -359,6 +355,8 @@
     <File Path="..\pas\Dictonary\View\Form"/>
     <File Path="..\pas\Dictonary\View\Form\UAdress.pas"/>
     <File Path="..\pas\Dictonary\View\Form\UAdress.dfm"/>
+    <File Path="..\pas\Dictonary\View\Form\UFAirLines.pas"/>
+    <File Path="..\pas\Dictonary\View\Form\UFAirLines.dfm"/>
     <File Path="..\pas\Dictonary\View\Form\UFBox.pas"/>
     <File Path="..\pas\Dictonary\View\Form\UFBox.dfm"/>
     <File Path="..\pas\Dictonary\View\Form\UFClient.pas"/>
@@ -391,6 +389,23 @@
     <File Path="..\pas\Dictonary\View\Form\UFSort.dfm"/>
     <File Path="..\pas\Dictonary\View\Form\UFTrack.pas"/>
     <File Path="..\pas\Dictonary\View\Form\UFTrack.dfm"/>
+    <File Path="..\pas\Dictonary\View\Form\UFTypeStruct.pas"/>
+    <File Path="..\pas\Dictonary\View\Form\UFTypeStruct.dfm"/>
+    <File Path="..\pas\Dictonary\View\Form\UFWareHouse.pas"/>
+    <File Path="..\pas\Dictonary\View\Form\UFWareHouse.dfm"/>
+    <File Path="..\pas\Dictonary\View\Form\ULang.pas"/>
+    <File Path="..\pas\Dictonary\View\Form\ULength.pas"/>
+    <File Path="..\pas\Dictonary\View\Form\ULength.dfm"/>
+    <File Path="..\pas\Dictonary\View\Form\ULogistic.pas"/>
+    <File Path="..\pas\Dictonary\View\Form\ULogistic.dfm"/>
+    <File Path="..\pas\Dictonary\View\Form\UParamPC.pas"/>
+    <File Path="..\pas\Dictonary\View\Form\UParamPC.dfm"/>
+    <File Path="..\pas\Dictonary\View\Form\UType.pas"/>
+    <File Path="..\pas\Dictonary\View\Form\UType.dfm"/>
+    <File Path="..\pas\Dictonary\View\Form\UTypeLengthWeight.pas"/>
+    <File Path="..\pas\Dictonary\View\Form\UTypeLengthWeight.dfm"/>
+    <File Path="..\pas\Dictonary\View\Form\UTypeSort.pas"/>
+    <File Path="..\pas\Dictonary\View\Form\UTypeSort.dfm"/>
     <File Path="..\pas\Dictonary\View\UFrameAccess.pas"/>
     <File Path="..\pas\Dictonary\View\UFrameAccess.dfm"/>
     <File Path="..\pas\Dictonary\View\UFrameAirLine.pas"/>
@@ -477,8 +492,6 @@
     <File Path="..\pas\UFacturKargo.dfm"/>
     <File Path="..\pas\UFacturPlant.pas"/>
     <File Path="..\pas\UFacturPlant.dfm"/>
-    <File Path="..\pas\UFAirLines.pas"/>
-    <File Path="..\pas\UFAirLines.dfm"/>
     <File Path="..\pas\UFAwb.pas"/>
     <File Path="..\pas\UFAwb.dfm"/>
     <File Path="..\pas\UFEditFact.pas"/>
@@ -517,18 +530,9 @@
     <File Path="..\pas\UFrameUniName.dfm"/>
     <File Path="..\pas\UFStanding.pas"/>
     <File Path="..\pas\UFStanding.dfm"/>
-    <File Path="..\pas\UFTypeStruct.pas"/>
-    <File Path="..\pas\UFTypeStruct.dfm"/>
     <File Path="..\pas\UFuncPeoduct.pas"/>
-    <File Path="..\pas\UFWareHouse.pas"/>
-    <File Path="..\pas\UFWareHouse.dfm"/>
-    <File Path="..\pas\ULang.pas"/>
-    <File Path="..\pas\ULength.pas"/>
-    <File Path="..\pas\ULength.dfm"/>
     <File Path="..\pas\ULogin.pas"/>
     <File Path="..\pas\ULogin.dfm"/>
-    <File Path="..\pas\ULogistic.pas"/>
-    <File Path="..\pas\ULogistic.dfm"/>
     <File Path="..\pas\UMultiSelect.pas"/>
     <File Path="..\pas\UMultiSelect.dfm"/>
     <File Path="..\pas\UNewAvtoForPacking.pas"/>
@@ -547,8 +551,6 @@
     <File Path="..\pas\UOsn.dfm"/>
     <File Path="..\pas\UPackingCorrection.pas"/>
     <File Path="..\pas\UPackingCorrection.dfm"/>
-    <File Path="..\pas\UParamPC.pas"/>
-    <File Path="..\pas\UParamPC.dfm"/>
     <File Path="..\pas\UPasswd.pas"/>
     <File Path="..\pas\UPasswd.dfm"/>
     <File Path="..\pas\UPedido.pas"/>
@@ -591,11 +593,5 @@
     <File Path="..\pas\USync.pas"/>
     <File Path="..\pas\USync.dfm"/>
     <File Path="..\pas\UTimer.pas"/>
-    <File Path="..\pas\UType.pas"/>
-    <File Path="..\pas\UType.dfm"/>
-    <File Path="..\pas\UTypeLengthWeight.pas"/>
-    <File Path="..\pas\UTypeLengthWeight.dfm"/>
-    <File Path="..\pas\UTypeSort.pas"/>
-    <File Path="..\pas\UTypeSort.dfm"/>
   </ProjectSortOrder>
 </BorlandProject>

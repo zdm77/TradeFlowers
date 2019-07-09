@@ -308,9 +308,8 @@
         <DCCReference Include="..\pas\Dictonary\Edit\UNewTarifTrack.pas">
             <Form>FNewTarifTrack</Form>
         </DCCReference>
-        <DCCReference Include="..\pas\UFramePricooling.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFramePricooling.pas">
             <Form>FrameProcooling</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\Dictonary\Edit\UNewPricooling.pas">
@@ -436,9 +435,8 @@
         <DCCReference Include="..\pas\Dictonary\Edit\UNewStoreloc.pas">
             <Form>FNewStoreloc</Form>
         </DCCReference>
-        <DCCReference Include="..\pas\UFramePlantSort.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFramePlantSort.pas">
             <Form>FramePlantSort</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\UStandartReport.pas">

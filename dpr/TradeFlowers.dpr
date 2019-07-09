@@ -61,7 +61,7 @@ uses
   UNewAccountRus in '..\pas\Dictonary\Edit\UNewAccountRus.pas' {FNewAccountRus} ,
   USelectRusBank in '..\pas\USelectRusBank.pas' {FSelectBankRus} ,
   UNewTarifTrack in '..\pas\Dictonary\Edit\UNewTarifTrack.pas' {FNewTarifTrack} ,
-  UFramePricooling in '..\pas\UFramePricooling.pas' {FrameProcooling: TFrame} ,
+  UFramePricooling in '..\pas\Dictonary\View\UFramePricooling.pas' {FrameProcooling: TFrame} ,
   UNewPricooling in '..\pas\Dictonary\Edit\UNewPricooling.pas' {FNewPricooling} ,
   UNewGroupMarking in '..\pas\Dictonary\Edit\UNewGroupMarking.pas' {FNewGroupMarking} ,
   UNewMarking in '..\pas\Dictonary\Edit\UNewMarking.pas' {FNewMarking} ,
@@ -98,7 +98,7 @@ uses
   UNewOrgName in '..\pas\Dictonary\Edit\UNewOrgName.pas' {FNewOrgName} ,
   UNewWarehouse in '..\pas\Dictonary\Edit\UNewWarehouse.pas' {FNewWarehouse} ,
   UNewStoreloc in '..\pas\Dictonary\Edit\UNewStoreloc.pas' {FNewStoreloc} ,
-  UFramePlantSort in '..\pas\UFramePlantSort.pas' {FramePlantSort: TFrame} ,
+  UFramePlantSort in '..\pas\Dictonary\View\UFramePlantSort.pas' {FramePlantSort: TFrame} ,
   UStandartReport in '..\pas\UStandartReport.pas' {FStandartReport} ,
   UFrameFito in '..\pas\Dictonary\View\UFrameFito.pas' {FrameFITO: TFrame} ,
   UReportClients in '..\pas\UReportClients.pas' {FReportClients} ,
@@ -213,9 +213,11 @@ uses
   USelectProduct in '..\pas\USelectProduct.pas' {FSelectProduct} ,
   UMarkingClass in '..\pas\Classes\UMarkingClass.pas',
   UOrderClass in '..\pas\Classes\UOrderClass.pas',
+
   UNewPedido in '..\pas\Buh\Edit\UNewPedido.pas' {FNewPedido} ,
   UNewPedidoPosition in '..\pas\Buh\Edit\UNewPedidoPosition.pas' {FNewPedidoPosition} ,
   UFParamPosPedido in '..\pas\Buh\Vew\Form\UFParamPosPedido.pas' {FParamPosPedido};
+
 {$R *.res}
 
 begin
