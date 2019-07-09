@@ -158,9 +158,8 @@
             <Form>FSelect</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\UFrameProduct.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameProduct.pas">
             <Form>FrameProduct</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\UNewPlant.pas">
@@ -374,9 +373,8 @@
             <Form>FNewOrderDetail</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\pas\UFrameStanding.pas">
+        <DCCReference Include="..\pas\Dictonary\View\UFrameStanding.pas">
             <Form>FrameStanding</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TFrame</DesignClass>
         </DCCReference>
         <DCCReference Include="..\pas\UNewStanding.pas">
