@@ -1,60 +1,54 @@
 unit UNewAuction;
-
 interface
-
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels,
-  cxLookAndFeelPainters, cxStyles, dxSkinsCore, 
-   dxSkinscxPCPainter, cxCustomData, cxFilter, cxData,
+  cxLookAndFeelPainters, cxStyles, dxSkinsCore,
+  dxSkinscxPCPainter, cxCustomData, cxFilter, cxData,
   cxDataStorage, cxEdit, cxNavigator, Data.DB, cxDBData, Datasnap.DBClient,
   MemDS, DBAccess, Uni, cxGridLevel, cxGridCustomTableView, cxGridTableView,
   cxGridDBTableView, cxClasses, cxGridCustomView, cxGrid, UFrameTopPanel,
   ComObj, Vcl.Grids, AdvObj, BaseGrid, AdvGrid;
-
 type
   TfNewAuction = class(TForm)
-    FrameTopPanel1: TFrameTopPanel;
-    Query1: TUniQuery;
-    QueryAuc: TUniQuery;
-    dsAuc: TDataSource;
-    dlgOpen1: TOpenDialog;
-    GridOrder: TStringGrid;
-    procedure btnAddClick(Sender: TObject);
-    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
-    procedure FormShow(Sender: TObject);
-    procedure FrameTopPanel1btnSelClick(Sender: TObject);
+    FrameTopPanel1 : TFrameTopPanel;
+    Query1 : TUniQuery;
+    QueryAuc : TUniQuery;
+    dsAuc : TDataSource;
+    dlgOpen1 : TOpenDialog;
+    GridOrder : TStringGrid;
+    procedure btnAddClick(Sender : TObject);
+    procedure FormCloseQuery(Sender : TObject; var CanClose : Boolean);
+    procedure FormShow(Sender : TObject);
+    procedure FrameTopPanel1btnSelClick(Sender : TObject);
   private
     { Private declarations }
   public
-    Excel: Variant;
-    s_date: TDate;
-    id_exe: Boolean;
-    IDCountry: Integer;
-    IDPlant: Integer;
-    IDProduct: Integer;
-    s_id_postav: Integer;
-    function DetectSupplier(s_name: string): Integer;
-    function DetectProduct(s_name, s_code: string; s_i: Integer): Integer;
+    Excel : Variant;
+    s_date : TDate;
+    id_exe : Boolean;
+    IDCountry : Integer;
+    IDPlant : Integer;
+    IDProduct : Integer;
+    s_id_postav : Integer;
+    function DetectSupplier(s_name : string) : Integer;
+    function DetectProduct(s_name, s_code : string; s_i : Integer) : Integer;
     procedure EnableBtn;
     { Public declarations }
   end;
 
 var
-  fNewAuction: TfNewAuction;
-
+  fNewAuction : TfNewAuction;
 implementation
-
 {$R *.dfm}
 
 uses UNewPlantCountry, UTypeSort, PGSQL, USelectTypeAuc, UAuctionDetail;
-
-procedure TfNewAuction.btnAddClick(Sender: TObject);
+procedure TfNewAuction.btnAddClick(Sender : TObject);
 var
-  Rows, Cols, i, j: Integer;
-  WorkSheet: OLEVariant;
-  FData: OLEVariant;
+  Rows, Cols, i, j : Integer;
+  WorkSheet : OLEVariant;
+  FData : OLEVariant;
 begin
   if dlgOpen1.Execute then
   begin
@@ -79,7 +73,7 @@ begin
     begin
       if Application.MessageBox
         ('Дата закупки не совпадает! Выберете другой файл?.', 'Ошибка',
-        MB_YESNO + MB_ICONERROR) = mrNo then
+          MB_YESNO + MB_ICONERROR) = mrNo then
       begin
         FrameTopPanel1.btnSel.Enabled := False;
         fNewAuction.Close;
@@ -88,11 +82,10 @@ begin
         btnAddClick(Sender);
     end
     else
-      FrameTopPanel1.btnSel.Enabled := True;;
+      FrameTopPanel1.btnSel.Enabled := True; ;
   end;
 end;
-
-function TfNewAuction.DetectSupplier(s_name: string): Integer;
+function TfNewAuction.DetectSupplier(s_name : string) : Integer;
 begin
   IDPlant := 0;
   with Query1 do
@@ -105,13 +98,13 @@ begin
     Result := 0;
     Close;
     sql.Text :=
-      'select id, код_страны   from "продукция"."плантации" sv where upper(sv.uni_name)=:n';
+               'select id, код_страны   from "продукция"."плантации" sv where upper(sv.uni_name)=:n';
     ParamByName('n').AsString := Trim(AnsiUpperCase(s_name));
     Open;
     if Fields[0].AsString = '' then
     begin
       if Application.MessageBox(PChar('Поставщик - "' + Trim(s_name) +
-        '" не найден. Добавить?'), 'Вопрос', MB_YESNO + MB_ICONWARNING) = mrYes
+      '" не найден. Добавить?'), 'Вопрос', MB_YESNO + MB_ICONWARNING) = mrYes
       then
       begin
         Application.CreateForm(TfNewPlantCountry, fNewPlantCountry);
@@ -125,8 +118,8 @@ begin
             IDPlant := PGSQL.NewID('продукция.плантации_id_seq');
             Query1.Close;
             Query1.sql.Text :=
-              'insert into "продукция"."плантации" (id, name, brand, код_страны, uni_name, reg_name)'
-              + ' values (:id, :name, :brand, :код_страны, :uni_name, :reg_name)';
+                              'insert into "продукция"."плантации" (id, name, brand, код_страны, uni_name, reg_name)'
+                              + ' values (:id, :name, :brand, :код_страны, :uni_name, :reg_name)';
             Query1.ParamByName('id').AsInteger := IDPlant;
             Query1.ParamByName('name').AsString := AnsiUpperCase(s_name);
             Query1.ParamByName('brand').AsString := AnsiUpperCase(s_name);
@@ -154,16 +147,14 @@ begin
     end;
   end;
 end;
-
-function TfNewAuction.DetectProduct(s_name, s_code: string;
-  s_i: Integer): Integer;
+function TfNewAuction.DetectProduct(s_name, s_code : string;
+                                       s_i : Integer) : Integer;
 var
-  IDA: Integer;
-  s, IdSuplyer, CountryCode, TypeCode, TypeSrez: string;
-  q: Integer;
-  CodAny: String;
+  IDA : Integer;
+  s, IdSuplyer, CountryCode, TypeCode, TypeSrez : string;
+  q : Integer;
+  CodAny : String;
 begin
-
   // ShowMessage( s);
   // with Query1 do
   // begin
@@ -224,49 +215,49 @@ begin
       // s := Copy(GridOrder.Cells[26, s_i], 0, q - 1);
       // ShowMessage(s);
       IdSuplyer := Trim(Copy(GridOrder.Cells[26, s_i], 0,
-        (Pos('-', GridOrder.Cells[26, s_i])) - 1));
+                              (Pos('-', GridOrder.Cells[26, s_i])) - 1));
       // страна поставщика
       // ShowMessage(IntToStr(IDCountry));
       sql.Text := 'select code from "продукция"."страны" where id=' +
-        IntToStr(IDCountry);
+    IntToStr(IDCountry);
       Open;
       CountryCode := Fields[0].AsString;
       sql.Clear;
       s := 'select id  from "аукцион"."Номенклатура" sv where sv."КодПродукта"= :n '
-        + ' and sv."КодПоставщика"= ' + IdSuplyer;
+    + ' and sv."КодПоставщика"= ' + IdSuplyer;
       if Trim(GridOrder.Cells[8, s_i]) <> '' then
         s := s + ' and upper(ЧАСЫ)= ' +
-          QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[8, s_i])))
+      QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[8, s_i])))
       else
         s := s + ' and ЧАСЫ is null';
       //
       if Trim(GridOrder.Cells[9, s_i]) <> '' then
         s := s + ' and upper(КОД_ТАРЫ)= ' +
-          QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[9, s_i])))
+      QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[9, s_i])))
       else
         s := s + ' and КОД_ТАРЫ is null';
       //
       if GridOrder.Cells[10, s_i] <> '' then
         s := s + ' and "S1"= ' +
-          QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[10, s_i])))
+      QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[10, s_i])))
       else
         s := s + ' and "S1" is null';
       // //
       if GridOrder.Cells[11, s_i] <> '' then
         s := s + ' and "S2"= ' +
-          QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[11, s_i])))
+      QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[11, s_i])))
       else
         s := s + ' and "S2" is null';
       // //
       if GridOrder.Cells[12, s_i] <> '' then
         s := s + ' and "S3"= ' +
-          QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[12, s_i])))
+      QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[12, s_i])))
       else
         s := s + ' and "S3" is null';
       // //
       if GridOrder.Cells[13, s_i] <> '' then
         s := s + ' and "S4"= ' +
-          QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[13, s_i])))
+      QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[13, s_i])))
       else
         s := s + ' and "S4" is null';
       // //
@@ -274,11 +265,11 @@ begin
       // //
       if GridOrder.Cells[14, s_i] <> '' then
         s := s + ' and КачествоТовара= ' +
-          QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[14, s_i])))
+      QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[14, s_i])))
       else
         s := s + ' and КачествоТовара is null';
       s := s + ' and код_аукциона=' +
-        IntToStr(fAuctionDetail.edtAucType.EditValue);
+    IntToStr(fAuctionDetail.edtAucType.EditValue);
       sql.Text := s;
       ParamByName('n').AsString := Trim(GridOrder.Cells[3, s_i]);
       Open;
@@ -288,8 +279,8 @@ begin
         // старый вариант
         Close;
         sql.Text :=
-          'select ГруппаПродукта, ТипСрезка  from "аукцион"."Номенклатура" sv where sv."КодПродукта"= '
-          + Trim(GridOrder.Cells[3, s_i]);
+                   'select ГруппаПродукта, ТипСрезка  from "аукцион"."Номенклатура" sv where sv."КодПродукта"= '
+                   + Trim(GridOrder.Cells[3, s_i]);
         Open;
         CodAny := Fields[0].AsString;
         if CodAny = '' then
@@ -304,18 +295,16 @@ begin
             if idSel = False then
             begin
               Application.MessageBox('Прервано пользователем.', 'Ошибка',
-                MB_OK + MB_ICONERROR);
+                                      MB_OK + MB_ICONERROR);
               abort;
             end
             else
             begin
               TypeCode := FrameTypeAuc1.QueryTypeAuc.FieldByName
-                ('code').AsString;
+              ('code').AsString;
               case FrameTypeAuc1.edtTypeSrez.ItemIndex of
-                0:
-                  TypeSrez := 'STW';
-                1:
-                  TypeSrez := 'Горшечка';
+                0 : TypeSrez := 'STW';
+                1 : TypeSrez := 'Горшечка';
               end;
             end;
           end;
@@ -323,7 +312,7 @@ begin
         else
         begin
           TypeCode := CodAny;
-          TypeSrez:=Fields[1].AsString;
+          TypeSrez := Fields[1].AsString;
         end;
         IDA := PGSQL.NewID('"аукцион"."Номенклатура_id_seq"');
         // вставляем в большую номенклатуру
@@ -432,23 +421,23 @@ begin
         else
           ParamByName('КачествоТовара').Value := Null;
         ParamByName('код_аукциона').AsInteger :=
-          fAuctionDetail.edtAucType.EditValue;
+                                                fAuctionDetail.edtAucType.EditValue;
         ParamByName('ТипСрезка').AsString := TypeSrez;
         try
           ExecSQL;
           Result := IDA;
         except
           ShowMessage(Cells[0, s_i] + ',' + QuotedStr(Cells[1, s_i]) + ',' +
-            QuotedStr(Cells[2, s_i]) + ',' + QuotedStr(Cells[3, s_i]) + ',' +
-            QuotedStr(Cells[4, s_i]) + ',' + QuotedStr(Cells[5, s_i]) + ',' +
-            QuotedStr(Cells[6, s_i]) + ',' + QuotedStr(Cells[7, s_i]) + ',' +
-            QuotedStr(Cells[8, s_i]) + ',' + QuotedStr(Cells[9, s_i]) + ',' +
-            QuotedStr(Cells[10, s_i]) + ',' + QuotedStr(Cells[11, s_i]) + ',' +
-            QuotedStr(Cells[12, s_i]) + ',' + QuotedStr(Cells[13, s_i]) + ',' +
-            QuotedStr(Cells[14, s_i]) + ',' + QuotedStr(Cells[15, s_i]));
+          QuotedStr(Cells[2, s_i]) + ',' + QuotedStr(Cells[3, s_i]) + ',' +
+          QuotedStr(Cells[4, s_i]) + ',' + QuotedStr(Cells[5, s_i]) + ',' +
+          QuotedStr(Cells[6, s_i]) + ',' + QuotedStr(Cells[7, s_i]) + ',' +
+          QuotedStr(Cells[8, s_i]) + ',' + QuotedStr(Cells[9, s_i]) + ',' +
+          QuotedStr(Cells[10, s_i]) + ',' + QuotedStr(Cells[11, s_i]) + ',' +
+          QuotedStr(Cells[12, s_i]) + ',' + QuotedStr(Cells[13, s_i]) + ',' +
+          QuotedStr(Cells[14, s_i]) + ',' + QuotedStr(Cells[15, s_i]));
           Application.MessageBox('Ошибка импорта', 'Сообщение',
-            MB_OK + MB_ICONERROR);
-          // FSplash.Hide;
+                                  MB_OK + MB_ICONERROR);
+            // FSplash.Hide;
         end;
       end
       else
@@ -458,12 +447,10 @@ begin
     end;
   end;
 end;
-
 procedure TfNewAuction.EnableBtn;
 begin
 end;
-
-procedure TfNewAuction.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+procedure TfNewAuction.FormCloseQuery(Sender : TObject; var CanClose : Boolean);
 begin
   try
     Excel.Quit;
@@ -472,15 +459,13 @@ begin
   CanClose := True;
   Excel := Unassigned;
 end;
-
-procedure TfNewAuction.FormShow(Sender: TObject);
+procedure TfNewAuction.FormShow(Sender : TObject);
 begin
   btnAddClick(Sender);
 end;
-
-procedure TfNewAuction.FrameTopPanel1btnSelClick(Sender: TObject);
+procedure TfNewAuction.FrameTopPanel1btnSelClick(Sender : TObject);
 var
-  i, id_plant, id_a: Integer;
+  i, id_plant, id_a : Integer;
 begin
   with GridOrder do
     for i := 1 to RowCount - 1 do
@@ -529,7 +514,7 @@ begin
             sql.Add(' "КодПроизводителя",');
             sql.Add(' "КодСоответствия",');
             sql.Add(' "Код_Поставщика",');
-              sql.Add(' "КолвоВПачке"');
+            sql.Add(' "КолвоВПачке"');
             sql.Add(' )');
             sql.Add(' VALUES (');
             // sql.Add(' :ДатаВылета,');
@@ -605,7 +590,7 @@ begin
             ParamByName('КодПроизводителя').AsInteger := id_plant;
             ParamByName('КодСоответствия').AsInteger := id_a;
             ParamByName('Код_Поставщика').AsInteger := s_id_postav;
-             if Cells[27, i] <> '' then
+            if Cells[27, i] <> '' then
               ParamByName('КолвоВПачке').AsString := Cells[27, i];
             ExecSQL;
             // Abort;
@@ -632,5 +617,4 @@ begin
       fNewAuction.Close;
     end;
 end;
-
 end.

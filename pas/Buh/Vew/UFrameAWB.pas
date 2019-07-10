@@ -1,7 +1,5 @@
 ﻿unit UFrameAWB;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -44,65 +42,54 @@ uses
   Winapi.ShellAPI,
   Vcl.StdCtrls,
   cxCheckBox,
-  Vcl.ExtCtrls,    
-     
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
-
+  Vcl.ExtCtrls,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
 type
   TFrameAWB = class(TFrame)
-    FrameTopPanel1: TFrameTopPanel;
-    QueryAWB: TUniQuery;
-    dsAWB: TDataSource;
-    Query1: TUniQuery;
-    GridAWB: TcxGrid;
-    ViewAWB: TcxGridDBTableView;
-    LevelOrg: TcxGridLevel;
-    ColumnKargo: TcxGridDBColumn;
-    ColumnAWBNum: TcxGridDBColumn;
-    ColumnДата: TcxGridDBColumn;
-    ColumnFB: TcxGridDBColumn;
-    ColumnBOX: TcxGridDBColumn;
-    ColumnВес: TcxGridDBColumn;
-    ColumnСтоимость: TcxGridDBColumn;
-    ColumnOrg: TcxGridDBColumn;
-    ColumnID: TcxGridDBColumn;
-    ColumnАвиалиния: TcxGridDBColumn;
-    ColumnMnemo: TcxGridDBColumn;
-    ColumnMnemoNUM: TcxGridDBColumn;
-    procedure btnAddClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
-    procedure btnRefreshClick(Sender: TObject);
-    procedure ViewAWBDblClick(Sender: TObject);
-    procedure btnExportClick(Sender: TObject);
-    procedure FrameTopPanel1btnArchPropertiesEditValueChanged(Sender: TObject);
+    FrameTopPanel1 : TFrameTopPanel;
+    QueryAWB : TUniQuery;
+    dsAWB : TDataSource;
+    Query1 : TUniQuery;
+    GridAWB : TcxGrid;
+    ViewAWB : TcxGridDBTableView;
+    LevelOrg : TcxGridLevel;
+    ColumnKargo : TcxGridDBColumn;
+    ColumnAWBNum : TcxGridDBColumn;
+    ColumnДата : TcxGridDBColumn;
+    ColumnFB : TcxGridDBColumn;
+    ColumnBOX : TcxGridDBColumn;
+    ColumnВес : TcxGridDBColumn;
+    ColumnСтоимость : TcxGridDBColumn;
+    ColumnOrg : TcxGridDBColumn;
+    ColumnID : TcxGridDBColumn;
+    ColumnАвиалиния : TcxGridDBColumn;
+    ColumnMnemo : TcxGridDBColumn;
+    ColumnMnemoNUM : TcxGridDBColumn;
+    procedure btnAddClick(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
+    procedure btnRefreshClick(Sender : TObject);
+    procedure ViewAWBDblClick(Sender : TObject);
+    procedure btnExportClick(Sender : TObject);
+    procedure FrameTopPanel1btnArchPropertiesEditValueChanged(Sender : TObject);
   private
     { Private declarations }
   public
-    procedure ShowAWB(id_locate: Integer = 0);
+    procedure ShowAWB(id_locate : Integer = 0);
     procedure SetLang;
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
 uses
   UNewAWB,
   PGSQL,
   UPasswd;
-
-procedure TFrameAWB.btnAddClick(Sender: TObject);
+procedure TFrameAWB.btnAddClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewAWB, FNewAWB);
   FNewAWB.ShowOrg(FPasswd.ID_ORG);
@@ -112,14 +99,12 @@ begin
   // FNewAWB.ShowPrikul();
   FNewAWB.Show;
 end;
-
-procedure TFrameAWB.btnDelClick(Sender: TObject);
+procedure TFrameAWB.btnDelClick(Sender : TObject);
 begin
   PGSQL.StandartDelete(QueryAWB.FieldByName('id').AsString, '"бух".awb',
-    QueryAWB, '', '', '', '');
+                        QueryAWB, '', '', '', '');
 end;
-
-procedure TFrameAWB.btnEditClick(Sender: TObject);
+procedure TFrameAWB.btnEditClick(Sender : TObject);
 begin
   if QueryAWB.Fields[0].AsString <> '' then
   begin
@@ -150,27 +135,23 @@ begin
     end;
   end;
 end;
-
-procedure TFrameAWB.btnExportClick(Sender: TObject);
+procedure TFrameAWB.btnExportClick(Sender : TObject);
 begin
   ExportGridToExcel(FPasswd.GetVar('TEMP') + '\AWB', GridAWB, True, True,
-    True, 'xls');
+                     True, 'xls');
   ShellExecute(Handle, nil, PChar(FPasswd.GetVar('TEMP') + '\AWB.xls'), nil,
-    nil, SW_RESTORE);
+                nil, SW_RESTORE);
 end;
-
-procedure TFrameAWB.btnRefreshClick(Sender: TObject);
+procedure TFrameAWB.btnRefreshClick(Sender : TObject);
 begin
   ShowAWB(QueryAWB.FieldByName('id').AsInteger);
 end;
-
 procedure TFrameAWB.FrameTopPanel1btnArchPropertiesEditValueChanged
-  (Sender: TObject);
+  (Sender : TObject);
 begin
   ShowAWB();
 end;
-
-procedure TFrameAWB.ShowAWB(id_locate: Integer = 0);
+procedure TFrameAWB.ShowAWB(id_locate : Integer = 0);
 begin
   with QueryAWB do
   begin
@@ -215,59 +196,56 @@ begin
     Locate('id', id_locate, []);
   end;
 end;
-
 procedure TFrameAWB.SetLang;
 begin
   case FPasswd.Lang of
-    1:
-      begin
-        // // Caption := 'Directories';
-        // ItemТовары.Caption := 'Nomenclature';
-        // ItemКлиент.Caption := 'Clients';
-        // ItemСтраны.Caption := 'Country';
-        // ItemТипы.Caption := 'Types';
-        // ItemСвойства.Caption := 'Properties';
-        // ItemПлантации.Caption := 'Plantation';
-        // ItemСорта.Caption := 'Grades';
-        // ItemОрганизация.Caption := 'Organization';
-        // ItemПользователи.Caption := 'Users';
-        // ItemРоль.Caption := 'The role';
-        // GroupОснова.Caption := 'Main';
-        // GroupСтруктура.Caption := 'Structure';
-        // GroupОрг.Caption := 'Organization';
-        // GroupАдмин.Caption := 'Administration';
-        // ItemКарго.Caption := 'Cargo';
-        // ItemАвиалинии.Caption := 'Airlines';
-      end;
-    2:
-      begin
-        // Caption := 'Guías';
-        ColumnДата.Caption := 'La fecha del vuelo';
-        ColumnAWBNum.Caption := '№ AWB';
-        ColumnKargo.Caption := 'El cargo';
-        ColumnFB.Caption := 'La cantidad FB';
-        ColumnBOX.Caption := 'La cantidad de las cajas';
-        ColumnВес.Caption := 'El peso';
-        ColumnOrg.Caption := 'La organización';
-        ColumnАвиалиния.Caption := 'Aerolineas';
-      end;
+    1 :
+    begin
+      // // Caption := 'Directories';
+      // ItemТовары.Caption := 'Nomenclature';
+      // ItemКлиент.Caption := 'Clients';
+      // ItemСтраны.Caption := 'Country';
+      // ItemТипы.Caption := 'Types';
+      // ItemСвойства.Caption := 'Properties';
+      // ItemПлантации.Caption := 'Plantation';
+      // ItemСорта.Caption := 'Grades';
+      // ItemОрганизация.Caption := 'Organization';
+      // ItemПользователи.Caption := 'Users';
+      // ItemРоль.Caption := 'The role';
+      // GroupОснова.Caption := 'Main';
+      // GroupСтруктура.Caption := 'Structure';
+      // GroupОрг.Caption := 'Organization';
+      // GroupАдмин.Caption := 'Administration';
+      // ItemКарго.Caption := 'Cargo';
+      // ItemАвиалинии.Caption := 'Airlines';
+    end;
+    2 :
+    begin
+      // Caption := 'Guías';
+      ColumnДата.Caption := 'La fecha del vuelo';
+      ColumnAWBNum.Caption := '№ AWB';
+      ColumnKargo.Caption := 'El cargo';
+      ColumnFB.Caption := 'La cantidad FB';
+      ColumnBOX.Caption := 'La cantidad de las cajas';
+      ColumnВес.Caption := 'El peso';
+      ColumnOrg.Caption := 'La organización';
+      ColumnАвиалиния.Caption := 'Aerolineas';
+    end;
   end;
   case FPasswd.edtLangData.ItemIndex of
-    0:
-      begin
-        ColumnАвиалиния.DataBinding.FieldName := 'air_name_rus';
-      end;
-    2:
-      begin
-        ColumnАвиалиния.DataBinding.FieldName := 'air_name_esp';
-      end;
+    0 :
+    begin
+      ColumnАвиалиния.DataBinding.FieldName := 'air_name_rus';
+    end;
+    2 :
+    begin
+      ColumnАвиалиния.DataBinding.FieldName := 'air_name_esp';
+    end;
   end;
 end;
-
-procedure TFrameAWB.ViewAWBDblClick(Sender: TObject);
+procedure TFrameAWB.ViewAWBDblClick(Sender : TObject);
 begin
   if FrameTopPanel1.btnEdit.Enabled = True then
     btnEditClick(Sender);
 end;
-
 end.

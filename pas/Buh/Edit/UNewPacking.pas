@@ -1,7 +1,5 @@
 unit UNewPacking;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -50,70 +48,60 @@ uses
   cxClasses,
   cxGridCustomView,
   cxGrid,
-  Vcl.ComCtrls,    
-     
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue;
-
+  Vcl.ComCtrls,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue;
 type
   TFNewPacking = class(TForm)
-    FrameTopPanel1: TFrameTopPanel;
-    GroupOsn: TcxGroupBox;
-    edtPostav: TcxButtonEdit;
-    lblMarking: TcxLabel;
-    edtNum: TcxTextEdit;
-    lblNumber: TcxLabel;
-    cxLabel1: TcxLabel;
-    lbl1: TcxLabel;
-    edtClient: TcxButtonEdit;
-    GridAvtoPacking: TcxGrid;
-    GridAvtoPackingDBTableView1: TcxGridDBTableView;
-    GridAvtoPackingLevel1: TcxGridLevel;
-    dsPacking: TDataSource;
-    QueryPacking: TUniQuery;
-    Query1: TUniQuery;
-    GridAvtoPackingDBTableView1DBColumn: TcxGridDBColumn;
-    GridAvtoPackingDBTableView1DBColumn1: TcxGridDBColumn;
-    edtВалюта: TComboBox;
-    cxLabel2: TcxLabel;
-    edtOt: TDateTimePicker;
-    procedure btnAddClick(Sender: TObject);
-    procedure edtClientPropertiesButtonClick(Sender: TObject;
-      AButtonIndex: Integer);
-    procedure edtPostavPropertiesButtonClick(Sender: TObject;
-      AButtonIndex: Integer);
-    procedure FormShow(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure GridAvtoPackingDBTableView1DblClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
-    procedure FrameTopPanel1btnSelClick(Sender: TObject);
-    procedure btnRefreshClick(Sender: TObject);
-    procedure btnFilterClick(Sender: TObject);
+    FrameTopPanel1 : TFrameTopPanel;
+    GroupOsn : TcxGroupBox;
+    edtPostav : TcxButtonEdit;
+    lblMarking : TcxLabel;
+    edtNum : TcxTextEdit;
+    lblNumber : TcxLabel;
+    cxLabel1 : TcxLabel;
+    lbl1 : TcxLabel;
+    edtClient : TcxButtonEdit;
+    GridAvtoPacking : TcxGrid;
+    GridAvtoPackingDBTableView1 : TcxGridDBTableView;
+    GridAvtoPackingLevel1 : TcxGridLevel;
+    dsPacking : TDataSource;
+    QueryPacking : TUniQuery;
+    Query1 : TUniQuery;
+    GridAvtoPackingDBTableView1DBColumn : TcxGridDBColumn;
+    GridAvtoPackingDBTableView1DBColumn1 : TcxGridDBColumn;
+    edtВалюта : TComboBox;
+    cxLabel2 : TcxLabel;
+    edtOt : TDateTimePicker;
+    procedure btnAddClick(Sender : TObject);
+    procedure edtClientPropertiesButtonClick(Sender : TObject;
+                                                AButtonIndex : Integer);
+    procedure edtPostavPropertiesButtonClick(Sender : TObject;
+                                                AButtonIndex : Integer);
+    procedure FormShow(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure GridAvtoPackingDBTableView1DblClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
+    procedure FrameTopPanel1btnSelClick(Sender : TObject);
+    procedure btnRefreshClick(Sender : TObject);
+    procedure btnFilterClick(Sender : TObject);
   private
     { Private declarations }
   public
-    s_id_avto_packing_add: Integer;
-    s_id_packing: Integer;
-    s_id_client: Integer;
-    s_id_postav: Integer;
-    Валюта: string;
+    s_id_avto_packing_add : Integer;
+    s_id_packing : Integer;
+    s_id_client : Integer;
+    s_id_postav : Integer;
+    Валюта : string;
     procedure ShowPacking;
     { Public declarations }
   end;
 
 var
-  FNewPacking: TFNewPacking;
-
+  FNewPacking : TFNewPacking;
 implementation
-
 {$R *.dfm}
 
 uses
@@ -121,26 +109,25 @@ uses
   UNewSubPacking,
   USelectClient,
   UPackingCorrection;
-
-procedure TFNewPacking.btnAddClick(Sender: TObject);
+procedure TFNewPacking.btnAddClick(Sender : TObject);
 begin
   if (edtOt.Checked = true) And (edtClient.Text <> '') and
-    (edtPostav.Text <> '') and (edtNum.Text <> '') then
+  (edtPostav.Text <> '') and (edtNum.Text <> '') then
   begin
     if s_id_packing = 0 then
     begin
       if Application.MessageBox('Пакинг еще не сохранен. Сохранить?', 'Вопрос',
-        MB_YESNO + MB_ICONQUESTION) = mrYes then
+                                 MB_YESNO + MB_ICONQUESTION) = mrYes then
       begin
         with Query1 do
         begin
           s_id_packing := PGSQL.NewID('"документы"."таможня_пакинг_id_seq1"');
           Close;
           sql.Text := 'INSERT INTO  "документы"."таможня_пакинг"' +
-            '(id,  "код_таможня_авто",  "код_клиента",' +
-            '  "код_поставщика",  "номер_пакинга",  "дата_пакинга", валюта' +
-            ') VALUES (  :id,  :код_таможня_авто,  :код_клиента,' +
-            '  :код_поставщика,  :номер_пакинга,  :дата_пакинга, :валюта);';
+        '(id,  "код_таможня_авто",  "код_клиента",' +
+        '  "код_поставщика",  "номер_пакинга",  "дата_пакинга", валюта' +
+        ') VALUES (  :id,  :код_таможня_авто,  :код_клиента,' +
+        '  :код_поставщика,  :номер_пакинга,  :дата_пакинга, :валюта);';
           ParamByName('id').AsInteger := s_id_packing;
           ParamByName('код_таможня_авто').AsInteger := s_id_avto_packing_add;
           ParamByName('код_клиента').AsInteger := s_id_client;
@@ -168,30 +155,28 @@ begin
   else
     Application.MessageBox
       ('Не заполнены основные сведения. Продолжение не возможно.', 'Ошибка',
-      MB_OK + MB_ICONERROR);
+        MB_OK + MB_ICONERROR);
 end;
-
-procedure TFNewPacking.btnDelClick(Sender: TObject);
+procedure TFNewPacking.btnDelClick(Sender : TObject);
 begin
   if QueryPacking.Fields[0].AsString <> '' then
   begin
     if Application.MessageBox
       ('Вы действительно хотите удалить подпакинг и все связанные с ним позиции?',
-      'Вопрос', MB_YESNO + MB_ICONWARNING) = mrYes then
+        'Вопрос', MB_YESNO + MB_ICONWARNING) = mrYes then
     begin
       with Query1 do
       begin
         Close;
         sql.Text := 'delete from  "документы"."таможня_подпакинг" where id=' +
-          QueryPacking.FieldByName('id').AsString;
+      QueryPacking.FieldByName('id').AsString;
         ExecSQL;
         ShowPacking();
       end;
     end;
   end;
 end;
-
-procedure TFNewPacking.btnEditClick(Sender: TObject);
+procedure TFNewPacking.btnEditClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewSubPacking, FNewSubPacking);
   with FNewSubPacking do
@@ -206,8 +191,7 @@ begin
     ShowPacking;
   end;
 end;
-
-procedure TFNewPacking.btnFilterClick(Sender: TObject);
+procedure TFNewPacking.btnFilterClick(Sender : TObject);
 begin
   Application.CreateForm(TFPackingCorrection, FPackingCorrection);
   with FPackingCorrection do
@@ -216,14 +200,12 @@ begin
     ShowModal;
   end;
 end;
-
-procedure TFNewPacking.btnRefreshClick(Sender: TObject);
+procedure TFNewPacking.btnRefreshClick(Sender : TObject);
 begin
   ShowPacking;
 end;
-
-procedure TFNewPacking.edtClientPropertiesButtonClick(Sender: TObject;
-  AButtonIndex: Integer);
+procedure TFNewPacking.edtClientPropertiesButtonClick(Sender : TObject;
+                                                         AButtonIndex : Integer);
 begin
   Application.CreateForm(TFSelectClient, FSelectClient);
   with FSelectClient.FrameClient1 do
@@ -243,9 +225,8 @@ begin
     end;
   end;
 end;
-
-procedure TFNewPacking.edtPostavPropertiesButtonClick(Sender: TObject;
-  AButtonIndex: Integer);
+procedure TFNewPacking.edtPostavPropertiesButtonClick(Sender : TObject;
+                                                         AButtonIndex : Integer);
 begin
   Application.CreateForm(TFSelectClient, FSelectClient);
   with FSelectClient.FrameClient1 do
@@ -265,22 +246,20 @@ begin
     end;
   end;
 end;
-
-procedure TFNewPacking.FormShow(Sender: TObject);
+procedure TFNewPacking.FormShow(Sender : TObject);
 begin
   ShowPacking;
 end;
-
-procedure TFNewPacking.FrameTopPanel1btnSelClick(Sender: TObject);
+procedure TFNewPacking.FrameTopPanel1btnSelClick(Sender : TObject);
 begin
   with Query1 do
   begin
     Close;
     sql.Text := 'UPDATE  "документы"."таможня_пакинг" SET' +
-      '  "код_клиента" = :код_клиента,' +
-      '  "код_поставщика" = :код_поставщика,' +
-      '  "номер_пакинга" = :номер_пакинга, "дата_пакинга" = :дата_пакинга' +
-      ' ,валюта=:валюта WHERE  id = :id;';
+  '  "код_клиента" = :код_клиента,' +
+  '  "код_поставщика" = :код_поставщика,' +
+  '  "номер_пакинга" = :номер_пакинга, "дата_пакинга" = :дата_пакинга' +
+  ' ,валюта=:валюта WHERE  id = :id;';
     ParamByName('id').AsInteger := s_id_packing;
     ParamByName('код_клиента').AsInteger := s_id_client;
     ParamByName('код_поставщика').AsInteger := s_id_postav;
@@ -292,12 +271,10 @@ begin
     ShowPacking;
   end;
 end;
-
-procedure TFNewPacking.GridAvtoPackingDBTableView1DblClick(Sender: TObject);
+procedure TFNewPacking.GridAvtoPackingDBTableView1DblClick(Sender : TObject);
 begin
   btnEditClick(Sender);
 end;
-
 procedure TFNewPacking.ShowPacking;
 begin
 {$REGION 'MyRegion'}
@@ -318,5 +295,4 @@ begin
   end;
 {$ENDREGION};
 end;
-
 end.

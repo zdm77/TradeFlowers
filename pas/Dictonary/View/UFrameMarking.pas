@@ -1,7 +1,5 @@
 ﻿unit UFrameMarking;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -35,40 +33,37 @@ uses
   cxClasses,
   dxSkinDevExpressStyle,
   dxSkinsDefaultPainters, dxSkinOffice2007Blue;
-
 type
   TFrameMarking = class(TFrame)
-    QueryMarking: TUniQuery;
-    dsMarking: TDataSource;
-    il1: TImageList;
-    lstTreeProducts: TcxDBTreeList;
-    ColumnName: TcxDBTreeListColumn;
-    FrameTopPanel1: TFrameTopPanel;
-    Query1: TUniQuery;
-    Style1: TcxStyleRepository;
-    cxStyle1: TcxStyle;
-    cxStyle2: TcxStyle;
-    ColumnClient: TcxDBTreeListColumn;
-    ColumnGroup: TcxDBTreeListColumn;
-    procedure btnAddGroupClick(Sender: TObject);
-    procedure btnAddClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
-    procedure btnRefreshClick(Sender: TObject);
-    procedure FrameTopPanel1btnSelClick(Sender: TObject);
-    procedure lstTreeProductsDblClick(Sender: TObject);
-    procedure lstTreeProductsStylesGetContentStyle(Sender: TcxCustomTreeList;
-      AColumn: TcxTreeListColumn; ANode: TcxTreeListNode; var AStyle: TcxStyle);
+    QueryMarking : TUniQuery;
+    dsMarking : TDataSource;
+    il1 : TImageList;
+    lstTreeProducts : TcxDBTreeList;
+    ColumnName : TcxDBTreeListColumn;
+    FrameTopPanel1 : TFrameTopPanel;
+    Query1 : TUniQuery;
+    Style1 : TcxStyleRepository;
+    cxStyle1 : TcxStyle;
+    cxStyle2 : TcxStyle;
+    ColumnClient : TcxDBTreeListColumn;
+    ColumnGroup : TcxDBTreeListColumn;
+    procedure btnAddGroupClick(Sender : TObject);
+    procedure btnAddClick(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
+    procedure btnRefreshClick(Sender : TObject);
+    procedure FrameTopPanel1btnSelClick(Sender : TObject);
+    procedure lstTreeProductsDblClick(Sender : TObject);
+    procedure lstTreeProductsStylesGetContentStyle(Sender : TcxCustomTreeList;
+                                                      AColumn : TcxTreeListColumn; ANode : TcxTreeListNode; var AStyle : TcxStyle);
   private
     { Private declarations }
   public
-    procedure InsUpdMarking(id_ins: boolean);
-    procedure ShowMarking(id_locate: integer = 0);
+    procedure InsUpdMarking(id_ins : boolean);
+    procedure ShowMarking(id_locate : integer = 0);
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
 uses
@@ -78,8 +73,7 @@ uses
   UDialogMy,
   UNewMarking,
   USplash;
-
-procedure TFrameMarking.btnAddClick(Sender: TObject);
+procedure TFrameMarking.btnAddClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewMarking, FNewMarking);
   with FNewMarking do
@@ -90,10 +84,9 @@ begin
       InsUpdMarking(true);
   end;
 end;
-
-procedure TFrameMarking.btnAddGroupClick(Sender: TObject);
+procedure TFrameMarking.btnAddGroupClick(Sender : TObject);
 var
-  id: integer;
+  id : integer;
 begin
   Application.CreateForm(TFNewGroupMarking, FNewGroupMarking);
   with FNewGroupMarking do
@@ -106,8 +99,8 @@ begin
       begin
         Close;
         sql.Text :=
-          'insert into "маркировки"."маркировки" (id, pid, name, uni_name, reg_name, id_group) ' +
-          ' values (:id, 1, :name, :uni_name, :reg_name, 1)';
+                   'insert into "маркировки"."маркировки" (id, pid, name, uni_name, reg_name, id_group) ' +
+                   ' values (:id, 1, :name, :uni_name, :reg_name, 1)';
         ParamByName('id').AsInteger := id;
         with FrameUniName1 do
         begin
@@ -121,107 +114,102 @@ begin
     end;
   end;
 end;
-
-procedure TFrameMarking.btnDelClick(Sender: TObject);
+procedure TFrameMarking.btnDelClick(Sender : TObject);
 var
-  s: string;
+  s : string;
 begin
   if QueryMarking.FieldByName('pid').AsInteger <> 0 then
   begin
     case QueryMarking.FieldByName('id_group').AsInteger of
-      0:
+      0 :
+      begin
+        PGSQL.StandartDelete(QueryMarking.FieldByName('id').AsString, '"маркировки"."маркировки"',
+                              QueryMarking, '', '', '', '');
+      end;
+      1 :
+      begin
+        { TODO -oOwner -cGeneral : Удаление маркировок после документов вернуться'','', }
+        if Application.MessageBox('Вы действительно хотите удалить группу маркировок?', 'Вопрос',
+                                   MB_YESNO) = mrYes then
         begin
-          PGSQL.StandartDelete(QueryMarking.FieldByName('id').AsString, '"маркировки"."маркировки"',
-            QueryMarking, '', '', '', '');
-        end;
-      1:
-        begin
-          { TODO -oOwner -cGeneral : Удаление маркировок после документов вернуться'','', }
-          if Application.MessageBox('Вы действительно хотите удалить группу маркировок?', 'Вопрос',
-            MB_YESNO) = mrYes then
+          with Query1 do
           begin
-            with Query1 do
-            begin
-              Close;
-              sql.Text := 'delete from "маркировки"."маркировки" where pid=' +
-                QueryMarking.FieldByName('id').AsString + ' or id=' +
-                QueryMarking.FieldByName('id').AsString;
-              ExecSQL;
-              QueryMarking.Refresh;
-            end;
+            Close;
+            sql.Text := 'delete from "маркировки"."маркировки" where pid=' +
+          QueryMarking.FieldByName('id').AsString + ' or id=' +
+          QueryMarking.FieldByName('id').AsString;
+            ExecSQL;
+            QueryMarking.Refresh;
           end;
-          // case FPasswd.edtLang.ItemIndex of
-          // 0:
-          // s := 'Связанные пользователи';
-          // 1:
-          // s := 'Associated users';
-          // 2:
-          // s := 'Los usuarios vinculados';
-          // end;
-          // if QueryRole.FieldByName('id').AsInteger <> 1 then
-          // PGSQL.StandartDelete(QueryRole.FieldByName('id').AsString,
-          // '"пользователи"."роли"', QueryRole, 'код_роли',
-          // '"пользователи"."пользователи"', 'name', s);
         end;
+        // case FPasswd.edtLang.ItemIndex of
+        // 0:
+        // s := 'Связанные пользователи';
+        // 1:
+        // s := 'Associated users';
+        // 2:
+        // s := 'Los usuarios vinculados';
+        // end;
+        // if QueryRole.FieldByName('id').AsInteger <> 1 then
+        // PGSQL.StandartDelete(QueryRole.FieldByName('id').AsString,
+        // '"пользователи"."роли"', QueryRole, 'код_роли',
+        // '"пользователи"."пользователи"', 'name', s);
+      end;
     end;
   end
   else
   begin
     case FPasswd.Lang of
-      0:
-        ErrorDialog('Данную запись удалять запрещено.', '', '');
-      1:
-        ErrorDialog('This entry delete prohibited.', '', ' ');
-      2:
-        ErrorDialog('Se prohíbe quitar la anotación dada.', '', '');
+      0 : ErrorDialog('Данную запись удалять запрещено.', '', '');
+      1 : ErrorDialog('This entry delete prohibited.', '', ' ');
+      2 : ErrorDialog('Se prohíbe quitar la anotación dada.', '', '');
     end;
   end;
 end;
-
-procedure TFrameMarking.btnEditClick(Sender: TObject);
+procedure TFrameMarking.btnEditClick(Sender : TObject);
 begin
   if QueryMarking.FieldByName('pid').AsInteger <> 0 then
   begin
     // case QueryMarking.FieldByName('id_group').AsInteger of
     // 0:
 {$REGION 'Маркировки'}
+  begin
+    FSplash.Show();
+    FSplash.Update;
+    Application.CreateForm(TFNewMarking, FNewMarking);
+    with FNewMarking do
     begin
-      FSplash.Show();
-      FSplash.Update;
-      Application.CreateForm(TFNewMarking, FNewMarking);
-      with FNewMarking do
+      if QueryMarking.FieldByName('адрес_клиента').AsInteger = 0 then
+        adr_client := False
+      else
+        adr_client := true;
+      id_client := QueryMarking.FieldByName('код_клиента').AsInteger;
+      id_kargo := QueryMarking.FieldByName('код_карго').AsInteger;
+      id_track := QueryMarking.FieldByName('код_трака').AsInteger;
+      id_pricooling := QueryMarking.FieldByName('код_прикулинга').AsInteger;
+      s_id_marking := QueryMarking.FieldByName('id').AsInteger;
+      id_fito := QueryMarking.FieldByName('код_фито').AsInteger;
+      with FrameUniName1 do
       begin
-        if QueryMarking.FieldByName('адрес_клиента').AsInteger = 0 then
-          adr_client := False
-        else
-          adr_client := true;
-        id_client := QueryMarking.FieldByName('код_клиента').AsInteger;
-        id_kargo := QueryMarking.FieldByName('код_карго').AsInteger;
-        id_track := QueryMarking.FieldByName('код_трака').AsInteger;
-        id_pricooling := QueryMarking.FieldByName('код_прикулинга').AsInteger;
-        s_id_marking := QueryMarking.FieldByName('id').AsInteger;
-        id_fito := QueryMarking.FieldByName('код_фито').AsInteger;
-        with FrameUniName1 do
-        begin
-          edtName.Text := QueryMarking.FieldByName('name').AsString;
-          edtUniName.Text := QueryMarking.FieldByName('uni_name').AsString;
-          edtRegName.Text := QueryMarking.FieldByName('reg_name').AsString;
-        end;
-        // mmoAdres.Text := QueryMarking.FieldByName('адрес').AsString;
-        edtPhone1.Text := QueryMarking.FieldByName('телефон').AsString;
-        edtFax.Text := QueryMarking.FieldByName('факс').AsString;
-        o_id_country := QueryMarking.FieldByName('код_страны').AsInteger;
-        o_id_city := QueryMarking.FieldByName('код_города').AsInteger;
-        s_lock_plant := QueryMarking.FieldByName('коды_запрет_плантаций').AsString;
-        s_good_plant := QueryMarking.FieldByName('коды_желаемые_плантации').AsString;
-        ShowDict;
-        ShowPlantLock;
-        ShowPlantGood;
-        ShowModal;
-        if FrameSave1.id_save = true then
-          InsUpdMarking(False);
+        edtName.Text := QueryMarking.FieldByName('name').AsString;
+        edtUniName.Text := QueryMarking.FieldByName('uni_name').AsString;
+        edtRegName.Text := QueryMarking.FieldByName('reg_name').AsString;
       end;
+      // mmoAdres.Text := QueryMarking.FieldByName('адрес').AsString;
+      edtPhone1.Text := QueryMarking.FieldByName('телефон').AsString;
+      edtFax.Text := QueryMarking.FieldByName('факс').AsString;
+      o_id_country := QueryMarking.FieldByName('код_страны').AsInteger;
+      o_id_city := QueryMarking.FieldByName('код_города').AsInteger;
+      s_lock_plant := QueryMarking.FieldByName('коды_запрет_плантаций').AsString;
+      s_good_plant := QueryMarking.FieldByName('коды_желаемые_плантации').AsString;
+      ShowDict;
+      ShowPlantLock;
+      ShowPlantGood;
+      ShowModal;
+      if FrameSave1.id_save = true then
+        InsUpdMarking(False);
     end;
+  end;
     // {$ENDREGION}
     // 1:
     // {$REGION 'Группы'}
@@ -263,30 +251,24 @@ begin
   begin
 {$REGION 'Запрет редактирования ВСЕХ'}
     case FPasswd.Lang of
-      0:
-        ErrorDialog('Данную запись редактировать запрещено.', '', '');
-      1:
-        ErrorDialog('The record edit prohibited.', '', ' ');
-      2:
-        ErrorDialog('Se prohíbe redactar la anotación dada.', '', '');
+      0 : ErrorDialog('Данную запись редактировать запрещено.', '', '');
+      1 : ErrorDialog('The record edit prohibited.', '', ' ');
+      2 : ErrorDialog('Se prohíbe redactar la anotación dada.', '', '');
     end;
 {$ENDREGION}
   end;
 end;
-
-procedure TFrameMarking.btnRefreshClick(Sender: TObject);
+procedure TFrameMarking.btnRefreshClick(Sender : TObject);
 begin
   QueryMarking.Refresh;
 end;
-
-procedure TFrameMarking.FrameTopPanel1btnSelClick(Sender: TObject);
+procedure TFrameMarking.FrameTopPanel1btnSelClick(Sender : TObject);
 begin
   FrameTopPanel1.btnSelClick(Sender);
 end;
-
-procedure TFrameMarking.InsUpdMarking(id_ins: boolean);
+procedure TFrameMarking.InsUpdMarking(id_ins : boolean);
 var
-  id: integer;
+  id : integer;
 begin
   with FNewMarking do
   begin
@@ -297,23 +279,23 @@ begin
       begin
         id := PGSQL.NewID('маркировки.маркировки_id_seq');
         sql.Text := 'INSERT INTO "маркировки"."маркировки"(id, pid, id_group,' +
-          '"код_клиента", "код_карго", "код_трака", "код_прикулинга",' +
-          'name, uni_name, reg_name, "адрес", "страна", "город", "телефон",' +
-          ' "факс", "код_страны", "код_города", адрес_клиента, код_фито,изменен) VALUES (:id, :pid, 0,'
-          + ' :код_клиента, :код_карго, :код_трака, :код_прикулинга, :name,' +
-          ' :uni_name, :reg_name, :адрес, :страна, :город, :телефон, :факс,' +
-          ' :код_страны, :код_города, :адрес_клиента, :код_фито, :изменен)';
+      '"код_клиента", "код_карго", "код_трака", "код_прикулинга",' +
+      'name, uni_name, reg_name, "адрес", "страна", "город", "телефон",' +
+      ' "факс", "код_страны", "код_города", адрес_клиента, код_фито,изменен) VALUES (:id, :pid, 0,'
+      + ' :код_клиента, :код_карго, :код_трака, :код_прикулинга, :name,' +
+      ' :uni_name, :reg_name, :адрес, :страна, :город, :телефон, :факс,' +
+      ' :код_страны, :код_города, :адрес_клиента, :код_фито, :изменен)';
       end
       else
       begin
         id := QueryMarking.FieldByName('id').AsInteger;
         sql.Text := 'UPDATE "маркировки"."маркировки" SET  pid = :pid,  id_group = :id_group,' +
-          '"код_клиента" = :код_клиента, "код_карго" = :код_карго,' +
-          ' "код_трака" = :код_трака,  "код_прикулинга" = :код_прикулинга,' +
-          '  name = :name,  uni_name = :uni_name,  reg_name = :reg_name,' +
-          '  "адрес" = :адрес,  "страна" = :страна, "город"=:город,  "телефон" = :телефон,' +
-          '  "факс" = :факс,  "код_страны" = :код_страны,  "код_города" = :код_города' +
-          ',адрес_клиента=:адрес_клиента, код_фито=:код_фито,изменен=:изменен WHERE  id = :id';
+      '"код_клиента" = :код_клиента, "код_карго" = :код_карго,' +
+      ' "код_трака" = :код_трака,  "код_прикулинга" = :код_прикулинга,' +
+      '  name = :name,  uni_name = :uni_name,  reg_name = :reg_name,' +
+      '  "адрес" = :адрес,  "страна" = :страна, "город"=:город,  "телефон" = :телефон,' +
+      '  "факс" = :факс,  "код_страны" = :код_страны,  "код_города" = :код_города' +
+      ',адрес_клиента=:адрес_клиента, код_фито=:код_фито,изменен=:изменен WHERE  id = :id';
       end;
       if chkAddrClient.Checked = true then
         ParamByName('адрес_клиента').AsInteger := 1
@@ -360,15 +342,13 @@ begin
     end;
   end;
 end;
-
-procedure TFrameMarking.lstTreeProductsDblClick(Sender: TObject);
+procedure TFrameMarking.lstTreeProductsDblClick(Sender : TObject);
 begin
   if FrameTopPanel1.btnEdit.Enabled = true then
     btnEditClick(Sender);
 end;
-
-procedure TFrameMarking.lstTreeProductsStylesGetContentStyle(Sender: TcxCustomTreeList;
-  AColumn: TcxTreeListColumn; ANode: TcxTreeListNode; var AStyle: TcxStyle);
+procedure TFrameMarking.lstTreeProductsStylesGetContentStyle(Sender : TcxCustomTreeList;
+                                                                AColumn : TcxTreeListColumn; ANode : TcxTreeListNode; var AStyle : TcxStyle);
 begin
   if ANode.Values[ColumnGroup.ItemIndex] = 0 then
   begin
@@ -378,17 +358,15 @@ begin
       AStyle := cxStyle2;
   end;
 end;
-
-procedure TFrameMarking.ShowMarking(id_locate: integer = 0);
+procedure TFrameMarking.ShowMarking(id_locate : integer = 0);
 begin
   with QueryMarking do
   begin
     Close;
     sql.Text := 'select m.*, k.name k_name from "маркировки"."маркировки"  m  ' +
-      ' left join "контрагенты"."клиенты" k on k.id=m."код_клиента" ' + ' order by id';
+  ' left join "контрагенты"."клиенты" k on k.id=m."код_клиента" ' + ' order by id';
     Open;
     Locate('id', id_locate, []);
   end;
 end;
-
 end.

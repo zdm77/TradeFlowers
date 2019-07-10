@@ -1,7 +1,5 @@
 unit UPedido;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -13,11 +11,10 @@ uses
   Vcl.Forms,
   Vcl.Dialogs,
   UFramePedido;
-
 type
   TFPedido = class(TForm)
-    FramePedido1: TFramePedido;
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    FramePedido1 : TFramePedido;
+    procedure FormClose(Sender : TObject; var Action : TCloseAction);
   private
     { Private declarations }
   public
@@ -25,16 +22,13 @@ type
   end;
 
 var
-  FPedido: TFPedido;
-
+  FPedido : TFPedido;
 implementation
-
 {$R *.dfm}
 
-procedure TFPedido.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFPedido.FormClose(Sender : TObject; var Action : TCloseAction);
 begin
   Action := caFree;
   FPedido := nil;
 end;
-
 end.

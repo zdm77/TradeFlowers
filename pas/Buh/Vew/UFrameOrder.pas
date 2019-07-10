@@ -1,7 +1,5 @@
 ﻿unit UFrameOrder;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -46,44 +44,41 @@ uses
   dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters, dxDateRanges,
   cxDataControllerConditionalFormattingRulesManagerDialog, Vcl.StdCtrls, Vcl.Mask, sMaskEdit, sCustomComboEdit,
   sToolEdit;
-
 type
   TFrameOrder = class(TFrame)
-    FrameTopPanel1: TFrameTopPanel;
-    GridOrder: TcxGrid;
-    ViewOrder: TcxGridDBTableView;
-    GridLevelOrder: TcxGridLevel;
-    Group1: TcxGroupBox;
-    QueryOrder: TUniQuery;
-    dsOrder: TDataSource;
-    ColumnN: TcxGridDBColumn;
-    ColumnViewOrder_11: TcxGridDBColumn;
-    ColumnViewOrder_5: TcxGridDBColumn;
-    ColumnViewOrderu_name: TcxGridDBColumn;
-    ColumnViewOrderlogin: TcxGridDBColumn;
-    ColumnViewOrderm_name: TcxGridDBColumn;
-    Query1: TUniQuery;
-    edtOt: TDateTimePicker;
-    edtDo: TDateTimePicker;
-    procedure btnAddClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
-    procedure btnRefreshClick(Sender: TObject);
-    procedure edtDoChange(Sender: TObject);
-    procedure edtOtChange(Sender: TObject);
-    procedure FrameTopPanel1btnSelClick(Sender: TObject);
-    procedure ViewOrderDblClick(Sender: TObject);
-    procedure btnЗаказClick(Sender: TObject);
+    FrameTopPanel1 : TFrameTopPanel;
+    GridOrder : TcxGrid;
+    ViewOrder : TcxGridDBTableView;
+    GridLevelOrder : TcxGridLevel;
+    Group1 : TcxGroupBox;
+    QueryOrder : TUniQuery;
+    dsOrder : TDataSource;
+    ColumnN : TcxGridDBColumn;
+    ColumnViewOrder_11 : TcxGridDBColumn;
+    ColumnViewOrder_5 : TcxGridDBColumn;
+    ColumnViewOrderu_name : TcxGridDBColumn;
+    ColumnViewOrderlogin : TcxGridDBColumn;
+    ColumnViewOrderm_name : TcxGridDBColumn;
+    Query1 : TUniQuery;
+    edtOt : TDateTimePicker;
+    edtDo : TDateTimePicker;
+    procedure btnAddClick(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
+    procedure btnRefreshClick(Sender : TObject);
+    procedure edtDoChange(Sender : TObject);
+    procedure edtOtChange(Sender : TObject);
+    procedure FrameTopPanel1btnSelClick(Sender : TObject);
+    procedure ViewOrderDblClick(Sender : TObject);
+    procedure btnЗаказClick(Sender : TObject);
   private
     { Private declarations }
   public
     procedure EnableSave;
-    procedure ShowOrders(id_locate: integer = 0);
+    procedure ShowOrders(id_locate : integer = 0);
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
 uses
@@ -93,8 +88,7 @@ uses
   USplash,
   UDialogMy,
   UReport;
-
-procedure TFrameOrder.btnAddClick(Sender: TObject);
+procedure TFrameOrder.btnAddClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewOrder, FNewOrder);
   with FNewOrder do
@@ -119,9 +113,8 @@ begin
     edtMarkingPropertiesButtonClick(Sender, 0);
   end;
 end;
-
-procedure TFrameOrder.btnDelClick(Sender: TObject);
-var s, s1: string;
+procedure TFrameOrder.btnDelClick(Sender : TObject);
+var s, s1 : string;
 begin
   FSplash.Show();
   FSplash.Update;
@@ -130,11 +123,11 @@ begin
   begin
     Close;
     sql.Text := 'SELECT z."код_детали_заказа", zp."дата_вылета", p.name, p.uni_name, p.reg_name FROM' +
-      ' "документы"."закупки_деталь" zd INNER JOIN "документы"."закупки" z ON (zd."код_закупки" = z.id)' +
-      ' INNER JOIN "документы"."заказы_деталь" zdt ON (z."код_детали_заказа" = zdt.id)' +
-      ' INNER JOIN "документы"."заказы" zp ON (zdt."код_заказа" = zp.id)' +
-      ' left join "продукция"."продукция" p on (p.id=zd."код_товара")' + ' where zp.id=' +
-      QueryOrder.FieldByName('id').AsString;
+  ' "документы"."закупки_деталь" zd INNER JOIN "документы"."закупки" z ON (zd."код_закупки" = z.id)' +
+  ' INNER JOIN "документы"."заказы_деталь" zdt ON (z."код_детали_заказа" = zdt.id)' +
+  ' INNER JOIN "документы"."заказы" zp ON (zdt."код_заказа" = zp.id)' +
+  ' left join "продукция"."продукция" p on (p.id=zd."код_товара")' + ' where zp.id=' +
+  QueryOrder.FieldByName('id').AsString;
     Open;
     if Fields[0].AsString = '' then
     begin
@@ -146,41 +139,37 @@ begin
       while not Eof do
       begin
         case FPasswd.edtLang.ItemIndex of
-          0:
-            begin
-              s := s + 'Код заказа: ' + Fields[0].AsString + ', дата вылета: ' + Fields[1].AsString + ', позиция: ' +
-                Fields[2].AsString + #13;
-              s1 := 'Связанные закупки';
-            end;
-          1:
-            begin
-              s := s + 'Order code: ' + Fields[0].AsString + ', Date of departure: ' + Fields[1].AsString +
-                ', position: ' + Fields[3].AsString + #13;
-              s1 := 'Associated procurement';
-            end;
-          2:
-            begin
-              s := s + 'Código del encargo: ' + Fields[0].AsString + ', Fecha del vuelo: ' + Fields[1].AsString +
-                ', posición: ' + Fields[4].AsString + #13;
-              s1 := 'Сompras vinculadas';
-            end;
+          0 :
+          begin
+            s := s + 'Код заказа: ' + Fields[0].AsString + ', дата вылета: ' + Fields[1].AsString + ', позиция: ' +
+          Fields[2].AsString + #13;
+            s1 := 'Связанные закупки';
+          end;
+          1 :
+          begin
+            s := s + 'Order code: ' + Fields[0].AsString + ', Date of departure: ' + Fields[1].AsString +
+          ', position: ' + Fields[3].AsString + #13;
+            s1 := 'Associated procurement';
+          end;
+          2 :
+          begin
+            s := s + 'Código del encargo: ' + Fields[0].AsString + ', Fecha del vuelo: ' + Fields[1].AsString +
+          ', posición: ' + Fields[4].AsString + #13;
+            s1 := 'Сompras vinculadas';
+          end;
         end;
         Next;
       end;
       FSplash.Close;
       case FPasswd.edtLang.ItemIndex of
-        0:
-          ErrorDialog('Удаление невозможно.', s, 'Есть связанные данные.', s1);
-        1:
-          ErrorDialog('Removal is impossible', s, 'There are associated data.', s1);
-        2:
-          ErrorDialog('La desaparición es imposible', s, 'Hay unos datos vinculados.', s1);
+        0 : ErrorDialog('Удаление невозможно.', s, 'Есть связанные данные.', s1);
+        1 : ErrorDialog('Removal is impossible', s, 'There are associated data.', s1);
+        2 : ErrorDialog('La desaparición es imposible', s, 'Hay unos datos vinculados.', s1);
       end;
     end;
   end;
 end;
-
-procedure TFrameOrder.btnEditClick(Sender: TObject);
+procedure TFrameOrder.btnEditClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewOrder, FNewOrder);
   with FNewOrder do
@@ -191,27 +180,27 @@ begin
       s_id_marking := FieldByName('код_маркировки').Value;
       ShowOrderDetail;
       case FPasswd.Lang of
-        0:
-          begin
-            edtMarking.Text := FieldByName('m_name').AsString;
-            edtKargo.Text := FieldByName('k_name').AsString;
-            edtTrack.Text := FieldByName('t_name').AsString;
-            edtPricooling.Text := FieldByName('p_name').AsString;
-          end;
-        1:
-          begin
-            edtMarking.Text := FieldByName('m_uni_name').AsString;
-            edtKargo.Text := FieldByName('k_uni_name').AsString;
-            edtTrack.Text := FieldByName('t_uni_name').AsString;
-            edtPricooling.Text := FieldByName('p_name').AsString;
-          end;
-        2:
-          begin
-            edtMarking.Text := FieldByName('m_reg_name').AsString;
-            edtKargo.Text := FieldByName('k_reg_name').AsString;
-            edtTrack.Text := FieldByName('t_reg_name').AsString;
-            edtPricooling.Text := FieldByName('p_name').AsString;
-          end;
+        0 :
+        begin
+          edtMarking.Text := FieldByName('m_name').AsString;
+          edtKargo.Text := FieldByName('k_name').AsString;
+          edtTrack.Text := FieldByName('t_name').AsString;
+          edtPricooling.Text := FieldByName('p_name').AsString;
+        end;
+        1 :
+        begin
+          edtMarking.Text := FieldByName('m_uni_name').AsString;
+          edtKargo.Text := FieldByName('k_uni_name').AsString;
+          edtTrack.Text := FieldByName('t_uni_name').AsString;
+          edtPricooling.Text := FieldByName('p_name').AsString;
+        end;
+        2 :
+        begin
+          edtMarking.Text := FieldByName('m_reg_name').AsString;
+          edtKargo.Text := FieldByName('k_reg_name').AsString;
+          edtTrack.Text := FieldByName('t_reg_name').AsString;
+          edtPricooling.Text := FieldByName('p_name').AsString;
+        end;
       end;
       edtДатаВылета.Date := FieldByName('дата_вылета').Value;
       if FieldByName('код_карго').AsString <> '' then
@@ -228,27 +217,22 @@ begin
     FNewOrder.Show;
   end;
 end;
-
-procedure TFrameOrder.btnRefreshClick(Sender: TObject);
+procedure TFrameOrder.btnRefreshClick(Sender : TObject);
 begin
   ShowOrders(QueryOrder.FieldByName('id').AsInteger);
 end;
-
-procedure TFrameOrder.btnЗаказClick(Sender: TObject);
+procedure TFrameOrder.btnЗаказClick(Sender : TObject);
 begin
   ОтчетЗаказ(QueryOrder.FieldByName('id').AsInteger);
 end;
-
-procedure TFrameOrder.edtDoChange(Sender: TObject);
+procedure TFrameOrder.edtDoChange(Sender : TObject);
 begin
   ShowOrders();
 end;
-
-procedure TFrameOrder.edtOtChange(Sender: TObject);
+procedure TFrameOrder.edtOtChange(Sender : TObject);
 begin
   ShowOrders();
 end;
-
 procedure TFrameOrder.EnableSave;
 begin
   with FrameTopPanel1 do
@@ -265,27 +249,25 @@ begin
     end;
   end;
 end;
-
-procedure TFrameOrder.FrameTopPanel1btnSelClick(Sender: TObject);
+procedure TFrameOrder.FrameTopPanel1btnSelClick(Sender : TObject);
 begin
   FrameTopPanel1.btnSelClick(Sender);
 end;
-
-procedure TFrameOrder.ShowOrders(id_locate: integer = 0);
+procedure TFrameOrder.ShowOrders(id_locate : integer = 0);
 begin
   with QueryOrder do
   begin
     Close;
     sql.Text := 'SELECT doc.id, doc."код_маркировки", doc."дата_вылета",doc.код_фито, doc."код_карго",' +
-      'doc."код_трака", doc."код_прикулинга", doc."дата_исполнения", doc."код_пользователя",' +
-      ' u.name  u_name, u.login, m.name  m_name, k.name k_name, k.reg_name k_reg_name,' +
-      ' k.uni_name k_uni_name, p.name p_name, doc."номер", m.uni_name m_uni_name, m.reg_name m_reg_name,' +
-      ' t.uni_name t_uni_name, t.reg_name t_reg_name, t.name t_name FROM' +
-      ' "документы"."заказы" doc INNER JOIN "пользователи"."пользователи" u ON (doc."код_пользователя" = u.id)' +
-      '  LEFT OUTER JOIN "прикулинг"."агенства" p ON (doc."код_прикулинга" = p.id)' +
-      '  LEFT OUTER JOIN "карго"."агенства" k ON (doc."код_карго" = k.id)' +
-      '  LEFT OUTER JOIN "траки"."траки" t ON (doc."код_трака" = t.id)' +
-      '  INNER JOIN "маркировки"."маркировки" m ON (doc."код_маркировки" = m.id) where 1=1';
+  'doc."код_трака", doc."код_прикулинга", doc."дата_исполнения", doc."код_пользователя",' +
+  ' u.name  u_name, u.login, m.name  m_name, k.name k_name, k.reg_name k_reg_name,' +
+  ' k.uni_name k_uni_name, p.name p_name, doc."номер", m.uni_name m_uni_name, m.reg_name m_reg_name,' +
+  ' t.uni_name t_uni_name, t.reg_name t_reg_name, t.name t_name FROM' +
+  ' "документы"."заказы" doc INNER JOIN "пользователи"."пользователи" u ON (doc."код_пользователя" = u.id)' +
+  '  LEFT OUTER JOIN "прикулинг"."агенства" p ON (doc."код_прикулинга" = p.id)' +
+  '  LEFT OUTER JOIN "карго"."агенства" k ON (doc."код_карго" = k.id)' +
+  '  LEFT OUTER JOIN "траки"."траки" t ON (doc."код_трака" = t.id)' +
+  '  INNER JOIN "маркировки"."маркировки" m ON (doc."код_маркировки" = m.id) where 1=1';
     if edtOt.Checked = true then
     begin
       sql.Add(' and дата_исполнения>=:d1');
@@ -304,10 +286,8 @@ begin
     EnableSave;
   end;
 end;
-
-procedure TFrameOrder.ViewOrderDblClick(Sender: TObject);
+procedure TFrameOrder.ViewOrderDblClick(Sender : TObject);
 begin
   btnEditClick(Sender);
 end;
-
 end.

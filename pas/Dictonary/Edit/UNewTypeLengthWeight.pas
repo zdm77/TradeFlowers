@@ -1,7 +1,5 @@
 unit UNewTypeLengthWeight;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -37,82 +35,69 @@ uses
   DBAccess,
   Uni,
   MemDS,
-  AdvEdit,    
-     
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue;
-
+  AdvEdit,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue;
 type
   TFNewTypeLengthWeight = class(TForm)
-    FrameSave1: TFrameSave;
-    cxGroupBox1: TcxGroupBox;
-    lbl1: TLabel;
-    lbl2: TLabel;
-    QueryCountry: TUniQuery;
-    dsCountry: TUniDataSource;
-    edtCountry: TcxLookupComboBox;
-    lbl3: TLabel;
-    lbl4: TLabel;
-    edtУпаковка: TcxLookupComboBox;
-    edtLength: TcxComboBox;
-    QueryUp: TUniQuery;
-    dsUp: TUniDataSource;
-    edtWeight: TAdvEdit;
-    Query1: TUniQuery;
-    procedure edtLengthKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure edtWeightKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure FormShow(Sender: TObject);
-    procedure FrameSave1btnSaveClick(Sender: TObject);
+    FrameSave1 : TFrameSave;
+    cxGroupBox1 : TcxGroupBox;
+    lbl1 : TLabel;
+    lbl2 : TLabel;
+    QueryCountry : TUniQuery;
+    dsCountry : TUniDataSource;
+    edtCountry : TcxLookupComboBox;
+    lbl3 : TLabel;
+    lbl4 : TLabel;
+    edtУпаковка : TcxLookupComboBox;
+    edtLength : TcxComboBox;
+    QueryUp : TUniQuery;
+    dsUp : TUniDataSource;
+    edtWeight : TAdvEdit;
+    Query1 : TUniQuery;
+    procedure edtLengthKeyDown(Sender : TObject; var Key : Word;
+                                  Shift : TShiftState);
+    procedure edtWeightKeyDown(Sender : TObject; var Key : Word;
+                                  Shift : TShiftState);
+    procedure FormShow(Sender : TObject);
+    procedure FrameSave1btnSaveClick(Sender : TObject);
   private
     { Private declarations }
   public
-    s_id_country: Integer;
-    procedure ShowCountry(s_id_locate: Integer = 0);
-    procedure ShowUp(id_locate: Integer = 0);
-    procedure ShowДлина(id_type, id_country, id_up: Integer);
+    s_id_country : Integer;
+    procedure ShowCountry(s_id_locate : Integer = 0);
+    procedure ShowUp(id_locate : Integer = 0);
+    procedure ShowДлина(id_type, id_country, id_up : Integer);
     { Public declarations }
   end;
 
 var
-  FNewTypeLengthWeight: TFNewTypeLengthWeight;
-
+  FNewTypeLengthWeight : TFNewTypeLengthWeight;
 implementation
-
 {$R *.dfm}
 
-procedure TFNewTypeLengthWeight.edtLengthKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewTypeLengthWeight.edtLengthKeyDown(Sender : TObject; var Key : Word;
+                                                    Shift : TShiftState);
 begin
   if Key = VK_RETURN then
     edtWeight.SetFocus;
 end;
-
-procedure TFNewTypeLengthWeight.edtWeightKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewTypeLengthWeight.edtWeightKeyDown(Sender : TObject; var Key : Word;
+                                                    Shift : TShiftState);
 begin
   if Key = VK_RETURN then
     FrameSave1btnSaveClick(Sender);
 end;
-
-procedure TFNewTypeLengthWeight.FormShow(Sender: TObject);
+procedure TFNewTypeLengthWeight.FormShow(Sender : TObject);
 begin
   edtWeight.SetFocus;
 end;
-
-procedure TFNewTypeLengthWeight.FrameSave1btnSaveClick(Sender: TObject);
+procedure TFNewTypeLengthWeight.FrameSave1btnSaveClick(Sender : TObject);
 begin
   if (edtCountry.Text <> '') and (edtУпаковка.Text <> '') and
-    (edtLength.Text <> '') and (edtWeight.Text <> '0') and (edtWeight.Text <> '')
+  (edtLength.Text <> '') and (edtWeight.Text <> '0') and (edtWeight.Text <> '')
   then
   begin
     FrameSave1.btnSaveClick(Sender);
@@ -121,10 +106,9 @@ begin
   else
     Application.MessageBox
       ('Не заполнены необходимые поля. Сохранение не возможно.', 'Ошибка.',
-      MB_OK + MB_ICONERROR);
+        MB_OK + MB_ICONERROR);
 end;
-
-procedure TFNewTypeLengthWeight.ShowCountry(s_id_locate: Integer = 0);
+procedure TFNewTypeLengthWeight.ShowCountry(s_id_locate : Integer = 0);
 begin
   with QueryCountry do
   begin
@@ -144,8 +128,7 @@ begin
     edtCountry.EditValue := s_id_locate;
   end;
 end;
-
-procedure TFNewTypeLengthWeight.ShowUp(id_locate: Integer = 0);
+procedure TFNewTypeLengthWeight.ShowUp(id_locate : Integer = 0);
 begin
   with QueryUp do
   begin
@@ -160,8 +143,7 @@ begin
     edtУпаковка.EditValue := id_locate;
   end;
 end;
-
-procedure TFNewTypeLengthWeight.ShowДлина(id_type, id_country, id_up: Integer);
+procedure TFNewTypeLengthWeight.ShowДлина(id_type, id_country, id_up : Integer);
 begin
   with Query1 do
   begin
@@ -179,5 +161,4 @@ begin
       edtLength.Text := Fields[0].AsString;
   end;
 end;
-
 end.

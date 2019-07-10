@@ -1,7 +1,5 @@
 unit UNewTarifTrack;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -19,7 +17,7 @@ uses
   cxContainer,
   cxEdit,
   dxSkinsCore,
-
+  
   cxTextEdit,
   Vcl.StdCtrls,
   Vcl.Mask,
@@ -29,23 +27,22 @@ uses
   cxLabel,
   cxGroupBox,
   UFrameSave,
-
+  
   dxSkinDevExpressStyle,
-
-   dxSkinsDefaultPainters;
-
+  
+  dxSkinsDefaultPainters;
 type
   TFNewTarifTrack = class(TForm)
-    FrameSave1: TFrameSave;
-    cxGroupBox2: TcxGroupBox;
-    lblSum: TcxLabel;
-    edtSumTarif: TsCalcEdit;
-    edtName: TcxTextEdit;
-    lblNameCountry: TcxLabel;
-    procedure edtNameKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure FrameSave1btnSaveClick(Sender: TObject);
-    procedure edtNamePropertiesEditValueChanged(Sender: TObject);
-    procedure FormShow(Sender: TObject);
+    FrameSave1 : TFrameSave;
+    cxGroupBox2 : TcxGroupBox;
+    lblSum : TcxLabel;
+    edtSumTarif : TsCalcEdit;
+    edtName : TcxTextEdit;
+    lblNameCountry : TcxLabel;
+    procedure edtNameKeyUp(Sender : TObject; var Key : Word; Shift : TShiftState);
+    procedure FrameSave1btnSaveClick(Sender : TObject);
+    procedure edtNamePropertiesEditValueChanged(Sender : TObject);
+    procedure FormShow(Sender : TObject);
   private
     { Private declarations }
   public
@@ -54,23 +51,19 @@ type
   end;
 
 var
-  FNewTarifTrack: TFNewTarifTrack;
-
+  FNewTarifTrack : TFNewTarifTrack;
 implementation
-
 {$R *.dfm}
 
-procedure TFNewTarifTrack.edtNameKeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewTarifTrack.edtNameKeyUp(Sender : TObject; var Key : Word;
+                                          Shift : TShiftState);
 begin
   EnableSave;
 end;
-
-procedure TFNewTarifTrack.edtNamePropertiesEditValueChanged(Sender: TObject);
+procedure TFNewTarifTrack.edtNamePropertiesEditValueChanged(Sender : TObject);
 begin
   EnableSave;
 end;
-
 procedure TFNewTarifTrack.EnableSave;
 begin
   if edtName.Text <> '' then
@@ -78,16 +71,13 @@ begin
   else
     FrameSave1.btnSave.Enabled := false;
 end;
-
-procedure TFNewTarifTrack.FormShow(Sender: TObject);
+procedure TFNewTarifTrack.FormShow(Sender : TObject);
 begin
   EnableSave;
 end;
-
-procedure TFNewTarifTrack.FrameSave1btnSaveClick(Sender: TObject);
+procedure TFNewTarifTrack.FrameSave1btnSaveClick(Sender : TObject);
 begin
   FrameSave1.btnSaveClick(Sender);
   Close;
 end;
-
 end.

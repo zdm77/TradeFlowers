@@ -1,7 +1,5 @@
 unit UFKargo;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -17,12 +15,11 @@ uses
   DBAccess,
   Uni,
   UFrameKargo;
-
 type
   TFKargo = class(TForm)
-    FrameKargo1: TFrameKargo;
-    Query1: TUniQuery;
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    FrameKargo1 : TFrameKargo;
+    Query1 : TUniQuery;
+    procedure FormClose(Sender : TObject; var Action : TCloseAction);
   private
     { Private declarations }
   public
@@ -31,15 +28,12 @@ type
   end;
 
 var
-  FKargo: TFKargo;
-
+  FKargo : TFKargo;
 implementation
-
 {$R *.dfm}
 
 uses
   UPasswd;
-
 procedure TFKargo.Access;
 begin
   if (FPasswd.ID_ROLE <> 1) then
@@ -49,22 +43,20 @@ begin
       { доступ }
       Close;
       sql.Text := 'select * from "пользователи"."доступ"  where код_роли=' +
-        IntToStr(FPasswd.ID_ROLE);
+    IntToStr(FPasswd.ID_ROLE);
       Open;
       FrameKargo1.FrameTopPanel1.btnAdd.Enabled :=
-        FieldByName('карго_добавление').AsBoolean;
+                                                  FieldByName('карго_добавление').AsBoolean;
       FrameKargo1.FrameTopPanel1.btnEdit.Enabled :=
-        FieldByName('карго_редактирование').AsBoolean;
+                                                   FieldByName('карго_редактирование').AsBoolean;
       FrameKargo1.FrameTopPanel1.btnDel.Enabled := FieldByName('карго_удаление')
-        .AsBoolean;
+    .AsBoolean;
     end;
   end;
 end;
-
-procedure TFKargo.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFKargo.FormClose(Sender : TObject; var Action : TCloseAction);
 begin
   Action := caFree;
   FKargo := nil;
 end;
-
 end.

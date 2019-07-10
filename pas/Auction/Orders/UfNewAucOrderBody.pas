@@ -1,75 +1,69 @@
 unit UfNewAucOrderBody;
-
 interface
-
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels,
-  cxLookAndFeelPainters, cxContainer, cxEdit, dxSkinsCore, 
-   Vcl.StdCtrls, Vcl.Mask, sMaskEdit, sCustomComboEdit,
+  cxLookAndFeelPainters, cxContainer, cxEdit, dxSkinsCore,
+  Vcl.StdCtrls, Vcl.Mask, sMaskEdit, sCustomComboEdit,
   sToolEdit, cxTextEdit, cxLabel, UFrameSave, cxMaskEdit, cxButtonEdit, Data.DB,
   MemDS, DBAccess, Uni, cxDBEdit, cxDropDownEdit, cxLookupEdit, cxDBLookupEdit,
   cxDBLookupComboBox, cxCheckBox;
-
 type
   TfNewAucOrderBody = class(TForm)
-    FrameSave1: TFrameSave;
-    lbl1: TcxLabel;
-    edtNum: TcxTextEdit;
-    lbl2: TcxLabel;
-    edtDateOut: TsDateEdit;
-    cxLabel1: TcxLabel;
-    edtClient: TcxButtonEdit;
-    Query1: TUniQuery;
-    dsAucOrder: TDataSource;
-    edtMarking: TcxButtonEdit;
-    lbl3: TcxLabel;
-    edtCountry: TcxButtonEdit;
-    cxLabel2: TcxLabel;
-    edtStatClient: TcxLookupComboBox;
-    cxLabel3: TcxLabel;
-    edtStatManager: TcxLookupComboBox;
-    cxLabel4: TcxLabel;
-    chkClose: TcxCheckBox;
-    cxLabel5: TcxLabel;
-    edtManager: TcxLookupComboBox;
-    procedure FormShow(Sender: TObject);
-    procedure edtMarkingPropertiesButtonClick(Sender: TObject;
-      AButtonIndex: Integer);
-    procedure edtClientPropertiesButtonClick(Sender: TObject;
-      AButtonIndex: Integer);
-    procedure edtCountryPropertiesButtonClick(Sender: TObject;
-      AButtonIndex: Integer);
-    procedure FrameSave1btnSaveClick(Sender: TObject);
+    FrameSave1 : TFrameSave;
+    lbl1 : TcxLabel;
+    edtNum : TcxTextEdit;
+    lbl2 : TcxLabel;
+    edtDateOut : TsDateEdit;
+    cxLabel1 : TcxLabel;
+    edtClient : TcxButtonEdit;
+    Query1 : TUniQuery;
+    dsAucOrder : TDataSource;
+    edtMarking : TcxButtonEdit;
+    lbl3 : TcxLabel;
+    edtCountry : TcxButtonEdit;
+    cxLabel2 : TcxLabel;
+    edtStatClient : TcxLookupComboBox;
+    cxLabel3 : TcxLabel;
+    edtStatManager : TcxLookupComboBox;
+    cxLabel4 : TcxLabel;
+    chkClose : TcxCheckBox;
+    cxLabel5 : TcxLabel;
+    edtManager : TcxLookupComboBox;
+    procedure FormShow(Sender : TObject);
+    procedure edtMarkingPropertiesButtonClick(Sender : TObject;
+                                                 AButtonIndex : Integer);
+    procedure edtClientPropertiesButtonClick(Sender : TObject;
+                                                AButtonIndex : Integer);
+    procedure edtCountryPropertiesButtonClick(Sender : TObject;
+                                                 AButtonIndex : Integer);
+    procedure FrameSave1btnSaveClick(Sender : TObject);
   private
     { Private declarations }
   public
-    IdClientOrder, IDMarkingOrder, IDCountryOrder: Integer;
-    idOrder: Integer;
+    IdClientOrder, IDMarkingOrder, IDCountryOrder : Integer;
+    idOrder : Integer;
     procedure DetectOneMarking;
-    procedure ShowDict(id_locate_user: Integer = 0;
-      id_locate_stat_manager: Integer = 0; id_locate_manager: Integer = 0);
+    procedure ShowDict(id_locate_user : Integer = 0;
+                          id_locate_stat_manager : Integer = 0; id_locate_manager : Integer = 0);
     procedure Validate;
     { Public declarations }
   end;
 
 var
-  fNewAucOrderBody: TfNewAucOrderBody;
-
+  fNewAucOrderBody : TfNewAucOrderBody;
 implementation
-
 {$R *.dfm}
 
 uses USelectClient, ULogin, USelect, UDataModule1, UfNewAucOrder, PGSQL;
-
 procedure TfNewAucOrderBody.DetectOneMarking;
 begin
   with Query1 do
   begin
     Close;
     sql.Text := 'select * from "маркировки"."маркировки" where код_клиента=' +
-      IntToStr(IdClientOrder);
+  IntToStr(IdClientOrder);
     Open;
     if RecordCount = 1 then
     begin
@@ -78,9 +72,8 @@ begin
     end;
   end;
 end;
-
-procedure TfNewAucOrderBody.edtClientPropertiesButtonClick(Sender: TObject;
-  AButtonIndex: Integer);
+procedure TfNewAucOrderBody.edtClientPropertiesButtonClick(Sender : TObject;
+                                                              AButtonIndex : Integer);
 begin
   Application.CreateForm(TFSelect, FSelect);
   with FSelect do
@@ -96,9 +89,8 @@ begin
     end;
   end;
 end;
-
-procedure TfNewAucOrderBody.edtCountryPropertiesButtonClick(Sender: TObject;
-  AButtonIndex: Integer);
+procedure TfNewAucOrderBody.edtCountryPropertiesButtonClick(Sender : TObject;
+                                                               AButtonIndex : Integer);
 begin
   Application.CreateForm(TFSelect, FSelect);
   with FSelect do
@@ -112,15 +104,14 @@ begin
     end;
   end;
 end;
-
-procedure TfNewAucOrderBody.edtMarkingPropertiesButtonClick(Sender: TObject;
-  AButtonIndex: Integer);
+procedure TfNewAucOrderBody.edtMarkingPropertiesButtonClick(Sender : TObject;
+                                                               AButtonIndex : Integer);
 begin
   Application.CreateForm(TFSelect, FSelect);
   with FSelect do
   begin
     ShowSelect('"маркировки"."маркировки"', 'where код_клиента=' +
-      IntToStr(IdClientOrder), false);
+    IntToStr(IdClientOrder), false);
     ShowModal;
     if FrameTopPanel1.id_select = true then
     begin
@@ -129,8 +120,7 @@ begin
     end;
   end;
 end;
-
-procedure TfNewAucOrderBody.FormShow(Sender: TObject);
+procedure TfNewAucOrderBody.FormShow(Sender : TObject);
 begin
   edtDateOut.MinDate := now;
   with Query1 do
@@ -157,19 +147,18 @@ begin
       edtMarking.Enabled := false;
   end;
 end;
-
-procedure TfNewAucOrderBody.FrameSave1btnSaveClick(Sender: TObject);
+procedure TfNewAucOrderBody.FrameSave1btnSaveClick(Sender : TObject);
 begin
   if edtDateOut.Date < now then
   begin
     Application.MessageBox('Дата выхода не может быть меньше текущей даты.',
-      'Ошибка', MB_OK + MB_ICONERROR);
+                            'Ошибка', MB_OK + MB_ICONERROR);
     edtDateOut.SetFocus;
     edtDateOut.SelectAll;
     Abort;
   end;
   if (edtClient.Text <> '') and (edtDateOut.Text <> '  .  .    ') and
-    (edtMarking.Text <> '') then
+  (edtMarking.Text <> '') then
   begin
     with Query1 do
     begin
@@ -223,27 +212,24 @@ begin
     Application.CreateForm(TfNewAucOrder, fNewAucOrder);
     fNewAucOrder.S_IdOrder := idOrder;
     fNewAucOrder.ShowStatsNewAuc(edtStatClient.EditValue,
-      edtStatManager.EditValue);
+                                  edtStatManager.EditValue);
     fNewAucOrder.Show;
   end
   else
   begin
-    Application.MessageBox('Не заполнены обязательные поля','Ошибка',MB_OK+MB_ICONERROR);
-    if (edtClient.Text='') then
-
-
+    Application.MessageBox('Не заполнены обязательные поля', 'Ошибка', MB_OK + MB_ICONERROR);
+    if (edtClient.Text = '') then
   end;
 end;
-
-procedure TfNewAucOrderBody.ShowDict(id_locate_user: Integer = 0;
-  id_locate_stat_manager: Integer = 0; id_locate_manager: Integer = 0);
+procedure TfNewAucOrderBody.ShowDict(id_locate_user : Integer = 0;
+                                        id_locate_stat_manager : Integer = 0; id_locate_manager : Integer = 0);
 var
-  QueryStatClient: TUniQuery;
-  DataSourceStatClient: TDataSource;
-  QueryStatManager: TUniQuery;
-  DataSourceStatManager: TDataSource;
-  QueryManager: TUniQuery;
-  DataSourceManager: TDataSource;
+  QueryStatClient : TUniQuery;
+  DataSourceStatClient : TDataSource;
+  QueryStatManager : TUniQuery;
+  DataSourceStatManager : TDataSource;
+  QueryManager : TUniQuery;
+  DataSourceManager : TDataSource;
 begin
   QueryStatClient := TUniQuery.Create(nil);
   QueryStatClient.Connection := DM1.dbUpd;
@@ -285,10 +271,8 @@ begin
     // edtManager.EditValue := fields[0].AsInteger;
   end;
 end;
-
 procedure TfNewAucOrderBody.Validate;
 begin
   // TODO -cMM: TfNewAucOrder.Validate default body inserted
 end;
-
 end.

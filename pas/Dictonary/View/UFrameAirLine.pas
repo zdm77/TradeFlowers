@@ -1,7 +1,5 @@
 unit UFrameAirLine;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -18,7 +16,7 @@ uses
   cxLookAndFeelPainters,
   cxStyles,
   dxSkinsCore,
-
+  
   dxSkinscxPCPainter,
   cxCustomData,
   cxFilter,
@@ -39,45 +37,41 @@ uses
   Uni,
   UFrameTopPanel,
   cxNavigator,
-
+  
   dxSkinDevExpressStyle,
-
-   dxSkinsDefaultPainters, dxSkinOffice2007Blue;
-
+  
+  dxSkinsDefaultPainters, dxSkinOffice2007Blue;
 type
   TFrameAirLine = class(TFrame)
-    FrameTopPanel1: TFrameTopPanel;
-    QueryAirLine: TUniQuery;
-    dsAirLine: TDataSource;
-    GridAirLine: TcxGrid;
-    ViewUsers: TcxGridDBTableView;
-    ColumnUniName: TcxGridDBColumn;
-    ColumnName: TcxGridDBColumn;
-    ColumnRegName: TcxGridDBColumn;
-    LevelOrg: TcxGridLevel;
-    procedure btnEditClick(Sender: TObject);
-    procedure FrameTopPanel1btnSelClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
-    procedure btnRefreshClick(Sender: TObject);
-    procedure ViewUsersDblClick(Sender: TObject);
-    procedure btnAddClick(Sender: TObject);
+    FrameTopPanel1 : TFrameTopPanel;
+    QueryAirLine : TUniQuery;
+    dsAirLine : TDataSource;
+    GridAirLine : TcxGrid;
+    ViewUsers : TcxGridDBTableView;
+    ColumnUniName : TcxGridDBColumn;
+    ColumnName : TcxGridDBColumn;
+    ColumnRegName : TcxGridDBColumn;
+    LevelOrg : TcxGridLevel;
+    procedure btnEditClick(Sender : TObject);
+    procedure FrameTopPanel1btnSelClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
+    procedure btnRefreshClick(Sender : TObject);
+    procedure ViewUsersDblClick(Sender : TObject);
+    procedure btnAddClick(Sender : TObject);
   private
     { Private declarations }
   public
     procedure SetLang;
-    procedure ShowAirLine(id_locate: Integer = 0);
+    procedure ShowAirLine(id_locate : Integer = 0);
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
 uses
   UNewAirLine,
   ULang;
-
-procedure TFrameAirLine.btnAddClick(Sender: TObject);
+procedure TFrameAirLine.btnAddClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewAirLine, FNewAirLine);
   with FNewAirLine do
@@ -92,13 +86,11 @@ begin
       ShowAirLine(s_id_AirLine);
   end;
 end;
-
-procedure TFrameAirLine.btnDelClick(Sender: TObject);
+procedure TFrameAirLine.btnDelClick(Sender : TObject);
 begin
   ShowMessage('');
 end;
-
-procedure TFrameAirLine.btnEditClick(Sender: TObject);
+procedure TFrameAirLine.btnEditClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewAirLine, FNewAirLine);
   with FNewAirLine do
@@ -121,23 +113,19 @@ begin
       ShowAirLine(s_id_AirLine);
   end;
 end;
-
-procedure TFrameAirLine.btnRefreshClick(Sender: TObject);
+procedure TFrameAirLine.btnRefreshClick(Sender : TObject);
 begin
   ShowAirLine(QueryAirLine.FieldByName('id').AsInteger);
 end;
-
-procedure TFrameAirLine.FrameTopPanel1btnSelClick(Sender: TObject);
+procedure TFrameAirLine.FrameTopPanel1btnSelClick(Sender : TObject);
 begin
   FrameTopPanel1.btnSelClick(Sender);
 end;
-
 procedure TFrameAirLine.SetLang;
 begin
   ULang.TranslateGridCaption(ColumnUniName, ColumnRegName, ColumnName);
 end;
-
-procedure TFrameAirLine.ShowAirLine(id_locate: Integer = 0);
+procedure TFrameAirLine.ShowAirLine(id_locate : Integer = 0);
 begin
   with QueryAirLine do
   begin
@@ -147,11 +135,9 @@ begin
     Locate('id', id_locate, []);
   end;
 end;
-
-procedure TFrameAirLine.ViewUsersDblClick(Sender: TObject);
+procedure TFrameAirLine.ViewUsersDblClick(Sender : TObject);
 begin
   if FrameTopPanel1.btnEdit.Enabled = true then
     btnEditClick(Sender);
 end;
-
 end.

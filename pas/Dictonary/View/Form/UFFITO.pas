@@ -1,7 +1,5 @@
 unit UFFITO;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -17,12 +15,11 @@ uses
   DBAccess,
   Uni,
   UFrameFito;
-
 type
   TFFITO = class(TForm)
-    FrameFITO1: TFrameFITO;
-    Query1: TUniQuery;
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    FrameFITO1 : TFrameFITO;
+    Query1 : TUniQuery;
+    procedure FormClose(Sender : TObject; var Action : TCloseAction);
   private
     { Private declarations }
   public
@@ -31,15 +28,12 @@ type
   end;
 
 var
-  FFITO: TFFITO;
-
+  FFITO : TFFITO;
 implementation
-
 {$R *.dfm}
 
 uses
   UPasswd;
-
 procedure TFFITO.Access;
 begin
   if (FPasswd.ID_ROLE <> 1) then
@@ -49,22 +43,20 @@ begin
       { доступ }
       Close;
       sql.Text := 'select * from "пользователи"."доступ"  where код_роли=' +
-        IntToStr(FPasswd.ID_ROLE);
+    IntToStr(FPasswd.ID_ROLE);
       Open;
       FrameFITO1.FrameTopPanel1.btnAdd.Enabled := FieldByName('фито_добавление')
-        .AsBoolean;
+    .AsBoolean;
       FrameFITO1.FrameTopPanel1.btnEdit.Enabled :=
-        FieldByName('фито_редактирование').AsBoolean;
+                                                  FieldByName('фито_редактирование').AsBoolean;
       FrameFITO1.FrameTopPanel1.btnDel.Enabled := FieldByName('фито_удаление')
-        .AsBoolean;
+    .AsBoolean;
     end;
   end;
 end;
-
-procedure TFFITO.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFFITO.FormClose(Sender : TObject; var Action : TCloseAction);
 begin
   Action := caFree;
   FFITO := nil;
 end;
-
 end.

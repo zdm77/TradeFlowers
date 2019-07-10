@@ -1,15 +1,12 @@
 unit UStorelocShem;
-
 interface
-
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels,
-  cxLookAndFeelPainters, dxSkinsCore,  dxorgchr, dxdborgc;
-
+  cxLookAndFeelPainters, dxSkinsCore, dxorgchr, dxdborgc;
 type
   TFStorelocShem = class(TForm)
-    dxDbOrgChart1: TdxDbOrgChart;
+    dxDbOrgChart1 : TdxDbOrgChart;
   private
     { Private declarations }
   public
@@ -17,10 +14,7 @@ type
   end;
 
 var
-  FStorelocShem: TFStorelocShem;
-
+  FStorelocShem : TFStorelocShem;
 implementation
-
 {$R *.dfm}
-
 end.

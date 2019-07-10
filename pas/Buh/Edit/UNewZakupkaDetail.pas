@@ -1,7 +1,5 @@
 ﻿unit UNewZakupkaDetail;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -63,140 +61,130 @@ uses
   cxDBLookupEdit,
   cxDBLookupComboBox,
   Vcl.Menus,
-  cxButtons,    
-     
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
-
+  cxButtons,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
 type
   TFNewZakupkaDetail = class(TForm)
-    FrameSave1: TFrameSave;
-    GroupProduct: TcxGroupBox;
-    cxGroupBox1: TcxGroupBox;
-    FrameTopPanel1: TFrameTopPanel;
-    GridOrder: TcxGrid;
-    ViewOrder: TcxGridDBTableView;
-    GridLevelOrder: TcxGridLevel;
-    QueryDetail: TUniQuery;
-    dsDetail: TDataSource;
-    Query1: TUniQuery;
-    cxspltr1: TcxSplitter;
-    Group1: TcxGroupBox;
-    edtFB: TsCalcEdit;
-    lblFB: TcxLabel;
-    ViewOrderDBColumn: TcxGridDBColumn;
-    ViewOrderDBColumn1: TcxGridDBColumn;
-    ViewOrderDBColumn2: TcxGridDBColumn;
-    ViewOrderpt_uni_name: TcxGridDBColumn;
-    ViewOrderst_uni_name: TcxGridDBColumn;
-    edtPlant: TcxButtonEdit;
-    lblMarking: TcxLabel;
-    edtNumFact: TAdvEdit;
-    lblSum: TcxLabel;
-    lblDateFact: TcxLabel;
-    edtDateFact: TAdvDateTimePicker;
-    dbZakup: TUniConnection;
-    TransactZakup: TUniTransaction;
-    QueryCountry: TUniQuery;
-    dsCountry: TUniDataSource;
-    dsSort: TUniDataSource;
-    QuerySort: TUniQuery;
-    edtSort: TcxLookupComboBox;
-    QueryType: TUniQuery;
-    dsType: TUniDataSource;
-    QueryProduct: TUniQuery;
-    dsProduct: TUniDataSource;
-    cxLabel1: TcxLabel;
-    lblPrice: TcxLabel;
-    lblCount: TcxLabel;
-    btnINSERT: TcxButton;
-    lblType: TcxLabel;
-    lblSort: TcxLabel;
-    lblProduct: TcxLabel;
-    edtCount: TsCalcEdit;
-    edtType: TcxLookupComboBox;
-    edtProduct: TcxLookupComboBox;
-    edtPrice: TsCalcEdit;
-    edtLength: TAdvEdit;
-    procedure FormCreate(Sender: TObject);
-    procedure FormShow(Sender: TObject);
-    procedure FrameProduct1lstTreeProductsDblClick(Sender: TObject);
-    procedure FrameSave1btnSaveClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure FrameSearch1edtNameKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure edtPlantPropertiesButtonClick(Sender: TObject;
-      AButtonIndex: Integer);
-    procedure btnDelClick(Sender: TObject);
-    procedure edtDateFactChange(Sender: TObject);
-    procedure FrameProduct1lstTreeProductsKeyDown(Sender: TObject;
-      var Key: Word; Shift: TShiftState);
-    procedure FrameSearch1edtNameKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure QueryDetailAfterFetch(DataSet: TCustomDADataSet);
-    procedure ViewOrderDblClick(Sender: TObject);
-    procedure btnRefreshClick(Sender: TObject);
-    procedure edtFBChange(Sender: TObject);
-    procedure edtFBExit(Sender: TObject);
-    procedure edtPlantPropertiesEditValueChanged(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
-    procedure btnINSClick(Sender: TObject);
-    procedure edtProductKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure edtTypePropertiesCloseUp(Sender: TObject);
-    procedure edtSortPropertiesCloseUp(Sender: TObject);
-    procedure edtProductPropertiesCloseUp(Sender: TObject);
-    procedure edtSortKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure edtProductPropertiesChange(Sender: TObject);
-    procedure btnINSERTClick(Sender: TObject);
-    procedure edtCountChange(Sender: TObject);
-    procedure edtCountKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure edtPriceChange(Sender: TObject);
-    procedure edtPriceKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    FrameSave1 : TFrameSave;
+    GroupProduct : TcxGroupBox;
+    cxGroupBox1 : TcxGroupBox;
+    FrameTopPanel1 : TFrameTopPanel;
+    GridOrder : TcxGrid;
+    ViewOrder : TcxGridDBTableView;
+    GridLevelOrder : TcxGridLevel;
+    QueryDetail : TUniQuery;
+    dsDetail : TDataSource;
+    Query1 : TUniQuery;
+    cxspltr1 : TcxSplitter;
+    Group1 : TcxGroupBox;
+    edtFB : TsCalcEdit;
+    lblFB : TcxLabel;
+    ViewOrderDBColumn : TcxGridDBColumn;
+    ViewOrderDBColumn1 : TcxGridDBColumn;
+    ViewOrderDBColumn2 : TcxGridDBColumn;
+    ViewOrderpt_uni_name : TcxGridDBColumn;
+    ViewOrderst_uni_name : TcxGridDBColumn;
+    edtPlant : TcxButtonEdit;
+    lblMarking : TcxLabel;
+    edtNumFact : TAdvEdit;
+    lblSum : TcxLabel;
+    lblDateFact : TcxLabel;
+    edtDateFact : TAdvDateTimePicker;
+    dbZakup : TUniConnection;
+    TransactZakup : TUniTransaction;
+    QueryCountry : TUniQuery;
+    dsCountry : TUniDataSource;
+    dsSort : TUniDataSource;
+    QuerySort : TUniQuery;
+    edtSort : TcxLookupComboBox;
+    QueryType : TUniQuery;
+    dsType : TUniDataSource;
+    QueryProduct : TUniQuery;
+    dsProduct : TUniDataSource;
+    cxLabel1 : TcxLabel;
+    lblPrice : TcxLabel;
+    lblCount : TcxLabel;
+    btnINSERT : TcxButton;
+    lblType : TcxLabel;
+    lblSort : TcxLabel;
+    lblProduct : TcxLabel;
+    edtCount : TsCalcEdit;
+    edtType : TcxLookupComboBox;
+    edtProduct : TcxLookupComboBox;
+    edtPrice : TsCalcEdit;
+    edtLength : TAdvEdit;
+    procedure FormCreate(Sender : TObject);
+    procedure FormShow(Sender : TObject);
+    procedure FrameProduct1lstTreeProductsDblClick(Sender : TObject);
+    procedure FrameSave1btnSaveClick(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure FrameSearch1edtNameKeyUp(Sender : TObject; var Key : Word;
+                                          Shift : TShiftState);
+    procedure edtPlantPropertiesButtonClick(Sender : TObject;
+                                               AButtonIndex : Integer);
+    procedure btnDelClick(Sender : TObject);
+    procedure edtDateFactChange(Sender : TObject);
+    procedure FrameProduct1lstTreeProductsKeyDown(Sender : TObject;
+                                                     var Key : Word; Shift : TShiftState);
+    procedure FrameSearch1edtNameKeyDown(Sender : TObject; var Key : Word;
+                                            Shift : TShiftState);
+    procedure QueryDetailAfterFetch(DataSet : TCustomDADataSet);
+    procedure ViewOrderDblClick(Sender : TObject);
+    procedure btnRefreshClick(Sender : TObject);
+    procedure edtFBChange(Sender : TObject);
+    procedure edtFBExit(Sender : TObject);
+    procedure edtPlantPropertiesEditValueChanged(Sender : TObject);
+    procedure FormClose(Sender : TObject; var Action : TCloseAction);
+    procedure FormCloseQuery(Sender : TObject; var CanClose : Boolean);
+    procedure btnINSClick(Sender : TObject);
+    procedure edtProductKeyDown(Sender : TObject; var Key : Word;
+                                   Shift : TShiftState);
+    procedure edtTypePropertiesCloseUp(Sender : TObject);
+    procedure edtSortPropertiesCloseUp(Sender : TObject);
+    procedure edtProductPropertiesCloseUp(Sender : TObject);
+    procedure edtSortKeyDown(Sender : TObject; var Key : Word;
+                                Shift : TShiftState);
+    procedure edtProductPropertiesChange(Sender : TObject);
+    procedure btnINSERTClick(Sender : TObject);
+    procedure edtCountChange(Sender : TObject);
+    procedure edtCountKeyDown(Sender : TObject; var Key : Word;
+                                 Shift : TShiftState);
+    procedure edtPriceChange(Sender : TObject);
+    procedure edtPriceKeyDown(Sender : TObject; var Key : Word;
+                                 Shift : TShiftState);
   private
     { Private declarations }
   public
-    id_order_detail: Integer;
-    id_order_edit: Integer;
-    id_zakup_edit: Integer;
-    id_plant, id_sort, id_product, стеблей: Integer;
-    len, price: string;
-    id_marking_edit: Integer;
-    FB: Double;
-    id_factura: Integer;
-    Max_FB: Double;
-    s_date_fly_edit: TDate;
-    id_country: Integer;
-    function DetectFacturaID: Integer;
-    function DetectLimitFB: Boolean;
+    id_order_detail : Integer;
+    id_order_edit : Integer;
+    id_zakup_edit : Integer;
+    id_plant, id_sort, id_product, стеблей : Integer;
+    len, price : string;
+    id_marking_edit : Integer;
+    FB : Double;
+    id_factura : Integer;
+    Max_FB : Double;
+    s_date_fly_edit : TDate;
+    id_country : Integer;
+    function DetectFacturaID : Integer;
+    function DetectLimitFB : Boolean;
     procedure EnableSave;
-    procedure InsUpdDetail(id_ins: Boolean);
-    procedure InsUpdZakup(id_ins: Boolean);
+    procedure InsUpdDetail(id_ins : Boolean);
+    procedure InsUpdZakup(id_ins : Boolean);
     procedure ShowDetail;
-    procedure ShowProduct(id_locate: Integer = 0);
+    procedure ShowProduct(id_locate : Integer = 0);
     procedure ShowProductsW;
-    procedure ShowSort(id_locate: Integer = 0);
-    procedure ShowType(id_locate: Integer = 0);
+    procedure ShowSort(id_locate : Integer = 0);
+    procedure ShowType(id_locate : Integer = 0);
     { Public declarations }
   end;
 
 var
-  FNewZakupkaDetail: TFNewZakupkaDetail;
-
+  FNewZakupkaDetail : TFNewZakupkaDetail;
 implementation
-
 {$R *.dfm}
 
 uses
@@ -209,8 +197,7 @@ uses
   UDialogMy,
   USelectPlant,
   UNewFB;
-
-procedure TFNewZakupkaDetail.FormCreate(Sender: TObject);
+procedure TFNewZakupkaDetail.FormCreate(Sender : TObject);
 begin
   if dbZakup.Connected = false then
   begin
@@ -223,8 +210,7 @@ begin
   FSplash.Show();
   FSplash.Update;
 end;
-
-procedure TFNewZakupkaDetail.btnINSClick(Sender: TObject);
+procedure TFNewZakupkaDetail.btnINSClick(Sender : TObject);
 begin
   // Application.CreateForm(TFNewZakupDetailQuick, FNewZakupDetailQuick);
   // with FNewZakupDetailQuick do
@@ -236,8 +222,7 @@ begin
   // ShowModal;
   // end;
 end;
-
-procedure TFNewZakupkaDetail.btnINSERTClick(Sender: TObject);
+procedure TFNewZakupkaDetail.btnINSERTClick(Sender : TObject);
 begin
   edtLength.Text := PGSQL.GetLength(QueryProduct.FieldByName('id').AsInteger);
   InsUpdDetail(True);
@@ -250,11 +235,10 @@ begin
     Close;
   end;
 end;
-
-procedure TFNewZakupkaDetail.btnDelClick(Sender: TObject);
+procedure TFNewZakupkaDetail.btnDelClick(Sender : TObject);
 var
   // FB: Double;
-  id_fb: Boolean;
+  id_fb : Boolean;
 begin
   if QueryDetail.FieldByName('fb').AsString <> '' then
   begin
@@ -262,18 +246,18 @@ begin
     // FB := QueryDetail.FieldByName('fb').Value;
   end;
   if Application.MessageBox('Вы действительно хотите удалить позицию ?',
-    'Вопрос', MB_YESNO) = mrYes then
+                             'Вопрос', MB_YESNO) = mrYes then
   begin
     with Query1 do
     begin
       Close;
       sql.Text :=
-        'delete from "документы"."фактура_деталь" where код_детализ_закупки=' +
-        QueryDetail.FieldByName('id').AsString;
+                 'delete from "документы"."фактура_деталь" where код_детализ_закупки=' +
+                 QueryDetail.FieldByName('id').AsString;
       ExecSQL;
       Close;
       sql.Text := 'delete from "документы"."закупки_деталь" where id=' +
-        QueryDetail.FieldByName('id').AsString;
+    QueryDetail.FieldByName('id').AsString;
       ExecSQL;
       ShowDetail;
       if (id_fb = True) and (QueryDetail.RecordCount <> 0) then
@@ -281,15 +265,14 @@ begin
         QueryDetail.First;
         Close;
         sql.Text := 'update "документы"."закупки_деталь" set fb=:fb where id=' +
-          QueryDetail.FieldByName('id').AsString;
+      QueryDetail.FieldByName('id').AsString;
         ParamByName('fb').Value := edtFB.Value;
         ExecSQL;
       end;
     end;
   end;
 end;
-
-procedure TFNewZakupkaDetail.btnEditClick(Sender: TObject);
+procedure TFNewZakupkaDetail.btnEditClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewOrderDetail, FNewOrderDetail);
   FNewOrderDetail.edtFB.Enabled := false;
@@ -318,20 +301,18 @@ begin
     end;
   end;
 end;
-
-procedure TFNewZakupkaDetail.btnRefreshClick(Sender: TObject);
+procedure TFNewZakupkaDetail.btnRefreshClick(Sender : TObject);
 begin
   QueryDetail.Refresh;
 end;
-
-function TFNewZakupkaDetail.DetectFacturaID: Integer;
+function TFNewZakupkaDetail.DetectFacturaID : Integer;
 begin
   with Query1 do
   begin
     Close;
     sql.Text :=
-      'select id from "документы"."фактуры" where дата_закупки=:d and ' +
-      ' код_маркировки=:m and код_плантации=:p';
+               'select id from "документы"."фактуры" where дата_закупки=:d and ' +
+               ' код_маркировки=:m and код_плантации=:p';
     ParamByName('d').AsDate := now;
     ParamByName('m').AsInteger := id_marking_edit;
     ParamByName('p').AsInteger := id_plant;
@@ -342,10 +323,9 @@ begin
       Result := 0;
   end;
 end;
-
-function TFNewZakupkaDetail.DetectLimitFB: Boolean;
+function TFNewZakupkaDetail.DetectLimitFB : Boolean;
 var
-  s: string;
+  s : string;
 begin
   if edtFB.Value > Max_FB then
   begin
@@ -360,40 +340,34 @@ begin
     Result := false;
   end;
 end;
-
-procedure TFNewZakupkaDetail.edtCountChange(Sender: TObject);
+procedure TFNewZakupkaDetail.edtCountChange(Sender : TObject);
 begin
   EnableSave;
 end;
-
-procedure TFNewZakupkaDetail.edtCountKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewZakupkaDetail.edtCountKeyDown(Sender : TObject; var Key : Word;
+                                                Shift : TShiftState);
 begin
   if Key = VK_RETURN then
     if btnINSERT.Enabled = True then
       btnINSERTClick(Sender);
 end;
-
-procedure TFNewZakupkaDetail.edtDateFactChange(Sender: TObject);
+procedure TFNewZakupkaDetail.edtDateFactChange(Sender : TObject);
 begin
   edtNumFact.Enabled := edtDateFact.Checked;
 end;
-
-procedure TFNewZakupkaDetail.edtFBChange(Sender: TObject);
+procedure TFNewZakupkaDetail.edtFBChange(Sender : TObject);
 begin
   if (edtFB.Value <> 0) and (edtFB.Value <= Max_FB) then
     edtFB.Color := clWindow
   else
     edtFB.Color := clRed;
 end;
-
-procedure TFNewZakupkaDetail.edtFBExit(Sender: TObject);
+procedure TFNewZakupkaDetail.edtFBExit(Sender : TObject);
 begin
   DetectLimitFB;
 end;
-
-procedure TFNewZakupkaDetail.edtPlantPropertiesButtonClick(Sender: TObject;
-  AButtonIndex: Integer);
+procedure TFNewZakupkaDetail.edtPlantPropertiesButtonClick(Sender : TObject;
+                                                              AButtonIndex : Integer);
 begin
   Application.CreateForm(TFSelectPlant, FSelectPlant);
   with FSelectPlant do
@@ -417,12 +391,9 @@ begin
     // Open;
     // end;
     case FPasswd.Lang of
-      0:
-        Caption := 'Выбор плантации';
-      1:
-        Caption := 'Elección de la plantación';
-      2:
-        Caption := 'Selection of plantations';
+      0 : Caption := 'Выбор плантации';
+      1 : Caption := 'Elección de la plantación';
+      2 : Caption := 'Selection of plantations';
     end;
     ID_ORDER_NOT := id_order_detail;
     ShowCountry;
@@ -431,12 +402,9 @@ begin
     begin
       id_plant := QuerySelect.FieldByName('id').AsInteger;
       case FPasswd.Lang of
-        0:
-          edtPlant.Text := QuerySelect.FieldByName('name').AsString;
-        1:
-          edtPlant.Text := QuerySelect.FieldByName('uni_name').AsString;
-        2:
-          edtPlant.Text := QuerySelect.FieldByName('reg_name').AsString;
+        0 : edtPlant.Text := QuerySelect.FieldByName('name').AsString;
+        1 : edtPlant.Text := QuerySelect.FieldByName('uni_name').AsString;
+        2 : edtPlant.Text := QuerySelect.FieldByName('reg_name').AsString;
       end;
       id_country := edtDetail.EditValue;
       FSplash.Show();
@@ -470,9 +438,8 @@ begin
   // edtFB.Text := FNewFB.edtFB.Text;
   // end;
 end;
-
 procedure TFNewZakupkaDetail.edtPlantPropertiesEditValueChanged
-  (Sender: TObject);
+  (Sender : TObject);
 begin
   id_factura := DetectFacturaID;
   if QueryDetail.RecordCount = 0 then
@@ -484,48 +451,41 @@ begin
   else
     edtPlant.Style.Color := clRed;
 end;
-
-procedure TFNewZakupkaDetail.edtPriceChange(Sender: TObject);
+procedure TFNewZakupkaDetail.edtPriceChange(Sender : TObject);
 begin
   EnableSave;
 end;
-
-procedure TFNewZakupkaDetail.edtPriceKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewZakupkaDetail.edtPriceKeyDown(Sender : TObject; var Key : Word;
+                                                Shift : TShiftState);
 begin
   if Key = VK_RETURN then
     edtCount.SetFocus;
 end;
-
-procedure TFNewZakupkaDetail.edtProductKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewZakupkaDetail.edtProductKeyDown(Sender : TObject; var Key : Word;
+                                                  Shift : TShiftState);
 begin
   if Key = VK_RETURN then
     edtPrice.SetFocus;
 end;
-
-procedure TFNewZakupkaDetail.edtProductPropertiesChange(Sender: TObject);
+procedure TFNewZakupkaDetail.edtProductPropertiesChange(Sender : TObject);
 begin
   edtPrice.Text := QueryProduct.FieldByName('цена').AsString;
   EnableSave;
 end;
-
-procedure TFNewZakupkaDetail.edtProductPropertiesCloseUp(Sender: TObject);
+procedure TFNewZakupkaDetail.edtProductPropertiesCloseUp(Sender : TObject);
 begin
   edtPrice.SetFocus;
   edtPrice.Text := QueryProduct.FieldByName('цена').AsString;
   edtPrice.SelectAll;
   EnableSave;
 end;
-
-procedure TFNewZakupkaDetail.edtSortKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewZakupkaDetail.edtSortKeyDown(Sender : TObject; var Key : Word;
+                                               Shift : TShiftState);
 begin
   if Key = VK_RETURN then
     edtProduct.SetFocus;
 end;
-
-procedure TFNewZakupkaDetail.edtSortPropertiesCloseUp(Sender: TObject);
+procedure TFNewZakupkaDetail.edtSortPropertiesCloseUp(Sender : TObject);
 begin
   edtProduct.SetFocus;
   ShowProduct();
@@ -535,8 +495,7 @@ begin
   // else
   // edtSort.Style.Color := clRed;
 end;
-
-procedure TFNewZakupkaDetail.edtTypePropertiesCloseUp(Sender: TObject);
+procedure TFNewZakupkaDetail.edtTypePropertiesCloseUp(Sender : TObject);
 begin
   edtSort.SetFocus;
   ShowSort();
@@ -546,43 +505,37 @@ begin
   // else
   // edtType.Style.Color := clRed;
 end;
-
 procedure TFNewZakupkaDetail.EnableSave;
 begin
   if (edtType.Text <> '') and (edtSort.Text <> '') and (edtProduct.Text <> '')
-    and (edtPrice.Text <> '') and (edtPrice.Text <> '0') and
-    (edtCount.Text <> '') and (edtCount.Text <> '0') then
+  and (edtPrice.Text <> '') and (edtPrice.Text <> '0') and
+  (edtCount.Text <> '') and (edtCount.Text <> '0') then
     btnINSERT.Enabled := True
   else
     btnINSERT.Enabled := false;
 end;
-
-procedure TFNewZakupkaDetail.FormClose(Sender: TObject;
-  var Action: TCloseAction);
+procedure TFNewZakupkaDetail.FormClose(Sender : TObject;
+                                          var Action : TCloseAction);
 begin
   InsUpdZakup(false);
 end;
-
-procedure TFNewZakupkaDetail.FormCloseQuery(Sender: TObject;
-  var CanClose: Boolean);
+procedure TFNewZakupkaDetail.FormCloseQuery(Sender : TObject;
+                                               var CanClose : Boolean);
 begin
   if (TransactZakup.Active = True) and (QueryDetail.RecordCount > 0) then
   begin
     case Application.MessageBox('Сохранить изменения?', 'Вопрос',
-      MB_YESNOCANCEL + MB_ICONQUESTION) of
-      6:
-        begin
-          FrameSave1btnSaveClick(Sender)
-        end;
-      7:
-        TransactZakup.Rollback;
-      2:
-        CanClose := false;
+                                 MB_YESNOCANCEL + MB_ICONQUESTION) of
+      6 :
+      begin
+        FrameSave1btnSaveClick(Sender)
+      end;
+      7 : TransactZakup.Rollback;
+      2 : CanClose := false;
     end;
   end;
 end;
-
-procedure TFNewZakupkaDetail.FormShow(Sender: TObject);
+procedure TFNewZakupkaDetail.FormShow(Sender : TObject);
 begin
   if edtPlant.Text = '' then
   begin
@@ -592,7 +545,7 @@ begin
   if edtFB.Text = '0' then
     edtFB.SetFocus
   else
-    // FrameProduct1.FrameSearch1.edtName.SetFocus;
+      // FrameProduct1.FrameSearch1.edtName.SetFocus;
     FrameTopPanel1.SetLang;
   edtNumFact.Enabled := edtDateFact.Checked;
   if edtFB.Value = 0 then
@@ -607,11 +560,10 @@ begin
       edtFB.Color := clRed;
   end;
 end;
-
 procedure TFNewZakupkaDetail.FrameProduct1lstTreeProductsDblClick
-  (Sender: TObject);
+  (Sender : TObject);
 var
-  i: Integer;
+  i : Integer;
 begin
   // if edtFB.Text <> '0' then
   // begin
@@ -671,15 +623,13 @@ begin
   // edtFB.SetFocus;
   // end;
 end;
-
 procedure TFNewZakupkaDetail.FrameProduct1lstTreeProductsKeyDown
-  (Sender: TObject; var Key: Word; Shift: TShiftState);
+  (Sender : TObject; var Key : Word; Shift : TShiftState);
 begin
   if Key = VK_RETURN then
     FrameProduct1lstTreeProductsDblClick(Sender)
 end;
-
-procedure TFNewZakupkaDetail.FrameSave1btnSaveClick(Sender: TObject);
+procedure TFNewZakupkaDetail.FrameSave1btnSaveClick(Sender : TObject);
 begin
   if DetectLimitFB = false then
   begin
@@ -688,8 +638,8 @@ begin
     begin
       Close;
       sql.Text :=
-        'UPDATE "документы"."закупки_деталь" SET fb=:fb where код_закупки=' +
-        IntToStr(id_zakup_edit) + ' and fb is not null';
+                 'UPDATE "документы"."закупки_деталь" SET fb=:fb where код_закупки=' +
+                 IntToStr(id_zakup_edit) + ' and fb is not null';
       ParamByName('fb').AsFloat := edtFB.Value;
       ExecSQL;
     end;
@@ -698,26 +648,23 @@ begin
   if TransactZakup.Active = True then
     TransactZakup.Commit;
 end;
-
-procedure TFNewZakupkaDetail.FrameSearch1edtNameKeyDown(Sender: TObject;
-  var Key: Word; Shift: TShiftState);
+procedure TFNewZakupkaDetail.FrameSearch1edtNameKeyDown(Sender : TObject;
+                                                           var Key : Word; Shift : TShiftState);
 begin
   if (edtPlant.Text <> '') And (Key = VK_RETURN) then
     ShowProductsW;
 end;
-
-procedure TFNewZakupkaDetail.FrameSearch1edtNameKeyUp(Sender: TObject;
-  var Key: Word; Shift: TShiftState);
+procedure TFNewZakupkaDetail.FrameSearch1edtNameKeyUp(Sender : TObject;
+                                                         var Key : Word; Shift : TShiftState);
 begin
   // if QueryDetail.RecordCount = 0 then
   // FrameProduct1.FrameSearch1edtNameKeyUp(Sender, Key, Shift);
 end;
-
-procedure TFNewZakupkaDetail.InsUpdDetail(id_ins: Boolean);
+procedure TFNewZakupkaDetail.InsUpdDetail(id_ins : Boolean);
 var
   // Query1: TUniQuery;
-  id_detail: Integer;
-  id_detail_factura: Integer;
+  id_detail : Integer;
+  id_detail_factura : Integer;
 begin
   if TransactZakup.Active = false then
     TransactZakup.StartTransaction;
@@ -731,15 +678,15 @@ begin
     begin
       id_detail := PGSQL.NewID('"документы"."закупки_деталь_id_seq"');
       sql.Text :=
-        'INSERT INTO "документы"."закупки_деталь"(id, "код_закупки", "код_плантации",'
-        + ' "код_сорта", "код_товара", "цена", fb, "длина", "стеблей", ' +
-        ' код_пользователя, код_деталь_заказ) VALUES (' +
-        ' :id, :код_закупки, :код_плантации, :код_сорта, :код_товара, :цена,' +
-        ' :fb, :длина, :стеблей, :код_пользователя, :код_деталь_заказ)';
+                 'INSERT INTO "документы"."закупки_деталь"(id, "код_закупки", "код_плантации",'
+                 + ' "код_сорта", "код_товара", "цена", fb, "длина", "стеблей", ' +
+                 ' код_пользователя, код_деталь_заказ) VALUES (' +
+                 ' :id, :код_закупки, :код_плантации, :код_сорта, :код_товара, :цена,' +
+                 ' :fb, :длина, :стеблей, :код_пользователя, :код_деталь_заказ)';
       ParamByName('код_плантации').Value := id_plant;
       ParamByName('код_сорта').Value := QuerySort.FieldByName('id').AsInteger;
       ParamByName('код_товара').Value := QueryProduct.FieldByName('id')
-        .AsInteger;
+    .AsInteger;
       ParamByName('код_деталь_заказ').Value := id_order_edit;
       if QueryDetail.RecordCount = 0 then
       begin
@@ -864,15 +811,14 @@ begin
   // FSplash.Close;
 {$ENDREGION}
 end;
-
-procedure TFNewZakupkaDetail.InsUpdZakup(id_ins: Boolean);
+procedure TFNewZakupkaDetail.InsUpdZakup(id_ins : Boolean);
 begin
   with Query1 do
   begin
     Close;
     sql.Text :=
-      'select * from "документы".ins_zakup(:id_ins,:код_детали_заказа, ' +
-      ' :код_пользователя, :дата_закупки, :код_плантации, :код_маркировки, :дата_вылета, :id, :s_id_zakaz )';
+               'select * from "документы".ins_zakup(:id_ins,:код_детали_заказа, ' +
+               ' :код_пользователя, :дата_закупки, :код_плантации, :код_маркировки, :дата_вылета, :id, :s_id_zakaz )';
     if id_ins = false then
       ParamByName('id').Value := id_zakup_edit;
     ParamByName('id_ins').Value := id_ins;
@@ -954,12 +900,10 @@ begin
   // FSplash.Close;
 {$ENDREGION}
 end;
-
-procedure TFNewZakupkaDetail.QueryDetailAfterFetch(DataSet: TCustomDADataSet);
+procedure TFNewZakupkaDetail.QueryDetailAfterFetch(DataSet : TCustomDADataSet);
 begin
   FSplash.Close;
 end;
-
 procedure TFNewZakupkaDetail.ShowDetail;
 begin
   with QueryDetail do
@@ -969,8 +913,7 @@ begin
     Open;
   end;
 end;
-
-procedure TFNewZakupkaDetail.ShowProduct(id_locate: Integer = 0);
+procedure TFNewZakupkaDetail.ShowProduct(id_locate : Integer = 0);
 begin
   if edtSort.Text <> '' then
   begin
@@ -993,10 +936,9 @@ begin
     end;
   end;
 end;
-
 procedure TFNewZakupkaDetail.ShowProductsW;
 var
-  p, s, pr: string;
+  p, s, pr : string;
 begin
   // with FrameProduct1 do
   // begin
@@ -1049,8 +991,7 @@ begin
   // end;
   // end;
 end;
-
-procedure TFNewZakupkaDetail.ShowSort(id_locate: Integer = 0);
+procedure TFNewZakupkaDetail.ShowSort(id_locate : Integer = 0);
 begin
   // ShowMessage(QueryPlant.Fields[0].AsString);
   with QuerySort do
@@ -1075,8 +1016,7 @@ begin
     Open;
   end;
 end;
-
-procedure TFNewZakupkaDetail.ShowType(id_locate: Integer = 0);
+procedure TFNewZakupkaDetail.ShowType(id_locate : Integer = 0);
 begin
   with QueryType do
   begin
@@ -1102,10 +1042,8 @@ begin
   ShowSort();
   edtSort.SetFocus;
 end;
-
-procedure TFNewZakupkaDetail.ViewOrderDblClick(Sender: TObject);
+procedure TFNewZakupkaDetail.ViewOrderDblClick(Sender : TObject);
 begin
   btnEditClick(Sender);
 end;
-
 end.

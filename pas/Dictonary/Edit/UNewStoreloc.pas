@@ -1,7 +1,5 @@
 unit UNewStoreloc;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -32,31 +30,23 @@ uses
   cxDBLookupComboBox,
   cxTextEdit,
   cxLabel,
-  UFrameSave,    
-     
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue;
-
+  UFrameSave,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue;
 type
   TFNewStoreloc = class(TForm)
-    Group1: TcxGroupBox;
-    FrameUniName1: TFrameUniName;
-    Group2: TcxGroupBox;
-    FrameSave1: TFrameSave;
-    lblQuantity: TcxLabel;
-    edtQuantity: TcxTextEdit;
-    lblEd: TcxLabel;
-    edtCountry: TcxLookupComboBox;
-    btnAddCountry: TcxButton;
-    btnEdtCountry: TcxButton;
+    Group1 : TcxGroupBox;
+    FrameUniName1 : TFrameUniName;
+    Group2 : TcxGroupBox;
+    FrameSave1 : TFrameSave;
+    lblQuantity : TcxLabel;
+    edtQuantity : TcxTextEdit;
+    lblEd : TcxLabel;
+    edtCountry : TcxLookupComboBox;
+    btnAddCountry : TcxButton;
+    btnEdtCountry : TcxButton;
   private
     { Private declarations }
   public
@@ -64,10 +54,7 @@ type
   end;
 
 var
-  FNewStoreloc: TFNewStoreloc;
-
+  FNewStoreloc : TFNewStoreloc;
 implementation
-
 {$R *.dfm}
-
 end.

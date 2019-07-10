@@ -1,7 +1,5 @@
 unit tamog_packing;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -51,62 +49,51 @@ uses
   Vcl.Mask,
   sMaskEdit,
   sCustomComboEdit,
-  sTooledit,    
-     
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
-
+  sTooledit,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
 type
   TTamog_Packing = class(TFrame)
-    FrameTopPanel1: TFrameTopPanel;
-    GroupOsn: TcxGroupBox;
-    GridUsers: TcxGrid;
-    ViewUsers: TcxGridDBTableView;
-    LevelOrg: TcxGridLevel;
-    QueryPacking: TUniQuery;
-    dsPacking: TDataSource;
-    Query1: TUniQuery;
-    cxLabel1: TcxLabel;
-    cxLabel2: TcxLabel;
-    ViewUsers_: TcxGridDBColumn;
-    ViewUsers_1: TcxGridDBColumn;
-    ViewUsers_2: TcxGridDBColumn;
-    ViewUsers_3: TcxGridDBColumn;
-    edtOt: TDateTimePicker;
-    edtDo: TDateTimePicker;
-    procedure btnAddClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
-    procedure btnRestClick(Sender: TObject);
-    procedure btnRefreshClick(Sender: TObject);
-    procedure edtDoCloseUp(Sender: TObject);
-    procedure edtDoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure edtOtCloseUp(Sender: TObject);
-    procedure edtOtKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure ViewUsersDblClick(Sender: TObject);
+    FrameTopPanel1 : TFrameTopPanel;
+    GroupOsn : TcxGroupBox;
+    GridUsers : TcxGrid;
+    ViewUsers : TcxGridDBTableView;
+    LevelOrg : TcxGridLevel;
+    QueryPacking : TUniQuery;
+    dsPacking : TDataSource;
+    Query1 : TUniQuery;
+    cxLabel1 : TcxLabel;
+    cxLabel2 : TcxLabel;
+    ViewUsers_ : TcxGridDBColumn;
+    ViewUsers_1 : TcxGridDBColumn;
+    ViewUsers_2 : TcxGridDBColumn;
+    ViewUsers_3 : TcxGridDBColumn;
+    edtOt : TDateTimePicker;
+    edtDo : TDateTimePicker;
+    procedure btnAddClick(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
+    procedure btnRestClick(Sender : TObject);
+    procedure btnRefreshClick(Sender : TObject);
+    procedure edtDoCloseUp(Sender : TObject);
+    procedure edtDoKeyDown(Sender : TObject; var Key : Word; Shift : TShiftState);
+    procedure edtOtCloseUp(Sender : TObject);
+    procedure edtOtKeyDown(Sender : TObject; var Key : Word; Shift : TShiftState);
+    procedure ViewUsersDblClick(Sender : TObject);
   private
     { Private declarations }
   public
-    procedure ShowPacking(s_id_locate: Integer = 0);
+    procedure ShowPacking(s_id_locate : Integer = 0);
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
 uses
   UNewAvtoForPacking;
-
-procedure TTamog_Packing.btnAddClick(Sender: TObject);
+procedure TTamog_Packing.btnAddClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewAvtoForPacking, FNewAvtoForPacking);
   with FNewAvtoForPacking do
@@ -116,28 +103,26 @@ begin
       ShowPacking(s_id_AvtoPacking)
   end;
 end;
-
-procedure TTamog_Packing.btnDelClick(Sender: TObject);
+procedure TTamog_Packing.btnDelClick(Sender : TObject);
 begin
   if QueryPacking.Fields[0].AsString <> '' then
   begin
     if Application.MessageBox
       ('¬ы действительно хотите удалить автомобиль, все пакинги и св€занные с ним позиции?',
-      '¬опрос', MB_YESNO + MB_ICONWARNING) = mrYes then
+        '¬опрос', MB_YESNO + MB_ICONWARNING) = mrYes then
     begin
       with Query1 do
       begin
         Close;
         sql.Text := 'delete from  "документы"."таможн€_пакинг_авто" where id=' +
-          QueryPacking.FieldByName('id').AsString;
+      QueryPacking.FieldByName('id').AsString;
         ExecSQL;
         ShowPacking();
       end;
     end;
   end;
 end;
-
-procedure TTamog_Packing.btnEditClick(Sender: TObject);
+procedure TTamog_Packing.btnEditClick(Sender : TObject);
 begin
   if QueryPacking.Fields[0].AsString <> '' then
   begin
@@ -154,42 +139,35 @@ begin
     end;
   end;
 end;
-
-procedure TTamog_Packing.btnRefreshClick(Sender: TObject);
+procedure TTamog_Packing.btnRefreshClick(Sender : TObject);
 begin
   ShowPacking;
 end;
-
-procedure TTamog_Packing.btnRestClick(Sender: TObject);
+procedure TTamog_Packing.btnRestClick(Sender : TObject);
 begin
   ShowMessage('');
 end;
-
-procedure TTamog_Packing.edtDoCloseUp(Sender: TObject);
+procedure TTamog_Packing.edtDoCloseUp(Sender : TObject);
 begin
   ShowPacking();
 end;
-
-procedure TTamog_Packing.edtDoKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TTamog_Packing.edtDoKeyDown(Sender : TObject; var Key : Word;
+                                         Shift : TShiftState);
 begin
   if Key = VK_RETURN then
     ShowPacking();
 end;
-
-procedure TTamog_Packing.edtOtCloseUp(Sender: TObject);
+procedure TTamog_Packing.edtOtCloseUp(Sender : TObject);
 begin
   ShowPacking;
 end;
-
-procedure TTamog_Packing.edtOtKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TTamog_Packing.edtOtKeyDown(Sender : TObject; var Key : Word;
+                                         Shift : TShiftState);
 begin
   if Key = VK_RETURN then
     ShowPacking();
 end;
-
-procedure TTamog_Packing.ShowPacking(s_id_locate: Integer = 0);
+procedure TTamog_Packing.ShowPacking(s_id_locate : Integer = 0);
 begin
   with QueryPacking do
   begin
@@ -206,10 +184,8 @@ begin
     Locate('id', s_id_locate, []);
   end;
 end;
-
-procedure TTamog_Packing.ViewUsersDblClick(Sender: TObject);
+procedure TTamog_Packing.ViewUsersDblClick(Sender : TObject);
 begin
   btnEditClick(Sender);
 end;
-
 end.

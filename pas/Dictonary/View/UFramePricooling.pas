@@ -1,7 +1,5 @@
 unit UFramePricooling;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -18,7 +16,7 @@ uses
   cxLookAndFeelPainters,
   cxStyles,
   dxSkinsCore,
-
+  
   dxSkinscxPCPainter,
   cxCustomData,
   cxFilter,
@@ -39,42 +37,38 @@ uses
   cxGrid,
   UFrameTopPanel,
   cxNavigator,
-
+  
   dxSkinDevExpressStyle,
-
-   dxSkinsDefaultPainters, dxSkinOffice2007Blue;
-
+  
+  dxSkinsDefaultPainters, dxSkinOffice2007Blue;
 type
   TFrameProcooling = class(TFrame)
-    FrameTopPanel1: TFrameTopPanel;
-    GridStatWork: TcxGrid;
-    ViewStatWork: TcxGridDBTableView;
-    ColumnName: TcxGridDBColumn;
-    LevelStatWork: TcxGridLevel;
-    QueryPricooling: TUniQuery;
-    dsPricooling: TDataSource;
-    procedure btnAddClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
-    procedure FrameTopPanel1btnSelClick(Sender: TObject);
-    procedure ViewStatWorkDblClick(Sender: TObject);
-    procedure btnRefreshClick(Sender: TObject);
+    FrameTopPanel1 : TFrameTopPanel;
+    GridStatWork : TcxGrid;
+    ViewStatWork : TcxGridDBTableView;
+    ColumnName : TcxGridDBColumn;
+    LevelStatWork : TcxGridLevel;
+    QueryPricooling : TUniQuery;
+    dsPricooling : TDataSource;
+    procedure btnAddClick(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
+    procedure FrameTopPanel1btnSelClick(Sender : TObject);
+    procedure ViewStatWorkDblClick(Sender : TObject);
+    procedure btnRefreshClick(Sender : TObject);
   private
     { Private declarations }
   public
-    procedure ShowPricooling(id_locate: integer = 0);
+    procedure ShowPricooling(id_locate : integer = 0);
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
 uses
   UNewPricooling,
   PGSQL;
-
-procedure TFrameProcooling.btnAddClick(Sender: TObject);
+procedure TFrameProcooling.btnAddClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewPricooling, FNewPricooling);
   with FNewPricooling do
@@ -84,15 +78,13 @@ begin
       ShowPricooling(s_id_Pricooling);
   end;
 end;
-
-procedure TFrameProcooling.btnDelClick(Sender: TObject);
+procedure TFrameProcooling.btnDelClick(Sender : TObject);
 begin
   PGSQL.StandartDelete(QueryPricooling.FieldByName('id').AsString,
-    '"прикулинг"."агенства"', QueryPricooling, '', '', '', '');
+                        '"прикулинг"."агенства"', QueryPricooling, '', '', '', '');
   QueryPricooling.Refresh;
 end;
-
-procedure TFrameProcooling.btnEditClick(Sender: TObject);
+procedure TFrameProcooling.btnEditClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewPricooling, FNewPricooling);
   with FNewPricooling do
@@ -114,18 +106,15 @@ begin
       ShowPricooling(s_id_Pricooling);
   end;
 end;
-
-procedure TFrameProcooling.btnRefreshClick(Sender: TObject);
+procedure TFrameProcooling.btnRefreshClick(Sender : TObject);
 begin
   QueryPricooling.Refresh;
 end;
-
-procedure TFrameProcooling.FrameTopPanel1btnSelClick(Sender: TObject);
+procedure TFrameProcooling.FrameTopPanel1btnSelClick(Sender : TObject);
 begin
   FrameTopPanel1.btnSelClick(Sender);
 end;
-
-procedure TFrameProcooling.ShowPricooling(id_locate: integer = 0);
+procedure TFrameProcooling.ShowPricooling(id_locate : integer = 0);
 begin
   with QueryPricooling do
   begin
@@ -134,11 +123,9 @@ begin
     Locate('id', id_locate, []);
   end;
 end;
-
-procedure TFrameProcooling.ViewStatWorkDblClick(Sender: TObject);
+procedure TFrameProcooling.ViewStatWorkDblClick(Sender : TObject);
 begin
   if FrameTopPanel1.btnEdit.Enabled = true then
     btnEditClick(Sender);
 end;
-
 end.

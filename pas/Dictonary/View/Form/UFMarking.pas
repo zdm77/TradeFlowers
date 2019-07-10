@@ -1,7 +1,5 @@
 unit UFMarking;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -17,12 +15,11 @@ uses
   MemDS,
   DBAccess,
   Uni;
-
 type
   TFMarking = class(TForm)
-    Query1: TUniQuery;
-    FrameMarking1: TFrameMarking;
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    Query1 : TUniQuery;
+    FrameMarking1 : TFrameMarking;
+    procedure FormClose(Sender : TObject; var Action : TCloseAction);
   private
     { Private declarations }
   public
@@ -31,15 +28,12 @@ type
   end;
 
 var
-  FMarking: TFMarking;
-
+  FMarking : TFMarking;
 implementation
-
 {$R *.dfm}
 
 uses
   UPasswd;
-
 procedure TFMarking.Access;
 begin
   if (FPasswd.ID_ROLE <> 1) then
@@ -49,22 +43,20 @@ begin
       { доступ }
       Close;
       sql.Text := 'select * from "пользователи"."доступ"  where код_роли=' +
-        IntToStr(FPasswd.ID_ROLE);
+    IntToStr(FPasswd.ID_ROLE);
       Open;
       FrameMarking1.FrameTopPanel1.btnAdd.Enabled :=
-        FieldByName('маркировки_добавление').AsBoolean;
+                                                    FieldByName('маркировки_добавление').AsBoolean;
       FrameMarking1.FrameTopPanel1.btnEdit.Enabled :=
-        FieldByName('маркировки_редактирование').AsBoolean;
+                                                     FieldByName('маркировки_редактирование').AsBoolean;
       FrameMarking1.FrameTopPanel1.btnDel.Enabled :=
-        FieldByName('маркировки_удаление').AsBoolean;
+                                                    FieldByName('маркировки_удаление').AsBoolean;
     end;
   end;
 end;
-
-procedure TFMarking.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFMarking.FormClose(Sender : TObject; var Action : TCloseAction);
 begin
   Action := caFree;
   FMarking := nil;
 end;
-
 end.

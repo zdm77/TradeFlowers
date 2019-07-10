@@ -1,7 +1,5 @@
 unit UNewAvtoForPacking;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -46,87 +44,76 @@ uses
   cxGridCustomTableView,
   cxGridTableView,
   cxGridDBTableView,
-  cxGrid,     
-    
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue;
-
+  cxGrid,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue;
 type
   TFNewAvtoForPacking = class(TForm)
-    FrameTopPanel1: TFrameTopPanel;
-    GroupOsn: TcxGroupBox;
-    edtOt: TsDateEdit;
-    cxLabel1: TcxLabel;
-    lbl1: TcxLabel;
-    edtFIO: TEdit;
-    edtPhone: TEdit;
-    cxLabel3: TcxLabel;
-    edtNumAvto: TEdit;
-    cxLabel2: TcxLabel;
-    GridAvtoPackingDBTableView1: TcxGridDBTableView;
-    GridAvtoPackingLevel1: TcxGridLevel;
-    GridAvtoPacking: TcxGrid;
-    QueryAvtoPacking: TUniQuery;
-    dsAvtoPacking: TDataSource;
-    Query1: TUniQuery;
-    GridAvtoPackingDBTableView1DBColumn: TcxGridDBColumn;
-    GridAvtoPackingDBTableView1DBColumn1: TcxGridDBColumn;
-    GridAvtoPackingDBTableView1_2: TcxGridDBColumn;
-    GridAvtoPackingDBTableView1_3: TcxGridDBColumn;
-    procedure btnAddClick(Sender: TObject);
-    procedure FormShow(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure GridAvtoPackingDBTableView1DblClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
-    procedure FrameTopPanel1btnSelClick(Sender: TObject);
-    procedure btnRefreshClick(Sender: TObject);
+    FrameTopPanel1 : TFrameTopPanel;
+    GroupOsn : TcxGroupBox;
+    edtOt : TsDateEdit;
+    cxLabel1 : TcxLabel;
+    lbl1 : TcxLabel;
+    edtFIO : TEdit;
+    edtPhone : TEdit;
+    cxLabel3 : TcxLabel;
+    edtNumAvto : TEdit;
+    cxLabel2 : TcxLabel;
+    GridAvtoPackingDBTableView1 : TcxGridDBTableView;
+    GridAvtoPackingLevel1 : TcxGridLevel;
+    GridAvtoPacking : TcxGrid;
+    QueryAvtoPacking : TUniQuery;
+    dsAvtoPacking : TDataSource;
+    Query1 : TUniQuery;
+    GridAvtoPackingDBTableView1DBColumn : TcxGridDBColumn;
+    GridAvtoPackingDBTableView1DBColumn1 : TcxGridDBColumn;
+    GridAvtoPackingDBTableView1_2 : TcxGridDBColumn;
+    GridAvtoPackingDBTableView1_3 : TcxGridDBColumn;
+    procedure btnAddClick(Sender : TObject);
+    procedure FormShow(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure GridAvtoPackingDBTableView1DblClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
+    procedure FrameTopPanel1btnSelClick(Sender : TObject);
+    procedure btnRefreshClick(Sender : TObject);
   private
     { Private declarations }
   public
-    s_id_AvtoPacking: Integer;
-    procedure ShowAvtoPacking(s_id_locate: Integer = 0);
+    s_id_AvtoPacking : Integer;
+    procedure ShowAvtoPacking(s_id_locate : Integer = 0);
     { Public declarations }
   end;
 
 var
-  FNewAvtoForPacking: TFNewAvtoForPacking;
-
+  FNewAvtoForPacking : TFNewAvtoForPacking;
 implementation
-
 {$R *.dfm}
 
 uses
   PGSQL,
   UNewPacking;
-
-procedure TFNewAvtoForPacking.btnAddClick(Sender: TObject);
+procedure TFNewAvtoForPacking.btnAddClick(Sender : TObject);
 begin
   if (edtOt.Text <> '  .  .    ') And (edtFIO.Text <> '') and
-    (edtNumAvto.Text <> '') then
+  (edtNumAvto.Text <> '') then
   begin
     if s_id_AvtoPacking = 0 then
     begin
       if Application.MessageBox
         ('Автомобиль для пакинга еще не сохранен. Сохранить?', 'Вопрос',
-        MB_YESNO + MB_ICONQUESTION) = mrYes then
+          MB_YESNO + MB_ICONQUESTION) = mrYes then
       begin
         with Query1 do
         begin
           s_id_AvtoPacking :=
-            PGSQL.NewID('"документы"."таможня_пакинг_id_seq"');
+                             PGSQL.NewID('"документы"."таможня_пакинг_id_seq"');
           Close;
           sql.Text := 'INSERT INTO "документы"."таможня_пакинг_авто"' +
-            '(id, "гос_номер", "дата_загрузки", "фио_водителя",' +
-            '  "телефон_водителя") VALUES (:id, :гос_номер,' +
-            ' :дата_загрузки, :фио_водителя,  :телефон_водителя);';
+        '(id, "гос_номер", "дата_загрузки", "фио_водителя",' +
+        '  "телефон_водителя") VALUES (:id, :гос_номер,' +
+        ' :дата_загрузки, :фио_водителя,  :телефон_водителя);';
           ParamByName('id').AsInteger := s_id_AvtoPacking;
           ParamByName('гос_номер').AsString := edtNumAvto.Text;
           ParamByName('дата_загрузки').AsDate := edtOt.Date;
@@ -150,30 +137,28 @@ begin
   else
     Application.MessageBox
       ('Не заполнены основные сведения. Продолжение не возможно.', 'Ошибка',
-      MB_OK + MB_ICONERROR);
+        MB_OK + MB_ICONERROR);
 end;
-
-procedure TFNewAvtoForPacking.btnDelClick(Sender: TObject);
+procedure TFNewAvtoForPacking.btnDelClick(Sender : TObject);
 begin
   if QueryAvtoPacking.Fields[0].AsString <> '' then
   begin
     if Application.MessageBox
       ('Вы действительно хотите удалить пакинг и все связанные с ним позиции?',
-      'Вопрос', MB_YESNO + MB_ICONWARNING) = mrYes then
+        'Вопрос', MB_YESNO + MB_ICONWARNING) = mrYes then
     begin
       with Query1 do
       begin
         Close;
         sql.Text := 'delete from  "документы"."таможня_пакинг" where id=' +
-          QueryAvtoPacking.FieldByName('id').AsString;
+      QueryAvtoPacking.FieldByName('id').AsString;
         ExecSQL;
         ShowAvtoPacking();
       end;
     end;
   end;
 end;
-
-procedure TFNewAvtoForPacking.btnEditClick(Sender: TObject);
+procedure TFNewAvtoForPacking.btnEditClick(Sender : TObject);
 begin
   if QueryAvtoPacking.Fields[0].AsString <> '' then
   begin
@@ -182,7 +167,7 @@ begin
     begin
       s_id_packing := QueryAvtoPacking.FieldByName('id').AsInteger;
       s_id_avto_packing_add := QueryAvtoPacking.FieldByName('код_таможня_авто')
-        .AsInteger;
+    .AsInteger;
       s_id_client := QueryAvtoPacking.FieldByName('код_клиента').AsInteger;
       s_id_postav := QueryAvtoPacking.FieldByName('код_поставщика').AsInteger;
       edtOt.Date := QueryAvtoPacking.FieldByName('дата_пакинга').AsDateTime;
@@ -194,21 +179,18 @@ begin
     end;
   end;
 end;
-
-procedure TFNewAvtoForPacking.btnRefreshClick(Sender: TObject);
+procedure TFNewAvtoForPacking.btnRefreshClick(Sender : TObject);
 begin
   ShowAvtoPacking(QueryAvtoPacking.FieldByName('id').AsInteger);
 end;
-
-procedure TFNewAvtoForPacking.FormShow(Sender: TObject);
+procedure TFNewAvtoForPacking.FormShow(Sender : TObject);
 begin
   ShowAvtoPacking();
 end;
-
-procedure TFNewAvtoForPacking.FrameTopPanel1btnSelClick(Sender: TObject);
+procedure TFNewAvtoForPacking.FrameTopPanel1btnSelClick(Sender : TObject);
 begin
   if (edtOt.Text <> '  .  .    ') And (edtFIO.Text <> '') and
-    (edtNumAvto.Text <> '') then
+  (edtNumAvto.Text <> '') then
   begin
     with Query1 do
     begin
@@ -217,9 +199,9 @@ begin
         s_id_AvtoPacking := PGSQL.NewID('"документы"."таможня_пакинг_id_seq"');
         Close;
         sql.Text := 'INSERT INTO "документы"."таможня_пакинг_авто"' +
-          '(id, "гос_номер", "дата_загрузки", "фио_водителя",' +
-          '  "телефон_водителя") VALUES (:id, :гос_номер,' +
-          ' :дата_загрузки, :фио_водителя,  :телефон_водителя);';
+      '(id, "гос_номер", "дата_загрузки", "фио_водителя",' +
+      '  "телефон_водителя") VALUES (:id, :гос_номер,' +
+      ' :дата_загрузки, :фио_водителя,  :телефон_водителя);';
         ParamByName('id').AsInteger := s_id_AvtoPacking;
         ParamByName('гос_номер').AsString := edtNumAvto.Text;
         ParamByName('дата_загрузки').AsDate := edtOt.Date;
@@ -231,10 +213,10 @@ begin
       begin
         Close;
         sql.Text := 'UPDATE  "документы"."таможня_пакинг_авто"  ' +
-          'SET  "гос_номер" = :гос_номер,' +
-          '  "дата_загрузки" = :дата_загрузки,' +
-          '  "фио_водителя" = :фио_водителя,' +
-          '  "телефон_водителя" = :телефон_водителя' + ' WHERE  id = :id;';
+      'SET  "гос_номер" = :гос_номер,' +
+      '  "дата_загрузки" = :дата_загрузки,' +
+      '  "фио_водителя" = :фио_водителя,' +
+      '  "телефон_водителя" = :телефон_водителя' + ' WHERE  id = :id;';
         ParamByName('id').AsInteger := s_id_AvtoPacking;
         ParamByName('фио_водителя').AsString := edtFIO.Text;
         ParamByName('гос_номер').AsString := edtNumAvto.Text;
@@ -248,29 +230,26 @@ begin
   else
     Application.MessageBox
       ('Не заполнены основные сведения. Продолжение не возможно.', 'Ошибка',
-      MB_OK + MB_ICONERROR);
+        MB_OK + MB_ICONERROR);
 end;
-
 procedure TFNewAvtoForPacking.GridAvtoPackingDBTableView1DblClick
-  (Sender: TObject);
+  (Sender : TObject);
 begin
   btnEditClick(Sender);
 end;
-
-procedure TFNewAvtoForPacking.ShowAvtoPacking(s_id_locate: Integer = 0);
+procedure TFNewAvtoForPacking.ShowAvtoPacking(s_id_locate : Integer = 0);
 begin
   with QueryAvtoPacking do
   begin
     Close;
     sql.Text := 'SELECT c.name клиент,  p.name поставщик,  pk.id,' +
-      '  pk."код_таможня_авто",  pk."код_клиента",  pk."код_поставщика",' +
-      '  pk."номер_пакинга",  pk."дата_пакинга" FROM' +
-      '  "документы"."таможня_пакинг" pk' +
-      '  INNER JOIN "контрагенты"."клиенты" c ON (pk."код_клиента" = c.id)' +
-      '  INNER JOIN "контрагенты"."клиенты" p ON (pk."код_поставщика" = p.id)' +
-      ' where код_таможня_авто= ' + IntToStr(s_id_AvtoPacking);
+  '  pk."код_таможня_авто",  pk."код_клиента",  pk."код_поставщика",' +
+  '  pk."номер_пакинга",  pk."дата_пакинга" FROM' +
+  '  "документы"."таможня_пакинг" pk' +
+  '  INNER JOIN "контрагенты"."клиенты" c ON (pk."код_клиента" = c.id)' +
+  '  INNER JOIN "контрагенты"."клиенты" p ON (pk."код_поставщика" = p.id)' +
+  ' where код_таможня_авто= ' + IntToStr(s_id_AvtoPacking);
     Open;
   end;
 end;
-
 end.

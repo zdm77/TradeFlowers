@@ -1,7 +1,5 @@
 ﻿unit UEditFactKargo;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -48,77 +46,67 @@ uses
   sCustomComboEdit,
   sTooledit,
   cxGroupBox,
-  UFrameSave,    
-     
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue;
-
+  UFrameSave,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue;
 type
   TFEditFactKargo = class(TForm)
-    FrameSave1: TFrameSave;
-    Group1: TcxGroupBox;
-    lblДата: TLabel;
-    lblНомер: TLabel;
-    lblСуммаФактуры: TLabel;
-    edtDateFact: TsDateEdit;
-    edtNum: TEdit;
-    edtSumFact: TAdvEdit;
-    cxGroupBox1: TcxGroupBox;
-    FrameTopPanel1: TFrameTopPanel;
-    GridAWB: TcxGrid;
-    ViewAWB: TcxGridDBTableView;
-    ColumnДата: TcxGridDBColumn;
-    ColumnСумма: TcxGridDBColumn;
-    ColumnРазница: TcxGridDBColumn;
-    LevelOrg: TcxGridLevel;
-    QueryOpl: TUniQuery;
-    dsOpl: TDataSource;
-    QueryOpl1: TUniQuery;
-    Query1: TUniQuery;
-    lblСуммаAWB: TLabel;
-    edtSumAWB: TAdvEdit;
-    ColumnNum: TcxGridDBColumn;
-    edtПретензия: TAdvEdit;
-    lblПретензия: TLabel;
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure FormShow(Sender: TObject);
-    procedure FrameSave1btnSaveClick(Sender: TObject);
-    procedure btnAddClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
-    procedure edtDateFactCloseUp(Sender: TObject);
-    procedure edtDateFactKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure edtNumKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure edtSumAWBKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure ViewAWBDblClick(Sender: TObject);
+    FrameSave1 : TFrameSave;
+    Group1 : TcxGroupBox;
+    lblДата : TLabel;
+    lblНомер : TLabel;
+    lblСуммаФактуры : TLabel;
+    edtDateFact : TsDateEdit;
+    edtNum : TEdit;
+    edtSumFact : TAdvEdit;
+    cxGroupBox1 : TcxGroupBox;
+    FrameTopPanel1 : TFrameTopPanel;
+    GridAWB : TcxGrid;
+    ViewAWB : TcxGridDBTableView;
+    ColumnДата : TcxGridDBColumn;
+    ColumnСумма : TcxGridDBColumn;
+    ColumnРазница : TcxGridDBColumn;
+    LevelOrg : TcxGridLevel;
+    QueryOpl : TUniQuery;
+    dsOpl : TDataSource;
+    QueryOpl1 : TUniQuery;
+    Query1 : TUniQuery;
+    lblСуммаAWB : TLabel;
+    edtSumAWB : TAdvEdit;
+    ColumnNum : TcxGridDBColumn;
+    edtПретензия : TAdvEdit;
+    lblПретензия : TLabel;
+    procedure FormClose(Sender : TObject; var Action : TCloseAction);
+    procedure FormShow(Sender : TObject);
+    procedure FrameSave1btnSaveClick(Sender : TObject);
+    procedure btnAddClick(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
+    procedure edtDateFactCloseUp(Sender : TObject);
+    procedure edtDateFactKeyDown(Sender : TObject; var Key : Word;
+                                    Shift : TShiftState);
+    procedure edtNumKeyDown(Sender : TObject; var Key : Word; Shift : TShiftState);
+    procedure edtSumAWBKeyDown(Sender : TObject; var Key : Word;
+                                  Shift : TShiftState);
+    procedure ViewAWBDblClick(Sender : TObject);
   private
     { Private declarations }
   public
-    s_id_detail: Integer;
-    sum_fact, претензия: string;
+    s_id_detail : Integer;
+    sum_fact, претензия : string;
     procedure Access;
     procedure SetLang;
-    procedure ShowOpl(id_locate: Integer = 0);
-    procedure UpdateAfterOpl(s_v: Double);
+    procedure ShowOpl(id_locate : Integer = 0);
+    procedure UpdateAfterOpl(s_v : Double);
     procedure UpdateOpl;
     { Public declarations }
   end;
 
 var
-  FEditFactKargo: TFEditFactKargo;
-
+  FEditFactKargo : TFEditFactKargo;
 implementation
-
 {$R *.dfm}
 
 uses
@@ -126,7 +114,6 @@ uses
   UNewOpl,
   UPasswd,
   PGSQL;
-
 procedure TFEditFactKargo.Access;
 begin
   with FPasswd do
@@ -139,10 +126,9 @@ begin
     end;
   end;
 end;
-
-procedure TFEditFactKargo.btnAddClick(Sender: TObject);
+procedure TFEditFactKargo.btnAddClick(Sender : TObject);
 var
-  v: Double;
+  v : Double;
 begin
   Application.CreateForm(TFNewOpl, FNewOpl);
   with FNewOpl do
@@ -159,19 +145,19 @@ begin
           // определяем предыдущий
           Close;
           SQL.Text := 'select разница from "бух"."оплата_awb"' +
-            ' where код_awb=' + IntToStr(s_id_detail) + ' and дата<=:d ' +
-            ' order by дата DESC,  ID  LIMIT 1';
+        ' where код_awb=' + IntToStr(s_id_detail) + ' and дата<=:d ' +
+        ' order by дата DESC,  ID  LIMIT 1';
           ParamByName('d').AsString := FNewOpl.edtDateOpl.Text;
           Open;
           if Fields[0].AsString <> '' then
             v := Fields[0].AsFloat + StrToFloat(FNewOpl.edtSumOpl.Text)
           else
             v := StrToFloat(FNewOpl.edtSumOpl.Text) -
-              StrToFloat(edtSumFact.Text);
+          StrToFloat(edtSumFact.Text);
           Close;
           SQL.Text :=
-            'select * from "бух"."оплата_awb" where дата>:d and код_awb=' +
-            IntToStr(s_id_detail) + ' order by дата';
+                     'select * from "бух"."оплата_awb" where дата>:d and код_awb=' +
+                     IntToStr(s_id_detail) + ' order by дата';
           Open;
           if Fields[0].AsString <> '' then
           begin
@@ -208,23 +194,21 @@ begin
     end;
   end;
 end;
-
-procedure TFEditFactKargo.btnDelClick(Sender: TObject);
+procedure TFEditFactKargo.btnDelClick(Sender : TObject);
 begin
   PGSQL.StandartDelete(QueryOpl.FieldByName('id').AsString,
-    '"бух"."оплата_awb"', QueryOpl, '', '', '', '');
+                        '"бух"."оплата_awb"', QueryOpl, '', '', '', '');
   with QueryOpl1 do
   begin
     Close;
     SQL.Text := QueryOpl.SQL.Text;
     Open;
     UpdateAfterOpl(-StrToFloat(edtSumFact.Text) +
-      StrToFloat(edtПретензия.Text));
+    StrToFloat(edtПретензия.Text));
     ShowOpl();
   end;
 end;
-
-procedure TFEditFactKargo.btnEditClick(Sender: TObject);
+procedure TFEditFactKargo.btnEditClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewOpl, FNewOpl);
   with FNewOpl do
@@ -255,44 +239,39 @@ begin
         SQL.Text := QueryOpl.SQL.Text;
         Open;
         UpdateAfterOpl(-StrToFloat(edtSumFact.Text) -
-          StrToFloat(edtПретензия.Text));
+        StrToFloat(edtПретензия.Text));
         ShowOpl(QueryOpl.FieldByName('id').AsInteger);
       end;
     end;
   end;
 end;
-
-procedure TFEditFactKargo.edtDateFactCloseUp(Sender: TObject);
+procedure TFEditFactKargo.edtDateFactCloseUp(Sender : TObject);
 begin
   edtNum.SetFocus;
 end;
-
-procedure TFEditFactKargo.edtDateFactKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFEditFactKargo.edtDateFactKeyDown(Sender : TObject; var Key : Word;
+                                                Shift : TShiftState);
 begin
   if Key = VK_RETURN then
     edtNum.SetFocus;
 end;
-
-procedure TFEditFactKargo.edtNumKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFEditFactKargo.edtNumKeyDown(Sender : TObject; var Key : Word;
+                                           Shift : TShiftState);
 begin
   if Key = VK_RETURN then
     edtSumAWB.SetFocus;
 end;
-
-procedure TFEditFactKargo.edtSumAWBKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFEditFactKargo.edtSumAWBKeyDown(Sender : TObject; var Key : Word;
+                                              Shift : TShiftState);
 begin
   if Key = VK_RETURN then
     edtSumFact.SetFocus;
 end;
-
-procedure TFEditFactKargo.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFEditFactKargo.FormClose(Sender : TObject; var Action : TCloseAction);
 begin
   UpdateOpl;
   if ((sum_fact <> edtSumFact.Text) or (претензия <> edtПретензия.Text)) and
-    (QueryOpl.Fields[0].AsString <> '') then
+  (QueryOpl.Fields[0].AsString <> '') then
   begin
     with QueryOpl1 do
     begin
@@ -300,66 +279,62 @@ begin
       SQL.Text := QueryOpl.SQL.Text;
       Open;
       UpdateAfterOpl(-StrToFloat(edtSumFact.Text) +
-        StrToFloat(edtПретензия.Text));
+      StrToFloat(edtПретензия.Text));
     end;
   end;
 end;
-
-procedure TFEditFactKargo.FormShow(Sender: TObject);
+procedure TFEditFactKargo.FormShow(Sender : TObject);
 begin
   SetLang;
   sum_fact := edtSumFact.Text;
   претензия := edtПретензия.Text;
   Access;
 end;
-
-procedure TFEditFactKargo.FrameSave1btnSaveClick(Sender: TObject);
+procedure TFEditFactKargo.FrameSave1btnSaveClick(Sender : TObject);
 begin
   Close;
 end;
-
 procedure TFEditFactKargo.SetLang;
 begin
   case FPasswd.Lang of
-    1:
-      begin
-        // // Caption := 'Directories';
-        // ItemТовары.Caption := 'Nomenclature';
-        // ItemКлиент.Caption := 'Clients';
-        // ItemСтраны.Caption := 'Country';
-        // ItemТипы.Caption := 'Types';
-        // ItemСвойства.Caption := 'Properties';
-        // ItemПлантации.Caption := 'Plantation';
-        // ItemСорта.Caption := 'Grades';
-        // ItemОрганизация.Caption := 'Organization';
-        // ItemПользователи.Caption := 'Users';
-        // ItemРоль.Caption := 'The role';
-        // GroupОснова.Caption := 'Main';
-        // GroupСтруктура.Caption := 'Structure';
-        // GroupОрг.Caption := 'Organization';
-        // GroupАдмин.Caption := 'Administration';
-        // ItemКарго.Caption := 'Cargo';
-        // ItemАвиалинии.Caption := 'Airlines';
-      end;
-    2:
-      begin
-        Caption := 'La factura del Cargo';
-        ColumnNum.Caption := 'El número';
-        ColumnСумма.Caption := 'La suma';
-        ColumnРазница.Caption := 'La diferencia';
-        ColumnДата.Caption := 'La fecha';
-        lblДата.Caption := 'La fecha';
-        lblНомер.Caption := 'El número';
-        lblСуммаФактуры.Caption := 'La suma AWB';
-        lblСуммаAWB.Caption := 'La suma de factura';
-        lblПретензия.Caption := 'La pretensión';
-      end;
+    1 :
+    begin
+      // // Caption := 'Directories';
+      // ItemТовары.Caption := 'Nomenclature';
+      // ItemКлиент.Caption := 'Clients';
+      // ItemСтраны.Caption := 'Country';
+      // ItemТипы.Caption := 'Types';
+      // ItemСвойства.Caption := 'Properties';
+      // ItemПлантации.Caption := 'Plantation';
+      // ItemСорта.Caption := 'Grades';
+      // ItemОрганизация.Caption := 'Organization';
+      // ItemПользователи.Caption := 'Users';
+      // ItemРоль.Caption := 'The role';
+      // GroupОснова.Caption := 'Main';
+      // GroupСтруктура.Caption := 'Structure';
+      // GroupОрг.Caption := 'Organization';
+      // GroupАдмин.Caption := 'Administration';
+      // ItemКарго.Caption := 'Cargo';
+      // ItemАвиалинии.Caption := 'Airlines';
+    end;
+    2 :
+    begin
+      Caption := 'La factura del Cargo';
+      ColumnNum.Caption := 'El número';
+      ColumnСумма.Caption := 'La suma';
+      ColumnРазница.Caption := 'La diferencia';
+      ColumnДата.Caption := 'La fecha';
+      lblДата.Caption := 'La fecha';
+      lblНомер.Caption := 'El número';
+      lblСуммаФактуры.Caption := 'La suma AWB';
+      lblСуммаAWB.Caption := 'La suma de factura';
+      lblПретензия.Caption := 'La pretensión';
+    end;
   end;
   FrameTopPanel1.SetLang;
   FrameSave1.SetLang;
 end;
-
-procedure TFEditFactKargo.ShowOpl(id_locate: Integer = 0);
+procedure TFEditFactKargo.ShowOpl(id_locate : Integer = 0);
 begin
   with QueryOpl do
   begin
@@ -372,8 +347,7 @@ begin
     Locate('id', id_locate, []);
   end;
 end;
-
-procedure TFEditFactKargo.UpdateAfterOpl(s_v: Double);
+procedure TFEditFactKargo.UpdateAfterOpl(s_v : Double);
 begin
   with Query1 do
   begin
@@ -390,7 +364,6 @@ begin
     end;
   end;
 end;
-
 procedure TFEditFactKargo.UpdateOpl;
 begin
 {$REGION 'Обновляем данные'}
@@ -420,16 +393,14 @@ begin
     ParamByName('стоимость').AsString := edtSumAWB.Text;
     ParamByName('претензия').AsString := edtПретензия.Text;
     ParamByName('разница').AsFloat := StrToFloat(edtПретензия.Text) -
-      StrToFloat(edtSumFact.Text);
+  StrToFloat(edtSumFact.Text);
     ExecSQL;
     FFacturKargo.ShowFact(s_id_detail);
   end;
 {$ENDREGION};
 end;
-
-procedure TFEditFactKargo.ViewAWBDblClick(Sender: TObject);
+procedure TFEditFactKargo.ViewAWBDblClick(Sender : TObject);
 begin
   btnEditClick(Sender);
 end;
-
 end.

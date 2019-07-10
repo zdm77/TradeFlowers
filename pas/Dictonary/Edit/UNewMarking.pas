@@ -1,7 +1,5 @@
 ﻿unit UNewMarking;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -19,7 +17,7 @@ uses
   cxContainer,
   cxEdit,
   dxSkinsCore,
-
+  
   Menus,
   MemDS,
   DBAccess,
@@ -38,7 +36,7 @@ uses
   UFrameSave,
   UFrameUniName,
   dxSkinscxPCPainter,
-
+  
   cxStyles,
   cxCustomData,
   cxFilter,
@@ -58,133 +56,132 @@ uses
   cxNavigator,
   cxCheckBox,
   dxBarBuiltInMenu,
-
+  
   dxSkinDevExpressStyle,
-
-   dxSkinsDefaultPainters, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog;
-
+  
+  dxSkinsDefaultPainters, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog;
 type
   TFNewMarking = class(TForm)
-    FrameSave1: TFrameSave;
-    Group1: TcxGroupBox;
-    QueryPricooling: TUniQuery;
-    dsPricooling: TDataSource;
-    QueryClient: TUniQuery;
-    dsClient: TDataSource;
-    QueryKargo: TUniQuery;
-    dsKargo: TDataSource;
-    QueryTrack: TUniQuery;
-    dsTrack: TDataSource;
-    FrameUniName1: TFrameUniName;
-    Group2: TcxGroupBox;
-    label6: TcxLabel;
-    edtPhone1: TcxTextEdit;
-    cxLabel5: TcxLabel;
-    edtFax: TcxTextEdit;
-    lblFax: TcxLabel;
-    Page1: TcxPageControl;
-    TabOsn: TcxTabSheet;
-    Query1: TUniQuery;
-    TabLockPlant: TcxTabSheet;
-    FrameTopPanelLock: TFrameTopPanel;
-    QueryLockMark: TUniQuery;
-    dsLockMark: TDataSource;
-    PageLock: TcxPageControl;
-    TabLock: TcxTabSheet;
-    TabGood: TcxTabSheet;
-    GridUsers: TcxGrid;
-    ViewUsers: TcxGridDBTableView;
-    ColumnUniName: TcxGridDBColumn;
-    ColumnName: TcxGridDBColumn;
-    ColumnRegName: TcxGridDBColumn;
-    LevelOrg: TcxGridLevel;
-    QueryGoodMark: TUniQuery;
-    dsGoodMark: TDataSource;
-    cxGrid1: TcxGrid;
-    cxGridDBTableView1: TcxGridDBTableView;
-    ColumnUni1: TcxGridDBColumn;
-    ColumnName1: TcxGridDBColumn;
-    ColumnReg1: TcxGridDBColumn;
-    cxGridLevel1: TcxGridLevel;
-    TabConnect: TcxTabSheet;
-    cxLabel2: TcxLabel;
-    edtKargo: TcxLookupComboBox;
-    edtTrack: TcxLookupComboBox;
-    cxLabel3: TcxLabel;
-    edtPreecooling: TcxLookupComboBox;
-    cxLabel4: TcxLabel;
-    chkAddrClient: TcxCheckBox;
-    cxLabel1: TcxLabel;
-    edtClient: TcxLookupComboBox;
-    btnClientDetail: TcxButton;
-    lbl1: TcxLabel;
-    edtFITO: TcxLookupComboBox;
-    QueryFITO: TUniQuery;
-    dsFITO: TDataSource;
-    TabContact: TcxTabSheet;
-    FrameTopPanel1: TFrameTopPanel;
-    dsContact: TDataSource;
-    QueryContact: TUniQuery;
-    GridContact: TcxGrid;
-    cxGridDBTableView2: TcxGridDBTableView;
-    ColumnFIO: TcxGridDBColumn;
-    ColumnPost: TcxGridDBColumn;
-    ColumnPhone: TcxGridDBColumn;
-    cxGridLevel2: TcxGridLevel;
-    mmoAddress: TMemo;
-    edtСкайп: TcxTextEdit;
-    cxLabel6: TcxLabel;
-    procedure FormShow(Sender: TObject);
-    procedure FrameUniName1edtNameKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure FrameUniName1edtUniNameKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    FrameSave1 : TFrameSave;
+    Group1 : TcxGroupBox;
+    QueryPricooling : TUniQuery;
+    dsPricooling : TDataSource;
+    QueryClient : TUniQuery;
+    dsClient : TDataSource;
+    QueryKargo : TUniQuery;
+    dsKargo : TDataSource;
+    QueryTrack : TUniQuery;
+    dsTrack : TDataSource;
+    FrameUniName1 : TFrameUniName;
+    Group2 : TcxGroupBox;
+    label6 : TcxLabel;
+    edtPhone1 : TcxTextEdit;
+    cxLabel5 : TcxLabel;
+    edtFax : TcxTextEdit;
+    lblFax : TcxLabel;
+    Page1 : TcxPageControl;
+    TabOsn : TcxTabSheet;
+    Query1 : TUniQuery;
+    TabLockPlant : TcxTabSheet;
+    FrameTopPanelLock : TFrameTopPanel;
+    QueryLockMark : TUniQuery;
+    dsLockMark : TDataSource;
+    PageLock : TcxPageControl;
+    TabLock : TcxTabSheet;
+    TabGood : TcxTabSheet;
+    GridUsers : TcxGrid;
+    ViewUsers : TcxGridDBTableView;
+    ColumnUniName : TcxGridDBColumn;
+    ColumnName : TcxGridDBColumn;
+    ColumnRegName : TcxGridDBColumn;
+    LevelOrg : TcxGridLevel;
+    QueryGoodMark : TUniQuery;
+    dsGoodMark : TDataSource;
+    cxGrid1 : TcxGrid;
+    cxGridDBTableView1 : TcxGridDBTableView;
+    ColumnUni1 : TcxGridDBColumn;
+    ColumnName1 : TcxGridDBColumn;
+    ColumnReg1 : TcxGridDBColumn;
+    cxGridLevel1 : TcxGridLevel;
+    TabConnect : TcxTabSheet;
+    cxLabel2 : TcxLabel;
+    edtKargo : TcxLookupComboBox;
+    edtTrack : TcxLookupComboBox;
+    cxLabel3 : TcxLabel;
+    edtPreecooling : TcxLookupComboBox;
+    cxLabel4 : TcxLabel;
+    chkAddrClient : TcxCheckBox;
+    cxLabel1 : TcxLabel;
+    edtClient : TcxLookupComboBox;
+    btnClientDetail : TcxButton;
+    lbl1 : TcxLabel;
+    edtFITO : TcxLookupComboBox;
+    QueryFITO : TUniQuery;
+    dsFITO : TDataSource;
+    TabContact : TcxTabSheet;
+    FrameTopPanel1 : TFrameTopPanel;
+    dsContact : TDataSource;
+    QueryContact : TUniQuery;
+    GridContact : TcxGrid;
+    cxGridDBTableView2 : TcxGridDBTableView;
+    ColumnFIO : TcxGridDBColumn;
+    ColumnPost : TcxGridDBColumn;
+    ColumnPhone : TcxGridDBColumn;
+    cxGridLevel2 : TcxGridLevel;
+    mmoAddress : TMemo;
+    edtСкайп : TcxTextEdit;
+    cxLabel6 : TcxLabel;
+    procedure FormShow(Sender : TObject);
+    procedure FrameUniName1edtNameKeyUp(Sender : TObject; var Key : Word;
+                                           Shift : TShiftState);
+    procedure FrameUniName1edtUniNameKeyUp(Sender : TObject; var Key : Word;
+                                              Shift : TShiftState);
     procedure FrameUniName1edtUniNamePropertiesEditValueChanged
-      (Sender: TObject);
-    procedure FrameUniName1edtNamePropertiesEditValueChanged(Sender: TObject);
-    procedure FrameUniName1edtRegNameKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+        (Sender : TObject);
+    procedure FrameUniName1edtNamePropertiesEditValueChanged(Sender : TObject);
+    procedure FrameUniName1edtRegNameKeyUp(Sender : TObject; var Key : Word;
+                                              Shift : TShiftState);
     procedure FrameUniName1edtRegNamePropertiesEditValueChanged
-      (Sender: TObject);
-    procedure btnAdrRegClick(Sender: TObject);
-    procedure edtClientKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure FrameSave1btnSaveClick(Sender: TObject);
-    procedure edtClientPropertiesEditValueChanged(Sender: TObject);
-    procedure edtKargoKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure edtKargoPropertiesEditValueChanged(Sender: TObject);
-    procedure edtPreecoolingKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure edtTrackPropertiesEditValueChanged(Sender: TObject);
-    procedure edtPreecoolingPropertiesEditValueChanged(Sender: TObject);
-    procedure edtTrackKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure mmoAdresKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure QueryLockMarkAfterFetch(DataSet: TCustomDADataSet);
-    procedure btnAddClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure btnClientDetailClick(Sender: TObject);
-    procedure chkAddrClientClick(Sender: TObject);
-    procedure cxGridDBTableView2DblClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure FrameTopPanel1btnAddClick(Sender: TObject);
-    procedure FrameTopPanel1btnDelClick(Sender: TObject);
-    procedure FrameTopPanel1btnEditClick(Sender: TObject);
+        (Sender : TObject);
+    procedure btnAdrRegClick(Sender : TObject);
+    procedure edtClientKeyUp(Sender : TObject; var Key : Word;
+                                Shift : TShiftState);
+    procedure FrameSave1btnSaveClick(Sender : TObject);
+    procedure edtClientPropertiesEditValueChanged(Sender : TObject);
+    procedure edtKargoKeyUp(Sender : TObject; var Key : Word; Shift : TShiftState);
+    procedure edtKargoPropertiesEditValueChanged(Sender : TObject);
+    procedure edtPreecoolingKeyUp(Sender : TObject; var Key : Word;
+                                     Shift : TShiftState);
+    procedure edtTrackPropertiesEditValueChanged(Sender : TObject);
+    procedure edtPreecoolingPropertiesEditValueChanged(Sender : TObject);
+    procedure edtTrackKeyUp(Sender : TObject; var Key : Word; Shift : TShiftState);
+    procedure mmoAdresKeyUp(Sender : TObject; var Key : Word; Shift : TShiftState);
+    procedure QueryLockMarkAfterFetch(DataSet : TCustomDADataSet);
+    procedure btnAddClick(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure btnClientDetailClick(Sender : TObject);
+    procedure chkAddrClientClick(Sender : TObject);
+    procedure cxGridDBTableView2DblClick(Sender : TObject);
+    procedure FormClose(Sender : TObject; var Action : TCloseAction);
+    procedure FrameTopPanel1btnAddClick(Sender : TObject);
+    procedure FrameTopPanel1btnDelClick(Sender : TObject);
+    procedure FrameTopPanel1btnEditClick(Sender : TObject);
   private
     { Private declarations }
   public
     s_id_marking, id_client, id_kargo, id_track, id_pricooling,
-      id_fito: Integer;
-    adr_client: Boolean;
-    o_id_country, o_id_city: Integer;
-    o_name_country, o_name_city: string;
-    s_lock_plant, s_good_plant: string;
-    s_id_contact: Integer;
-    procedure AddLockGood(id_loock: Boolean);
+      id_fito : Integer;
+    adr_client : Boolean;
+    o_id_country, o_id_city : Integer;
+    o_name_country, o_name_city : string;
+    s_lock_plant, s_good_plant : string;
+    s_id_contact : Integer;
+    procedure AddLockGood(id_loock : Boolean);
     procedure EnableSave;
     procedure GetAdres;
-    procedure InsUpdContact(id_ins: Boolean);
+    procedure InsUpdContact(id_ins : Boolean);
     procedure SetLang;
-    procedure ShowContact(id_locate: Integer = 0);
+    procedure ShowContact(id_locate : Integer = 0);
     procedure ShowDict;
     procedure ShowPlantLock;
     procedure ShowPlantGood;
@@ -192,10 +189,8 @@ type
   end;
 
 var
-  FNewMarking: TFNewMarking;
-
+  FNewMarking : TFNewMarking;
 implementation
-
 uses
   PGSQL,
   USelect,
@@ -208,9 +203,9 @@ uses
   UNewContactUni;
 {$R *.dfm}
 
-procedure TFNewMarking.AddLockGood(id_loock: Boolean);
+procedure TFNewMarking.AddLockGood(id_loock : Boolean);
 var
-  s, s1: string;
+  s, s1 : string;
 begin
   Application.CreateForm(TFMultiSelect, FMultiSelect);
   with FMultiSelect do
@@ -286,15 +281,15 @@ begin
           begin
             s_lock_plant := s1;
             sql.Text :=
-              'update "маркировки"."маркировки" set  запрет_плантаций=:p, ' +
-              ' коды_запрет_плантаций=:p1 where id=' + IntToStr(s_id_marking)
+                       'update "маркировки"."маркировки" set  запрет_плантаций=:p, ' +
+                       ' коды_запрет_плантаций=:p1 where id=' + IntToStr(s_id_marking)
           end
           else
           begin
             s_good_plant := s1;
             sql.Text :=
-              'update "маркировки"."маркировки" set желаемые_плантации=:p, ' +
-              ' коды_желаемые_плантации=:p1 where id=' + IntToStr(s_id_marking);
+                       'update "маркировки"."маркировки" set желаемые_плантации=:p, ' +
+                       ' коды_желаемые_плантации=:p1 where id=' + IntToStr(s_id_marking);
           end;
           ParamByName('p').AsString := s;
           ParamByName('p1').AsString := s1;
@@ -305,15 +300,15 @@ begin
           if id_loock = true then
           begin
             sql.Text :=
-              'update "маркировки"."маркировки" set коды_запрет_плантаций=null, запрет_плантаций=null where id='
-              + IntToStr(s_id_marking);
+                       'update "маркировки"."маркировки" set коды_запрет_плантаций=null, запрет_плантаций=null where id='
+                       + IntToStr(s_id_marking);
             s_lock_plant := '';
           end
           else
           begin
             sql.Text :=
-              'update "маркировки"."маркировки" set коды_желаемые_плантации=null, желаемые_плантации=null where id='
-              + IntToStr(s_id_marking);
+                       'update "маркировки"."маркировки" set коды_желаемые_плантации=null, желаемые_плантации=null where id='
+                       + IntToStr(s_id_marking);
             s_good_plant := '';
           end;
           ExecSQL;
@@ -329,16 +324,14 @@ begin
   end;
   // end;
 end;
-
-procedure TFNewMarking.btnAddClick(Sender: TObject);
+procedure TFNewMarking.btnAddClick(Sender : TObject);
 begin
   if PageLock.ActivePageIndex = 0 then
     AddLockGood(true)
   else
     AddLockGood(false);
 end;
-
-procedure TFNewMarking.btnAdrRegClick(Sender: TObject);
+procedure TFNewMarking.btnAdrRegClick(Sender : TObject);
 begin
   // SelectAddress(mmoAdres);
   // o_id_country := PGSQL.id_country;
@@ -346,16 +339,14 @@ begin
   // o_id_city := PGSQL.id_city;
   // o_name_city := PGSQL.name_city;
 end;
-
-procedure TFNewMarking.btnEditClick(Sender: TObject);
+procedure TFNewMarking.btnEditClick(Sender : TObject);
 begin
   if PageLock.ActivePageIndex = 0 then
     AddLockGood(true)
   else
     AddLockGood(false);
 end;
-
-procedure TFNewMarking.btnClientDetailClick(Sender: TObject);
+procedure TFNewMarking.btnClientDetailClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewClient, FNewClient);
   with FNewClient do
@@ -365,10 +356,10 @@ begin
     begin
       Close;
       sql.Text :=
-        'SELECT c.*, s.id id_stat, s.name status, u.id id_manager, u.name user_name, c.скрыт  '
-        + ' FROM "контрагенты"."клиенты" c' +
-        '  INNER JOIN "контрагенты"."статусы" s ON (c."код_статуса_работы" = s.id)  '
-        + ' LEFT OUTER JOIN "пользователи"."пользователи" u ON (c."код_пользователя" = u.id)';
+                 'SELECT c.*, s.id id_stat, s.name status, u.id id_manager, u.name user_name, c.скрыт  '
+                 + ' FROM "контрагенты"."клиенты" c' +
+                 '  INNER JOIN "контрагенты"."статусы" s ON (c."код_статуса_работы" = s.id)  '
+                 + ' LEFT OUTER JOIN "пользователи"."пользователи" u ON (c."код_пользователя" = u.id)';
       sql.Add(' where c.id=' + IntToStr(edtClient.EditValue));
       Open;
       // s_id_type_for_edit := StrToInt(s_id_type);
@@ -405,8 +396,7 @@ begin
     // ShowClients(s_id_client);
   end;
 end;
-
-procedure TFNewMarking.chkAddrClientClick(Sender: TObject);
+procedure TFNewMarking.chkAddrClientClick(Sender : TObject);
 begin
   if chkAddrClient.Checked = false then
   begin
@@ -429,25 +419,22 @@ begin
     edtСкайп.Enabled := true;
   end;
 end;
-
-procedure TFNewMarking.cxGridDBTableView2DblClick(Sender: TObject);
+procedure TFNewMarking.cxGridDBTableView2DblClick(Sender : TObject);
 begin
   FrameTopPanel1btnEditClick(Sender);
 end;
-
-procedure TFNewMarking.edtClientKeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewMarking.edtClientKeyUp(Sender : TObject; var Key : Word;
+                                         Shift : TShiftState);
 begin
   if edtClient.Text = '' then
     id_client := 0;
   EnableSave;
 end;
-
-procedure TFNewMarking.edtClientPropertiesEditValueChanged(Sender: TObject);
+procedure TFNewMarking.edtClientPropertiesEditValueChanged(Sender : TObject);
 begin
   if id_client <> edtClient.EditValue then
     if Application.MessageBox('Использовать адрес клиента?', 'Вопрос',
-      MB_YESNO + MB_ICONQUESTION) = mrYes then
+                               MB_YESNO + MB_ICONQUESTION) = mrYes then
       GetAdres;
   if edtClient.Text <> '' then
     id_client := edtClient.EditValue
@@ -455,16 +442,14 @@ begin
     id_client := 0;
   EnableSave;
 end;
-
-procedure TFNewMarking.edtKargoKeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewMarking.edtKargoKeyUp(Sender : TObject; var Key : Word;
+                                        Shift : TShiftState);
 begin
   if edtKargo.Text = '' then
     id_kargo := 0;
   EnableSave;
 end;
-
-procedure TFNewMarking.edtKargoPropertiesEditValueChanged(Sender: TObject);
+procedure TFNewMarking.edtKargoPropertiesEditValueChanged(Sender : TObject);
 begin
   if edtKargo.Text <> '' then
     id_kargo := edtKargo.EditValue
@@ -472,47 +457,42 @@ begin
     id_kargo := 0;
   EnableSave;
 end;
-
-procedure TFNewMarking.edtPreecoolingKeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewMarking.edtPreecoolingKeyUp(Sender : TObject; var Key : Word;
+                                              Shift : TShiftState);
 begin
   if edtPreecooling.Text = '' then
     id_pricooling := 0;
   EnableSave;
 end;
-
 procedure TFNewMarking.edtPreecoolingPropertiesEditValueChanged
-  (Sender: TObject);
+  (Sender : TObject);
 begin
   if edtPreecooling.Text <> '' then
     id_pricooling := edtPreecooling.EditValue
   else
     id_pricooling := 0;
 end;
-
-procedure TFNewMarking.edtTrackKeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewMarking.edtTrackKeyUp(Sender : TObject; var Key : Word;
+                                        Shift : TShiftState);
 begin
   if edtTrack.Text = '' then
     id_track := 0;
   EnableSave;
 end;
-
-procedure TFNewMarking.edtTrackPropertiesEditValueChanged(Sender: TObject);
+procedure TFNewMarking.edtTrackPropertiesEditValueChanged(Sender : TObject);
 begin
   if edtTrack.Text <> '' then
     id_track := edtTrack.EditValue
   else
     id_track := 0;
 end;
-
 procedure TFNewMarking.EnableSave;
 begin
   with FrameUniName1 do
   begin
     if (edtUniName.Text <> '') and (edtRegName.Text <> '') and
-      (edtName.Text <> '') and (id_kargo <> 0) and (id_client <> 0) and
-      (mmoAddress.Text <> '') then
+    (edtName.Text <> '') and (id_kargo <> 0) and (id_client <> 0) and
+    (mmoAddress.Text <> '') then
     begin
       FrameSave1.btnSave.Enabled := true;
       FrameTopPanelLock.btnAdd.Enabled := true;
@@ -524,13 +504,11 @@ begin
     end;
   end;
 end;
-
-procedure TFNewMarking.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFNewMarking.FormClose(Sender : TObject; var Action : TCloseAction);
 begin
   FSplash.Hide;
 end;
-
-procedure TFNewMarking.FormShow(Sender: TObject);
+procedure TFNewMarking.FormShow(Sender : TObject);
 begin
   // mmoAdres.Enabled := not adr_client;
   edtPhone1.Enabled := not adr_client;
@@ -546,29 +524,24 @@ begin
   SetLang;
   FrameUniName1.edtUniName.SetFocus;
 end;
-
-procedure TFNewMarking.FrameSave1btnSaveClick(Sender: TObject);
+procedure TFNewMarking.FrameSave1btnSaveClick(Sender : TObject);
 begin
   FrameSave1.id_save := true;
   Close;
 end;
-
-procedure TFNewMarking.FrameTopPanel1btnAddClick(Sender: TObject);
+procedure TFNewMarking.FrameTopPanel1btnAddClick(Sender : TObject);
 begin
   if s_id_marking = 0 then
   begin
     case FPasswd.Lang of
-      0:
-        ErrorDialog
-          ('Маркировка еще не сохранена. Добавление контактов не возможно.', '',
+      0 : ErrorDialog
+        ('Маркировка еще не сохранена. Добавление контактов не возможно.', '',
           '');
-      1:
-        ErrorDialog
-          ('Marking isn''t kept yet. Addition of contacts not possibly.', '',
+      1 : ErrorDialog
+        ('Marking isn''t kept yet. Addition of contacts not possibly.', '',
           ' ');
-      2:
-        ErrorDialog
-          ('La marca no es conservada. La adición de los contactos no es posible.',
+      2 : ErrorDialog
+        ('La marca no es conservada. La adición de los contactos no es posible.',
           '', '');
     end;
   end
@@ -587,14 +560,12 @@ begin
     end;
   end;
 end;
-
-procedure TFNewMarking.FrameTopPanel1btnDelClick(Sender: TObject);
+procedure TFNewMarking.FrameTopPanel1btnDelClick(Sender : TObject);
 begin
   PGSQL.StandartDelete(QueryContact.FieldByName('id').AsString,
-    '"маркировки"."контакты"', QueryContact, '', '', '', '');
+                        '"маркировки"."контакты"', QueryContact, '', '', '', '');
 end;
-
-procedure TFNewMarking.FrameTopPanel1btnEditClick(Sender: TObject);
+procedure TFNewMarking.FrameTopPanel1btnEditClick(Sender : TObject);
 begin
   if QueryContact.RecordCount > 0 then
   begin
@@ -619,50 +590,43 @@ begin
     end;
   end;
 end;
-
-procedure TFNewMarking.FrameUniName1edtNameKeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewMarking.FrameUniName1edtNameKeyUp(Sender : TObject; var Key : Word;
+                                                    Shift : TShiftState);
 begin
   EnableSave;
 end;
-
 procedure TFNewMarking.FrameUniName1edtNamePropertiesEditValueChanged
-  (Sender: TObject);
+  (Sender : TObject);
 begin
   EnableSave;
 end;
-
-procedure TFNewMarking.FrameUniName1edtRegNameKeyUp(Sender: TObject;
-  var Key: Word; Shift: TShiftState);
+procedure TFNewMarking.FrameUniName1edtRegNameKeyUp(Sender : TObject;
+                                                       var Key : Word; Shift : TShiftState);
 begin
   EnableSave;
 end;
-
 procedure TFNewMarking.FrameUniName1edtRegNamePropertiesEditValueChanged
-  (Sender: TObject);
+  (Sender : TObject);
 begin
   EnableSave;
 end;
-
-procedure TFNewMarking.FrameUniName1edtUniNameKeyUp(Sender: TObject;
-  var Key: Word; Shift: TShiftState);
+procedure TFNewMarking.FrameUniName1edtUniNameKeyUp(Sender : TObject;
+                                                       var Key : Word; Shift : TShiftState);
 begin
   EnableSave;
 end;
-
 procedure TFNewMarking.FrameUniName1edtUniNamePropertiesEditValueChanged
-  (Sender: TObject);
+  (Sender : TObject);
 begin
   EnableSave;
 end;
-
 procedure TFNewMarking.GetAdres;
 begin
   with Query1 do
   begin
     Close;
     sql.Text := 'SELECT  * FROM  "контрагенты"."клиенты"  where id=' +
-      IntToStr(edtClient.EditValue);
+  IntToStr(edtClient.EditValue);
     Open;
     mmoAddress.Text := FieldByName('адрес').AsString;
     edtPhone1.Text := FieldByName('телефон').AsString;
@@ -670,8 +634,7 @@ begin
     edtСкайп.Text := FieldByName('skype').AsString;
   end;
 end;
-
-procedure TFNewMarking.InsUpdContact(id_ins: Boolean);
+procedure TFNewMarking.InsUpdContact(id_ins : Boolean);
 begin
   with Query1 do
   begin
@@ -680,18 +643,18 @@ begin
     begin
       s_id_contact := PGSQL.NewID('"маркировки"."контакты_id_seq"');
       sql.Text :=
-        'INSERT INTO "маркировки"."контакты" (id, "код_маркировки", name, "тип",'
-        + '"телефон1", "телефон2", "телефон3", "почта", "скайп", "месенджер"' +
-        ')VALUES (:id, :код_маркировки, :name, :тип, :телефон1, :телефон2, :телефон3,'
-        + ':почта, :скайп, :месенджер)';
+                 'INSERT INTO "маркировки"."контакты" (id, "код_маркировки", name, "тип",'
+                 + '"телефон1", "телефон2", "телефон3", "почта", "скайп", "месенджер"' +
+                 ')VALUES (:id, :код_маркировки, :name, :тип, :телефон1, :телефон2, :телефон3,'
+                 + ':почта, :скайп, :месенджер)';
     end
     else
     begin
       sql.Text :=
-        'UPDATE "маркировки"."контакты" SET "код_маркировки" = :код_маркировки,'
-        + 'name = :name, "тип" = :тип, "телефон1" = :телефон1, "телефон2" = :телефон2,'
-        + '"телефон3" = :телефон3, "почта" = :почта, "скайп" = :скайп,' +
-        '"месенджер" = :месенджер WHERE id = :id';
+                 'UPDATE "маркировки"."контакты" SET "код_маркировки" = :код_маркировки,'
+                 + 'name = :name, "тип" = :тип, "телефон1" = :телефон1, "телефон2" = :телефон2,'
+                 + '"телефон3" = :телефон3, "почта" = :почта, "скайп" = :скайп,' +
+                 '"месенджер" = :месенджер WHERE id = :id';
     end;
     ParamByName('id').AsInteger := s_id_contact;
     ParamByName('код_маркировки').AsInteger := s_id_marking;
@@ -706,48 +669,43 @@ begin
     ExecSQL;
   end;
 end;
-
-procedure TFNewMarking.mmoAdresKeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewMarking.mmoAdresKeyUp(Sender : TObject; var Key : Word;
+                                        Shift : TShiftState);
 begin
   btnAdrRegClick(Sender);
 end;
-
-procedure TFNewMarking.QueryLockMarkAfterFetch(DataSet: TCustomDADataSet);
+procedure TFNewMarking.QueryLockMarkAfterFetch(DataSet : TCustomDADataSet);
 begin
   FSplash.Close;
 end;
-
 procedure TFNewMarking.SetLang;
 begin
   ULang.TranslateGridCaption(ColumnUniName, ColumnRegName, ColumnName);
   ULang.TranslateGridCaption(ColumnUni1, ColumnReg1, ColumnName1);
   FrameTopPanelLock.SetLang;
   case FPasswd.Lang of
-    0:
-      begin
-      end;
-    1:
-      begin
-      end;
-    2:
-      begin
-      end;
+    0 :
+    begin
+    end;
+    1 :
+    begin
+    end;
+    2 :
+    begin
+    end;
   end;
 end;
-
-procedure TFNewMarking.ShowContact(id_locate: Integer = 0);
+procedure TFNewMarking.ShowContact(id_locate : Integer = 0);
 begin
   with QueryContact do
   begin
     Close;
     sql.Text := 'select * from "маркировки"."контакты" where код_маркировки=' +
-      IntToStr(s_id_marking);
+  IntToStr(s_id_marking);
     Open;
     Locate('id', id_locate, []);
   end;
 end;
-
 procedure TFNewMarking.ShowDict;
 begin
   QueryPricooling.Close;
@@ -768,7 +726,6 @@ begin
   ShowContact();
   GetAdres;
 end;
-
 procedure TFNewMarking.ShowPlantLock;
 begin
   with QueryLockMark do
@@ -778,12 +735,11 @@ begin
     if s_lock_plant <> '' then
     begin
       sql.Text := 'SELECT  pl.name,  pl.uni_name,  pl.reg_name FROM' +
-        '  "продукция"."плантации" pl  where id IN (' + s_lock_plant + ')';
+    '  "продукция"."плантации" pl  where id IN (' + s_lock_plant + ')';
       Open;
     end;
   end;
 end;
-
 procedure TFNewMarking.ShowPlantGood;
 begin
   with QueryGoodMark do
@@ -793,10 +749,9 @@ begin
     begin
       // ParamByName('id').AsInteger := s_id_marking;
       sql.Text := 'SELECT  pl.name,  pl.uni_name,  pl.reg_name FROM' +
-        '  "продукция"."плантации" pl  where id IN (' + s_good_plant + ')';
+    '  "продукция"."плантации" pl  where id IN (' + s_good_plant + ')';
       Open;
     end;
   end;
 end;
-
 end.

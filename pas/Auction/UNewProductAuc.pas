@@ -1,47 +1,41 @@
 unit UNewProductAuc;
-
 interface
-
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ComObj, Data.DB, MemDS, DBAccess, Uni,
   Vcl.Grids, UFrameTopPanel, dxBar;
-
 type
   TfNewProductAuc = class(TForm)
-    FrameTopPanel1: TFrameTopPanel;
-    GridOrder: TStringGrid;
-    Query1: TUniQuery;
-    dsAuc: TDataSource;
-    dlgOpen1: TOpenDialog;
-    Query2: TUniQuery;
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
-    procedure FrameTopPanel1btnAddClick(Sender: TObject);
-    procedure FrameTopPanel1btnSelClick(Sender: TObject);
+    FrameTopPanel1 : TFrameTopPanel;
+    GridOrder : TStringGrid;
+    Query1 : TUniQuery;
+    dsAuc : TDataSource;
+    dlgOpen1 : TOpenDialog;
+    Query2 : TUniQuery;
+    procedure FormClose(Sender : TObject; var Action : TCloseAction);
+    procedure FormCloseQuery(Sender : TObject; var CanClose : Boolean);
+    procedure FrameTopPanel1btnAddClick(Sender : TObject);
+    procedure FrameTopPanel1btnSelClick(Sender : TObject);
   private
-    Excel: Variant;
+    Excel : Variant;
     { Private declarations }
   public
-    function DetectExist(s_cel: integer): Boolean;
-    function DetectStruct(s_name, s_country: string): integer;
-    function InsertPlant(s_name: string; s_id_country: integer): integer;
+    function DetectExist(s_cel : integer) : Boolean;
+    function DetectStruct(s_name, s_country : string) : integer;
+    function InsertPlant(s_name : string; s_id_country : integer) : integer;
     { Public declarations }
   end;
 
 var
-  fNewProductAuc: TfNewProductAuc;
-
+  fNewProductAuc : TfNewProductAuc;
 implementation
-
 {$R *.dfm}
 
 uses USplash, UDataModule1, PGSQL, UFCountry;
-
-function TfNewProductAuc.DetectExist(s_cel: integer): Boolean;
+function TfNewProductAuc.DetectExist(s_cel : integer) : Boolean;
 var
-  s: string;
+  s : string;
 begin
   with Query2 do
   begin
@@ -49,55 +43,55 @@ begin
     s := s + 'select id from "аукцион"."Номенклатура" where ';
     if Trim(GridOrder.Cells[0, s_cel]) <> '' then
       s := s + ' КодПоставщика= ' +
-        QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[0, s_cel])))
+    QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[0, s_cel])))
     else
       s := s + ' and КодПоставщика is null';
     //
     if Trim(GridOrder.Cells[4, s_cel]) <> '' then
       s := s + ' and upper(ЧАСЫ)= ' +
-        QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[4, s_cel])))
+    QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[4, s_cel])))
     else
       s := s + ' and ЧАСЫ is null';
     //
     if Trim(GridOrder.Cells[7, s_cel]) <> '' then
       s := s + ' and upper(КОД_ТАРЫ)= ' +
-        QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[7, s_cel])))
+    QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[7, s_cel])))
     else
       s := s + ' and КОД_ТАРЫ is null';
     //
     if GridOrder.Cells[8, s_cel] <> '' then
       s := s + ' and "S1"= ' +
-        QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[8, s_cel])))
+    QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[8, s_cel])))
     else
       s := s + ' and "S1" is null';
     //
     if GridOrder.Cells[9, s_cel] <> '' then
       s := s + ' and "S2"= ' +
-        QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[9, s_cel])))
+    QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[9, s_cel])))
     else
       s := s + ' and "S2" is null';
     //
     if GridOrder.Cells[10, s_cel] <> '' then
       s := s + ' and "S3"= ' +
-        QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[10, s_cel])))
+    QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[10, s_cel])))
     else
       s := s + ' and "S3" is null';
     //
     if GridOrder.Cells[11, s_cel] <> '' then
       s := s + ' and "S4"= ' +
-        QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[11, s_cel])))
+    QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[11, s_cel])))
     else
       s := s + ' and "S4" is null';
     //
     if GridOrder.Cells[13, s_cel] <> '' then
       s := s + ' and КодСтраны= ' +
-        QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[13, s_cel])))
+    QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[13, s_cel])))
     else
       s := s + ' and КодСтраны is null';
     //
     if GridOrder.Cells[14, s_cel] <> '' then
       s := s + ' and КачествоТовара= ' +
-        QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[14, s_cel])))
+    QuotedStr(Trim(AnsiUpperCase(GridOrder.Cells[14, s_cel])))
     else
       s := s + ' and КачествоТовара is null';
     // if GridOrder.Cells[3, s_cel] <> '' then
@@ -152,17 +146,16 @@ begin
       Result := False;
   end;
 end;
-
-function TfNewProductAuc.DetectStruct(s_name, s_country: string): integer;
+function TfNewProductAuc.DetectStruct(s_name, s_country : string) : integer;
 var
-  idCountry, idPlant: integer;
-  s: string;
+  idCountry, idPlant : integer;
+  s : string;
 begin
   with Query2 do
   begin
     Close;
     sql.Text :=
-      'select id, код_страны   from "продукция"."плантации" sv where upper(sv.uni_name)=:n';
+               'select id, код_страны   from "продукция"."плантации" sv where upper(sv.uni_name)=:n';
     ParamByName('n').AsString := Trim(AnsiUpperCase(s_name));
     Open;
     if Fields[0].AsString = '' then
@@ -170,7 +163,7 @@ begin
       // определяем страну
       Close;
       sql.Text :=
-        'select id, name from "продукция"."страны" where upper(code)=:c';
+                 'select id, name from "продукция"."страны" where upper(code)=:c';
       ParamByName('c').AsString := Trim(AnsiUpperCase(s_country));
       Open;
       if Fields[0].AsString <> '' then
@@ -206,14 +199,12 @@ begin
       Result := Fields[0].AsInteger;
   end;
 end;
-
-procedure TfNewProductAuc.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TfNewProductAuc.FormClose(Sender : TObject; var Action : TCloseAction);
 begin
   FSplash.Hide;
 end;
-
-procedure TfNewProductAuc.FormCloseQuery(Sender: TObject;
-  var CanClose: Boolean);
+procedure TfNewProductAuc.FormCloseQuery(Sender : TObject;
+                                            var CanClose : Boolean);
 begin
   try
     Excel.Quit;
@@ -222,12 +213,11 @@ begin
   CanClose := True;
   Excel := Unassigned;
 end;
-
-procedure TfNewProductAuc.FrameTopPanel1btnAddClick(Sender: TObject);
+procedure TfNewProductAuc.FrameTopPanel1btnAddClick(Sender : TObject);
 var
-  Rows, Cols, i, j: integer;
-  WorkSheet: OLEVariant;
-  FData: OLEVariant;
+  Rows, Cols, i, j : integer;
+  WorkSheet : OLEVariant;
+  FData : OLEVariant;
 begin
   if dlgOpen1.Execute then
   begin
@@ -255,12 +245,11 @@ begin
     // GridOrder.ColWidths[1] := 255;
   end;
 end;
-
-procedure TfNewProductAuc.FrameTopPanel1btnSelClick(Sender: TObject);
+procedure TfNewProductAuc.FrameTopPanel1btnSelClick(Sender : TObject);
 var
-  i: integer;
-  s: string;
-  n: integer;
+  i : integer;
+  s : string;
+  n : integer;
 begin
   with Query1 do
   begin
@@ -320,7 +309,7 @@ begin
           if n <> 0 then
           begin
             ParamByName('код_плантации').AsInteger :=
-              DetectStruct(Cells[1, i], Cells[13, i]);
+                                                     DetectStruct(Cells[1, i], Cells[13, i]);
             // sql.Add('(');
             // sql.Add(Cells[0, i] + ',' + QuotedStr(Cells[1, i]) + ',' +
             // QuotedStr(Cells[2, i]) + ',' + QuotedStr(Cells[3, i]) + ',' +
@@ -400,15 +389,15 @@ begin
               ExecSQL;
             except
               ShowMessage(Cells[0, i] + ',' + QuotedStr(Cells[1, i]) + ',' +
-                QuotedStr(Cells[2, i]) + ',' + QuotedStr(Cells[3, i]) + ',' +
-                QuotedStr(Cells[4, i]) + ',' + QuotedStr(Cells[5, i]) + ',' +
-                QuotedStr(Cells[6, i]) + ',' + QuotedStr(Cells[7, i]) + ',' +
-                QuotedStr(Cells[8, i]) + ',' + QuotedStr(Cells[9, i]) + ',' +
-                QuotedStr(Cells[10, i]) + ',' + QuotedStr(Cells[11, i]) + ',' +
-                QuotedStr(Cells[12, i]) + ',' + QuotedStr(Cells[13, i]) + ',' +
-                QuotedStr(Cells[14, i]) + ',' + QuotedStr(Cells[15, i]));
+              QuotedStr(Cells[2, i]) + ',' + QuotedStr(Cells[3, i]) + ',' +
+              QuotedStr(Cells[4, i]) + ',' + QuotedStr(Cells[5, i]) + ',' +
+              QuotedStr(Cells[6, i]) + ',' + QuotedStr(Cells[7, i]) + ',' +
+              QuotedStr(Cells[8, i]) + ',' + QuotedStr(Cells[9, i]) + ',' +
+              QuotedStr(Cells[10, i]) + ',' + QuotedStr(Cells[11, i]) + ',' +
+              QuotedStr(Cells[12, i]) + ',' + QuotedStr(Cells[13, i]) + ',' +
+              QuotedStr(Cells[14, i]) + ',' + QuotedStr(Cells[15, i]));
               Application.MessageBox('Ошибка импорта', 'Сообщение',
-                MB_OK + MB_ICONERROR);
+                                      MB_OK + MB_ICONERROR);
               FSplash.Hide;
             end;
           end
@@ -416,29 +405,28 @@ begin
             Abort;
         end;
         FSplash.lblComment.Caption := 'Обработано записей: ' + IntToStr(i) +
-          ' из ' + IntToStr(RowCount);
+      ' из ' + IntToStr(RowCount);
       end;
     // sql.Text := Copy(sql.Text, 0, length(sql.Text) - 3);
     // ShowMessage(sql.Text);
     FSplash.Hide;
     Application.MessageBox('Импорт завершен', 'Сообщение',
-      MB_OK + MB_ICONINFORMATION);
+                            MB_OK + MB_ICONINFORMATION);
     fNewProductAuc.Close;
   end;
 end;
-
-function TfNewProductAuc.InsertPlant(s_name: string;
-  s_id_country: integer): integer;
+function TfNewProductAuc.InsertPlant(s_name : string;
+                                        s_id_country : integer) : integer;
 var
-  idPlant: integer;
+  idPlant : integer;
 begin
   with Query2 do
   begin
     idPlant := PGSQL.NewID('продукция.плантации_id_seq');
     Close;
     sql.Text :=
-      'insert into "продукция"."плантации" (id, name, brand, код_страны, uni_name, reg_name)'
-      + ' values (:id, :name, :brand, :код_страны, :uni_name, :reg_name)';
+               'insert into "продукция"."плантации" (id, name, brand, код_страны, uni_name, reg_name)'
+               + ' values (:id, :name, :brand, :код_страны, :uni_name, :reg_name)';
     ParamByName('id').AsInteger := idPlant;
     ParamByName('name').AsString := AnsiUpperCase(s_name);
     ParamByName('brand').AsString := AnsiUpperCase(s_name);
@@ -449,5 +437,4 @@ begin
     Result := idPlant;
   end;
 end;
-
 end.

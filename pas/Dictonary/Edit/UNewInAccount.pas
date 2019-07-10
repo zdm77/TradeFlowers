@@ -1,7 +1,5 @@
 unit UNewInAccount;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -19,7 +17,7 @@ uses
   cxContainer,
   cxEdit,
   dxSkinsCore,
-
+  
   UFrameSave,
   cxMaskEdit,
   cxButtonEdit,
@@ -27,62 +25,56 @@ uses
   cxTextEdit,
   cxLabel,
   cxGroupBox,
-
+  
   dxSkinDevExpressStyle,
-
-   dxSkinsDefaultPainters;
-
+  
+  dxSkinsDefaultPainters;
 type
   TFNewInAccount = class(TForm)
-    cxGroupBox1: TcxGroupBox;
-    lblName: TcxLabel;
-    cxLabel1: TcxLabel;
-    edtSWIFT: TcxTextEdit;
-    mmoAddress: TcxMemo;
-    lblAddr: TcxLabel;
-    edtName: TcxButtonEdit;
-    FrameSave1: TFrameSave;
-    edtAccount: TcxTextEdit;
-    lblNumber: TcxLabel;
-    procedure edtAccountKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure FrameSave1btnSaveClick(Sender: TObject);
-    procedure edtNamePropertiesEditValueChanged(Sender: TObject);
-    procedure edtAccountPropertiesEditValueChanged(Sender: TObject);
-    procedure FormShow(Sender: TObject);
-    procedure edtNamePropertiesButtonClick(Sender: TObject;
-      AButtonIndex: Integer);
+    cxGroupBox1 : TcxGroupBox;
+    lblName : TcxLabel;
+    cxLabel1 : TcxLabel;
+    edtSWIFT : TcxTextEdit;
+    mmoAddress : TcxMemo;
+    lblAddr : TcxLabel;
+    edtName : TcxButtonEdit;
+    FrameSave1 : TFrameSave;
+    edtAccount : TcxTextEdit;
+    lblNumber : TcxLabel;
+    procedure edtAccountKeyUp(Sender : TObject; var Key : Word;
+                                 Shift : TShiftState);
+    procedure FrameSave1btnSaveClick(Sender : TObject);
+    procedure edtNamePropertiesEditValueChanged(Sender : TObject);
+    procedure edtAccountPropertiesEditValueChanged(Sender : TObject);
+    procedure FormShow(Sender : TObject);
+    procedure edtNamePropertiesButtonClick(Sender : TObject;
+                                              AButtonIndex : Integer);
   private
     { Private declarations }
   public
-    o_id_bank: Integer;
+    o_id_bank : Integer;
     procedure EnableSave;
     { Public declarations }
   end;
 
 var
-  FNewInAccount: TFNewInAccount;
-
+  FNewInAccount : TFNewInAccount;
 implementation
-
 {$R *.dfm}
 
 uses
   USelectInBank;
-
-procedure TFNewInAccount.edtAccountKeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewInAccount.edtAccountKeyUp(Sender : TObject; var Key : Word;
+                                            Shift : TShiftState);
 begin
   EnableSave;
 end;
-
-procedure TFNewInAccount.edtAccountPropertiesEditValueChanged(Sender: TObject);
+procedure TFNewInAccount.edtAccountPropertiesEditValueChanged(Sender : TObject);
 begin
   EnableSave;
 end;
-
-procedure TFNewInAccount.edtNamePropertiesButtonClick(Sender: TObject;
-  AButtonIndex: Integer);
+procedure TFNewInAccount.edtNamePropertiesButtonClick(Sender : TObject;
+                                                         AButtonIndex : Integer);
 begin
   Application.CreateForm(TFSelectInBank, FSelectInBank);
   with FSelectInBank do
@@ -95,17 +87,15 @@ begin
       o_id_bank := FrameBankInter1.QueryBanks.FieldByName('id').AsInteger;
       edtSWIFT.Text := FrameBankInter1.QueryBanks.FieldByName('swift').AsString;
       mmoAddress.Text := FrameBankInter1.QueryBanks.FieldByName
-        ('адрес').AsString;
+      ('адрес').AsString;
       edtAccount.SetFocus;
     end;
   end;
 end;
-
-procedure TFNewInAccount.edtNamePropertiesEditValueChanged(Sender: TObject);
+procedure TFNewInAccount.edtNamePropertiesEditValueChanged(Sender : TObject);
 begin
   EnableSave;
 end;
-
 procedure TFNewInAccount.EnableSave;
 begin
   if (edtName.Text <> '') and (edtAccount.Text <> '') then
@@ -113,18 +103,15 @@ begin
   else
     FrameSave1.btnSave.Enabled := false;
 end;
-
-procedure TFNewInAccount.FormShow(Sender: TObject);
+procedure TFNewInAccount.FormShow(Sender : TObject);
 begin
   EnableSave;
   if edtName.Text <> '' then
     edtAccount.SetFocus;
 end;
-
-procedure TFNewInAccount.FrameSave1btnSaveClick(Sender: TObject);
+procedure TFNewInAccount.FrameSave1btnSaveClick(Sender : TObject);
 begin
   FrameSave1.id_save := true;
   CLose;
 end;
-
 end.

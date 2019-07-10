@@ -1,7 +1,5 @@
 unit UBackUp;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -42,32 +40,24 @@ uses
   cxGridLevel,
   cxClasses,
   cxGridCustomView,
-  cxGrid,     
-    
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue;
-
+  cxGrid,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue;
 type
   TBackUp = class(TForm)
-    dump1: TUniDump;
-    cxGrid1DBTableView1: TcxGridDBTableView;
-    cxGrid1Level1: TcxGridLevel;
-    cxGrid1: TcxGrid;
-    QueryBalance: TUniQuery;
-    dsBalance: TDataSource;
-    cxGrid1DBTableView1name: TcxGridDBColumn;
-    cxGrid1DBTableView1q: TcxGridDBColumn;
-    MaskEdit1: TMaskEdit;
-    procedure dump1BackupProgress(Sender: TObject; ObjectName: string;
-      ObjectNum, ObjectCount, Percent: Integer);
+    dump1 : TUniDump;
+    cxGrid1DBTableView1 : TcxGridDBTableView;
+    cxGrid1Level1 : TcxGridLevel;
+    cxGrid1 : TcxGrid;
+    QueryBalance : TUniQuery;
+    dsBalance : TDataSource;
+    cxGrid1DBTableView1name : TcxGridDBColumn;
+    cxGrid1DBTableView1q : TcxGridDBColumn;
+    MaskEdit1 : TMaskEdit;
+    procedure dump1BackupProgress(Sender : TObject; ObjectName : string;
+                                     ObjectNum, ObjectCount, Percent : Integer);
   private
     { Private declarations }
   public
@@ -75,20 +65,16 @@ type
   end;
 
 var
-  BackUp: TBackUp;
-
+  BackUp : TBackUp;
 implementation
-
 {$R *.dfm}
 
 uses
   UDataModule1;
-
-procedure TBackUp.dump1BackupProgress(Sender: TObject; ObjectName: string;
-  ObjectNum, ObjectCount, Percent: Integer);
+procedure TBackUp.dump1BackupProgress(Sender : TObject; ObjectName : string;
+                                         ObjectNum, ObjectCount, Percent : Integer);
 begin
   Caption := ObjectName + ' [' + IntToStr(Percent) + ' %]';
   Application.ProcessMessages;
 end;
-
 end.

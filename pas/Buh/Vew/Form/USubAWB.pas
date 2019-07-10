@@ -1,7 +1,5 @@
 ﻿unit USubAWB;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -60,96 +58,86 @@ uses
   sCustomComboEdit,
   sCurrEdit,
   Vcl.Menus,
-  cxButtons,    
-     
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
-
+  cxButtons,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
 type
   TFSubAWB = class(TForm)
-    Group1: TcxGroupBox;
-    lblМарикровка: TLabel;
-    edtMarking: TcxButtonEdit;
-    lblВес: TLabel;
-    Label2: TLabel;
-    FrameTopPanel1: TFrameTopPanel;
-    QuerySubAWB: TUniQuery;
-    dsSubAWB: TDataSource;
-    QuerySubAWB1: TUniQuery;
-    GridSubAWB: TcxGrid;
-    LevelOrg: TcxGridLevel;
-    GridSubAWBDBBandedTableView1: TcxGridDBBandedTableView;
-    ColumnFB: TcxGridDBBandedColumn;
-    ColumnBOX: TcxGridDBBandedColumn;
-    ColumnLДата: TcxGridDBBandedColumn;
-    ColumnНомер: TcxGridDBBandedColumn;
-    ColumnСумма: TcxGridDBBandedColumn;
-    GridSubAWBDBBandedTableView1_5: TcxGridDBBandedColumn;
-    GridSubAWBDBBandedTableView1_6: TcxGridDBBandedColumn;
-    ColumnПлантация: TcxGridDBBandedColumn;
-    ColumnFBфакт: TcxGridDBBandedColumn;
-    ColumnBOXфакт: TcxGridDBBandedColumn;
-    QueryTrack: TUniQuery;
-    dsTrack: TDataSource;
-    edtTrack: TcxLookupComboBox;
-    lblТрак: TLabel;
-    Query1: TUniQuery;
-    edtWeight: TsCalcEdit;
-    edtStoim: TsCalcEdit;
-    btnCalc: TcxButton;
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure edtMarkingPropertiesButtonClick(Sender: TObject;
-      AButtonIndex: Integer);
-    procedure btnAddClick(Sender: TObject);
-    procedure FormShow(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure ViewSubAWBDblClick(Sender: TObject);
-    procedure btnRefreshClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
-    procedure GridSubAWBDBBandedTableView1DblClick(Sender: TObject);
-    procedure btnFilterClick(Sender: TObject);
-    procedure btnExportClick(Sender: TObject);
-    procedure btnRazdelClick(Sender: TObject);
-    procedure btnSaveClick(Sender: TObject);
-    procedure edtWeightChange(Sender: TObject);
-    procedure edtTrackPropertiesChange(Sender: TObject);
-    procedure btnCalcClick(Sender: TObject);
+    Group1 : TcxGroupBox;
+    lblМарикровка : TLabel;
+    edtMarking : TcxButtonEdit;
+    lblВес : TLabel;
+    Label2 : TLabel;
+    FrameTopPanel1 : TFrameTopPanel;
+    QuerySubAWB : TUniQuery;
+    dsSubAWB : TDataSource;
+    QuerySubAWB1 : TUniQuery;
+    GridSubAWB : TcxGrid;
+    LevelOrg : TcxGridLevel;
+    GridSubAWBDBBandedTableView1 : TcxGridDBBandedTableView;
+    ColumnFB : TcxGridDBBandedColumn;
+    ColumnBOX : TcxGridDBBandedColumn;
+    ColumnLДата : TcxGridDBBandedColumn;
+    ColumnНомер : TcxGridDBBandedColumn;
+    ColumnСумма : TcxGridDBBandedColumn;
+    GridSubAWBDBBandedTableView1_5 : TcxGridDBBandedColumn;
+    GridSubAWBDBBandedTableView1_6 : TcxGridDBBandedColumn;
+    ColumnПлантация : TcxGridDBBandedColumn;
+    ColumnFBфакт : TcxGridDBBandedColumn;
+    ColumnBOXфакт : TcxGridDBBandedColumn;
+    QueryTrack : TUniQuery;
+    dsTrack : TDataSource;
+    edtTrack : TcxLookupComboBox;
+    lblТрак : TLabel;
+    Query1 : TUniQuery;
+    edtWeight : TsCalcEdit;
+    edtStoim : TsCalcEdit;
+    btnCalc : TcxButton;
+    procedure FormClose(Sender : TObject; var Action : TCloseAction);
+    procedure edtMarkingPropertiesButtonClick(Sender : TObject;
+                                                 AButtonIndex : Integer);
+    procedure btnAddClick(Sender : TObject);
+    procedure FormShow(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure ViewSubAWBDblClick(Sender : TObject);
+    procedure btnRefreshClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
+    procedure GridSubAWBDBBandedTableView1DblClick(Sender : TObject);
+    procedure btnFilterClick(Sender : TObject);
+    procedure btnExportClick(Sender : TObject);
+    procedure btnRazdelClick(Sender : TObject);
+    procedure btnSaveClick(Sender : TObject);
+    procedure edtWeightChange(Sender : TObject);
+    procedure edtTrackPropertiesChange(Sender : TObject);
+    procedure btnCalcClick(Sender : TObject);
   private
     { Private declarations }
   public
-    s_id_awb_for_sub: Integer;
-    s_id_SubAWB: Integer;
-    s_id_marking: Integer;
-    IDSave: Boolean;
-    s_id_airLine: Integer;
-    s_id_Kargo_SUB: Integer;
-    СтоимостьАвиалинии: Double;
-    s_Вес: Double;
-    Detect_Change_Weight: Boolean;
+    s_id_awb_for_sub : Integer;
+    s_id_SubAWB : Integer;
+    s_id_marking : Integer;
+    IDSave : Boolean;
+    s_id_airLine : Integer;
+    s_id_Kargo_SUB : Integer;
+    СтоимостьАвиалинии : Double;
+    s_Вес : Double;
+    Detect_Change_Weight : Boolean;
     procedure Access;
     procedure EnableAdd;
-    procedure InsUpdSubAWB(id_ins: Boolean);
-    procedure InsUpdDetail(id_ins: Boolean; FB: Double = 0; BOX: Integer = 0);
+    procedure InsUpdSubAWB(id_ins : Boolean);
+    procedure InsUpdDetail(id_ins : Boolean; FB : Double = 0; BOX : Integer = 0);
     procedure SetLang;
-    procedure ShowSubAWB(id_locate: Integer = 0);
-    procedure ShowTrack(id_locate: Integer = 0);
+    procedure ShowSubAWB(id_locate : Integer = 0);
+    procedure ShowTrack(id_locate : Integer = 0);
     procedure РасчетСтоимости;
     { Public declarations }
   end;
 
 var
-  FSubAWB: TFSubAWB;
-
+  FSubAWB : TFSubAWB;
 implementation
-
 {$R *.dfm}
 
 uses
@@ -158,7 +146,6 @@ uses
   PGSQL,
   UNewSubAWBDetail,
   UFEditFact;
-
 procedure TFSubAWB.Access;
 begin
   if (FPasswd.ID_ROLE <> 1) then
@@ -168,15 +155,14 @@ begin
       { доступ }
       Close;
       sql.Text := 'select * from "пользователи"."доступ"  where код_роли=' +
-        IntToStr(FPasswd.ID_ROLE);
+    IntToStr(FPasswd.ID_ROLE);
       Open;
       FrameTopPanel1.btnFilter.Enabled :=
-        FieldByName('бух_баланс_плантаций_просмотр').AsBoolean;
+                                         FieldByName('бух_баланс_плантаций_просмотр').AsBoolean;
     end;
   end;
 end;
-
-procedure TFSubAWB.btnAddClick(Sender: TObject);
+procedure TFSubAWB.btnAddClick(Sender : TObject);
 begin
   if s_id_SubAWB <> 0 then
   begin
@@ -195,20 +181,17 @@ begin
     EnableAdd;
   end;
 end;
-
-procedure TFSubAWB.btnCalcClick(Sender: TObject);
+procedure TFSubAWB.btnCalcClick(Sender : TObject);
 begin
   РасчетСтоимости;
 end;
-
-procedure TFSubAWB.btnDelClick(Sender: TObject);
+procedure TFSubAWB.btnDelClick(Sender : TObject);
 begin
   PGSQL.StandartDelete(QuerySubAWB.FieldByName('id').AsString,
-    '"бух"."sub_awb_detail"', QuerySubAWB, '', '', '', '');
+                        '"бух"."sub_awb_detail"', QuerySubAWB, '', '', '', '');
   InsUpdSubAWB(FALSE);
 end;
-
-procedure TFSubAWB.btnEditClick(Sender: TObject);
+procedure TFSubAWB.btnEditClick(Sender : TObject);
 begin
   if QuerySubAWB.Fields[0].AsString <> '' then
   begin
@@ -228,16 +211,14 @@ begin
     end;
   end;
 end;
-
-procedure TFSubAWB.btnExportClick(Sender: TObject);
+procedure TFSubAWB.btnExportClick(Sender : TObject);
 begin
   ExportGridToExcel(FPasswd.GetVar('TEMP') + '\subAWB', GridSubAWB, true, true,
-    true, 'xls');
+                     true, 'xls');
   ShellExecute(Handle, nil, PChar(FPasswd.GetVar('TEMP') + '\subAWB.xls'), nil,
-    nil, SW_RESTORE);
+                nil, SW_RESTORE);
 end;
-
-procedure TFSubAWB.btnFilterClick(Sender: TObject);
+procedure TFSubAWB.btnFilterClick(Sender : TObject);
 begin
   with Query1 do
   begin
@@ -266,10 +247,9 @@ begin
     end;
   end;
 end;
-
-procedure TFSubAWB.btnRazdelClick(Sender: TObject);
+procedure TFSubAWB.btnRazdelClick(Sender : TObject);
 var
-  FB, BOX: string;
+  FB, BOX : string;
 begin
   if QuerySubAWB.Fields[0].AsString <> '' then
   begin
@@ -292,14 +272,14 @@ begin
           begin
             Application.MessageBox
               ('Разделяемое значение FB должно быть меньше исходного. Разделение не возможно.',
-              'Ошибка', MB_OK + MB_ICONERROR);
+                'Ошибка', MB_OK + MB_ICONERROR);
             Abort;
           end;
           if StrToFloat(edtBox.Text) > StrToFloat(BOX) then
           begin
             Application.MessageBox
               ('Разделяемое значение количества коробок должно быть меньше исходного. Разделение не возможно.',
-              'Ошибка', MB_OK + MB_ICONERROR);
+                'Ошибка', MB_OK + MB_ICONERROR);
             Abort;
           end;
           // сначала добавляем
@@ -307,23 +287,21 @@ begin
           // обновляем предыдущий
           QuerySubAWB.Prior;
           InsUpdDetail(FALSE, StrToFloat(FB) - StrToFloat(edtFB.Text),
-            StrToInt(BOX) - StrToInt(edtBox.Text));
+                        StrToInt(BOX) - StrToInt(edtBox.Text));
         end
         else
           Application.MessageBox
             ('Данные о количестве FB и коробок должны отличаться от исходных. Разделение не возможно.',
-            'Ошибка', MB_OK + MB_ICONERROR);
+              'Ошибка', MB_OK + MB_ICONERROR);
       end;
     end;
   end;
 end;
-
-procedure TFSubAWB.btnRefreshClick(Sender: TObject);
+procedure TFSubAWB.btnRefreshClick(Sender : TObject);
 begin
   ShowSubAWB(QuerySubAWB.FieldByName('id').AsInteger);
 end;
-
-procedure TFSubAWB.btnSaveClick(Sender: TObject);
+procedure TFSubAWB.btnSaveClick(Sender : TObject);
 begin
   IDSave := true;
   if s_id_SubAWB = 0 then
@@ -332,9 +310,8 @@ begin
     InsUpdSubAWB(FALSE);
   EnableAdd;
 end;
-
-procedure TFSubAWB.edtMarkingPropertiesButtonClick(Sender: TObject;
-  AButtonIndex: Integer);
+procedure TFSubAWB.edtMarkingPropertiesButtonClick(Sender : TObject;
+                                                      AButtonIndex : Integer);
 begin
   Application.CreateForm(TFSelect, FSelect);
   with FSelect do
@@ -353,36 +330,30 @@ begin
       // else
       // InsUpdSubAWB(false);
       case FPasswd.Lang of
-        0:
-          edtMarking.Text := QuerySelect.FieldByName('name').AsString;
-        1:
-          edtMarking.Text := QuerySelect.FieldByName('uni_name').AsString;
-        2:
-          edtMarking.Text := QuerySelect.FieldByName('reg_name').AsString;
+        0 : edtMarking.Text := QuerySelect.FieldByName('name').AsString;
+        1 : edtMarking.Text := QuerySelect.FieldByName('uni_name').AsString;
+        2 : edtMarking.Text := QuerySelect.FieldByName('reg_name').AsString;
       end;
     end;
   end;
 end;
-
-procedure TFSubAWB.edtTrackPropertiesChange(Sender: TObject);
+procedure TFSubAWB.edtTrackPropertiesChange(Sender : TObject);
 begin
   EnableAdd;
 end;
-
-procedure TFSubAWB.edtWeightChange(Sender: TObject);
+procedure TFSubAWB.edtWeightChange(Sender : TObject);
 begin
   EnableAdd;
   РасчетСтоимости;
   if s_Вес <> edtWeight.Value then
     Detect_Change_Weight := true;
 end;
-
 procedure TFSubAWB.EnableAdd;
 begin
   with FrameTopPanel1 do
   begin
     if (edtMarking.Text <> '') and (edtWeight.Text <> '') and
-      (edtWeight.Text <> '0') and (edtTrack.Text <> '') then
+    (edtWeight.Text <> '0') and (edtTrack.Text <> '') then
     begin
       btnSave.Enabled := true;
       if s_id_SubAWB <> 0 then
@@ -413,8 +384,7 @@ begin
     end;
   end;
 end;
-
-procedure TFSubAWB.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFSubAWB.FormClose(Sender : TObject; var Action : TCloseAction);
 begin
   // if QuerySubAWB.Active = true then
   // if (s_id_SubAWB <> 0) and (QuerySubAWB.Fields[0].AsString <> '') then
@@ -425,8 +395,7 @@ begin
       InsUpdSubAWB(FALSE)
   end
 end;
-
-procedure TFSubAWB.FormShow(Sender: TObject);
+procedure TFSubAWB.FormShow(Sender : TObject);
 begin
   SetLang;
   FrameTopPanel1.SetLang;
@@ -436,17 +405,15 @@ begin
   s_Вес := edtWeight.Value;
   EnableAdd;
 end;
-
-procedure TFSubAWB.GridSubAWBDBBandedTableView1DblClick(Sender: TObject);
+procedure TFSubAWB.GridSubAWBDBBandedTableView1DblClick(Sender : TObject);
 begin
   if FrameTopPanel1.btnEdit.Enabled = true then
     btnEditClick(Sender);
 end;
-
-procedure TFSubAWB.InsUpdSubAWB(id_ins: Boolean);
+procedure TFSubAWB.InsUpdSubAWB(id_ins : Boolean);
 var
-  f, b: string;
-  prikul, doc, ves: Double;
+  f, b : string;
+  prikul, doc, ves : Double;
 begin
   with QuerySubAWB1 do
   begin
@@ -478,8 +445,8 @@ begin
 {$REGION 'Обновление'}
       Close;
       sql.Text :=
-        'select sum(кол_во_fb), sum (кол_во) from "бух".sub_awb_detail' +
-        ' where код_sub_awb=' + IntToStr(s_id_SubAWB);
+                 'select sum(кол_во_fb), sum (кол_во) from "бух".sub_awb_detail' +
+                 ' where код_sub_awb=' + IntToStr(s_id_SubAWB);
       Open;
       f := Fields[0].AsString;
       b := Fields[1].AsString;
@@ -547,11 +514,10 @@ begin
     // end;
   end;
 end;
-
-procedure TFSubAWB.InsUpdDetail(id_ins: Boolean; FB: Double = 0;
-  BOX: Integer = 0);
+procedure TFSubAWB.InsUpdDetail(id_ins : Boolean; FB : Double = 0;
+                                   BOX : Integer = 0);
 var
-  id_detail: Integer;
+  id_detail : Integer;
 begin
   // if QuerySubAWB.Active = true then
   // begin
@@ -630,52 +596,50 @@ begin
   end;
   // end;
 end;
-
 procedure TFSubAWB.SetLang;
 begin
   case FPasswd.Lang of
-    1:
-      begin
-        // // Caption := 'Directories';
-        // ItemТовары.Caption := 'Nomenclature';
-        // ItemКлиент.Caption := 'Clients';
-        // ItemСтраны.Caption := 'Country';
-        // ItemТипы.Caption := 'Types';
-        // ItemСвойства.Caption := 'Properties';
-        // ItemПлантации.Caption := 'Plantation';
-        // ItemСорта.Caption := 'Grades';
-        // ItemОрганизация.Caption := 'Organization';
-        // ItemПользователи.Caption := 'Users';
-        // ItemРоль.Caption := 'The role';
-        // GroupОснова.Caption := 'Main';
-        // GroupСтруктура.Caption := 'Structure';
-        // GroupОрг.Caption := 'Organization';
-        // GroupАдмин.Caption := 'Administration';
-        // ItemКарго.Caption := 'Cargo';
-        // ItemАвиалинии.Caption := 'Airlines';
-      end;
-    2:
-      begin
-        // Caption := 'Guías';
-        GridSubAWBDBBandedTableView1.Bands[0].Caption :=
-          'El resguardo de transporte aéreo';
-        GridSubAWBDBBandedTableView1.Bands[1].Caption := 'La factura';
-        ColumnПлантация.Caption := 'La plantación';
-        ColumnFB.Caption := 'La cantidad FB';
-        ColumnFBфакт.Caption := 'La cantidad FB';
-        ColumnBOX.Caption := 'La cantidad de las cajas';
-        ColumnBOXфакт.Caption := 'La cantidad de las cajas';
-        ColumnLДата.Caption := 'La fecha';
-        ColumnНомер.Caption := 'El número';
-        ColumnСумма.Caption := 'La suma';
-        lblМарикровка.Caption := 'La marca:';
-        lblВес.Caption := 'El peso:';
-        lblТрак.Caption := 'Trak:';
-      end;
+    1 :
+    begin
+      // // Caption := 'Directories';
+      // ItemТовары.Caption := 'Nomenclature';
+      // ItemКлиент.Caption := 'Clients';
+      // ItemСтраны.Caption := 'Country';
+      // ItemТипы.Caption := 'Types';
+      // ItemСвойства.Caption := 'Properties';
+      // ItemПлантации.Caption := 'Plantation';
+      // ItemСорта.Caption := 'Grades';
+      // ItemОрганизация.Caption := 'Organization';
+      // ItemПользователи.Caption := 'Users';
+      // ItemРоль.Caption := 'The role';
+      // GroupОснова.Caption := 'Main';
+      // GroupСтруктура.Caption := 'Structure';
+      // GroupОрг.Caption := 'Organization';
+      // GroupАдмин.Caption := 'Administration';
+      // ItemКарго.Caption := 'Cargo';
+      // ItemАвиалинии.Caption := 'Airlines';
+    end;
+    2 :
+    begin
+      // Caption := 'Guías';
+      GridSubAWBDBBandedTableView1.Bands[0].Caption :=
+                                                      'El resguardo de transporte aéreo';
+      GridSubAWBDBBandedTableView1.Bands[1].Caption := 'La factura';
+      ColumnПлантация.Caption := 'La plantación';
+      ColumnFB.Caption := 'La cantidad FB';
+      ColumnFBфакт.Caption := 'La cantidad FB';
+      ColumnBOX.Caption := 'La cantidad de las cajas';
+      ColumnBOXфакт.Caption := 'La cantidad de las cajas';
+      ColumnLДата.Caption := 'La fecha';
+      ColumnНомер.Caption := 'El número';
+      ColumnСумма.Caption := 'La suma';
+      lblМарикровка.Caption := 'La marca:';
+      lblВес.Caption := 'El peso:';
+      lblТрак.Caption := 'Trak:';
+    end;
   end;
 end;
-
-procedure TFSubAWB.ShowSubAWB(id_locate: Integer = 0);
+procedure TFSubAWB.ShowSubAWB(id_locate : Integer = 0);
 begin
   with QuerySubAWB do
   begin
@@ -691,8 +655,7 @@ begin
   end;
   GridSubAWBDBBandedTableView1.ApplyBestFit(nil, true, true);
 end;
-
-procedure TFSubAWB.ShowTrack(id_locate: Integer = 0);
+procedure TFSubAWB.ShowTrack(id_locate : Integer = 0);
 begin
   with QueryTrack do
   begin
@@ -705,12 +668,10 @@ begin
       edtTrack.EditValue := Fields[0].AsInteger;
   end;
 end;
-
-procedure TFSubAWB.ViewSubAWBDblClick(Sender: TObject);
+procedure TFSubAWB.ViewSubAWBDblClick(Sender : TObject);
 begin
   btnEditClick(Sender);
 end;
-
 procedure TFSubAWB.РасчетСтоимости;
 begin
   if edtWeight.Text <> '' then
@@ -719,16 +680,15 @@ begin
     begin
       Close;
       sql.Text := 'select * from "карго"."тарифы" where код_карго=' +
-        IntToStr(s_id_Kargo_SUB) + ' and код_авиалинии=' +
-        IntToStr(s_id_airLine);
+    IntToStr(s_id_Kargo_SUB) + ' and код_авиалинии=' +
+    IntToStr(s_id_airLine);
       Open;
       СтоимостьАвиалинии := FieldByName('общая_стоимость').AsFloat *
-        StrToFloat(edtWeight.Text) + FieldByName('фито').AsFloat +
-        FieldByName('awb').AsFloat + FieldByName('доп_сборы').AsFloat +
-        FieldByName('термодатчик').AsFloat;
+    StrToFloat(edtWeight.Text) + FieldByName('фито').AsFloat +
+    FieldByName('awb').AsFloat + FieldByName('доп_сборы').AsFloat +
+    FieldByName('термодатчик').AsFloat;
       edtStoim.Text := FloatToStr(СтоимостьАвиалинии);
     end;
   end;
 end;
-
 end.

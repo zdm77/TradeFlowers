@@ -1,79 +1,63 @@
 unit UFImport;
-
 interface
-
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Clipbrd, dxSkinsCore, 
-      
-    dxSkinDevExpressStyle, 
-     
-     
-    
-    
-    
-    
-     
-      
-    
-     
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Clipbrd, dxSkinsCore,
+  
+  dxSkinDevExpressStyle,
+  
   dxSkinsdxBarPainter, Data.DB, MemDS, DBAccess, Uni, dxBar, cxClasses,
   Vcl.Grids, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
   cxContainer, cxEdit, Vcl.StdCtrls, cxGroupBox, Vcl.ComCtrls, cxTextEdit,
   cxMaskEdit, cxDropDownEdit, cxLookupEdit, cxDBLookupEdit, cxDBLookupComboBox;
-
 type
   TFImport = class(TForm)
-    GridOrder: TStringGrid;
-    bardxbrmngr1: TdxBarManager;
-    dxbrBarManager1Bar: TdxBar;
-    bardxbrmngr1Bar1: TdxBar;
-    btnSave: TdxBarLargeButton;
-    btnSaveClose: TdxBarLargeButton;
-    btnPast: TdxBarLargeButton;
-    btnDel: TdxBarLargeButton;
-    Query1: TUniQuery;
-    dxBarSubItem1: TdxBarSubItem;
-    btnImport2: TdxBarLargeButton;
-    procedure btnPastClick(Sender: TObject);
-    procedure GridOrderKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure btnSaveClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
-    procedure btnImport2Click(Sender: TObject);
+    GridOrder : TStringGrid;
+    bardxbrmngr1 : TdxBarManager;
+    dxbrBarManager1Bar : TdxBar;
+    bardxbrmngr1Bar1 : TdxBar;
+    btnSave : TdxBarLargeButton;
+    btnSaveClose : TdxBarLargeButton;
+    btnPast : TdxBarLargeButton;
+    btnDel : TdxBarLargeButton;
+    Query1 : TUniQuery;
+    dxBarSubItem1 : TdxBarSubItem;
+    btnImport2 : TdxBarLargeButton;
+    procedure btnPastClick(Sender : TObject);
+    procedure GridOrderKeyUp(Sender : TObject; var Key : Word;
+                                Shift : TShiftState);
+    procedure btnSaveClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
+    procedure btnImport2Click(Sender : TObject);
   private
     { Private declarations }
   public
-    id_save: Boolean;
-    n_IDType, n_IDCountry, n_IDSort: Integer;
-    function CheckSort: Boolean;
-    function CheckSort1: Boolean;
+    id_save : Boolean;
+    n_IDType, n_IDCountry, n_IDSort : Integer;
+    function CheckSort : Boolean;
+    function CheckSort1 : Boolean;
     procedure DoClipbrdPaste;
-    function GetSortID(s_name: string): Integer;
-    procedure UpdateGrid(l_sortName, change_name: string);
+    function GetSortID(s_name : string) : Integer;
+    procedure UpdateGrid(l_sortName, change_name : string);
     { Public declarations }
   end;
 
 var
-  FImport: TFImport;
-
+  FImport : TFImport;
 implementation
-
 {$R *.dfm}
 
 uses PGSQL, UDataModule1, UFQuestionSort;
-
-procedure TFImport.btnDelClick(Sender: TObject);
+procedure TFImport.btnDelClick(Sender : TObject);
 var
-  i: Integer;
+  i : Integer;
 begin
   with GridOrder do
     for i := 0 to ColCount - 1 do
       Cols[i].Clear;
 end;
-
-procedure TFImport.btnImport2Click(Sender: TObject);
+procedure TFImport.btnImport2Click(Sender : TObject);
 begin
   if CheckSort1 = true then
   begin
@@ -81,13 +65,11 @@ begin
     Close;
   end;
 end;
-
-procedure TFImport.btnPastClick(Sender: TObject);
+procedure TFImport.btnPastClick(Sender : TObject);
 begin
   DoClipbrdPaste;
 end;
-
-procedure TFImport.btnSaveClick(Sender: TObject);
+procedure TFImport.btnSaveClick(Sender : TObject);
 begin
   if CheckSort = true then
   begin
@@ -95,13 +77,12 @@ begin
     Close;
   end;
 end;
-
-function TFImport.CheckSort: Boolean;
+function TFImport.CheckSort : Boolean;
 var
-  i: Integer;
-  s: string;
-  selectSortName: string;
-  selectSortID: Integer;
+  i : Integer;
+  s : string;
+  selectSortName : string;
+  selectSortID : Integer;
 begin
   CheckSort := false;
   with Query1 do
@@ -124,7 +105,7 @@ begin
         sql.Add(' and код_страны=' + IntToStr(n_IDCountry));
         sql.Add(' and UPPER(s.uni_name)=:uni_name');
         ParamByName('uni_name').AsString :=
-          Trim(AnsiUpperCase(GridOrder.Cells[0, i]));
+                                           Trim(AnsiUpperCase(GridOrder.Cells[0, i]));
         Open;
         if (Fields[0].AsString <> '') then
         begin
@@ -137,7 +118,7 @@ begin
           with FQuestionSort do
           begin
             lblSort.Caption := 'Сорт - ' + GridOrder.Cells[0, i] +
-              ' не найден.';
+          ' не найден.';
             s_id_country := n_IDCountry;
             s_id_type := n_IDType;
             s_name_sort := Trim(AnsiUpperCase(GridOrder.Cells[0, i]));
@@ -148,7 +129,7 @@ begin
               selectSortName := Trim(AnsiUpperCase(GridOrder.Cells[0, i]));
               selectSortID := QuerySort.FieldByName('id').AsInteger;
               UpdateGrid(selectSortName, QuerySort.FieldByName('uni_name')
-                .AsString);
+              .AsString);
             end
             else
               Abort;
@@ -159,11 +140,10 @@ begin
     CheckSort := true;
   end;
 end;
-
-function TFImport.CheckSort1: Boolean;
+function TFImport.CheckSort1 : Boolean;
 var
-  i: Integer;
-  s: string;
+  i : Integer;
+  s : string;
 begin
   CheckSort1 := false;
   DM1.dxMemData1.Active := true;
@@ -187,16 +167,16 @@ begin
       else
       begin
         s := 'Сорт - (' + GridOrder.Cells[0, i] +
-          ') не найдена в структуре. Добавить?.';
+      ') не найдена в структуре. Добавить?.';
         if Application.MessageBox(pchar(s), 'Предупреждение',
-          MB_YESNO + MB_ICONERROR) = mrYes then
+                                   MB_YESNO + MB_ICONERROR) = mrYes then
         begin
           n_IDSort := PGSQL.NewID('продукция.сорта_id_seq');
           Close;
           sql.Text :=
-            'insert into продукция.сорта (id, name, uni_name, reg_name, стеблей, '
-            + ' код_типа, комментарий) values ' +
-            ' (:id, :name, :uni_name, :reg_name, :стеблей, :код_типа,:комментарий)';
+                     'insert into продукция.сорта (id, name, uni_name, reg_name, стеблей, '
+                     + ' код_типа, комментарий) values ' +
+                     ' (:id, :name, :uni_name, :reg_name, :стеблей, :код_типа,:комментарий)';
           ParamByName('id').AsInteger := n_IDSort;
           ParamByName('name').AsString := Trim(GridOrder.Cells[0, i]);
           ParamByName('uni_name').AsString := Trim(GridOrder.Cells[0, i]);
@@ -217,12 +197,11 @@ begin
     CheckSort1 := true;
   end;
 end;
-
 procedure TFImport.DoClipbrdPaste;
 var
-  ClipbrdData: TStringList;
-  ClipbrdRow: TStringList;
-  i, j, RowCnt: Integer;
+  ClipbrdData : TStringList;
+  ClipbrdRow : TStringList;
+  i, j, RowCnt : Integer;
 begin
   { очищаем }
   with GridOrder do
@@ -236,18 +215,18 @@ begin
   try
     ClipbrdData.Text := Clipboard.AsText;
     RowCnt := ClipbrdData.Count;
-    // если не вмещается, увеличиваем число строк в StringGrid
+      // если не вмещается, увеличиваем число строк в StringGrid
     if GridOrder.RowCount - GridOrder.Row < RowCnt then
       GridOrder.RowCount := RowCnt + GridOrder.Row;
     for i := 0 to RowCnt - 1 do
     begin
       ClipbrdData.Strings[i] := '"' + ClipbrdData.Strings[i] + '"';
       ClipbrdData.Strings[i] := StringReplace(ClipbrdData.Strings[i], #9,
-        '"'#9'"', [rfReplaceAll]);
+                                               '"'#9'"', [rfReplaceAll]);
     end;
     ClipbrdRow.Delimiter := #9;
     ClipbrdRow.DelimitedText := ClipbrdData.Strings[0];
-    // проверяем число столбцов в StringGrid. Если что, добавляем
+      // проверяем число столбцов в StringGrid. Если что, добавляем
     if GridOrder.ColCount - GridOrder.Col < ClipbrdRow.Count then
       GridOrder.ColCount := ClipbrdRow.Count + GridOrder.Col;
     for i := 0 to RowCnt - 1 do
@@ -255,27 +234,26 @@ begin
       ClipbrdRow.DelimitedText := ClipbrdData.Strings[i];
       for j := 0 to ClipbrdRow.Count - 1 do
         GridOrder.Cells[j + GridOrder.Col, i + GridOrder.Row] :=
-          ClipbrdRow.Strings[j];
+                                                                ClipbrdRow.Strings[j];
     end;
-    // if (j <> 10) then
-    // Application.MessageBox
-    // ('Нарушен формат при копировании/вставке. Несоответствие количества столбцов.',
-    // 'Ошибка', mb_ok + MB_ICONERROR);
-    // if GridOrder.Cells[0, 1] <> 'Рабоч. место:' then
-    // Application.MessageBox
-    // ('Нарушен формат при копировании/вставке. Первая колонка должна иметь значение - "Рабоч. место:"',
-    // 'Ошибка', mb_ok + MB_ICONERROR);
-    // if (j = 10) and (GridOrder.Cells[0, 1] = 'Рабоч. место:') then
-    // btnSave.Enabled := True
-    // else
-    // btnSave.Enabled := False;
+      // if (j <> 10) then
+      // Application.MessageBox
+      // ('Нарушен формат при копировании/вставке. Несоответствие количества столбцов.',
+      // 'Ошибка', mb_ok + MB_ICONERROR);
+      // if GridOrder.Cells[0, 1] <> 'Рабоч. место:' then
+      // Application.MessageBox
+      // ('Нарушен формат при копировании/вставке. Первая колонка должна иметь значение - "Рабоч. место:"',
+      // 'Ошибка', mb_ok + MB_ICONERROR);
+      // if (j = 10) and (GridOrder.Cells[0, 1] = 'Рабоч. место:') then
+      // btnSave.Enabled := True
+      // else
+      // btnSave.Enabled := False;
   finally
     ClipbrdData.Free;
     ClipbrdRow.Free;
   end;
 end;
-
-function TFImport.GetSortID(s_name: string): Integer;
+function TFImport.GetSortID(s_name : string) : Integer;
 begin
   Result := 0;
   with DM1.dxMemData1 do
@@ -284,7 +262,7 @@ begin
     while not Eof do
     begin
       if AnsiUpperCase(FieldByName('uni_name').AsString)
-        = Trim(AnsiUpperCase(s_name)) then
+      = Trim(AnsiUpperCase(s_name)) then
       begin
         Result := FieldByName('id').AsInteger;
         // ShowMessage( AnsiUpperCase(FieldByName('uni_name').AsString));
@@ -296,17 +274,15 @@ begin
     end;
   end;
 end;
-
-procedure TFImport.GridOrderKeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFImport.GridOrderKeyUp(Sender : TObject; var Key : Word;
+                                     Shift : TShiftState);
 begin
   // if ((Key = 86) or (Key = 112)) and (ssCtrl in Shift) then
   // DoClipbrdPaste();
 end;
-
-procedure TFImport.UpdateGrid(l_sortName, change_name: string);
+procedure TFImport.UpdateGrid(l_sortName, change_name : string);
 var
-  i: Integer;
+  i : Integer;
 begin
   for i := 1 to GridOrder.RowCount - 1 do
   begin
@@ -315,5 +291,4 @@ begin
   end;
   CheckSort;
 end;
-
 end.

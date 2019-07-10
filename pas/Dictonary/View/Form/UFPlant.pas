@@ -1,7 +1,5 @@
 unit UFPlant;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -17,13 +15,12 @@ uses
   MemDS,
   DBAccess,
   Uni;
-
 type
   TFPlant = class(TForm)
-    FramePlant1: TFramePlant;
-    Query1: TUniQuery;
-    procedure FormCreate(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    FramePlant1 : TFramePlant;
+    Query1 : TUniQuery;
+    procedure FormCreate(Sender : TObject);
+    procedure FormClose(Sender : TObject; var Action : TCloseAction);
   private
     { Private declarations }
   public
@@ -32,15 +29,12 @@ type
   end;
 
 var
-  FPlant: TFPlant;
-
+  FPlant : TFPlant;
 implementation
-
 {$R *.dfm}
 
 uses
   UPasswd;
-
 procedure TFPlant.Access;
 begin
   if (FPasswd.ID_ROLE <> 1) then
@@ -50,36 +44,33 @@ begin
       { доступ }
       Close;
       sql.Text := 'select * from "пользователи"."доступ"  where код_роли=' +
-        IntToStr(FPasswd.ID_ROLE);
+    IntToStr(FPasswd.ID_ROLE);
       Open;
       FramePlant1.FrameTopPanel1.btnAdd.Enabled :=
-        FieldByName('плантации_добавление').AsBoolean;
+                                                  FieldByName('плантации_добавление').AsBoolean;
       FramePlant1.FrameTopPanel1.btnEdit.Enabled :=
-        FieldByName('плантации_редактирование').AsBoolean;
+                                                   FieldByName('плантации_редактирование').AsBoolean;
       FramePlant1.FrameTopPanel1.btnDel.Enabled :=
-        FieldByName('плантации_удаление').AsBoolean;
+                                                  FieldByName('плантации_удаление').AsBoolean;
     end;
   end;
 end;
-
-procedure TFPlant.FormCreate(Sender: TObject);
+procedure TFPlant.FormCreate(Sender : TObject);
 begin
   case FPasswd.Lang of
-    1:
-      begin
-        Caption := 'Plantation';
-      end;
-    2:
-      begin
-        Caption := 'Fincas';
-      end;
+    1 :
+    begin
+      Caption := 'Plantation';
+    end;
+    2 :
+    begin
+      Caption := 'Fincas';
+    end;
   end;
 end;
-
-procedure TFPlant.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFPlant.FormClose(Sender : TObject; var Action : TCloseAction);
 begin
   Action := caFree;
   FPlant := nil;
 end;
-
 end.

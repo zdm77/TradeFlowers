@@ -1,7 +1,5 @@
 ﻿unit UNewKargo;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -17,9 +15,9 @@ uses
   cxLookAndFeels,
   cxLookAndFeelPainters,
   dxSkinsCore,
-
+  
   dxSkinscxPCPainter,
-
+  
   cxContainer,
   cxEdit,
   cxStyles,
@@ -57,125 +55,122 @@ uses
   AdvMoneyEdit,
   cxNavigator,
   dxBarBuiltInMenu,
-
+  
   dxSkinDevExpressStyle,
-
-   dxSkinsDefaultPainters, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog;
-
+  
+  dxSkinsDefaultPainters, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog;
 type
   TFNewKargo = class(TForm)
-    FrameSave1: TFrameSave;
-    Page1: TcxPageControl;
-    TabOsn: TcxTabSheet;
-    lblName: TcxLabel;
-    edtName: TcxTextEdit;
-    edtUrName: TcxTextEdit;
-    lblUrName: TcxLabel;
-    lblAdrReg: TcxLabel;
-    lblAdrOffice: TcxLabel;
-    lblAdrSklad: TcxLabel;
-    mmoAdrReg: TcxMemo;
-    mmoAdrOffice: TcxMemo;
-    mmoAdrSklad: TcxMemo;
-    lblRemark: TcxLabel;
-    mmoRemark: TcxMemo;
-    TabKontakt: TcxTabSheet;
-    FrameTopPanelContact: TFrameTopPanel;
-    GridContact: TcxGrid;
-    cxGridDBTableView1: TcxGridDBTableView;
-    ColumnFIO: TcxGridDBColumn;
-    ColumnPost: TcxGridDBColumn;
-    cxGridLevel1: TcxGridLevel;
-    TabBank: TcxTabSheet;
-    FrameTopPanelBank: TFrameTopPanel;
-    TabTarif: TcxTabSheet;
-    FrameTopPanelTarif: TFrameTopPanel;
-    GridTarif: TcxGrid;
-    cxGridDBTableView2: TcxGridDBTableView;
-    ColumnAirLine: TcxGridDBColumn;
-    cxGridLevel2: TcxGridLevel;
-    TabAlarm: TcxTabSheet;
-    lblMaxDayDolg: TcxLabel;
-    lblDay1: TcxLabel;
-    lblAlarmDay: TcxLabel;
-    lblDay2: TcxLabel;
-    chkUse: TcxCheckBox;
-    btnAdres: TcxButton;
-    btn1: TcxButton;
-    btn2: TcxButton;
-    Query1: TUniQuery;
-    edtMaxSrokDolg: TcxSpinEdit;
-    edtDayAlarm: TcxSpinEdit;
-    edtMaxDolg: TAdvEdit;
-    edtSumAlarm: TAdvEdit;
-    QueryContact: TUniQuery;
-    dsContact: TDataSource;
-    ColumnPhone: TcxGridDBColumn;
-    GridAcc: TcxGrid;
-    GridAccount: TcxGridDBTableView;
-    ColumnBank: TcxGridDBColumn;
-    ColumnAccount: TcxGridDBColumn;
-    GridLevelGrid1Level1: TcxGridLevel;
-    dsAccount: TDataSource;
-    QueryAccount: TUniQuery;
-    QueryTarif: TUniQuery;
-    dsTarif: TDataSource;
-    lblMaxDolg: TcxLabel;
-    lblSumAlarm: TcxLabel;
-    TabTarifMarking: TcxTabSheet;
-    FrameTopPanelPriceMark: TFrameTopPanel;
-    QueryPriceMark: TUniQuery;
-    dsPriceMark: TDataSource;
-    cxGrid1: TcxGrid;
-    cxGridDBTableView3: TcxGridDBTableView;
-    ColumnMarking: TcxGridDBColumn;
-    GridAccountDBColumn: TcxGridDBColumn;
-    cxGridLevel3: TcxGridLevel;
-    procedure btnAdresClick(Sender: TObject);
-    procedure btn1Click(Sender: TObject);
-    procedure btn2Click(Sender: TObject);
-    procedure edtNameKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure FormShow(Sender: TObject);
-    procedure FrameSave1btnSaveClick(Sender: TObject);
-    procedure FrameTopPanel2btnAddClick(Sender: TObject);
-    procedure edtNamePropertiesEditValueChanged(Sender: TObject);
-    procedure edtUrNameKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure edtUrNamePropertiesEditValueChanged(Sender: TObject);
-    procedure cxGridDBTableView1DblClick(Sender: TObject);
-    procedure FrameTopPanelBankbtnAddClick(Sender: TObject);
-    procedure FrameTopPanelBankbtnDelClick(Sender: TObject);
-    procedure FrameTopPanelContactbtnEditClick(Sender: TObject);
-    procedure FrameTopPanelBankbtnEditClick(Sender: TObject);
-    procedure FrameTopPanelContactbtnDelClick(Sender: TObject);
-    procedure GridAccountDblClick(Sender: TObject);
-    procedure btnAddClick(Sender: TObject);
-    procedure cxGridDBTableView2DblClick(Sender: TObject);
-    procedure FrameTopPanelTarifbtnEditClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
-    procedure cxGridDBTableView3DblClick(Sender: TObject);
-    procedure FrameTopPanelPriceMarkbtnAddClick(Sender: TObject);
-    procedure FrameTopPanelPriceMarkbtnEditClick(Sender: TObject);
-    procedure FrameTopPanelPriceMarkbtnRefreshClick(Sender: TObject);
+    FrameSave1 : TFrameSave;
+    Page1 : TcxPageControl;
+    TabOsn : TcxTabSheet;
+    lblName : TcxLabel;
+    edtName : TcxTextEdit;
+    edtUrName : TcxTextEdit;
+    lblUrName : TcxLabel;
+    lblAdrReg : TcxLabel;
+    lblAdrOffice : TcxLabel;
+    lblAdrSklad : TcxLabel;
+    mmoAdrReg : TcxMemo;
+    mmoAdrOffice : TcxMemo;
+    mmoAdrSklad : TcxMemo;
+    lblRemark : TcxLabel;
+    mmoRemark : TcxMemo;
+    TabKontakt : TcxTabSheet;
+    FrameTopPanelContact : TFrameTopPanel;
+    GridContact : TcxGrid;
+    cxGridDBTableView1 : TcxGridDBTableView;
+    ColumnFIO : TcxGridDBColumn;
+    ColumnPost : TcxGridDBColumn;
+    cxGridLevel1 : TcxGridLevel;
+    TabBank : TcxTabSheet;
+    FrameTopPanelBank : TFrameTopPanel;
+    TabTarif : TcxTabSheet;
+    FrameTopPanelTarif : TFrameTopPanel;
+    GridTarif : TcxGrid;
+    cxGridDBTableView2 : TcxGridDBTableView;
+    ColumnAirLine : TcxGridDBColumn;
+    cxGridLevel2 : TcxGridLevel;
+    TabAlarm : TcxTabSheet;
+    lblMaxDayDolg : TcxLabel;
+    lblDay1 : TcxLabel;
+    lblAlarmDay : TcxLabel;
+    lblDay2 : TcxLabel;
+    chkUse : TcxCheckBox;
+    btnAdres : TcxButton;
+    btn1 : TcxButton;
+    btn2 : TcxButton;
+    Query1 : TUniQuery;
+    edtMaxSrokDolg : TcxSpinEdit;
+    edtDayAlarm : TcxSpinEdit;
+    edtMaxDolg : TAdvEdit;
+    edtSumAlarm : TAdvEdit;
+    QueryContact : TUniQuery;
+    dsContact : TDataSource;
+    ColumnPhone : TcxGridDBColumn;
+    GridAcc : TcxGrid;
+    GridAccount : TcxGridDBTableView;
+    ColumnBank : TcxGridDBColumn;
+    ColumnAccount : TcxGridDBColumn;
+    GridLevelGrid1Level1 : TcxGridLevel;
+    dsAccount : TDataSource;
+    QueryAccount : TUniQuery;
+    QueryTarif : TUniQuery;
+    dsTarif : TDataSource;
+    lblMaxDolg : TcxLabel;
+    lblSumAlarm : TcxLabel;
+    TabTarifMarking : TcxTabSheet;
+    FrameTopPanelPriceMark : TFrameTopPanel;
+    QueryPriceMark : TUniQuery;
+    dsPriceMark : TDataSource;
+    cxGrid1 : TcxGrid;
+    cxGridDBTableView3 : TcxGridDBTableView;
+    ColumnMarking : TcxGridDBColumn;
+    GridAccountDBColumn : TcxGridDBColumn;
+    cxGridLevel3 : TcxGridLevel;
+    procedure btnAdresClick(Sender : TObject);
+    procedure btn1Click(Sender : TObject);
+    procedure btn2Click(Sender : TObject);
+    procedure edtNameKeyUp(Sender : TObject; var Key : Word; Shift : TShiftState);
+    procedure FormShow(Sender : TObject);
+    procedure FrameSave1btnSaveClick(Sender : TObject);
+    procedure FrameTopPanel2btnAddClick(Sender : TObject);
+    procedure edtNamePropertiesEditValueChanged(Sender : TObject);
+    procedure edtUrNameKeyUp(Sender : TObject; var Key : Word;
+                                Shift : TShiftState);
+    procedure edtUrNamePropertiesEditValueChanged(Sender : TObject);
+    procedure cxGridDBTableView1DblClick(Sender : TObject);
+    procedure FrameTopPanelBankbtnAddClick(Sender : TObject);
+    procedure FrameTopPanelBankbtnDelClick(Sender : TObject);
+    procedure FrameTopPanelContactbtnEditClick(Sender : TObject);
+    procedure FrameTopPanelBankbtnEditClick(Sender : TObject);
+    procedure FrameTopPanelContactbtnDelClick(Sender : TObject);
+    procedure GridAccountDblClick(Sender : TObject);
+    procedure btnAddClick(Sender : TObject);
+    procedure cxGridDBTableView2DblClick(Sender : TObject);
+    procedure FrameTopPanelTarifbtnEditClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
+    procedure cxGridDBTableView3DblClick(Sender : TObject);
+    procedure FrameTopPanelPriceMarkbtnAddClick(Sender : TObject);
+    procedure FrameTopPanelPriceMarkbtnEditClick(Sender : TObject);
+    procedure FrameTopPanelPriceMarkbtnRefreshClick(Sender : TObject);
   private
     { Private declarations }
   public
-    s_id_kargo: integer;
+    s_id_kargo : integer;
     procedure EnableSave;
-    procedure InsUpdKargo(id_ins: boolean);
+    procedure InsUpdKargo(id_ins : boolean);
     procedure SetLang;
-    procedure ShowAccount(id_locate: integer = 0);
-    procedure ShowContact(id_locate: integer = 0);
-    procedure ShowTarif(id_locate: integer = 0);
-    procedure ShowTarifMarking(id_locate: integer = 0);
+    procedure ShowAccount(id_locate : integer = 0);
+    procedure ShowContact(id_locate : integer = 0);
+    procedure ShowTarif(id_locate : integer = 0);
+    procedure ShowTarifMarking(id_locate : integer = 0);
     { Public declarations }
   end;
 
 var
-  FNewKargo: TFNewKargo;
-
+  FNewKargo : TFNewKargo;
 implementation
-
 {$R *.dfm}
 
 uses
@@ -186,18 +181,15 @@ uses
   UNewTarifKargo,
   UPasswd,
   UNewPriceMarking;
-
-procedure TFNewKargo.btn1Click(Sender: TObject);
+procedure TFNewKargo.btn1Click(Sender : TObject);
 begin
   SelectAddress(mmoAdrOffice, 0, 0, 0, 0, '', '', '', '');
 end;
-
-procedure TFNewKargo.btn2Click(Sender: TObject);
+procedure TFNewKargo.btn2Click(Sender : TObject);
 begin
   SelectAddress(mmoAdrSklad, 0, 0, 0, 0, '', '', '', '');
 end;
-
-procedure TFNewKargo.btnAddClick(Sender: TObject);
+procedure TFNewKargo.btnAddClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewTarifKargo, FNewTarifKargo);
   with FNewTarifKargo do
@@ -211,56 +203,46 @@ begin
     end;
   end;
 end;
-
-procedure TFNewKargo.btnAdresClick(Sender: TObject);
+procedure TFNewKargo.btnAdresClick(Sender : TObject);
 begin
   SelectAddress(mmoAdrReg, 0, 0, 0, 0, '', '', '', '');
 end;
-
-procedure TFNewKargo.btnDelClick(Sender: TObject);
+procedure TFNewKargo.btnDelClick(Sender : TObject);
 begin
   PGSQL.StandartDelete(QueryTarif.FieldByName('t_id').AsString,
-    '"карго"."тарифы"', QueryTarif, '', '', '', '');
+                        '"карго"."тарифы"', QueryTarif, '', '', '', '');
   EnableSave;
 end;
-
-procedure TFNewKargo.cxGridDBTableView1DblClick(Sender: TObject);
+procedure TFNewKargo.cxGridDBTableView1DblClick(Sender : TObject);
 begin
   FrameTopPanelContactbtnEditClick(Sender);
 end;
-
-procedure TFNewKargo.cxGridDBTableView2DblClick(Sender: TObject);
+procedure TFNewKargo.cxGridDBTableView2DblClick(Sender : TObject);
 begin
   FrameTopPanelTarifbtnEditClick(Sender);
 end;
-
-procedure TFNewKargo.cxGridDBTableView3DblClick(Sender: TObject);
+procedure TFNewKargo.cxGridDBTableView3DblClick(Sender : TObject);
 begin
   FrameTopPanelPriceMarkbtnEditClick(Sender);
 end;
-
-procedure TFNewKargo.edtNameKeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewKargo.edtNameKeyUp(Sender : TObject; var Key : Word;
+                                     Shift : TShiftState);
 begin
   EnableSave;
 end;
-
-procedure TFNewKargo.edtNamePropertiesEditValueChanged(Sender: TObject);
+procedure TFNewKargo.edtNamePropertiesEditValueChanged(Sender : TObject);
 begin
   EnableSave;
 end;
-
-procedure TFNewKargo.edtUrNameKeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewKargo.edtUrNameKeyUp(Sender : TObject; var Key : Word;
+                                       Shift : TShiftState);
 begin
   EnableSave;
 end;
-
-procedure TFNewKargo.edtUrNamePropertiesEditValueChanged(Sender: TObject);
+procedure TFNewKargo.edtUrNamePropertiesEditValueChanged(Sender : TObject);
 begin
   EnableSave;
 end;
-
 procedure TFNewKargo.EnableSave;
 begin
   if (edtName.Text <> '') and (edtUrName.Text <> '') then
@@ -326,8 +308,7 @@ begin
     FrameTopPanelPriceMark.btnRefresh.Enabled := false;
   end;
 end;
-
-procedure TFNewKargo.FormShow(Sender: TObject);
+procedure TFNewKargo.FormShow(Sender : TObject);
 begin
   SetLang;
   FrameTopPanelContact.SetLang;
@@ -337,8 +318,7 @@ begin
   Page1.ActivePageIndex := 0;
   edtName.SetFocus;
 end;
-
-procedure TFNewKargo.FrameSave1btnSaveClick(Sender: TObject);
+procedure TFNewKargo.FrameSave1btnSaveClick(Sender : TObject);
 begin
   FrameSave1.btnSaveClick(Sender);
   if s_id_kargo = 0 then
@@ -347,8 +327,7 @@ begin
     InsUpdKargo(false);
   Close;
 end;
-
-procedure TFNewKargo.FrameTopPanel2btnAddClick(Sender: TObject);
+procedure TFNewKargo.FrameTopPanel2btnAddClick(Sender : TObject);
 begin
   if s_id_kargo = 0 then
     InsUpdKargo(true);
@@ -364,11 +343,10 @@ begin
     end;
   end;
 end;
-
-procedure TFNewKargo.FrameTopPanelBankbtnAddClick(Sender: TObject);
+procedure TFNewKargo.FrameTopPanelBankbtnAddClick(Sender : TObject);
 var
-  id: integer;
-  QueryA: TUniQuery;
+  id : integer;
+  QueryA : TUniQuery;
 begin
   Application.CreateForm(TFNewInAccount, FNewInAccount);
   with FNewInAccount do
@@ -385,8 +363,8 @@ begin
         Close;
         id := PGSQL.NewID('"карго"."счета_иностр_id_seq"');
         sql.Text := 'INSERT INTO "карго"."счета_иностр"(id, "код_банка",' +
-          '"код_карго", "счет", "основной") VALUES (:id, :код_банка,' +
-          ':код_карго, :счет, :основной)';
+      '"код_карго", "счет", "основной") VALUES (:id, :код_банка,' +
+      ':код_карго, :счет, :основной)';
         ParamByName('id').AsInteger := id;
         ParamByName('код_банка').AsInteger := o_id_bank;
         ParamByName('код_карго').AsInteger := s_id_kargo;
@@ -398,17 +376,15 @@ begin
     end;
   end;
 end;
-
-procedure TFNewKargo.FrameTopPanelBankbtnDelClick(Sender: TObject);
+procedure TFNewKargo.FrameTopPanelBankbtnDelClick(Sender : TObject);
 begin
   PGSQL.StandartDelete(QueryAccount.FieldByName('id').AsString,
-    ' "карго"."счета_иностр"', QueryAccount, '', '', '', '');
+                        ' "карго"."счета_иностр"', QueryAccount, '', '', '', '');
   EnableSave;
 end;
-
-procedure TFNewKargo.FrameTopPanelBankbtnEditClick(Sender: TObject);
+procedure TFNewKargo.FrameTopPanelBankbtnEditClick(Sender : TObject);
 var
-  QueryA: TUniQuery;
+  QueryA : TUniQuery;
 begin
   Application.CreateForm(TFNewInAccount, FNewInAccount);
   with FNewInAccount do
@@ -427,9 +403,9 @@ begin
       begin
         Close;
         sql.Text :=
-          'UPDATE "карго"."счета_иностр" SET "код_банка" = :код_банка,' +
-          ' "код_карго" = :код_карго, "счет" = :счет, "основной" = :основной' +
-          ' WHERE  id = :id';
+                   'UPDATE "карго"."счета_иностр" SET "код_банка" = :код_банка,' +
+                   ' "код_карго" = :код_карго, "счет" = :счет, "основной" = :основной' +
+                   ' WHERE  id = :id';
         ParamByName('id').AsInteger := QueryAccount.FieldByName('id').AsInteger;
         ParamByName('код_банка').AsInteger := o_id_bank;
         ParamByName('код_карго').AsInteger := s_id_kargo;
@@ -440,15 +416,13 @@ begin
     end;
   end;
 end;
-
-procedure TFNewKargo.FrameTopPanelContactbtnDelClick(Sender: TObject);
+procedure TFNewKargo.FrameTopPanelContactbtnDelClick(Sender : TObject);
 begin
   PGSQL.StandartDelete(QueryContact.FieldByName('id').AsString,
-    ' "карго"."контакты"', QueryContact, '', '', '', '');
+                        ' "карго"."контакты"', QueryContact, '', '', '', '');
   EnableSave;
 end;
-
-procedure TFNewKargo.FrameTopPanelContactbtnEditClick(Sender: TObject);
+procedure TFNewKargo.FrameTopPanelContactbtnEditClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewContactKargo, FNewContactKargo);
   with FNewContactKargo do
@@ -471,31 +445,26 @@ begin
     end;
   end;
 end;
-
-procedure TFNewKargo.FrameTopPanelPriceMarkbtnAddClick(Sender: TObject);
+procedure TFNewKargo.FrameTopPanelPriceMarkbtnAddClick(Sender : TObject);
 begin
   if s_id_kargo = 0 then
     InsUpdKargo(true);
   PGSQL.AddMarking('"карго"."наценки"', 'код_карго', s_id_kargo);
   ShowTarifMarking;
 end;
-
-procedure TFNewKargo.FrameTopPanelPriceMarkbtnEditClick(Sender: TObject);
+procedure TFNewKargo.FrameTopPanelPriceMarkbtnEditClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewPriceMarking, FNewPriceMarking);
   with FNewPriceMarking do
   begin
     edtSum.Value := QueryPriceMark.FieldByName('тариф').Value;
     case FPasswd.Lang of
-      0:
-        lblMarking.Caption := 'Маркировка: ' + QueryPriceMark.FieldByName
-          ('name').AsString;
-      1:
-        lblMarking.Caption := 'Marking: ' + QueryPriceMark.FieldByName
-          ('uni_name').AsString;
-      2:
-        lblMarking.Caption := 'Marca: ' + QueryPriceMark.FieldByName
-          ('reg_name').AsString;
+      0 : lblMarking.Caption := 'Маркировка: ' + QueryPriceMark.FieldByName
+        ('name').AsString;
+      1 : lblMarking.Caption := 'Marking: ' + QueryPriceMark.FieldByName
+        ('uni_name').AsString;
+      2 : lblMarking.Caption := 'Marca: ' + QueryPriceMark.FieldByName
+        ('reg_name').AsString;
     end;
     s_id := QueryPriceMark.FieldByName('id').AsInteger;
     s_table_name := '"карго"."наценки"';
@@ -504,13 +473,11 @@ begin
       QueryPriceMark.Refresh;
   end;
 end;
-
-procedure TFNewKargo.FrameTopPanelPriceMarkbtnRefreshClick(Sender: TObject);
+procedure TFNewKargo.FrameTopPanelPriceMarkbtnRefreshClick(Sender : TObject);
 begin
   QueryPriceMark.Refresh;
 end;
-
-procedure TFNewKargo.FrameTopPanelTarifbtnEditClick(Sender: TObject);
+procedure TFNewKargo.FrameTopPanelTarifbtnEditClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewTarifKargo, FNewTarifKargo);
   with FNewTarifKargo do
@@ -519,12 +486,9 @@ begin
     s_id_kargo_for_tarif := s_id_kargo;
     s_id_tarif := QueryTarif.FieldByName('t_id').AsInteger;
     case FPasswd.Lang of
-      0:
-        edtAirline.Text := QueryTarif.FieldByName('name').AsString;
-      1:
-        edtAirline.Text := QueryTarif.FieldByName('uni_name').AsString;
-      2:
-        edtAirline.Text := QueryTarif.FieldByName('reg_name').AsString;
+      0 : edtAirline.Text := QueryTarif.FieldByName('name').AsString;
+      1 : edtAirline.Text := QueryTarif.FieldByName('uni_name').AsString;
+      2 : edtAirline.Text := QueryTarif.FieldByName('reg_name').AsString;
     end;
     edtSumTarif.Value := QueryTarif.FieldByName('общая_стоимость').Value;
     edtFITO.Value := QueryTarif.FieldByName('фито').Value;
@@ -537,13 +501,11 @@ begin
       ShowTarif(s_id_tarif);
   end;
 end;
-
-procedure TFNewKargo.GridAccountDblClick(Sender: TObject);
+procedure TFNewKargo.GridAccountDblClick(Sender : TObject);
 begin
   FrameTopPanelBankbtnEditClick(Sender);
 end;
-
-procedure TFNewKargo.InsUpdKargo(id_ins: boolean);
+procedure TFNewKargo.InsUpdKargo(id_ins : boolean);
 begin
   with Query1 do
   begin
@@ -552,22 +514,22 @@ begin
     begin
       s_id_kargo := PGSQL.NewID('"карго"."агенства_id_seq"');
       sql.Text :=
-        'INSERT INTO "карго"."агенства"(id, name, "адрес_офиса", "адрес_регистрации",'
-        + '"адрес_склада", "примечание", "макс_срок_долг", "оповещать_дней",' +
-        ' "макс_сумма_долга", "оповещать_сумма", "долг",юр_имя, uni_name, reg_name) '
-        + 'VALUES (:id, :name, :адрес_офиса, :адрес_регистрации, :адрес_склада,'
-        + ':примечание, :макс_срок_долг, :оповещать_дней, :макс_сумма_долга,' +
-        ' :оповещать_сумма, :долг, :юр_имя, :uni_name, :reg_name)';
+                 'INSERT INTO "карго"."агенства"(id, name, "адрес_офиса", "адрес_регистрации",'
+                 + '"адрес_склада", "примечание", "макс_срок_долг", "оповещать_дней",' +
+                 ' "макс_сумма_долга", "оповещать_сумма", "долг",юр_имя, uni_name, reg_name) '
+                 + 'VALUES (:id, :name, :адрес_офиса, :адрес_регистрации, :адрес_склада,'
+                 + ':примечание, :макс_срок_долг, :оповещать_дней, :макс_сумма_долга,' +
+                 ' :оповещать_сумма, :долг, :юр_имя, :uni_name, :reg_name)';
     end
     else
     begin
       sql.Text :=
-        'UPDATE  "карго"."агенства" SET  name = :name, "адрес_офиса" = :адрес_офиса,'
-        + ' "адрес_регистрации" = :адрес_регистрации, "адрес_склада" = :адрес_склада,'
-        + '  "примечание" = :примечание,  "макс_срок_долг" = :макс_срок_долг,' +
-        '  "оповещать_дней" = :оповещать_дней,  "макс_сумма_долга" = :макс_сумма_долга,'
-        + '  "оповещать_сумма" = :оповещать_сумма,  "долг" = :долг, юр_имя=:юр_имя, '
-        + ' uni_name=:uni_name, reg_name=:reg_name WHERE id = :id';
+                 'UPDATE  "карго"."агенства" SET  name = :name, "адрес_офиса" = :адрес_офиса,'
+                 + ' "адрес_регистрации" = :адрес_регистрации, "адрес_склада" = :адрес_склада,'
+                 + '  "примечание" = :примечание,  "макс_срок_долг" = :макс_срок_долг,' +
+                 '  "оповещать_дней" = :оповещать_дней,  "макс_сумма_долга" = :макс_сумма_долга,'
+                 + '  "оповещать_сумма" = :оповещать_сумма,  "долг" = :долг, юр_имя=:юр_имя, '
+                 + ' uni_name=:uni_name, reg_name=:reg_name WHERE id = :id';
     end;
     ParamByName('id').Value := s_id_kargo;
     ParamByName('name').Value := edtName.Text;
@@ -590,98 +552,96 @@ begin
     end;
   end;
 end;
-
 procedure TFNewKargo.SetLang;
 begin
   case FPasswd.Lang of
-    0:
-      begin
-        Caption := 'Карго';
-        TabOsn.Caption := 'Основные сведения';
-        TabKontakt.Caption := 'Контакты';
-        TabBank.Caption := 'Счета';
-        TabTarif.Caption := 'Тарифы и сборы';
-        TabAlarm.Caption := 'Оповещения';
-        lblName.Caption := 'Наименование:*';
-        lblUrName.Caption := 'Юридическое наименование:*';
-        lblAdrReg.Caption := 'Адрес регистрации:';
-        lblAdrOffice.Caption := 'Адрес офиса:';
-        lblAdrSklad.Caption := 'Адрес склада:';
-        lblRemark.Caption := 'Примечание:';
-        ColumnFIO.Caption := 'Ф.И.О.';
-        ColumnPost.Caption := 'Должность';
-        ColumnPhone.Caption := 'Телефон';
-        ColumnBank.Caption := 'Банк';
-        ColumnAccount.Caption := 'Счет';
-        ColumnAirLine.Caption := 'Авиалиния';
-        ColumnAirLine.DataBinding.FieldName := 'name';
-        lblMaxDayDolg.Caption := 'Макс. срок задолженности:';
-        lblAlarmDay.Caption := 'Начать оповещать за:';
-        lblMaxDolg.Caption := 'Макс. сумма задолженности:';
-        lblSumAlarm.Caption := 'Начать оповещать после:';
-        lblDay1.Caption := 'дней';
-        lblDay2.Caption := 'дней';
-      end;
-    1:
-      begin
-        Caption := 'Cargo';
-        TabOsn.Caption := 'Basic information';
-        TabKontakt.Caption := 'Contacts';
-        TabBank.Caption := 'Account';
-        TabTarif.Caption := 'Rates and charges';
-        TabAlarm.Caption := 'Alerts';
-        lblName.Caption := 'Name:*';
-        lblUrName.Caption := 'Legal name:*';
-        lblAdrReg.Caption := 'Registration address:';
-        lblAdrOffice.Caption := 'Office address:';
-        lblAdrSklad.Caption := 'The address of the warehouse:';
-        lblRemark.Caption := 'Note:';
-        ColumnFIO.Caption := 'Name';
-        ColumnPost.Caption := 'Post';
-        ColumnPhone.Caption := 'Phone';
-        ColumnBank.Caption := 'Bank';
-        ColumnAccount.Caption := 'Account';
-        ColumnAirLine.Caption := 'Airline';
-        ColumnAirLine.DataBinding.FieldName := 'uni_name';
-        lblMaxDayDolg.Caption := 'The maximum term debt:';
-        lblAlarmDay.Caption := 'Start notify the:';
-        lblMaxDolg.Caption := 'The maximum amount of indebtedness:';
-        lblSumAlarm.Caption := 'Start notify after:';
-        lblDay1.Caption := 'days';
-        lblDay2.Caption := 'days';
-      end;
-    2:
-      begin
-        Caption := 'Cargo';
-        TabOsn.Caption := 'Las noticias básicas';
-        TabKontakt.Caption := 'Los contactos';
-        TabBank.Caption := 'Las cuentas';
-        TabTarif.Caption := 'Las tarifas y las recogidas';
-        TabAlarm.Caption := 'Los avisos';
-        lblName.Caption := 'El nombre:*';
-        lblUrName.Caption := 'El nombre jurídico:*';
-        lblAdrReg.Caption := 'La dirección del registro:';
-        lblAdrOffice.Caption := 'La dirección de la oficina:';
-        lblAdrSklad.Caption := 'La dirección del almacén:';
-        lblRemark.Caption := 'La nota:';
-        ColumnFIO.Caption := 'El nombre';
-        ColumnPost.Caption := 'El puesto';
-        ColumnPhone.Caption := 'Teléfono';
-        ColumnBank.Caption := 'El banco';
-        ColumnAccount.Caption := 'La cuenta';
-        ColumnAirLine.Caption := 'La línea aérea';
-        ColumnAirLine.DataBinding.FieldName := 'reg_name';
-        lblMaxDayDolg.Caption := 'El plazo máximo de la deuda:';
-        lblAlarmDay.Caption := 'Comenzar informar por:';
-        lblMaxDolg.Caption := 'La suma máxima de deuda:';
-        lblSumAlarm.Caption := 'Comenzar informar después de:';
-        lblDay1.Caption := 'días';
-        lblDay2.Caption := 'días';
-      end;
+    0 :
+    begin
+      Caption := 'Карго';
+      TabOsn.Caption := 'Основные сведения';
+      TabKontakt.Caption := 'Контакты';
+      TabBank.Caption := 'Счета';
+      TabTarif.Caption := 'Тарифы и сборы';
+      TabAlarm.Caption := 'Оповещения';
+      lblName.Caption := 'Наименование:*';
+      lblUrName.Caption := 'Юридическое наименование:*';
+      lblAdrReg.Caption := 'Адрес регистрации:';
+      lblAdrOffice.Caption := 'Адрес офиса:';
+      lblAdrSklad.Caption := 'Адрес склада:';
+      lblRemark.Caption := 'Примечание:';
+      ColumnFIO.Caption := 'Ф.И.О.';
+      ColumnPost.Caption := 'Должность';
+      ColumnPhone.Caption := 'Телефон';
+      ColumnBank.Caption := 'Банк';
+      ColumnAccount.Caption := 'Счет';
+      ColumnAirLine.Caption := 'Авиалиния';
+      ColumnAirLine.DataBinding.FieldName := 'name';
+      lblMaxDayDolg.Caption := 'Макс. срок задолженности:';
+      lblAlarmDay.Caption := 'Начать оповещать за:';
+      lblMaxDolg.Caption := 'Макс. сумма задолженности:';
+      lblSumAlarm.Caption := 'Начать оповещать после:';
+      lblDay1.Caption := 'дней';
+      lblDay2.Caption := 'дней';
+    end;
+    1 :
+    begin
+      Caption := 'Cargo';
+      TabOsn.Caption := 'Basic information';
+      TabKontakt.Caption := 'Contacts';
+      TabBank.Caption := 'Account';
+      TabTarif.Caption := 'Rates and charges';
+      TabAlarm.Caption := 'Alerts';
+      lblName.Caption := 'Name:*';
+      lblUrName.Caption := 'Legal name:*';
+      lblAdrReg.Caption := 'Registration address:';
+      lblAdrOffice.Caption := 'Office address:';
+      lblAdrSklad.Caption := 'The address of the warehouse:';
+      lblRemark.Caption := 'Note:';
+      ColumnFIO.Caption := 'Name';
+      ColumnPost.Caption := 'Post';
+      ColumnPhone.Caption := 'Phone';
+      ColumnBank.Caption := 'Bank';
+      ColumnAccount.Caption := 'Account';
+      ColumnAirLine.Caption := 'Airline';
+      ColumnAirLine.DataBinding.FieldName := 'uni_name';
+      lblMaxDayDolg.Caption := 'The maximum term debt:';
+      lblAlarmDay.Caption := 'Start notify the:';
+      lblMaxDolg.Caption := 'The maximum amount of indebtedness:';
+      lblSumAlarm.Caption := 'Start notify after:';
+      lblDay1.Caption := 'days';
+      lblDay2.Caption := 'days';
+    end;
+    2 :
+    begin
+      Caption := 'Cargo';
+      TabOsn.Caption := 'Las noticias básicas';
+      TabKontakt.Caption := 'Los contactos';
+      TabBank.Caption := 'Las cuentas';
+      TabTarif.Caption := 'Las tarifas y las recogidas';
+      TabAlarm.Caption := 'Los avisos';
+      lblName.Caption := 'El nombre:*';
+      lblUrName.Caption := 'El nombre jurídico:*';
+      lblAdrReg.Caption := 'La dirección del registro:';
+      lblAdrOffice.Caption := 'La dirección de la oficina:';
+      lblAdrSklad.Caption := 'La dirección del almacén:';
+      lblRemark.Caption := 'La nota:';
+      ColumnFIO.Caption := 'El nombre';
+      ColumnPost.Caption := 'El puesto';
+      ColumnPhone.Caption := 'Teléfono';
+      ColumnBank.Caption := 'El banco';
+      ColumnAccount.Caption := 'La cuenta';
+      ColumnAirLine.Caption := 'La línea aérea';
+      ColumnAirLine.DataBinding.FieldName := 'reg_name';
+      lblMaxDayDolg.Caption := 'El plazo máximo de la deuda:';
+      lblAlarmDay.Caption := 'Comenzar informar por:';
+      lblMaxDolg.Caption := 'La suma máxima de deuda:';
+      lblSumAlarm.Caption := 'Comenzar informar después de:';
+      lblDay1.Caption := 'días';
+      lblDay2.Caption := 'días';
+    end;
   end;
 end;
-
-procedure TFNewKargo.ShowAccount(id_locate: integer = 0);
+procedure TFNewKargo.ShowAccount(id_locate : integer = 0);
 begin
   with QueryAccount do
   begin
@@ -691,36 +651,33 @@ begin
     Locate('id', id_locate, []);
   end;
 end;
-
-procedure TFNewKargo.ShowContact(id_locate: integer = 0);
+procedure TFNewKargo.ShowContact(id_locate : integer = 0);
 begin
   with QueryContact do
   begin
     Close;
     sql.Text := 'select * from "карго"."контакты" where код_карго=' +
-      IntToStr(s_id_kargo);
+  IntToStr(s_id_kargo);
     Open;
     Locate('id', id_locate, []);
   end;
 end;
-
-procedure TFNewKargo.ShowTarif(id_locate: integer = 0);
+procedure TFNewKargo.ShowTarif(id_locate : integer = 0);
 begin
   with QueryTarif do
   begin
     Close;
     sql.Text :=
-      'SELECT a.id a_id, a.name, a.uni_name, a.reg_name,  t.id t_id,  t."код_карго",  t."код_авиалинии",'
-      + '  t."общая_стоимость",  t."фито",  t.awb,  t."доп_сборы",' +
-      '  t."термодатчик" FROM  "авиалинии"."авиалинии" a' +
-      '  INNER JOIN "карго"."тарифы" t ON (a.id = t."код_авиалинии")' +
-      ' where код_карго=' + IntToStr(s_id_kargo);
+               'SELECT a.id a_id, a.name, a.uni_name, a.reg_name,  t.id t_id,  t."код_карго",  t."код_авиалинии",'
+               + '  t."общая_стоимость",  t."фито",  t.awb,  t."доп_сборы",' +
+               '  t."термодатчик" FROM  "авиалинии"."авиалинии" a' +
+               '  INNER JOIN "карго"."тарифы" t ON (a.id = t."код_авиалинии")' +
+               ' where код_карго=' + IntToStr(s_id_kargo);
     Open;
     Locate('t_id', id_locate, []);
   end;
 end;
-
-procedure TFNewKargo.ShowTarifMarking(id_locate: integer = 0);
+procedure TFNewKargo.ShowTarifMarking(id_locate : integer = 0);
 begin
   with QueryPriceMark do
   begin
@@ -730,5 +687,4 @@ begin
     Locate('id', id_locate, []);
   end;
 end;
-
 end.

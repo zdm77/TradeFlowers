@@ -1,7 +1,5 @@
 unit UFWareHouse;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -17,12 +15,11 @@ uses
   MemDS,
   DBAccess,
   Uni;
-
 type
   TFWareHouse = class(TForm)
-    FrameWarehouse1: TFrameWarehouse;
-    Query1: TUniQuery;
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    FrameWarehouse1 : TFrameWarehouse;
+    Query1 : TUniQuery;
+    procedure FormClose(Sender : TObject; var Action : TCloseAction);
   private
     { Private declarations }
   public
@@ -31,15 +28,12 @@ type
   end;
 
 var
-  FWareHouse: TFWareHouse;
-
+  FWareHouse : TFWareHouse;
 implementation
-
 {$R *.dfm}
 
 uses
   UPasswd;
-
 procedure TFWareHouse.Access;
 begin
   if (FPasswd.ID_ROLE <> 1) then
@@ -49,22 +43,20 @@ begin
       { доступ }
       Close;
       sql.Text := 'select * from "пользователи"."доступ"  where код_роли=' +
-        IntToStr(FPasswd.ID_ROLE);
+    IntToStr(FPasswd.ID_ROLE);
       Open;
       FrameWarehouse1.FrameTopPanel1.btnAdd.Enabled :=
-        FieldByName('цеха_добавление').AsBoolean;
+                                                      FieldByName('цеха_добавление').AsBoolean;
       FrameWarehouse1.FrameTopPanel1.btnEdit.Enabled :=
-        FieldByName('цеха_редактирование').AsBoolean;
+                                                       FieldByName('цеха_редактирование').AsBoolean;
       FrameWarehouse1.FrameTopPanel1.btnDel.Enabled :=
-        FieldByName('цеха_удаление').AsBoolean;
+                                                      FieldByName('цеха_удаление').AsBoolean;
     end;
   end;
 end;
-
-procedure TFWareHouse.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFWareHouse.FormClose(Sender : TObject; var Action : TCloseAction);
 begin
   Action := cafree;
   FWareHouse := nil;
 end;
-
 end.

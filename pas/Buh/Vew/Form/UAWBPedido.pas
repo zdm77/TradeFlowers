@@ -1,7 +1,5 @@
 unit UAWBPedido;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -13,12 +11,11 @@ uses
   Vcl.Forms,
   Vcl.Dialogs,
   UFrameAWBPedido;
-
 type
   TFAWBPedido = class(TForm)
-    FrameAWBPedido1: TFrameAWBPedido;
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure FrameTopPanel1btnAddClick(Sender: TObject);
+    FrameAWBPedido1 : TFrameAWBPedido;
+    procedure FormClose(Sender : TObject; var Action : TCloseAction);
+    procedure FrameTopPanel1btnAddClick(Sender : TObject);
   private
     { Private declarations }
   public
@@ -26,21 +23,17 @@ type
   end;
 
 var
-  FAWBPedido: TFAWBPedido;
-
+  FAWBPedido : TFAWBPedido;
 implementation
-
 {$R *.dfm}
 
-procedure TFAWBPedido.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFAWBPedido.FormClose(Sender : TObject; var Action : TCloseAction);
 begin
   Action := caFree;
   FAWBPedido := nil;
 end;
-
-procedure TFAWBPedido.FrameTopPanel1btnAddClick(Sender: TObject);
+procedure TFAWBPedido.FrameTopPanel1btnAddClick(Sender : TObject);
 begin
   FrameAWBPedido1.btnAddClick(Sender);
 end;
-
 end.

@@ -1,7 +1,5 @@
 unit UStandartReport;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -19,7 +17,6 @@ uses
   cxClasses,
   frxClass,
   frxDBSet;
-
 type
   TFStandartReport = class(TForm)
   private
@@ -29,10 +26,7 @@ type
   end;
 
 var
-  FStandartReport: TFStandartReport;
-
+  FStandartReport : TFStandartReport;
 implementation
-
 {$R *.dfm}
-
 end.

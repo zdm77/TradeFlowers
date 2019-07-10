@@ -1,23 +1,17 @@
 unit UFuncPeoduct;
-
 interface
-
 uses
   Uni;
-
 var
-  id_cou: string;
-procedure DetectCountry;
-function StandartInsert(gen, TableName: string): Integer;
-
+  id_cou : string;
+  procedure DetectCountry;
+  function StandartInsert(gen, TableName : string) : Integer;
 implementation
-
 uses
   UDataModule1;
-
 procedure DetectCountry;
 var
-  Query1: TUniQuery;
+  Query1 : TUniQuery;
 begin
   Query1 := TUniQuery.Create(nil);
   Query1.Connection := DM1.dbUpd;
@@ -29,10 +23,9 @@ begin
     Open;
   end;
 end;
-
-function StandartInsert(gen, TableName: string): Integer;
+function StandartInsert(gen, TableName : string) : Integer;
 var
-  Query1: TUniQuery;
+  Query1 : TUniQuery;
 begin
   Query1 := TUniQuery.Create(nil);
   Query1.Connection := DM1.dbUpd;
@@ -49,5 +42,4 @@ begin
     end;
   end;
 end;
-
 end.

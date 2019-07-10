@@ -1,7 +1,5 @@
 unit UFEditPitenz;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -54,17 +52,16 @@ uses
   frxClass,
   frxDBSet,
   frxExportXLS;
-
 type
   TFEditPritenz = class(TForm)
-    FrameSave1: TFrameSave;
-    FramePretenzEdit1: TFramePretenzEdit;
-    Report1: TfrxReport;
-    frxDBDataset1: TfrxDBDataset;
-    frxlsxprt1: TfrxXLSExport;
-    procedure FormShow(Sender: TObject);
-    procedure FrameSave1btnSaveClick(Sender: TObject);
-    procedure btnPriorClick(Sender: TObject);
+    FrameSave1 : TFrameSave;
+    FramePretenzEdit1 : TFramePretenzEdit;
+    Report1 : TfrxReport;
+    frxDBDataset1 : TfrxDBDataset;
+    frxlsxprt1 : TfrxXLSExport;
+    procedure FormShow(Sender : TObject);
+    procedure FrameSave1btnSaveClick(Sender : TObject);
+    procedure btnPriorClick(Sender : TObject);
   private
     { Private declarations }
   public
@@ -73,21 +70,18 @@ type
   end;
 
 var
-  FEditPritenz: TFEditPritenz;
-
+  FEditPritenz : TFEditPritenz;
 implementation
-
 {$R *.dfm}
 
 uses
   UReport,
   USelLang,
   UPasswd;
-
-procedure TFEditPritenz.btnPriorClick(Sender: TObject);
+procedure TFEditPritenz.btnPriorClick(Sender : TObject);
 var
-  t: TfrxMemoView;
-  h, tp: Double;
+  t : TfrxMemoView;
+  h, tp : Double;
 begin
   Application.CreateForm(TFSelLang, FSelLang);
   FSelLang.ShowModal;
@@ -98,12 +92,9 @@ begin
       // ShowMessage(s_plant);
       // UReport.CreateReport('RUS\претензия');
       case FSelLang.Group1.ItemIndex of
-        0:
-          Report1.LoadFromFile('\..\reports\RUS\претензия.fr3');
-        1:
-          Report1.LoadFromFile('\..\reports\ENG\претензия.fr3');
-        2:
-          Report1.LoadFromFile('\..\reports\ESP\претензия.fr3');
+        0 : Report1.LoadFromFile('\..\reports\RUS\претензия.fr3');
+        1 : Report1.LoadFromFile('\..\reports\ENG\претензия.fr3');
+        2 : Report1.LoadFromFile('\..\reports\ESP\претензия.fr3');
       end;
       t := TfrxMemoView(Report1.FindObject('MemoNum'));
       t.Memo.Text := edtNum.Text;
@@ -158,30 +149,26 @@ begin
   // Report1.LoadFromFile()
   // Report1.ShowReport();
 end;
-
-procedure TFEditPritenz.FormShow(Sender: TObject);
+procedure TFEditPritenz.FormShow(Sender : TObject);
 begin
   FramePretenzEdit1.Page1.ActivePageIndex := 0;
   FramePretenzEdit1.edtNum.SetFocus;
   FramePretenzEdit1.SetLang;
   SetLang;
 end;
-
-procedure TFEditPritenz.FrameSave1btnSaveClick(Sender: TObject);
+procedure TFEditPritenz.FrameSave1btnSaveClick(Sender : TObject);
 begin
   FrameSave1.btnSaveClick(Sender);
   Close;
 end;
-
 procedure TFEditPritenz.SetLang;
 begin
   case FPasswd.Lang of
-    2:
-      begin
-        FrameSave1.btnPrior.Caption := 'Informe ';
-        FrameSave1.btnSave.Caption := 'Conservar';
-      end;
+    2 :
+    begin
+      FrameSave1.btnPrior.Caption := 'Informe ';
+      FrameSave1.btnSave.Caption := 'Conservar';
+    end;
   end;
 end;
-
 end.

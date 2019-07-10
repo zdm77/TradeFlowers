@@ -1,10 +1,7 @@
 unit UExcel;
-
 interface
-
 uses
   System.Win.ComObj;
-
 const
   xlDiagonalDown = 5;
   xlDiagonalUp = 6;
@@ -26,7 +23,5 @@ const
   xlMedium = -4138; // Средняя толщина
   xlThick = 4; // Толстая граница
   xlThin = 2; // Тонкая граница
-
 implementation
-
 end.

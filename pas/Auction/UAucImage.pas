@@ -1,44 +1,38 @@
 unit UAucImage;
-
 interface
-
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, MemDS, DBAccess, Uni,
   Vcl.Grids, UFrameTopPanel, ComObj, IdBaseComponent, IdComponent,
   IdTCPConnection, IdTCPClient, IdExplicitTLSClientServerBase, IdFTP, IdHTTP;
-
 type
   TFAucImage = class(TForm)
-    FrameTopPanel1: TFrameTopPanel;
-    GridOrder: TStringGrid;
-    Query1: TUniQuery;
-    dsAuc: TDataSource;
-    dlgOpen1: TOpenDialog;
-    Query2: TUniQuery;
-    IdFTP1: TIdFTP;
-    IdHTTP1: TIdHTTP;
-    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
-    procedure FrameTopPanel1btnAddClick(Sender: TObject);
-    procedure FrameTopPanel1btnSelClick(Sender: TObject);
+    FrameTopPanel1 : TFrameTopPanel;
+    GridOrder : TStringGrid;
+    Query1 : TUniQuery;
+    dsAuc : TDataSource;
+    dlgOpen1 : TOpenDialog;
+    Query2 : TUniQuery;
+    IdFTP1 : TIdFTP;
+    IdHTTP1 : TIdHTTP;
+    procedure FormCloseQuery(Sender : TObject; var CanClose : Boolean);
+    procedure FrameTopPanel1btnAddClick(Sender : TObject);
+    procedure FrameTopPanel1btnSelClick(Sender : TObject);
   private
-    Excel: Variant;
+    Excel : Variant;
     { Private declarations }
   public
     { Public declarations }
   end;
 
 var
-  FAucImage: TFAucImage;
-
+  FAucImage : TFAucImage;
 implementation
-
 {$R *.dfm}
 
 uses USplash;
-
-procedure TFAucImage.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+procedure TFAucImage.FormCloseQuery(Sender : TObject; var CanClose : Boolean);
 begin
   try
     Excel.Quit;
@@ -47,13 +41,12 @@ begin
   CanClose := True;
   Excel := Unassigned;
 end;
-
-procedure TFAucImage.FrameTopPanel1btnAddClick(Sender: TObject);
+procedure TFAucImage.FrameTopPanel1btnAddClick(Sender : TObject);
 var
-  Rows, Cols, i, j: integer;
-  WorkSheet: OLEVariant;
-  FData: OLEVariant;
-  s: string;
+  Rows, Cols, i, j : integer;
+  WorkSheet : OLEVariant;
+  FData : OLEVariant;
+  s : string;
 begin
   if dlgOpen1.Execute then
   begin
@@ -89,7 +82,7 @@ begin
           end;
         end;
         FSplash.lblComment.Caption := 'Обработано записей: ' + IntToStr(i) +
-          ' из ' + IntToStr(Rows);
+      ' из ' + IntToStr(Rows);
       except
         FSplash.Hide;
       end;
@@ -104,12 +97,11 @@ begin
     // GridOrder.ыв[1] := 255;
   end;
 end;
-
-procedure TFAucImage.FrameTopPanel1btnSelClick(Sender: TObject);
+procedure TFAucImage.FrameTopPanel1btnSelClick(Sender : TObject);
 var
-  memo: TMemoryStream;
-  s: string;
-  i: integer;
+  memo : TMemoryStream;
+  s : string;
+  i : integer;
 begin
   FSplash.Show();
   with GridOrder do
@@ -121,7 +113,7 @@ begin
           FSplash.Update;
           memo := TMemoryStream.Create;
           s := ExtractFileDir(Application.ExeName) + '\..\tmp\' +
-            Cells[0, i] + '.jpg';
+        Cells[0, i] + '.jpg';
           // s := 'c:\1\1.jpg';
           // ShowMessage(Cells[1, i]);
           IdHTTP1.Get(Cells[1, i], memo);
@@ -133,7 +125,7 @@ begin
           IdFTP1.Put(s, Cells[0, i] + '.jpg', False);
           IdFTP1.Disconnect;
           FSplash.lblComment.Caption := 'Обработано записей: ' + IntToStr(i) +
-            ' из ' + IntToStr(RowCount);
+        ' из ' + IntToStr(RowCount);
         end;
       except
         Continue;
@@ -144,5 +136,4 @@ begin
   // s:= ExtractFilePath(Application.ExeName+'..\tmp\');
   // CopyFile('c:\1\image.jpg',pwchar(s),true);
 end;
-
 end.

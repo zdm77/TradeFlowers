@@ -1,7 +1,5 @@
 unit UFrameOplataPlant;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -39,54 +37,43 @@ uses
   MemDS,
   DBAccess,
   Uni,
-  cxCurrencyEdit,    
-     
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
-
+  cxCurrencyEdit,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
 type
   TFrameOplataPlant = class(TFrame)
-    QueryOplataPlant: TUniQuery;
-    dsOplataPlant: TDataSource;
-    QueryOplataPlant1: TUniQuery;
-    FrameTopPanel1: TFrameTopPanel;
-    GridUsers: TcxGrid;
-    ViewStatWork: TcxGridDBTableView;
-    LevelStatWork: TcxGridLevel;
-    ViewStatWorkname: TcxGridDBColumn;
-    ViewStatWork_: TcxGridDBColumn;
-    ViewStatWork_2: TcxGridDBColumn;
-    ViewStatWork_3: TcxGridDBColumn;
-    procedure btnAddClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
-    procedure btnRefreshClick(Sender: TObject);
-    procedure ViewStatWorkDblClick(Sender: TObject);
-    procedure FrameTopPanel1btnArchPropertiesEditValueChanged(Sender: TObject);
+    QueryOplataPlant : TUniQuery;
+    dsOplataPlant : TDataSource;
+    QueryOplataPlant1 : TUniQuery;
+    FrameTopPanel1 : TFrameTopPanel;
+    GridUsers : TcxGrid;
+    ViewStatWork : TcxGridDBTableView;
+    LevelStatWork : TcxGridLevel;
+    ViewStatWorkname : TcxGridDBColumn;
+    ViewStatWork_ : TcxGridDBColumn;
+    ViewStatWork_2 : TcxGridDBColumn;
+    ViewStatWork_3 : TcxGridDBColumn;
+    procedure btnAddClick(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
+    procedure btnRefreshClick(Sender : TObject);
+    procedure ViewStatWorkDblClick(Sender : TObject);
+    procedure FrameTopPanel1btnArchPropertiesEditValueChanged(Sender : TObject);
   private
     { Private declarations }
   public
-    procedure ShowOpl(s_id_locate: Integer = 0);
+    procedure ShowOpl(s_id_locate : Integer = 0);
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
 uses
   UNewOplatPlant,
   PGSQL;
-
-procedure TFrameOplataPlant.btnAddClick(Sender: TObject);
+procedure TFrameOplataPlant.btnAddClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewOplatPlant, FNewOplatPlant);
   with FNewOplatPlant do
@@ -126,14 +113,12 @@ begin
     end;
   end;
 end;
-
-procedure TFrameOplataPlant.btnDelClick(Sender: TObject);
+procedure TFrameOplataPlant.btnDelClick(Sender : TObject);
 begin
   PGSQL.StandartDelete(QueryOplataPlant.FieldByName('id').AsString,
-    '"бух"."бух_оплата_плантации"', QueryOplataPlant, '', '', '', '');
+                        '"бух"."бух_оплата_плантации"', QueryOplataPlant, '', '', '', '');
 end;
-
-procedure TFrameOplataPlant.btnEditClick(Sender: TObject);
+procedure TFrameOplataPlant.btnEditClick(Sender : TObject);
 begin
   if QueryOplataPlant.RecordCount > 0 then
   begin
@@ -177,19 +162,16 @@ begin
     end;
   end;
 end;
-
-procedure TFrameOplataPlant.btnRefreshClick(Sender: TObject);
+procedure TFrameOplataPlant.btnRefreshClick(Sender : TObject);
 begin
   ShowOpl(QueryOplataPlant.FieldByName('id').AsInteger);
 end;
-
 procedure TFrameOplataPlant.FrameTopPanel1btnArchPropertiesEditValueChanged
-  (Sender: TObject);
+  (Sender : TObject);
 begin
   ShowOpl();
 end;
-
-procedure TFrameOplataPlant.ShowOpl(s_id_locate: Integer = 0);
+procedure TFrameOplataPlant.ShowOpl(s_id_locate : Integer = 0);
 begin
   with QueryOplataPlant do
   begin
@@ -214,10 +196,8 @@ begin
     Locate('id', s_id_locate, []);
   end;
 end;
-
-procedure TFrameOplataPlant.ViewStatWorkDblClick(Sender: TObject);
+procedure TFrameOplataPlant.ViewStatWorkDblClick(Sender : TObject);
 begin
   btnEditClick(Sender);
 end;
-
 end.

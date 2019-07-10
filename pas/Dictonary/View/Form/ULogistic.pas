@@ -1,7 +1,5 @@
 unit ULogistic;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -12,7 +10,6 @@ uses
   Vcl.Controls,
   Vcl.Forms,
   Vcl.Dialogs;
-
 type
   TFLogistic = class(TForm)
   private
@@ -22,10 +19,7 @@ type
   end;
 
 var
-  FLogistic: TFLogistic;
-
+  FLogistic : TFLogistic;
 implementation
-
 {$R *.dfm}
-
 end.

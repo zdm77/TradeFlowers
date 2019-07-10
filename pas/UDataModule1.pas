@@ -1,7 +1,5 @@
 unit UDataModule1;
-
 interface
-
 uses
   System.SysUtils,
   System.Classes,
@@ -19,27 +17,26 @@ uses
   UniSQLMonitor,
   DADump,
   UniDump, dxmdaset;
-
 type
   TDM1 = class(TDataModule)
-    db1: TUniConnection;
-    Provider1: TPostgreSQLUniProvider;
-    QueryGlobalUser: TUniQuery;
-    dbUpd: TUniConnection;
-    QueryUpd: TUniQuery;
-    db2: TUniConnection;
-    acsnprvdr1: TAccessUniProvider;
-    QueryAcc: TUniQuery;
-    QueryProductG: TUniQuery;
-    dbLocal: TUniConnection;
-    SQLiteUniProvider1: TSQLiteUniProvider;
-    Query1: TUniQuery;
-    QueryProductLocal: TUniQuery;
-    Monotor1: TUniSQLMonitor;
-    dxMemData1: TdxMemData;
-    MFieldID: TIntegerField;
-    MFieldName: TStringField;
-    dxMemData1код_типа: TIntegerField;
+    db1 : TUniConnection;
+    Provider1 : TPostgreSQLUniProvider;
+    QueryGlobalUser : TUniQuery;
+    dbUpd : TUniConnection;
+    QueryUpd : TUniQuery;
+    db2 : TUniConnection;
+    acsnprvdr1 : TAccessUniProvider;
+    QueryAcc : TUniQuery;
+    QueryProductG : TUniQuery;
+    dbLocal : TUniConnection;
+    SQLiteUniProvider1 : TSQLiteUniProvider;
+    Query1 : TUniQuery;
+    QueryProductLocal : TUniQuery;
+    Monotor1 : TUniSQLMonitor;
+    dxMemData1 : TdxMemData;
+    MFieldID : TIntegerField;
+    MFieldName : TStringField;
+    dxMemData1код_типа : TIntegerField;
   private
     { Private declarations }
   public
@@ -47,11 +44,8 @@ type
   end;
 
 var
-  DM1: TDM1;
-
+  DM1 : TDM1;
 implementation
-
 { %CLASSGROUP 'System.Classes.TPersistent' }
 {$R *.dfm}
-
 end.

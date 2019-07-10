@@ -1,7 +1,5 @@
 unit UFramePedidoALL;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -42,37 +40,33 @@ uses
   UFrameTopPanel,
   dxSkinDevExpressStyle,
   dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
-
 type
   TFramePedidoAll = class(TFrame)
-    FrameTopPanel1: TFrameTopPanel;
-    QueryPedidoALL: TUniQuery;
-    dsPedidoALL: TDataSource;
-    GridPedidoALL: TcxGrid;
-    ViewPedidoALL: TcxGridDBTableView;
-    LevelOrg: TcxGridLevel;
-    ViewPedidoALL_: TcxGridDBColumn;
-    Query1: TUniQuery;
-    procedure btnEditClick(Sender: TObject);
-    procedure ViewPedidoALLDblClick(Sender: TObject);
-    procedure btnRefreshClick(Sender: TObject);
-    procedure btnAddClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
+    FrameTopPanel1 : TFrameTopPanel;
+    QueryPedidoALL : TUniQuery;
+    dsPedidoALL : TDataSource;
+    GridPedidoALL : TcxGrid;
+    ViewPedidoALL : TcxGridDBTableView;
+    LevelOrg : TcxGridLevel;
+    ViewPedidoALL_ : TcxGridDBColumn;
+    Query1 : TUniQuery;
+    procedure btnEditClick(Sender : TObject);
+    procedure ViewPedidoALLDblClick(Sender : TObject);
+    procedure btnRefreshClick(Sender : TObject);
+    procedure btnAddClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
   private
     { Private declarations }
   public
     procedure ShowPedidoALL;
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
 uses
   UPedido, UPasswd;
-
-procedure TFramePedidoAll.btnAddClick(Sender: TObject);
+procedure TFramePedidoAll.btnAddClick(Sender : TObject);
 begin
   Application.CreateForm(TFPedido, FPedido);
   with FPedido do
@@ -83,8 +77,7 @@ begin
     Show;
   end;
 end;
-
-procedure TFramePedidoAll.btnDelClick(Sender: TObject);
+procedure TFramePedidoAll.btnDelClick(Sender : TObject);
 begin
   if (FPasswd.ID_ROLE = 1) then
   begin
@@ -106,8 +99,7 @@ begin
     end;
   end;
 end;
-
-procedure TFramePedidoAll.btnEditClick(Sender: TObject);
+procedure TFramePedidoAll.btnEditClick(Sender : TObject);
 begin
   Application.CreateForm(TFPedido, FPedido);
   with FPedido do
@@ -118,12 +110,10 @@ begin
     Show;
   end;
 end;
-
-procedure TFramePedidoAll.btnRefreshClick(Sender: TObject);
+procedure TFramePedidoAll.btnRefreshClick(Sender : TObject);
 begin
   ShowPedidoALL;
 end;
-
 procedure TFramePedidoAll.ShowPedidoALL;
 begin
   with QueryPedidoALL do
@@ -132,10 +122,8 @@ begin
     Open;
   end;
 end;
-
-procedure TFramePedidoAll.ViewPedidoALLDblClick(Sender: TObject);
+procedure TFramePedidoAll.ViewPedidoALLDblClick(Sender : TObject);
 begin
   btnEditClick(Sender);
 end;
-
 end.

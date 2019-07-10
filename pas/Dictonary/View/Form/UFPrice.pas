@@ -1,7 +1,5 @@
 unit UFPrice;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -13,11 +11,10 @@ uses
   Vcl.Forms,
   Vcl.Dialogs,
   UFramePriceLength;
-
 type
   TFPrice = class(TForm)
-    FramePriceLength1: TFramePriceLength;
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    FramePriceLength1 : TFramePriceLength;
+    procedure FormClose(Sender : TObject; var Action : TCloseAction);
   private
     { Private declarations }
   public
@@ -26,15 +23,12 @@ type
   end;
 
 var
-  FPrice: TFPrice;
-
+  FPrice : TFPrice;
 implementation
-
 {$R *.dfm}
 
 uses
   UPasswd;
-
 procedure TFPrice.Access;
 begin
   // if (FPasswd.ID_ROLE <> 1) then
@@ -55,11 +49,9 @@ begin
   // end;
   // end;
 end;
-
-procedure TFPrice.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFPrice.FormClose(Sender : TObject; var Action : TCloseAction);
 begin
   Action := caFree;
   FPrice := nil;
 end;
-
 end.

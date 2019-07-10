@@ -1,7 +1,5 @@
 unit UFrameUsers;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -19,7 +17,7 @@ uses
   cxContainer,
   cxEdit,
   dxSkinsCore,
-
+  
   cxStyles,
   dxSkinscxPCPainter,
   cxCustomData,
@@ -42,45 +40,42 @@ uses
   UFrameTopPanel,
   cxNavigator,
   dxbar,
-
+  
   dxSkinDevExpressStyle,
-
-   dxSkinsDefaultPainters, dxSkinOffice2007Blue;
-
+  
+  dxSkinsDefaultPainters, dxSkinOffice2007Blue;
 type
   TFrameUsers = class(TFrame)
-    FrameTopPanel1: TFrameTopPanel;
-    Query1: TUniQuery;
-    QueryUsers: TUniQuery;
-    dsUsers: TDataSource;
-    GroupOrg: TcxGroupBox;
-    cxGrid1: TcxGrid;
-    cxGridDBTableView1: TcxGridDBTableView;
-    cxGridDBColumn1: TcxGridDBColumn;
-    cxGridLevel1: TcxGridLevel;
-    GroupUsers: TcxGroupBox;
-    GridUsers: TcxGrid;
-    ViewStatWork: TcxGridDBTableView;
-    ColumnName: TcxGridDBColumn;
-    LevelStatWork: TcxGridLevel;
-    QueryOrg: TUniQuery;
-    dsOrg: TDataSource;
-    ColumnLogin: TcxGridDBColumn;
-    procedure btnEditClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
-    procedure btnAddClick(Sender: TObject);
-    procedure ViewStatWorkDblClick(Sender: TObject);
-    procedure btnRazdelClick(Sender: TObject);
+    FrameTopPanel1 : TFrameTopPanel;
+    Query1 : TUniQuery;
+    QueryUsers : TUniQuery;
+    dsUsers : TDataSource;
+    GroupOrg : TcxGroupBox;
+    cxGrid1 : TcxGrid;
+    cxGridDBTableView1 : TcxGridDBTableView;
+    cxGridDBColumn1 : TcxGridDBColumn;
+    cxGridLevel1 : TcxGridLevel;
+    GroupUsers : TcxGroupBox;
+    GridUsers : TcxGrid;
+    ViewStatWork : TcxGridDBTableView;
+    ColumnName : TcxGridDBColumn;
+    LevelStatWork : TcxGridLevel;
+    QueryOrg : TUniQuery;
+    dsOrg : TDataSource;
+    ColumnLogin : TcxGridDBColumn;
+    procedure btnEditClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
+    procedure btnAddClick(Sender : TObject);
+    procedure ViewStatWorkDblClick(Sender : TObject);
+    procedure btnRazdelClick(Sender : TObject);
   private
     { Private declarations }
   public
     procedure ShowOrg;
-    procedure ShowUsers(id_locate: integer = 0);
+    procedure ShowUsers(id_locate : integer = 0);
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
 uses
@@ -88,8 +83,7 @@ uses
   UPasswd,
   PGSQL,
   UParamPC;
-
-procedure TFrameUsers.btnAddClick(Sender: TObject);
+procedure TFrameUsers.btnAddClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewUser, FNewUser);
   with FNewUser do
@@ -102,14 +96,12 @@ begin
       ShowUsers(s_id_user);
   end;
 end;
-
-procedure TFrameUsers.btnDelClick(Sender: TObject);
+procedure TFrameUsers.btnDelClick(Sender : TObject);
 begin
   PGSQL.StandartDelete(QueryUsers.FieldByName('id').AsString,
-    '"пользователи"."пользователи"', QueryUsers, '', '', '', '')
+                        '"пользователи"."пользователи"', QueryUsers, '', '', '', '')
 end;
-
-procedure TFrameUsers.btnEditClick(Sender: TObject);
+procedure TFrameUsers.btnEditClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewUser, FNewUser);
   with FNewUser do
@@ -132,13 +124,11 @@ begin
       ShowUsers(s_id_user);
   end;
 end;
-
-procedure TFrameUsers.btnRazdelClick(Sender: TObject);
+procedure TFrameUsers.btnRazdelClick(Sender : TObject);
 begin
   Application.CreateForm(TFParamPC, FParamPC);
   FParamPC.Show;
 end;
-
 procedure TFrameUsers.ShowOrg;
 begin
   QueryOrg.Close;
@@ -146,8 +136,7 @@ begin
   QueryOrg.Locate('id', FPasswd.ID_ORG, []);
   ShowUsers();
 end;
-
-procedure TFrameUsers.ShowUsers(id_locate: integer = 0);
+procedure TFrameUsers.ShowUsers(id_locate : integer = 0);
 begin
   QueryUsers.Close;
   QueryUsers.Open;
@@ -156,10 +145,8 @@ begin
     FrameTopPanel1.btnRazdel.Visible := ivAlways;
   ViewStatWork.ApplyBestFit(nil, false, false);
 end;
-
-procedure TFrameUsers.ViewStatWorkDblClick(Sender: TObject);
+procedure TFrameUsers.ViewStatWorkDblClick(Sender : TObject);
 begin
   btnEditClick(Sender);
 end;
-
 end.

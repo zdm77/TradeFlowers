@@ -1,7 +1,5 @@
 unit UNewPedidoPosition;
-
 interface
-
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxStyles,
@@ -9,69 +7,65 @@ uses
   cxDataStorage, cxEdit, cxNavigator, Data.DB, cxDBData, cxContainer, cxLabel, cxTextEdit, cxMaskEdit, cxButtonEdit,
   cxGroupBox, MemDS, DBAccess, Uni, cxGridLevel, cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxClasses,
   cxGridCustomView, cxGrid, UFrameTopPanel, cxCheckBox, Vcl.ComCtrls, AdvDateTimePicker, Vcl.StdCtrls;
-
 type
   TFNewPedidoPosition = class(TForm)
-    FrameTopPanel1: TFrameTopPanel;
-    QueryPedidoPos: TUniQuery;
-    dsPedidoPos: TDataSource;
-    Group1: TcxGroupBox;
-    edtMarking: TcxButtonEdit;
-    lblMarking: TcxLabel;
-    GridOrder: TcxGrid;
-    ViewOrder: TcxGridDBTableView;
-    ColumnViewOrderpl_name: TcxGridDBColumn;
-    ColumnViewOrders_name: TcxGridDBColumn;
-    ColumnViewOrderDBColumn: TcxGridDBColumn;
-    ColumnViewOrder__1: TcxGridDBColumn;
-    ColumnСтеблей: TcxGridDBColumn;
-    ColumnPrice: TcxGridDBColumn;
-    ColumnStand: TcxGridDBColumn;
-    ColumnLock: TcxGridDBColumn;
-    ColumnGood: TcxGridDBColumn;
-    ColumnLockPos: TcxGridDBColumn;
-    ColumnЗакуп: TcxGridDBColumn;
-    GridLevelOrder: TcxGridLevel;
-    Query1: TUniQuery;
-    edtDateFly: TDateTimePicker;
-    lbl1: TLabel;
-    procedure edtMarkingPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
-    procedure btnAddClick(Sender: TObject);
-    procedure FormShow(Sender: TObject);
+    FrameTopPanel1 : TFrameTopPanel;
+    QueryPedidoPos : TUniQuery;
+    dsPedidoPos : TDataSource;
+    Group1 : TcxGroupBox;
+    edtMarking : TcxButtonEdit;
+    lblMarking : TcxLabel;
+    GridOrder : TcxGrid;
+    ViewOrder : TcxGridDBTableView;
+    ColumnViewOrderpl_name : TcxGridDBColumn;
+    ColumnViewOrders_name : TcxGridDBColumn;
+    ColumnViewOrderDBColumn : TcxGridDBColumn;
+    ColumnViewOrder__1 : TcxGridDBColumn;
+    ColumnСтеблей : TcxGridDBColumn;
+    ColumnPrice : TcxGridDBColumn;
+    ColumnStand : TcxGridDBColumn;
+    ColumnLock : TcxGridDBColumn;
+    ColumnGood : TcxGridDBColumn;
+    ColumnLockPos : TcxGridDBColumn;
+    ColumnЗакуп : TcxGridDBColumn;
+    GridLevelOrder : TcxGridLevel;
+    Query1 : TUniQuery;
+    edtDateFly : TDateTimePicker;
+    lbl1 : TLabel;
+    procedure edtMarkingPropertiesButtonClick(Sender : TObject; AButtonIndex : Integer);
+    procedure btnAddClick(Sender : TObject);
+    procedure FormShow(Sender : TObject);
   private
   var
-    dateAir, dateZakup: TDate;
-    idMarking: Integer;
-    idOrder: Integer;
-    idPos: Integer;
-    idPedido: Integer;
-    idPedidoPos: Integer;
-    idFactura: Integer;
-    idPlant, idSort, idProduct: Integer;
-    lenP, fbP, steemsP, priceP: string;
+    dateAir, dateZakup : TDate;
+    idMarking : Integer;
+    idOrder : Integer;
+    idPos : Integer;
+    idPedido : Integer;
+    idPedidoPos : Integer;
+    idFactura : Integer;
+    idPlant, idSort, idProduct : Integer;
+    lenP, fbP, steemsP, priceP : string;
     procedure CreateFactura;
-    function createOrder: Integer;
+    function createOrder : Integer;
     procedure CreatePedidoPos;
     { Private declarations }
   public
     procedure CreatePedido;
-    procedure InsertPos(id_plant, id_sort: Integer; len, fb, steems, price: string; id_product: Integer);
-    procedure setDate(d: TDate);
-    procedure setIdMarking(id: Integer);
+    procedure InsertPos(id_plant, id_sort : Integer; len, fb, steems, price : string; id_product : Integer);
+    procedure setDate(d : TDate);
+    procedure setIdMarking(id : Integer);
     procedure showPedido;
     { Public declarations }
   end;
 
 var
-  FNewPedidoPosition: TFNewPedidoPosition;
-
+  FNewPedidoPosition : TFNewPedidoPosition;
 implementation
-
 {$R *.dfm}
 
 uses UPasswd, USplash, USelect, USelectProduct, UNewZakupka, PGSQL, UNewOrderFromChat;
-
-procedure TFNewPedidoPosition.btnAddClick(Sender: TObject);
+procedure TFNewPedidoPosition.btnAddClick(Sender : TObject);
 begin
   if idMarking <> 0 then
   begin
@@ -127,14 +121,13 @@ begin
   else
     Application.MessageBox('Select marking', 'Error', MB_OK)
 end;
-
 procedure TFNewPedidoPosition.CreateFactura;
 begin
   with Query1 do
   begin
     close;
     SQL.Text := 'select id  from "документы"."фактуры" f  where f."дата_закупки" = :s_дата_закупки and ' +
-      '          f."код_маркировки" = :s_код_маркировки and   f."код_плантации" = :s_код_плантации;';
+  '          f."код_маркировки" = :s_код_маркировки and   f."код_плантации" = :s_код_плантации;';
     ParamByName('s_код_маркировки').Value := idMarking;
     ParamByName('s_код_плантации').Value := idPlant;
     ParamByName('s_дата_закупки').Value := now;
@@ -144,9 +137,9 @@ begin
       close;
       idFactura := NewID('"документы"."фактуры_id_seq"');
       SQL.Text := 'INSERT INTO "документы"."фактуры"(id, "код_пользователя", "код_статуса",  ' +
-        ' "дата_вылета", "код_маркировки", "код_плантации", дата_фактуры, дата_закупки) ' +
-        '      VALUES (:id, :s_код_пользователя, 1, :s_дата_вылета, ' +
-        '      :s_код_маркировки, :s_код_плантации, :s_дата_закупки, :s_дата_закупки);';
+    ' "дата_вылета", "код_маркировки", "код_плантации", дата_фактуры, дата_закупки) ' +
+    '      VALUES (:id, :s_код_пользователя, 1, :s_дата_вылета, ' +
+    '      :s_код_маркировки, :s_код_плантации, :s_дата_закупки, :s_дата_закупки);';
       ParamByName('id').Value := idFactura;
       ParamByName('s_код_пользователя').Value := FPasswd.ID_USER;
       ParamByName('s_код_маркировки').Value := idMarking;
@@ -161,8 +154,7 @@ begin
     end;
   end;
 end;
-
-function TFNewPedidoPosition.createOrder: Integer;
+function TFNewPedidoPosition.createOrder : Integer;
 begin
   with Query1 do
   begin
@@ -194,7 +186,6 @@ begin
     Result := idOrder;
   end;
 end;
-
 procedure TFNewPedidoPosition.CreatePedido;
 begin
   with Query1 do
@@ -225,7 +216,6 @@ begin
     ExecSQL;
   end;
 end;
-
 procedure TFNewPedidoPosition.CreatePedidoPos;
 begin
   with Query1 do
@@ -233,9 +223,9 @@ begin
     close;
     idPedidoPos := PGSQL.NewID('"документы"."закупки_деталь_id_seq"');
     SQL.Text := 'INSERT INTO "документы"."закупки_деталь"(id, "код_закупки", "код_плантации",' +
-      ' "код_сорта", "код_товара", "цена", fb, "длина", "стеблей", ' + ' код_пользователя, код_деталь_заказ) VALUES (' +
-      ' :id, :код_закупки, :код_плантации, :код_сорта, :код_товара, :цена,' +
-      ' :fb, :длина, :стеблей, :код_пользователя, :код_деталь_заказ)';
+  ' "код_сорта", "код_товара", "цена", fb, "длина", "стеблей", ' + ' код_пользователя, код_деталь_заказ) VALUES (' +
+  ' :id, :код_закупки, :код_плантации, :код_сорта, :код_товара, :цена,' +
+  ' :fb, :длина, :стеблей, :код_пользователя, :код_деталь_заказ)';
     ParamByName('id').Value := idPedidoPos;
     ParamByName('код_плантации').Value := idPlant;
     ParamByName('код_сорта').Value := idSort;
@@ -251,10 +241,9 @@ begin
     CreateFactura;
   end;
 end;
-
 // TODO -cMM: TFNewPedidoPosition.createOrder default body inserted
 
-procedure TFNewPedidoPosition.edtMarkingPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);
+procedure TFNewPedidoPosition.edtMarkingPropertiesButtonClick(Sender : TObject; AButtonIndex : Integer);
 begin
   Application.CreateForm(TFSelect, FSelect);
   with FSelect do
@@ -276,16 +265,14 @@ begin
 {$ENDREGION}
   end;
 end;
-
-procedure TFNewPedidoPosition.FormShow(Sender: TObject);
+procedure TFNewPedidoPosition.FormShow(Sender : TObject);
 begin
   showPedido;
   // dateAir then
   // ShowMessage(DateToStr(dateAir));
 end;
-
-procedure TFNewPedidoPosition.InsertPos(id_plant, id_sort: Integer; len, fb, steems, price: string;
-  id_product: Integer);
+procedure TFNewPedidoPosition.InsertPos(id_plant, id_sort : Integer; len, fb, steems, price : string;
+                                           id_product : Integer);
 begin
   if idOrder = 0 then
     createOrder;
@@ -345,17 +332,14 @@ begin
     CreatePedidoPos;
   end;
 end;
-
-procedure TFNewPedidoPosition.setDate(d: TDate);
+procedure TFNewPedidoPosition.setDate(d : TDate);
 begin
   dateAir := d;
 end;
-
-procedure TFNewPedidoPosition.setIdMarking(id: Integer);
+procedure TFNewPedidoPosition.setIdMarking(id : Integer);
 begin
   idMarking := id;
 end;
-
 procedure TFNewPedidoPosition.showPedido;
 begin
   with QueryPedidoPos do
@@ -374,5 +358,4 @@ begin
     Open;
   end;
 end;
-
 end.

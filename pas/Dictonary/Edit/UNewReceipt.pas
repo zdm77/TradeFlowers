@@ -1,57 +1,52 @@
 unit UNewReceipt;
-
 interface
-
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels,
-  cxLookAndFeelPainters, cxStyles, dxSkinsCore, 
-   dxSkinscxPCPainter, cxCustomData, cxFilter, cxData,
+  cxLookAndFeelPainters, cxStyles, dxSkinsCore,
+  dxSkinscxPCPainter, cxCustomData, cxFilter, cxData,
   cxDataStorage, cxEdit, cxNavigator, Data.DB, cxDBData, MemDS, DBAccess, Uni,
   cxGridLevel, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
   cxClasses, cxGridCustomView, cxGrid, UFrameTopPanel, cxContainer,
   Vcl.StdCtrls, Vcl.Mask, sMaskEdit, sCustomComboEdit, sToolEdit, cxGroupBox;
-
 type
   TFNewReceipt = class(TForm)
-    FrameTopPanel1: TFrameTopPanel;
-    GridStatWork: TcxGrid;
-    ViewReceipt: TcxGridDBTableView;
-    ViewReceiptuni_name: TcxGridDBColumn;
-    ViewReceiptm_uni_name: TcxGridDBColumn;
-    ColumnNum: TcxGridDBColumn;
-    ViewReceiptDBColumn: TcxGridDBColumn;
-    ViewReceipts_uni_name: TcxGridDBColumn;
-    ViewReceiptDBColumn1: TcxGridDBColumn;
-    ViewReceipt__: TcxGridDBColumn;
-    ViewReceiptDBColumn4: TcxGridDBColumn;
-    ViewReceiptDBColumn2: TcxGridDBColumn;
-    ViewReceiptDBColumn3: TcxGridDBColumn;
-    ViewReceipt_5: TcxGridDBColumn;
-    LevelStatWork: TcxGridLevel;
-    Query1: TUniQuery;
-    QueryNewReceipt: TUniQuery;
-    dsNewReceipt: TDataSource;
-    cxGroupBox1: TcxGroupBox;
-    sDateEdit1: TsDateEdit;
-    Label1: TLabel;
+    FrameTopPanel1 : TFrameTopPanel;
+    GridStatWork : TcxGrid;
+    ViewReceipt : TcxGridDBTableView;
+    ViewReceiptuni_name : TcxGridDBColumn;
+    ViewReceiptm_uni_name : TcxGridDBColumn;
+    ColumnNum : TcxGridDBColumn;
+    ViewReceiptDBColumn : TcxGridDBColumn;
+    ViewReceipts_uni_name : TcxGridDBColumn;
+    ViewReceiptDBColumn1 : TcxGridDBColumn;
+    ViewReceipt__ : TcxGridDBColumn;
+    ViewReceiptDBColumn4 : TcxGridDBColumn;
+    ViewReceiptDBColumn2 : TcxGridDBColumn;
+    ViewReceiptDBColumn3 : TcxGridDBColumn;
+    ViewReceipt_5 : TcxGridDBColumn;
+    LevelStatWork : TcxGridLevel;
+    Query1 : TUniQuery;
+    QueryNewReceipt : TUniQuery;
+    dsNewReceipt : TDataSource;
+    cxGroupBox1 : TcxGroupBox;
+    sDateEdit1 : TsDateEdit;
+    Label1 : TLabel;
   private
     { Private declarations }
   public
-    IDReceipt: Integer;
-    procedure ShowNewReceipt(id_locate: Integer = 0);
+    IDReceipt : Integer;
+    procedure ShowNewReceipt(id_locate : Integer = 0);
     { Public declarations }
   end;
 
 var
-  FNewReceipt: TFNewReceipt;
-
+  FNewReceipt : TFNewReceipt;
 implementation
-
 {$R *.dfm}
 
-procedure TFNewReceipt.ShowNewReceipt(id_locate: Integer = 0);
+procedure TFNewReceipt.ShowNewReceipt(id_locate : Integer = 0);
 begin
   with QueryNewReceipt do
   begin
@@ -90,5 +85,4 @@ begin
     Locate('id_locate', id_locate, []);
   end;
 end;
-
 end.

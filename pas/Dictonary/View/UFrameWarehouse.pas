@@ -1,7 +1,5 @@
 unit UFrameWarehouse;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -38,43 +36,33 @@ uses
   MemDS,
   DBAccess,
   Uni,
-  cxNavigator,    
-     
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
-
+  cxNavigator,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
 type
   TFrameWarehouse = class(TFrame)
-    FrameTopPanel1: TFrameTopPanel;
-    QueryWarehouse: TUniQuery;
-    dsWarehouse: TDataSource;
-    GridWarehouse: TcxGrid;
-    ViewUsers: TcxGridDBTableView;
-    ColumnName: TcxGridDBColumn;
-    LevelOrg: TcxGridLevel;
-    ColumnOrg: TcxGridDBColumn;
-    procedure btnAddClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure ViewUsersDblClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
-    procedure btnRefreshClick(Sender: TObject);
+    FrameTopPanel1 : TFrameTopPanel;
+    QueryWarehouse : TUniQuery;
+    dsWarehouse : TDataSource;
+    GridWarehouse : TcxGrid;
+    ViewUsers : TcxGridDBTableView;
+    ColumnName : TcxGridDBColumn;
+    LevelOrg : TcxGridLevel;
+    ColumnOrg : TcxGridDBColumn;
+    procedure btnAddClick(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure ViewUsersDblClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
+    procedure btnRefreshClick(Sender : TObject);
   private
     { Private declarations }
   public
-    procedure ShowWarehouse(id_locate: Integer = 0);
+    procedure ShowWarehouse(id_locate : Integer = 0);
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
 uses
@@ -82,8 +70,7 @@ uses
   UDialogMy,
   PGSQL,
   UNewWarehouse;
-
-procedure TFrameWarehouse.btnAddClick(Sender: TObject);
+procedure TFrameWarehouse.btnAddClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewWarehouse, FNewWarehouse);
   with FNewWarehouse do
@@ -95,14 +82,12 @@ begin
       ShowWarehouse(s_id_warehouse);
   end;
 end;
-
-procedure TFrameWarehouse.btnDelClick(Sender: TObject);
+procedure TFrameWarehouse.btnDelClick(Sender : TObject);
 begin
   PGSQL.StandartDelete(QueryWarehouse.FieldByName('id').AsString,
-    '"склад"."цеха"', QueryWarehouse, '', '', '', '');
+                        '"склад"."цеха"', QueryWarehouse, '', '', '', '');
 end;
-
-procedure TFrameWarehouse.btnEditClick(Sender: TObject);
+procedure TFrameWarehouse.btnEditClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewWarehouse, FNewWarehouse);
   with FNewWarehouse do
@@ -118,37 +103,30 @@ begin
     ShowOrg;
     ShowModal;
     if FrameSave1.id_save = true then
-      QueryWarehouse.Refresh;;
+      QueryWarehouse.Refresh; ;
   end;
 end;
-
-procedure TFrameWarehouse.btnRefreshClick(Sender: TObject);
+procedure TFrameWarehouse.btnRefreshClick(Sender : TObject);
 begin
   QueryWarehouse.Refresh;
 end;
-
-procedure TFrameWarehouse.ShowWarehouse(id_locate: Integer = 0);
+procedure TFrameWarehouse.ShowWarehouse(id_locate : Integer = 0);
 begin
   with QueryWarehouse do
   begin
     case FPasswd.Lang of
-      0:
-        ColumnName.DataBinding.FieldName := 'w_name';
-      1:
-        ColumnName.DataBinding.FieldName := 'w_uni_name';
-      2:
-        ColumnName.DataBinding.FieldName := 'w_reg_name';
+      0 : ColumnName.DataBinding.FieldName := 'w_name';
+      1 : ColumnName.DataBinding.FieldName := 'w_uni_name';
+      2 : ColumnName.DataBinding.FieldName := 'w_reg_name';
     end;
     Close;
     Open;
     Locate('id', id_locate, []);
   end;
 end;
-
-procedure TFrameWarehouse.ViewUsersDblClick(Sender: TObject);
+procedure TFrameWarehouse.ViewUsersDblClick(Sender : TObject);
 begin
   if FrameTopPanel1.btnEdit.Enabled = true then
     btnEditClick(Sender);
 end;
-
 end.

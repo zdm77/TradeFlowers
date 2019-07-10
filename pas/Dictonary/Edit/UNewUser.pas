@@ -1,7 +1,5 @@
 ﻿unit UNewUser;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -19,7 +17,7 @@ uses
   cxContainer,
   cxEdit,
   dxSkinsCore,
-
+  
   cxGroupBox,
   UFrameUniName,
   cxTextEdit,
@@ -39,7 +37,7 @@ uses
   DBAccess,
   Uni,
   dxSkinscxPCPainter,
-
+  
   cxStyles,
   cxCustomData,
   cxFilter,
@@ -58,80 +56,79 @@ uses
   UFrameTopPanel,
   cxPC,
   dxBarBuiltInMenu,
-
+  
   dxSkinDevExpressStyle,
-
-   dxSkinsDefaultPainters, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog;
-
+  
+  dxSkinsDefaultPainters, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog;
 type
   TFNewUser = class(TForm)
-    QueryRole: TUniQuery;
-    dsRole: TDataSource;
-    Query1: TUniQuery;
-    Page1: TcxPageControl;
-    tabОсн: TcxTabSheet;
-    Group2: TcxGroupBox;
-    lblKorp: TLabel;
-    lblConfitm: TLabel;
-    lblLogin: TLabel;
-    edtRole: TcxLookupComboBox;
-    Label2: TcxLabel;
-    Label1: TcxLabel;
-    edtPhone: TcxTextEdit;
-    edtEmail: TcxTextEdit;
-    Label4: TcxLabel;
-    LabelPass: TcxLabel;
-    edtPass: TcxTextEdit;
-    edtPasswdConfirm: TcxTextEdit;
-    LabelConfPass: TcxLabel;
-    cxlbl3: TcxLabel;
-    mmoAdress: TcxMemo;
-    btnAdres: TcxButton;
-    FrameSave1: TFrameSave;
-    edtName: TcxTextEdit;
-    tabБезопасность: TcxTabSheet;
-    FrameTopPanel1: TFrameTopPanel;
-    GridStatWork: TcxGrid;
-    ViewStatWork: TcxGridDBTableView;
-    LevelStatWork: TcxGridLevel;
-    edtLogin: TcxTextEdit;
-    dsAccess: TDataSource;
-    QueryAccess: TUniQuery;
-    ViewStatWorkname_pc: TcxGridDBColumn;
-    ViewStatWorkid_hard: TcxGridDBColumn;
-    ViewStatWorkmac: TcxGridDBColumn;
-    ViewStatWorkaccount: TcxGridDBColumn;
-    ViewStatWorkDBColumn: TcxGridDBColumn;
-    QueryOrgUPD: TUniQuery;
-    dsOrg: TUniDataSource;
-    edtOrg: TcxLookupComboBox;
-    lblOrg: TcxLabel;
-    ColumnDate: TcxGridDBColumn;
-    procedure edtEmailKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure edtNameKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure FormShow(Sender: TObject);
-    procedure edtNamePropertiesChange(Sender: TObject);
-    procedure edtPassKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure edtPassPropertiesChange(Sender: TObject);
-    procedure edtPasswdConfirmPropertiesChange(Sender: TObject);
-    procedure btnAdresClick(Sender: TObject);
-    procedure edtPassEnter(Sender: TObject);
-    procedure edtPasswdConfirmEnter(Sender: TObject);
-    procedure FrameSave1btnSaveClick(Sender: TObject);
-    procedure btnAddClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure ViewStatWorkDblClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
-    procedure btnRefreshClick(Sender: TObject);
+    QueryRole : TUniQuery;
+    dsRole : TDataSource;
+    Query1 : TUniQuery;
+    Page1 : TcxPageControl;
+    tabОсн : TcxTabSheet;
+    Group2 : TcxGroupBox;
+    lblKorp : TLabel;
+    lblConfitm : TLabel;
+    lblLogin : TLabel;
+    edtRole : TcxLookupComboBox;
+    Label2 : TcxLabel;
+    Label1 : TcxLabel;
+    edtPhone : TcxTextEdit;
+    edtEmail : TcxTextEdit;
+    Label4 : TcxLabel;
+    LabelPass : TcxLabel;
+    edtPass : TcxTextEdit;
+    edtPasswdConfirm : TcxTextEdit;
+    LabelConfPass : TcxLabel;
+    cxlbl3 : TcxLabel;
+    mmoAdress : TcxMemo;
+    btnAdres : TcxButton;
+    FrameSave1 : TFrameSave;
+    edtName : TcxTextEdit;
+    tabБезопасность : TcxTabSheet;
+    FrameTopPanel1 : TFrameTopPanel;
+    GridStatWork : TcxGrid;
+    ViewStatWork : TcxGridDBTableView;
+    LevelStatWork : TcxGridLevel;
+    edtLogin : TcxTextEdit;
+    dsAccess : TDataSource;
+    QueryAccess : TUniQuery;
+    ViewStatWorkname_pc : TcxGridDBColumn;
+    ViewStatWorkid_hard : TcxGridDBColumn;
+    ViewStatWorkmac : TcxGridDBColumn;
+    ViewStatWorkaccount : TcxGridDBColumn;
+    ViewStatWorkDBColumn : TcxGridDBColumn;
+    QueryOrgUPD : TUniQuery;
+    dsOrg : TUniDataSource;
+    edtOrg : TcxLookupComboBox;
+    lblOrg : TcxLabel;
+    ColumnDate : TcxGridDBColumn;
+    procedure edtEmailKeyUp(Sender : TObject; var Key : Word; Shift : TShiftState);
+    procedure edtNameKeyUp(Sender : TObject; var Key : Word; Shift : TShiftState);
+    procedure FormShow(Sender : TObject);
+    procedure edtNamePropertiesChange(Sender : TObject);
+    procedure edtPassKeyUp(Sender : TObject; var Key : Word; Shift : TShiftState);
+    procedure edtPassPropertiesChange(Sender : TObject);
+    procedure edtPasswdConfirmPropertiesChange(Sender : TObject);
+    procedure btnAdresClick(Sender : TObject);
+    procedure edtPassEnter(Sender : TObject);
+    procedure edtPasswdConfirmEnter(Sender : TObject);
+    procedure FrameSave1btnSaveClick(Sender : TObject);
+    procedure btnAddClick(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure ViewStatWorkDblClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
+    procedure btnRefreshClick(Sender : TObject);
   private
     { Private declarations }
   public
-    s_id_org: integer;
-    s_id_role: integer;
-    s_id_user: integer;
-    begin_pass: string;
+    s_id_org : integer;
+    s_id_role : integer;
+    s_id_user : integer;
+    begin_pass : string;
     procedure EnableSave;
-    procedure InsUpdUser(id_ins: boolean);
+    procedure InsUpdUser(id_ins : boolean);
     procedure ShowAccess;
     procedure ShowOrg;
     procedure ShowRole;
@@ -139,10 +136,8 @@ type
   end;
 
 var
-  FNewUser: TFNewUser;
-
+  FNewUser : TFNewUser;
 implementation
-
 {$R *.dfm}
 
 uses
@@ -150,8 +145,7 @@ uses
   PGSQL,
   UDialogMy,
   UParamPC;
-
-procedure TFNewUser.btnAddClick(Sender: TObject);
+procedure TFNewUser.btnAddClick(Sender : TObject);
 begin
   Application.CreateForm(TFParamPC, FParamPC);
   with FParamPC do
@@ -167,9 +161,9 @@ begin
       begin
         Close;
         SQL.Text :=
-          'INSERT INTO  "пользователи"."безопасность"(id_user,  name_pc,' +
-          '  id_hard,  mac,  account, "разрешить") VALUES (:id_user,  :name_pc,'
-          + '  :id_hard,  :mac,  :account, :разрешить);';
+                   'INSERT INTO  "пользователи"."безопасность"(id_user,  name_pc,' +
+                   '  id_hard,  mac,  account, "разрешить") VALUES (:id_user,  :name_pc,'
+                   + '  :id_hard,  :mac,  :account, :разрешить);';
         ParamByName('id_user').AsInteger := s_id_user;
         ParamByName('name_pc').AsString := edtPCName.Text;
         ParamByName('id_hard').AsString := edtHDD.Text;
@@ -182,19 +176,16 @@ begin
     end;
   end;
 end;
-
-procedure TFNewUser.btnAdresClick(Sender: TObject);
+procedure TFNewUser.btnAdresClick(Sender : TObject);
 begin
   SelectAddress(mmoAdress, 0, 0, 0, 0, '', '', '', '');
 end;
-
-procedure TFNewUser.btnDelClick(Sender: TObject);
+procedure TFNewUser.btnDelClick(Sender : TObject);
 begin
   PGSQL.StandartDelete(QueryAccess.FieldByName('id').AsString,
-    '"пользователи"."безопасность" ', QueryAccess, '', '', '', '');
+                        '"пользователи"."безопасность" ', QueryAccess, '', '', '', '');
 end;
-
-procedure TFNewUser.btnEditClick(Sender: TObject);
+procedure TFNewUser.btnEditClick(Sender : TObject);
 begin
   Application.CreateForm(TFParamPC, FParamPC);
   with FParamPC do
@@ -211,9 +202,9 @@ begin
       begin
         Close;
         SQL.Text :=
-          'UPDATE  "пользователи"."безопасность" SET  name_pc = :name_pc,' +
-          '  id_hard = :id_hard,  mac = :mac,  account = :account,' +
-          '  "разрешить" = :разрешить, date_add=:date_add WHERE  id = :id;';
+                   'UPDATE  "пользователи"."безопасность" SET  name_pc = :name_pc,' +
+                   '  id_hard = :id_hard,  mac = :mac,  account = :account,' +
+                   '  "разрешить" = :разрешить, date_add=:date_add WHERE  id = :id;';
         ParamByName('name_pc').AsString := edtPCName.Text;
         ParamByName('id_hard').AsString := edtHDD.Text;
         ParamByName('mac').AsString := edtMAC.Text;
@@ -227,59 +218,49 @@ begin
     end;
   end;
 end;
-
-procedure TFNewUser.btnRefreshClick(Sender: TObject);
+procedure TFNewUser.btnRefreshClick(Sender : TObject);
 begin
   ShowAccess;
 end;
-
-procedure TFNewUser.edtEmailKeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewUser.edtEmailKeyUp(Sender : TObject; var Key : Word;
+                                     Shift : TShiftState);
 begin
   EnableSave;
 end;
-
-procedure TFNewUser.edtNameKeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewUser.edtNameKeyUp(Sender : TObject; var Key : Word;
+                                    Shift : TShiftState);
 begin
   EnableSave;
 end;
-
-procedure TFNewUser.edtNamePropertiesChange(Sender: TObject);
+procedure TFNewUser.edtNamePropertiesChange(Sender : TObject);
 begin
   EnableSave;
 end;
-
-procedure TFNewUser.edtPassEnter(Sender: TObject);
+procedure TFNewUser.edtPassEnter(Sender : TObject);
 begin
   edtPass.SelectAll;
 end;
-
-procedure TFNewUser.edtPassKeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewUser.edtPassKeyUp(Sender : TObject; var Key : Word;
+                                    Shift : TShiftState);
 begin
   EnableSave;
 end;
-
-procedure TFNewUser.edtPassPropertiesChange(Sender: TObject);
+procedure TFNewUser.edtPassPropertiesChange(Sender : TObject);
 begin
   EnableSave;
 end;
-
-procedure TFNewUser.edtPasswdConfirmEnter(Sender: TObject);
+procedure TFNewUser.edtPasswdConfirmEnter(Sender : TObject);
 begin
   edtPasswdConfirm.SelectAll;
 end;
-
-procedure TFNewUser.edtPasswdConfirmPropertiesChange(Sender: TObject);
+procedure TFNewUser.edtPasswdConfirmPropertiesChange(Sender : TObject);
 begin
   EnableSave;
 end;
-
 procedure TFNewUser.EnableSave;
 begin
   if (edtName.Text <> '') and (edtLogin.Text <> '') and (edtPass.Text <> '') and
-    (edtPasswdConfirm.Text <> '') and (edtPass.Text = edtPasswdConfirm.Text)
+  (edtPasswdConfirm.Text <> '') and (edtPass.Text = edtPasswdConfirm.Text)
   then
     FrameSave1.btnSave.Enabled := true
   else
@@ -294,8 +275,7 @@ begin
   else
     lblConfitm.Caption := 'Введите пароли';
 end;
-
-procedure TFNewUser.FormShow(Sender: TObject);
+procedure TFNewUser.FormShow(Sender : TObject);
 begin
   Page1.ActivePageIndex := 0;
   begin_pass := edtPass.Text;
@@ -306,8 +286,7 @@ begin
   else
     ShowAccess;
 end;
-
-procedure TFNewUser.FrameSave1btnSaveClick(Sender: TObject);
+procedure TFNewUser.FrameSave1btnSaveClick(Sender : TObject);
 begin
   FrameSave1.btnSaveClick(Sender);
   if s_id_user = 0 then
@@ -315,10 +294,9 @@ begin
   else
     InsUpdUser(False);
 end;
-
-procedure TFNewUser.InsUpdUser(id_ins: boolean);
+procedure TFNewUser.InsUpdUser(id_ins : boolean);
 var
-  s: string;
+  s : string;
 begin
   with Query1 do
   begin
@@ -327,15 +305,15 @@ begin
     begin
       s_id_user := PGSQL.NewID('"пользователи"."пользователи_id_seq"');
       SQL.Text := 'INSERT INTO "пользователи"."пользователи"(id,' +
-        'login, name, "пароль",  "код_роли",  "код_организации",  "почта",  "телефон",  "адрес") '
-        + 'VALUES (:id, :login,  :name,  :пароль,  :код_роли,  :код_организации,  :почта, :телефон,  :адрес'
-        + ');'
+    'login, name, "пароль",  "код_роли",  "код_организации",  "почта",  "телефон",  "адрес") '
+    + 'VALUES (:id, :login,  :name,  :пароль,  :код_роли,  :код_организации,  :почта, :телефон,  :адрес'
+    + ');'
     end
     else
       SQL.Text := 'UPDATE "пользователи"."пользователи"  SET   login = :login,'
-        + ' name = :name,  "пароль" = :пароль,  "код_роли" = :код_роли,' +
-        ' "код_организации" = :код_организации,  "почта" = :почта,  "телефон" = :телефон,'
-        + '  "адрес" = :адрес WHERE  id = :id';
+    + ' name = :name,  "пароль" = :пароль,  "код_роли" = :код_роли,' +
+    ' "код_организации" = :код_организации,  "почта" = :почта,  "телефон" = :телефон,'
+    + '  "адрес" = :адрес WHERE  id = :id';
     ParamByName('id').AsInteger := s_id_user;
     ParamByName('name').AsString := edtName.Text;
     ParamByName('пароль').AsString := edtPass.Text;
@@ -353,8 +331,8 @@ begin
         begin
           Close;
           SQL.Text :=
-            'UPDATE "пользователи"."пользователи"  SET "пароль" =md5(пароль) WHERE  id ='
-            + IntToStr(s_id_user);
+                     'UPDATE "пользователи"."пользователи"  SET "пароль" =md5(пароль) WHERE  id ='
+                     + IntToStr(s_id_user);
           ExecSQL;
         end;
       end;
@@ -362,47 +340,38 @@ begin
     except
       s_id_user := 0;
       case FPasswd.edtLang.ItemIndex of
-        0:
-          ErrorDialog('Пользователь с таким логином уже существует',
-            '', '', '');
-        1:
-          ErrorDialog('A user with that login already exists', '', '', '');
-        2:
-          ErrorDialog('El usuario con tal login existe ya', '', '', '');
+        0 : ErrorDialog('Пользователь с таким логином уже существует',
+                         '', '', '');
+        1 : ErrorDialog('A user with that login already exists', '', '', '');
+        2 : ErrorDialog('El usuario con tal login existe ya', '', '', '');
       end;
     end;
   end;
 end;
-
 procedure TFNewUser.ShowAccess;
 begin
   with QueryAccess do
   begin
     Close;
     SQL.Text := 'select * from "пользователи"."безопасность" where id_user=' +
-      IntToStr(s_id_user) + ' order by date_add DESC';
+  IntToStr(s_id_user) + ' order by date_add DESC';
     Open;
   end;
 end;
-
 procedure TFNewUser.ShowOrg;
 begin
   QueryOrgUPD.Close;
   QueryOrgUPD.Open;
   edtOrg.EditValue := s_id_org;
 end;
-
 procedure TFNewUser.ShowRole;
 begin
   with QueryRole do
   begin
     case FPasswd.edtLang.ItemIndex of
-      0:
-        edtRole.Properties.ListFieldNames := 'name';
-      1:
-        edtRole.Properties.ListFieldNames := 'uni_name';
-      2:
-        edtRole.Properties.ListFieldNames := 'reg_name';
+      0 : edtRole.Properties.ListFieldNames := 'name';
+      1 : edtRole.Properties.ListFieldNames := 'uni_name';
+      2 : edtRole.Properties.ListFieldNames := 'reg_name';
     end;
     Close;
     SQL.Text := 'select * from пользователи.роли where id<>1';
@@ -413,10 +382,8 @@ begin
       edtRole.EditValue := Fields[0].AsInteger;
   end;
 end;
-
-procedure TFNewUser.ViewStatWorkDblClick(Sender: TObject);
+procedure TFNewUser.ViewStatWorkDblClick(Sender : TObject);
 begin
   btnEditClick(Sender);
 end;
-
 end.

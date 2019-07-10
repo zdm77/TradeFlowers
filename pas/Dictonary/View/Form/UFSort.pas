@@ -1,7 +1,5 @@
 unit UFSort;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -17,13 +15,12 @@ uses
   MemDS,
   DBAccess,
   Uni;
-
 type
   TFSort = class(TForm)
-    FrameSort1: TFrameSort;
-    Query1: TUniQuery;
-    procedure FormCreate(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    FrameSort1 : TFrameSort;
+    Query1 : TUniQuery;
+    procedure FormCreate(Sender : TObject);
+    procedure FormClose(Sender : TObject; var Action : TCloseAction);
   private
     { Private declarations }
   public
@@ -32,15 +29,12 @@ type
   end;
 
 var
-  FSort: TFSort;
-
+  FSort : TFSort;
 implementation
-
 {$R *.dfm}
 
 uses
   UPasswd;
-
 procedure TFSort.Access;
 begin
   if (FPasswd.ID_ROLE <> 1) then
@@ -50,36 +44,33 @@ begin
       { доступ }
       Close;
       sql.Text := 'select * from "пользователи"."доступ"  where код_роли=' +
-        IntToStr(FPasswd.ID_ROLE);
+    IntToStr(FPasswd.ID_ROLE);
       Open;
       FrameSort1.FrameTopPanel1.btnAdd.Enabled :=
-        FieldByName('сорта_добавление').AsBoolean;
+                                                 FieldByName('сорта_добавление').AsBoolean;
       FrameSort1.FrameTopPanel1.btnEdit.Enabled :=
-        FieldByName('сорта_редактирование').AsBoolean;
+                                                  FieldByName('сорта_редактирование').AsBoolean;
       FrameSort1.FrameTopPanel1.btnDel.Enabled := FieldByName('сорта_удаление')
-        .AsBoolean;
+    .AsBoolean;
     end;
   end;
 end;
-
-procedure TFSort.FormCreate(Sender: TObject);
+procedure TFSort.FormCreate(Sender : TObject);
 begin
   case FPasswd.Lang of
-    1:
-      begin
-        Caption := 'Grades';
-      end;
-    2:
-      begin
-        Caption := 'Variedades';
-      end;
+    1 :
+    begin
+      Caption := 'Grades';
+    end;
+    2 :
+    begin
+      Caption := 'Variedades';
+    end;
   end;
 end;
-
-procedure TFSort.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFSort.FormClose(Sender : TObject; var Action : TCloseAction);
 begin
   Action := caFree;
   FSort := nil;
 end;
-
 end.

@@ -1,70 +1,67 @@
 unit UChat;
-
 interface
-
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ImgList,
   Vcl.ComCtrls, System.Win.ScktComp;
-
 type
   TFChat = class(TForm)
-    PortEdit: TEdit;
-    HostEdit: TEdit;
-    NikEdit: TEdit;
-    TextEdit: TEdit;
-    ChatMemo: TMemo;
-    ClientBtn: TButton;
-    btnServer: TButton;
-    btnSend: TButton;
-    sockClient: TClientSocket;
-    sockServer: TServerSocket;
-    listUsers: TListView;
-    img1: TImageList;
-    tmrServer: TTimer;
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure tmrServerTimer(Sender: TObject);
-    procedure btnServerClick(Sender: TObject);
-    procedure sockServerClientConnect(Sender: TObject;
-      Socket: TCustomWinSocket);
+    PortEdit : TEdit;
+    HostEdit : TEdit;
+    NikEdit : TEdit;
+    TextEdit : TEdit;
+    ChatMemo : TMemo;
+    ClientBtn : TButton;
+    btnServer : TButton;
+    btnSend : TButton;
+    sockClient : TClientSocket;
+    sockServer : TServerSocket;
+    listUsers : TListView;
+    img1 : TImageList;
+    tmrServer : TTimer;
+    procedure FormClose(Sender : TObject; var Action : TCloseAction);
+    procedure tmrServerTimer(Sender : TObject);
+    procedure btnServerClick(Sender : TObject);
+    procedure sockServerClientConnect(Sender : TObject;
+                                         Socket : TCustomWinSocket);
     procedure UpdateUserList();
     procedure UpdateUserMas();
-    procedure sockServerClientDisconnect(Sender: TObject;
-      Socket: TCustomWinSocket);
-    procedure btnSendClick(Sender: TObject);
-    procedure ClientBtnClick(Sender: TObject);
-    procedure sockClientRead(Sender: TObject; Socket: TCustomWinSocket);
-    procedure sockClientConnect(Sender: TObject; Socket: TCustomWinSocket);
-    procedure sockClientDisconnect(Sender: TObject; Socket: TCustomWinSocket);
+    procedure sockServerClientDisconnect(Sender : TObject;
+                                            Socket : TCustomWinSocket);
+    procedure btnSendClick(Sender : TObject);
+    procedure ClientBtnClick(Sender : TObject);
+    procedure sockClientRead(Sender : TObject; Socket : TCustomWinSocket);
+    procedure sockClientConnect(Sender : TObject; Socket : TCustomWinSocket);
+    procedure sockClientDisconnect(Sender : TObject; Socket : TCustomWinSocket);
   private
-
     { Private declarations }
   public
-
     { Public declarations }
   end;
 
 Type
   TUserList = object
-    Status: Byte; // 1 - сервер, 2 - клиент
-    Rec: Boolean; // отметка записи пользователя в список
-    Name: String; // имя (ник)
-    Image: Byte; // индекс иконки
+    Status : Byte;
+    // 1 - сервер, 2 - клиент
+    Rec : Boolean;
+    // отметка записи пользователя в список
+    Name : String;
+    // имя (ник)
+    Image : Byte;
+    // индекс иконки
   end;
 
 var
-  FChat: TFChat;
-  i, j, com, ContList: Byte;
-  len, pos, x: Word;
-  text, StrUserList: String;
-  UpdDo: Boolean;
-  Buf: array [0 .. 3] of Byte;
-  UserMas: array [0 .. 255] of TUserList; // массив объектов
-  UItems: TListItem;
-
+  FChat : TFChat;
+  i, j, com, ContList : Byte;
+  len, pos, x : Word;
+  text, StrUserList : String;
+  UpdDo : Boolean;
+  Buf : array [0..3] of Byte;
+  UserMas : array [0..255] of TUserList; // массив объектов
+  UItems : TListItem;
 implementation
-
 {$R *.dfm}
 
 procedure TFChat.UpdateUserMas();
@@ -85,16 +82,12 @@ begin
       UserMas[i].Status := 2;
       UserMas[i].Name := 'Неизвестный';
       UserMas[i].Image := 0;
-
       sockServer.Socket.Connections[i].SendText('1');
     end;
   end;
 end;
-
 procedure TFChat.UpdateUserList();
-
 begin
-
   // очищаем список клиентов UserListView.Items.Clear;
   // очищаем переменную
   StrUserList := '';
@@ -128,26 +121,24 @@ begin
     end;
   end;
 end;
-
-procedure TFChat.btnSendClick(Sender: TObject);
+procedure TFChat.btnSendClick(Sender : TObject);
 begin
   // проверка, в каком режиме находится программа
   if sockServer.Active = True then
-    // отправляем сообщение с сервера всем пользователям
+      // отправляем сообщение с сервера всем пользователям
     for i := 0 to sockServer.Socket.ActiveConnections - 1 do
       sockServer.Socket.Connections[i].SendText('0[' + TimeToStr(Time) + '] ' +
-        NikEdit.text + ': ' + TextEdit.text)
+      NikEdit.text + ': ' + TextEdit.text)
   else
-    // отправляем сообщение с клиента
+      // отправляем сообщение с клиента
     sockClient.Socket.SendText('0[' + TimeToStr(Time) + '] ' + NikEdit.text +
-      ': ' + TextEdit.text);
+    ': ' + TextEdit.text);
   // отобразим сообщение в ChatMemo
-  ChatMemo.Lines.Add('[' + TimeToStr(Time) + ']' +NikEdit.Text+': ' + TextEdit.text);
+  ChatMemo.Lines.Add('[' + TimeToStr(Time) + ']' + NikEdit.Text + ': ' + TextEdit.text);
   // очищаем TextEdit
   TextEdit.Clear;
 end;
-
-procedure TFChat.btnServerClick(Sender: TObject);
+procedure TFChat.btnServerClick(Sender : TObject);
 begin
   if btnServer.Tag = 0 then
   begin
@@ -204,8 +195,7 @@ begin
     btnServer.Caption := 'Создать сервер';
   end;
 end;
-
-procedure TFChat.ClientBtnClick(Sender: TObject);
+procedure TFChat.ClientBtnClick(Sender : TObject);
 begin
   if ClientBtn.Tag = 0 then
   begin
@@ -243,25 +233,21 @@ begin
     ClientBtn.Caption := ' Подключиться ';
   end;
 end;
-
-procedure TFChat.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFChat.FormClose(Sender : TObject; var Action : TCloseAction);
 begin
   Action := caFree;
   FChat := nil;
 end;
-
-procedure TFChat.sockClientConnect(Sender: TObject; Socket: TCustomWinSocket);
+procedure TFChat.sockClientConnect(Sender : TObject; Socket : TCustomWinSocket);
 begin
   ChatMemo.Lines.Add('[' + TimeToStr(Time) + '] Подключение к серверу.');
 end;
-
-procedure TFChat.sockClientDisconnect(Sender: TObject;
-  Socket: TCustomWinSocket);
+procedure TFChat.sockClientDisconnect(Sender : TObject;
+                                         Socket : TCustomWinSocket);
 begin
   ChatMemo.Lines.Add('[' + TimeToStr(Time) + '] Сервер не найден.');
 end;
-
-procedure TFChat.sockClientRead(Sender: TObject; Socket: TCustomWinSocket);
+procedure TFChat.sockClientRead(Sender : TObject; Socket : TCustomWinSocket);
 begin
   // получим текст, код комманды, длину строки
   text := Socket.ReceiveText();
@@ -269,68 +255,63 @@ begin
   len := Length(text) - 1;
   // определение комманд
   case com of
-    // добавим в ChatMemo сообщение с сервера
-    0:
-      ChatMemo.Lines.Add(Copy(text, 2, len));
-    // отошлем свой ник на сервер
-    1:
-      sockClient.Socket.SendText('1' + NikEdit.text);
-    // примем строку списка пользователей
-    2:
+      // добавим в ChatMemo сообщение с сервера
+    0 : ChatMemo.Lines.Add(Copy(text, 2, len));
+      // отошлем свой ник на сервер
+    1 : sockClient.Socket.SendText('1' + NikEdit.text);
+      // примем строку списка пользователей
+    2 :
+    begin
+      // очищаем список клиентов
+      listUsers.Items.Clear;
+      // добавим ключ конца строки (т.к. вырезка символов с задержкой)
+      text := text + Chr(152);
+      // укажем начальный символ
+      pos := 2;
+      // обнулим счетчик символов
+      x := 0;
+      // пробегаем по длине строки списка
+      for j := 2 to len + 1 do
       begin
-        // очищаем список клиентов
-        listUsers.Items.Clear;
-        // добавим ключ конца строки (т.к. вырезка символов с задержкой)
-        text := text + Chr(152);
-        // укажем начальный символ
-        pos := 2;
-        // обнулим счетчик символов
-        x := 0;
-        // пробегаем по длине строки списка
-        for j := 2 to len + 1 do
+        // записываем в счетчик сдвиг
+        x := x + 1;
+        // если найден ключ (отделение ников в строке)
+        if Copy(text, j, 1) = Chr(152) then
         begin
-          // записываем в счетчик сдвиг
-          x := x + 1;
-          // если найден ключ (отделение ников в строке)
-          if Copy(text, j, 1) = Chr(152) then
-          begin
-            // добавим в UserListView строку
-            UItems := listUsers.Items.Add;
-            UItems.Caption := Copy(text, pos, x - 1);
-            // укажем соответствующую иконку пользователя
-            if pos > 2 then
-              UItems.ImageIndex := 0
-            else
-              UItems.ImageIndex := 1;
-            // изменим текущую позицию в строке списка
-            pos := j + 1;
-            // обнулим счетчик символов
-            x := 0;
-          end;
+          // добавим в UserListView строку
+          UItems := listUsers.Items.Add;
+          UItems.Caption := Copy(text, pos, x - 1);
+          // укажем соответствующую иконку пользователя
+          if pos > 2 then
+            UItems.ImageIndex := 0
+          else
+            UItems.ImageIndex := 1;
+          // изменим текущую позицию в строке списка
+          pos := j + 1;
+          // обнулим счетчик символов
+          x := 0;
         end;
       end;
+    end;
   end;
 end;
-
-procedure TFChat.sockServerClientConnect(Sender: TObject;
-  Socket: TCustomWinSocket);
+procedure TFChat.sockServerClientConnect(Sender : TObject;
+                                            Socket : TCustomWinSocket);
 begin
   // добавим в ChatMemo сообщение с временем подключения клиента
   ChatMemo.Lines.Add('[' + TimeToStr(Time) + '] Подключился клиент.');
   // разрешаем обновление
   UpdDo := True;
 end;
-
-procedure TFChat.sockServerClientDisconnect(Sender: TObject;
-  Socket: TCustomWinSocket);
+procedure TFChat.sockServerClientDisconnect(Sender : TObject;
+                                               Socket : TCustomWinSocket);
 begin
   // добавим в ChatMemo сообщение с временем отключения клиента
   ChatMemo.Lines.Add('[' + TimeToStr(Time) + '] Клиент отключился.');
   // разрешаем обновление
   UpdDo := True;
 end;
-
-procedure TFChat.tmrServerTimer(Sender: TObject);
+procedure TFChat.tmrServerTimer(Sender : TObject);
 begin
   // условие на наличие установленных каналов
   if sockServer.Socket.ActiveConnections <> 0 then
@@ -348,29 +329,29 @@ begin
         len := Length(text) - 1;
         // определение команд
         case com of
-          // код приема сообщения
-          0:
+            // код приема сообщения
+          0 :
+          begin
+            // добавим в ChatMemo сообщение клиента
+            ChatMemo.Lines.Add(Copy(text, 2, len));
+            // разошлем сообщение пользователям (кроме того, кто прислал)
+            for j := 0 to sockServer.Socket.ActiveConnections - 1 do
             begin
-              // добавим в ChatMemo сообщение клиента
-              ChatMemo.Lines.Add(Copy(text, 2, len));
-              // разошлем сообщение пользователям (кроме того, кто прислал)
-              for j := 0 to sockServer.Socket.ActiveConnections - 1 do
-              begin
-                if (j + 1) <> i then
-                  sockServer.Socket.Connections[j]
-                    .SendText('0' + Copy(text, 2, len));
-              end;
+              if (j + 1) <> i then
+                sockServer.Socket.Connections[j]
+                .SendText('0' + Copy(text, 2, len));
             end;
-          // код приема ника клиента
-          1:
-            begin
-              // запишем в массив полученный ник
-              UserMas[i].Name := Copy(text, 2, len);
-              // отметим, что пользователь записан в список
-              UserMas[i].Rec := True;
-              // обновляем список
-              UpdateUserList;
-            end;
+          end;
+            // код приема ника клиента
+          1 :
+          begin
+            // запишем в массив полученный ник
+            UserMas[i].Name := Copy(text, 2, len);
+            // отметим, что пользователь записан в список
+            UserMas[i].Rec := True;
+            // обновляем список
+            UpdateUserList;
+          end;
         end;
       end;
     end;
@@ -386,5 +367,4 @@ begin
     UpdDo := False;
   end;
 end;
-
 end.

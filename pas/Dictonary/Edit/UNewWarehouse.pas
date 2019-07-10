@@ -1,7 +1,5 @@
 unit UNewWarehouse;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -49,98 +47,84 @@ uses
   cxGridCustomView,
   cxGrid,
   UFrameTopPanel,
-  cxNavigator,    
-     
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue;
-
+  cxNavigator,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue;
 type
   TFNewWarehouse = class(TForm)
-    FrameSave1: TFrameSave;
-    QueryOrg: TUniQuery;
-    dsOrg: TUniDataSource;
-    Group1: TcxGroupBox;
-    UniQuery1: TUniQuery;
-    UniDataSource1: TUniDataSource;
-    edtOrg: TcxLookupComboBox;
-    lblOrg: TLabel;
-    FrameUniName1: TFrameUniName;
-    Group2: TcxGroupBox;
-    FrameTopPanel1: TFrameTopPanel;
-    QueryStoreloc: TUniQuery;
-    dsStoreloc: TDataSource;
-    GridUsers: TcxGrid;
-    ViewUsers: TcxGridDBTableView;
-    LevelOrg: TcxGridLevel;
-    Query1: TUniQuery;
-    ColumnName: TcxGridDBColumn;
-    ColumnCount: TcxGridDBColumn;
-    ColumnNameE: TcxGridDBColumn;
-    procedure FormShow(Sender: TObject);
-    procedure FrameSave1btnSaveClick(Sender: TObject);
-    procedure FrameUniName1edtNameKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure FrameUniName1edtUniNameKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    FrameSave1 : TFrameSave;
+    QueryOrg : TUniQuery;
+    dsOrg : TUniDataSource;
+    Group1 : TcxGroupBox;
+    UniQuery1 : TUniQuery;
+    UniDataSource1 : TUniDataSource;
+    edtOrg : TcxLookupComboBox;
+    lblOrg : TLabel;
+    FrameUniName1 : TFrameUniName;
+    Group2 : TcxGroupBox;
+    FrameTopPanel1 : TFrameTopPanel;
+    QueryStoreloc : TUniQuery;
+    dsStoreloc : TDataSource;
+    GridUsers : TcxGrid;
+    ViewUsers : TcxGridDBTableView;
+    LevelOrg : TcxGridLevel;
+    Query1 : TUniQuery;
+    ColumnName : TcxGridDBColumn;
+    ColumnCount : TcxGridDBColumn;
+    ColumnNameE : TcxGridDBColumn;
+    procedure FormShow(Sender : TObject);
+    procedure FrameSave1btnSaveClick(Sender : TObject);
+    procedure FrameUniName1edtNameKeyUp(Sender : TObject; var Key : Word;
+                                           Shift : TShiftState);
+    procedure FrameUniName1edtUniNameKeyUp(Sender : TObject; var Key : Word;
+                                              Shift : TShiftState);
     procedure FrameUniName1edtUniNamePropertiesEditValueChanged
-      (Sender: TObject);
-    procedure FrameUniName1edtNamePropertiesEditValueChanged(Sender: TObject);
-    procedure FrameUniName1edtRegNameKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+        (Sender : TObject);
+    procedure FrameUniName1edtNamePropertiesEditValueChanged(Sender : TObject);
+    procedure FrameUniName1edtRegNameKeyUp(Sender : TObject; var Key : Word;
+                                              Shift : TShiftState);
     procedure FrameUniName1edtRegNamePropertiesEditValueChanged
-      (Sender: TObject);
-    procedure btnAddClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
+        (Sender : TObject);
+    procedure btnAddClick(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
   private
     { Private declarations }
   public
-    s_id_org: Integer;
-    s_id_warehouse: Integer;
+    s_id_org : Integer;
+    s_id_warehouse : Integer;
     procedure EnableSave;
-    procedure InsUpdWarehouse(id_ins: boolean);
+    procedure InsUpdWarehouse(id_ins : boolean);
     procedure ShowOrg;
     { Public declarations }
   end;
 
 var
-  FNewWarehouse: TFNewWarehouse;
-
+  FNewWarehouse : TFNewWarehouse;
 implementation
-
 {$R *.dfm}
 
 uses
   PGSQL;
-
-procedure TFNewWarehouse.btnAddClick(Sender: TObject);
+procedure TFNewWarehouse.btnAddClick(Sender : TObject);
 begin
   EnableSave;
 end;
-
-procedure TFNewWarehouse.btnDelClick(Sender: TObject);
+procedure TFNewWarehouse.btnDelClick(Sender : TObject);
 begin
   EnableSave;
 end;
-
-procedure TFNewWarehouse.btnEditClick(Sender: TObject);
+procedure TFNewWarehouse.btnEditClick(Sender : TObject);
 begin
   EnableSave;
 end;
-
 procedure TFNewWarehouse.EnableSave;
 begin
   if (FrameUniName1.edtUniName.Text <> '') and
-    (FrameUniName1.edtName.Text <> '') and (FrameUniName1.edtRegName.Text <> '')
-    and (edtOrg.Text <> '') then
+  (FrameUniName1.edtName.Text <> '') and (FrameUniName1.edtRegName.Text <> '')
+  and (edtOrg.Text <> '') then
     FrameSave1.btnSave.Enabled := True
   else
     FrameSave1.btnSave.Enabled := false;
@@ -155,16 +139,14 @@ begin
     FrameTopPanel1.btnDel.Enabled := false;
   end;
 end;
-
-procedure TFNewWarehouse.FormShow(Sender: TObject);
+procedure TFNewWarehouse.FormShow(Sender : TObject);
 begin
   FrameUniName1.SetLang;
   FrameUniName1.edtUniName.SetFocus;
   FrameTopPanel1.SetLang;
   EnableSave;
 end;
-
-procedure TFNewWarehouse.FrameSave1btnSaveClick(Sender: TObject);
+procedure TFNewWarehouse.FrameSave1btnSaveClick(Sender : TObject);
 begin
   FrameSave1.btnSaveClick(Sender);
   if s_id_warehouse = 0 then
@@ -173,46 +155,39 @@ begin
     InsUpdWarehouse(false);
   Close;
 end;
-
-procedure TFNewWarehouse.FrameUniName1edtNameKeyUp(Sender: TObject;
-  var Key: Word; Shift: TShiftState);
+procedure TFNewWarehouse.FrameUniName1edtNameKeyUp(Sender : TObject;
+                                                      var Key : Word; Shift : TShiftState);
 begin
   EnableSave;
 end;
-
 procedure TFNewWarehouse.FrameUniName1edtNamePropertiesEditValueChanged
-  (Sender: TObject);
+  (Sender : TObject);
 begin
   EnableSave;
 end;
-
-procedure TFNewWarehouse.FrameUniName1edtRegNameKeyUp(Sender: TObject;
-  var Key: Word; Shift: TShiftState);
+procedure TFNewWarehouse.FrameUniName1edtRegNameKeyUp(Sender : TObject;
+                                                         var Key : Word; Shift : TShiftState);
 begin
   EnableSave;
 end;
-
 procedure TFNewWarehouse.FrameUniName1edtRegNamePropertiesEditValueChanged
-  (Sender: TObject);
+  (Sender : TObject);
 begin
   EnableSave;
 end;
-
-procedure TFNewWarehouse.FrameUniName1edtUniNameKeyUp(Sender: TObject;
-  var Key: Word; Shift: TShiftState);
+procedure TFNewWarehouse.FrameUniName1edtUniNameKeyUp(Sender : TObject;
+                                                         var Key : Word; Shift : TShiftState);
 begin
   EnableSave;
 end;
-
 procedure TFNewWarehouse.FrameUniName1edtUniNamePropertiesEditValueChanged
-  (Sender: TObject);
+  (Sender : TObject);
 begin
   EnableSave;
 end;
-
-procedure TFNewWarehouse.InsUpdWarehouse(id_ins: boolean);
+procedure TFNewWarehouse.InsUpdWarehouse(id_ins : boolean);
 var
-  id: Integer;
+  id : Integer;
 begin
   with Query1 do
   begin
@@ -221,28 +196,27 @@ begin
     begin
       id := PGSQL.NewID('"склад"."цеха_id_sec"');
       sql.Text :=
-        'INSERT INTO "склад"."цеха"(id, "код_организации", name, uni_name,' +
-        ' reg_name) VALUES (:id, :код_организации, :name, :uni_name, :reg_name)';
+                 'INSERT INTO "склад"."цеха"(id, "код_организации", name, uni_name,' +
+                 ' reg_name) VALUES (:id, :код_организации, :name, :uni_name, :reg_name)';
     end
     else
     begin
       id := s_id_warehouse;
       sql.Text :=
-        'UPDATE  "склад"."цеха" SET "код_организации" = :код_организации,' +
-        ' name = :name, uni_name = :uni_name, reg_name = :reg_name' +
-        ' WHERE  id = :id';
+                 'UPDATE  "склад"."цеха" SET "код_организации" = :код_организации,' +
+                 ' name = :name, uni_name = :uni_name, reg_name = :reg_name' +
+                 ' WHERE  id = :id';
     end;
     ParamByName('id').AsInteger := id;
     ParamByName('код_организации').AsInteger := FNewWarehouse.edtOrg.EditValue;
     ParamByName('name').AsString := FNewWarehouse.FrameUniName1.edtName.Text;
     ParamByName('uni_name').AsString :=
-      FNewWarehouse.FrameUniName1.edtUniName.Text;
+                                       FNewWarehouse.FrameUniName1.edtUniName.Text;
     ParamByName('reg_name').AsString :=
-      FNewWarehouse.FrameUniName1.edtRegName.Text;
+                                       FNewWarehouse.FrameUniName1.edtRegName.Text;
     ExecSQL;
   end;
 end;
-
 procedure TFNewWarehouse.ShowOrg;
 begin
   with QueryOrg do
@@ -252,5 +226,4 @@ begin
     edtOrg.EditValue := s_id_org;
   end;
 end;
-
 end.

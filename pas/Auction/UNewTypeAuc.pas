@@ -1,42 +1,36 @@
 unit UNewTypeAuc;
-
 interface
-
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ComObj, Data.DB, MemDS, DBAccess, Uni,
   Vcl.Grids, UFrameTopPanel;
-
 type
   TfNewTypeAuc = class(TForm)
-    FrameTopPanel1: TFrameTopPanel;
-    GridOrder: TStringGrid;
-    Query1: TUniQuery;
-    dsAuc: TDataSource;
-    dlgOpen1: TOpenDialog;
-    Query2: TUniQuery;
-    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
-    procedure FrameTopPanel1btnAddClick(Sender: TObject);
-    procedure FrameTopPanel1btnSelClick(Sender: TObject);
+    FrameTopPanel1 : TFrameTopPanel;
+    GridOrder : TStringGrid;
+    Query1 : TUniQuery;
+    dsAuc : TDataSource;
+    dlgOpen1 : TOpenDialog;
+    Query2 : TUniQuery;
+    procedure FormCloseQuery(Sender : TObject; var CanClose : Boolean);
+    procedure FrameTopPanel1btnAddClick(Sender : TObject);
+    procedure FrameTopPanel1btnSelClick(Sender : TObject);
   private
-    Excel: Variant;
-
+    Excel : Variant;
     { Private declarations }
   public
-   IDNull:Boolean;
-    function DetectExist(s_code: string): Boolean;
+    IDNull : Boolean;
+    function DetectExist(s_code : string) : Boolean;
     { Public declarations }
   end;
 
 var
-  fNewTypeAuc: TfNewTypeAuc;
-
+  fNewTypeAuc : TfNewTypeAuc;
 implementation
-
 {$R *.dfm}
 
-function TfNewTypeAuc.DetectExist(s_code: string): Boolean;
+function TfNewTypeAuc.DetectExist(s_code : string) : Boolean;
 begin
 //  if IDNull=true then
 //  begin
@@ -55,8 +49,7 @@ begin
       Result := False;
   end;
 end;
-
-procedure TfNewTypeAuc.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+procedure TfNewTypeAuc.FormCloseQuery(Sender : TObject; var CanClose : Boolean);
 begin
   try
     Excel.Quit;
@@ -65,12 +58,11 @@ begin
   CanClose := True;
   Excel := Unassigned;
 end;
-
-procedure TfNewTypeAuc.FrameTopPanel1btnAddClick(Sender: TObject);
+procedure TfNewTypeAuc.FrameTopPanel1btnAddClick(Sender : TObject);
 var
-  Rows, Cols, i, j: Integer;
-  WorkSheet: OLEVariant;
-  FData: OLEVariant;
+  Rows, Cols, i, j : Integer;
+  WorkSheet : OLEVariant;
+  FData : OLEVariant;
 begin
   if dlgOpen1.Execute then
   begin
@@ -93,14 +85,13 @@ begin
     GridOrder.ColWidths[1] := 255;
   end;
 end;
-
-procedure TfNewTypeAuc.FrameTopPanel1btnSelClick(Sender: TObject);
+procedure TfNewTypeAuc.FrameTopPanel1btnSelClick(Sender : TObject);
 var
-  i: Integer;
+  i : Integer;
 begin
   Query1.Close;
   Query1.sql.Text := 'INSERT INTO "аукцион"."Типы" (code,  name) VALUES ( ' +
-    ':code, :name);';
+':code, :name);';
   with GridOrder do
     for i := 0 to RowCount - 1 do
     begin
@@ -114,8 +105,7 @@ begin
       end;
     end;
   Application.MessageBox('Импорт завершен', 'Сообщение',
-    MB_OK + MB_ICONINFORMATION);
+                          MB_OK + MB_ICONINFORMATION);
   fNewTypeAuc.Close;
 end;
-
 end.

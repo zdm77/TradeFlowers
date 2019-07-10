@@ -1,7 +1,5 @@
 unit USelectClient;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -13,32 +11,28 @@ uses
   Vcl.Forms,
   Vcl.Dialogs,
   UFrameClient;
-
 type
   TFSelectClient = class(TForm)
-    FrameClient1: TFrameClient;
-    procedure FrameTopPanel1btnSelClick(Sender: TObject);
+    FrameClient1 : TFrameClient;
+    procedure FrameTopPanel1btnSelClick(Sender : TObject);
   private
     { Private declarations }
   public
   var
-  IDSelect:Boolean;
-    s_id_select_client: Integer;
+    IDSelect : Boolean;
+    s_id_select_client : Integer;
     { Public declarations }
   end;
 
 var
-  FSelectClient: TFSelectClient;
-
+  FSelectClient : TFSelectClient;
 implementation
-
 {$R *.dfm}
 
-procedure TFSelectClient.FrameTopPanel1btnSelClick(Sender: TObject);
+procedure TFSelectClient.FrameTopPanel1btnSelClick(Sender : TObject);
 begin
   s_id_select_client := FrameClient1.QueryClient.FieldByName('id').AsInteger;
-  IDSelect:=True;
+  IDSelect := True;
   Close;
 end;
-
 end.

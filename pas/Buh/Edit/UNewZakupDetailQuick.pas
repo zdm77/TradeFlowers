@@ -1,7 +1,5 @@
 unit UNewZakupDetailQuick;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -38,73 +36,62 @@ uses
   sCustomComboEdit,
   sCurrEdit,
   AdvEdit,
-  cxLabel,    
-     
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue;
-
+  cxLabel,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue;
 type
   TFNewZakupDetailQuick = class(TForm)
-    QueryPlant: TUniQuery;
-    dsPlant: TUniDataSource;
-    QueryCountry: TUniQuery;
-    dsCountry: TUniDataSource;
-    dsSort: TUniDataSource;
-    QuerySort: TUniQuery;
-    edtSort: TcxLookupComboBox;
-    edtType: TcxLookupComboBox;
-    QueryType: TUniQuery;
-    dsType: TUniDataSource;
-    edtPlant: TcxLookupComboBox;
-    QueryProduct: TUniQuery;
-    dsProduct: TUniDataSource;
-    edtProduct: TcxLookupComboBox;
-    FrameSave1: TFrameSave;
-    lblSum: TcxLabel;
-    edtLength: TAdvEdit;
-    lblPrice: TcxLabel;
-    edtPrice: TAdvEdit;
-    lblCount: TcxLabel;
-    edtCount: TsCalcEdit;
-    procedure edtCountryKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure edtCountryPropertiesCloseUp(Sender: TObject);
-    procedure FormShow(Sender: TObject);
-    procedure edtTypePropertiesCloseUp(Sender: TObject);
-    procedure edtPlantPropertiesCloseUp(Sender: TObject);
-    procedure edtSortPropertiesCloseUp(Sender: TObject);
-    procedure btnPriorClick(Sender: TObject);
+    QueryPlant : TUniQuery;
+    dsPlant : TUniDataSource;
+    QueryCountry : TUniQuery;
+    dsCountry : TUniDataSource;
+    dsSort : TUniDataSource;
+    QuerySort : TUniQuery;
+    edtSort : TcxLookupComboBox;
+    edtType : TcxLookupComboBox;
+    QueryType : TUniQuery;
+    dsType : TUniDataSource;
+    edtPlant : TcxLookupComboBox;
+    QueryProduct : TUniQuery;
+    dsProduct : TUniDataSource;
+    edtProduct : TcxLookupComboBox;
+    FrameSave1 : TFrameSave;
+    lblSum : TcxLabel;
+    edtLength : TAdvEdit;
+    lblPrice : TcxLabel;
+    edtPrice : TAdvEdit;
+    lblCount : TcxLabel;
+    edtCount : TsCalcEdit;
+    procedure edtCountryKeyDown(Sender : TObject; var Key : Word;
+                                   Shift : TShiftState);
+    procedure edtCountryPropertiesCloseUp(Sender : TObject);
+    procedure FormShow(Sender : TObject);
+    procedure edtTypePropertiesCloseUp(Sender : TObject);
+    procedure edtPlantPropertiesCloseUp(Sender : TObject);
+    procedure edtSortPropertiesCloseUp(Sender : TObject);
+    procedure btnPriorClick(Sender : TObject);
   private
     { Private declarations }
   public
-    s_id_country_for_add, s_id_plant_for_add: integer;
-    procedure ShowCountry(id_locate: integer = 0);
-    procedure ShowPlant(id_locate: integer = 0);
-    procedure ShowProduct(id_locate: integer = 0);
-    procedure ShowSort(id_locate: integer = 0);
-    procedure ShowType(id_locate: integer = 0);
+    s_id_country_for_add, s_id_plant_for_add : integer;
+    procedure ShowCountry(id_locate : integer = 0);
+    procedure ShowPlant(id_locate : integer = 0);
+    procedure ShowProduct(id_locate : integer = 0);
+    procedure ShowSort(id_locate : integer = 0);
+    procedure ShowType(id_locate : integer = 0);
     { Public declarations }
   end;
 
 var
-  FNewZakupDetailQuick: TFNewZakupDetailQuick;
-
+  FNewZakupDetailQuick : TFNewZakupDetailQuick;
 implementation
-
 {$R *.dfm}
 
 uses
   UNewZakupkaDetail;
-
-procedure TFNewZakupDetailQuick.btnPriorClick(Sender: TObject);
+procedure TFNewZakupDetailQuick.btnPriorClick(Sender : TObject);
 begin
   with FNewZakupkaDetail do
   begin
@@ -116,9 +103,8 @@ begin
     InsUpdDetail(true);
   end;
 end;
-
-procedure TFNewZakupDetailQuick.edtCountryKeyDown(Sender: TObject;
-  var Key: Word; Shift: TShiftState);
+procedure TFNewZakupDetailQuick.edtCountryKeyDown(Sender : TObject;
+                                                     var Key : Word; Shift : TShiftState);
 begin
   if Key = VK_RETURN then
   begin
@@ -126,36 +112,30 @@ begin
     // edtType.SetFocus;
   end;
 end;
-
-procedure TFNewZakupDetailQuick.edtCountryPropertiesCloseUp(Sender: TObject);
+procedure TFNewZakupDetailQuick.edtCountryPropertiesCloseUp(Sender : TObject);
 begin
   // ShowType();
   edtType.SetFocus;
 end;
-
-procedure TFNewZakupDetailQuick.edtPlantPropertiesCloseUp(Sender: TObject);
+procedure TFNewZakupDetailQuick.edtPlantPropertiesCloseUp(Sender : TObject);
 begin
   edtSort.SetFocus;
   ShowSort();
 end;
-
-procedure TFNewZakupDetailQuick.edtSortPropertiesCloseUp(Sender: TObject);
+procedure TFNewZakupDetailQuick.edtSortPropertiesCloseUp(Sender : TObject);
 begin
   edtProduct.SetFocus;
   ShowProduct();
 end;
-
-procedure TFNewZakupDetailQuick.edtTypePropertiesCloseUp(Sender: TObject);
+procedure TFNewZakupDetailQuick.edtTypePropertiesCloseUp(Sender : TObject);
 begin
   ShowPlant();
 end;
-
-procedure TFNewZakupDetailQuick.FormShow(Sender: TObject);
+procedure TFNewZakupDetailQuick.FormShow(Sender : TObject);
 begin
   edtPlant.SetFocus;
 end;
-
-procedure TFNewZakupDetailQuick.ShowCountry(id_locate: integer = 0);
+procedure TFNewZakupDetailQuick.ShowCountry(id_locate : integer = 0);
 begin
   // with QueryCountry do
   // begin
@@ -166,8 +146,7 @@ begin
   // edtCountry.EditValue := Fields[0].AsInteger;
   // end;
 end;
-
-procedure TFNewZakupDetailQuick.ShowPlant(id_locate: integer = 0);
+procedure TFNewZakupDetailQuick.ShowPlant(id_locate : integer = 0);
 begin
   with QueryPlant do
   begin
@@ -191,14 +170,13 @@ begin
     sql.Add(' INNER JOIN "продукция"."плантация_тип" pt ON (p.id = pt."код_плантации")');
     // sql.Add(' INNER JOIN "продукция"."страны" s ON (p."код_страны" = s.id)');
     sql.Add(' where p."код_страны" = ' + IntToStr(s_id_country_for_add)
-      + ' and');
+    + ' and');
     sql.Add(' pt."код_типа" = ' + IntToStr(edtType.EditValue));
     sql.Add(' order by p.uni_name');
     Open;
   end;
 end;
-
-procedure TFNewZakupDetailQuick.ShowProduct(id_locate: integer = 0);
+procedure TFNewZakupDetailQuick.ShowProduct(id_locate : integer = 0);
 begin
   with QueryProduct do
   begin
@@ -207,7 +185,7 @@ begin
     sql.Add(' select *');
     sql.Add(' from "продукция"."продукция" p');
     sql.Add(' where p."код_плантации" = ' + QueryPlant.Fields[0].AsString
-      + ' and');
+    + ' and');
     sql.Add(' p."код_типа" = ' + IntToStr(edtType.EditValue) + ' and');
     sql.Add(' p."код_сорта" = ' + QuerySort.Fields[0].AsString);
     sql.Add(' order by uni_name');
@@ -216,8 +194,7 @@ begin
       edtProduct.EditValue := Fields[0].AsString;
   end;
 end;
-
-procedure TFNewZakupDetailQuick.ShowSort(id_locate: integer = 0);
+procedure TFNewZakupDetailQuick.ShowSort(id_locate : integer = 0);
 begin
   // ShowMessage(QueryPlant.Fields[0].AsString);
   with QuerySort do
@@ -242,8 +219,7 @@ begin
     Open;
   end;
 end;
-
-procedure TFNewZakupDetailQuick.ShowType(id_locate: integer = 0);
+procedure TFNewZakupDetailQuick.ShowType(id_locate : integer = 0);
 begin
   with QueryType do
   begin
@@ -267,5 +243,4 @@ begin
   end;
   ShowPlant();
 end;
-
 end.

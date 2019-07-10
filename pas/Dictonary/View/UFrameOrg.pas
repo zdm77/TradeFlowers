@@ -1,7 +1,5 @@
 unit UFrameOrg;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -40,38 +38,34 @@ uses
   cxNavigator,
   dxSkinDevExpressStyle,
   dxSkinsDefaultPainters, dxSkinOffice2007Blue, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog;
-
 type
   TFrameOrg = class(TFrame)
-    FrameTopPanel1: TFrameTopPanel;
-    GridStatWork: TcxGrid;
-    ViewStatWork: TcxGridDBTableView;
-    ColumnName: TcxGridDBColumn;
-    LevelStatWork: TcxGridLevel;
-    Query1: TUniQuery;
-    QueryOrg: TUniQuery;
-    dsOrg: TDataSource;
-    procedure btnAddClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure btnRefreshClick(Sender: TObject);
-    procedure ViewStatWorkDblClick(Sender: TObject);
+    FrameTopPanel1 : TFrameTopPanel;
+    GridStatWork : TcxGrid;
+    ViewStatWork : TcxGridDBTableView;
+    ColumnName : TcxGridDBColumn;
+    LevelStatWork : TcxGridLevel;
+    Query1 : TUniQuery;
+    QueryOrg : TUniQuery;
+    dsOrg : TDataSource;
+    procedure btnAddClick(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure btnRefreshClick(Sender : TObject);
+    procedure ViewStatWorkDblClick(Sender : TObject);
   private
     { Private declarations }
   public
     procedure SetLang;
-    procedure ShowOrg(id_locate: integer = 0);
+    procedure ShowOrg(id_locate : integer = 0);
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
 uses
   UnewOrg,
   ULang;
-
-procedure TFrameOrg.btnAddClick(Sender: TObject);
+procedure TFrameOrg.btnAddClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewOrg, FNewOrg);
   with FNewOrg do
@@ -81,8 +75,7 @@ begin
       ShowOrg(s_id_org);
   end;
 end;
-
-procedure TFrameOrg.btnEditClick(Sender: TObject);
+procedure TFrameOrg.btnEditClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewOrg, FNewOrg);
   with FNewOrg do
@@ -119,17 +112,14 @@ begin
       ShowOrg(s_id_org);
   end;
 end;
-
-procedure TFrameOrg.btnRefreshClick(Sender: TObject);
+procedure TFrameOrg.btnRefreshClick(Sender : TObject);
 begin
   ShowOrg(QueryOrg.FieldByName('id').AsInteger);
 end;
-
 procedure TFrameOrg.SetLang;
 begin
 end;
-
-procedure TFrameOrg.ShowOrg(id_locate: integer = 0);
+procedure TFrameOrg.ShowOrg(id_locate : integer = 0);
 begin
   with QueryOrg do
   begin
@@ -139,11 +129,9 @@ begin
     Locate('id', id_locate, []);
   end;
 end;
-
-procedure TFrameOrg.ViewStatWorkDblClick(Sender: TObject);
+procedure TFrameOrg.ViewStatWorkDblClick(Sender : TObject);
 begin
   if FrameTopPanel1.btnEdit.Enabled = true then
     btnEditClick(Sender);
 end;
-
 end.

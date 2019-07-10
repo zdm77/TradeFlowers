@@ -1,7 +1,5 @@
 ﻿unit UNewDaesWeek;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -19,7 +17,7 @@ uses
   cxContainer,
   cxEdit,
   dxSkinsCore,
-
+  
   cxLabel,
   cxTextEdit,
   cxMaskEdit,
@@ -28,26 +26,25 @@ uses
   cxCheckBox,
   UFrameSave,
   cxGroupBox,
-
+  
   dxSkinDevExpressStyle,
-
-   dxSkinsDefaultPainters;
-
+  
+  dxSkinsDefaultPainters;
 type
   TFNewDaysWeek = class(TForm)
-    FrameSave1: TFrameSave;
-    Group1: TcxGroupBox;
-    chkПн: TcxCheckBox;
-    chkВт: TcxCheckBox;
-    chkСр: TcxCheckBox;
-    chkЧт: TcxCheckBox;
-    chkПт: TcxCheckBox;
-    chkСб: TcxCheckBox;
-    chkВс: TcxCheckBox;
-    edtTimeВылет: TcxTimeEdit;
-    edtTimeПрилет: TcxTimeEdit;
-    lblTimeВылет: TcxLabel;
-    lblTimeПрилет: TcxLabel;
+    FrameSave1 : TFrameSave;
+    Group1 : TcxGroupBox;
+    chkПн : TcxCheckBox;
+    chkВт : TcxCheckBox;
+    chkСр : TcxCheckBox;
+    chkЧт : TcxCheckBox;
+    chkПт : TcxCheckBox;
+    chkСб : TcxCheckBox;
+    chkВс : TcxCheckBox;
+    edtTimeВылет : TcxTimeEdit;
+    edtTimeПрилет : TcxTimeEdit;
+    lblTimeВылет : TcxLabel;
+    lblTimeПрилет : TcxLabel;
   private
     { Private declarations }
   public
@@ -56,58 +53,54 @@ type
   end;
 
 var
-  FNewDaysWeek: TFNewDaysWeek;
-
+  FNewDaysWeek : TFNewDaysWeek;
 implementation
-
 {$R *.dfm}
 
 uses
   UPasswd;
-
 procedure TFNewDaysWeek.SetLang;
 begin
   case FPasswd.Lang of
-    0:
-      begin
-        Caption := 'Расписание';
-        chkПн.Caption := 'Понедельник';
-        chkВт.Caption := 'Вторник';
-        chkСр.Caption := 'Среда';
-        chkЧт.Caption := 'Четверг';
-        chkПт.Caption := 'Пятница';
-        chkСб.Caption := 'Суббота';
-        chkВс.Caption := 'Воскресенье';
-        lblTimeВылет.Caption := 'Время вылета:';
-        lblTimeПрилет.Caption := 'Время прилета:';
-      end;
-    1:
-      begin
-        Caption := 'Schedule';
-        chkПн.Caption := 'Monday';
-        chkВт.Caption := 'Tuesday';
-        chkСр.Caption := 'Wednesday';
-        chkЧт.Caption := 'Thursday';
-        chkПт.Caption := 'Friday';
-        chkСб.Caption := 'Saturday';
-        chkВс.Caption := 'Sunday';
-        lblTimeВылет.Caption := 'Time of departure:';
-        lblTimeПрилет.Caption := 'Time of arrival:';
-      end;
-    2:
-      begin
-        Caption := 'El horario';
-        chkПн.Caption := 'El lunes';
-        chkВт.Caption := 'El martes';
-        chkСр.Caption := 'El ambiente';
-        chkЧт.Caption := 'El jueves';
-        chkПт.Caption := 'El viernes';
-        chkСб.Caption := 'El sábado';
-        chkВс.Caption := 'El domingo';
-        lblTimeВылет.Caption := 'El tiempo del vuelo:';
-        lblTimeПрилет.Caption := 'El tiempo de la llegada:';
-      end;
+    0 :
+    begin
+      Caption := 'Расписание';
+      chkПн.Caption := 'Понедельник';
+      chkВт.Caption := 'Вторник';
+      chkСр.Caption := 'Среда';
+      chkЧт.Caption := 'Четверг';
+      chkПт.Caption := 'Пятница';
+      chkСб.Caption := 'Суббота';
+      chkВс.Caption := 'Воскресенье';
+      lblTimeВылет.Caption := 'Время вылета:';
+      lblTimeПрилет.Caption := 'Время прилета:';
+    end;
+    1 :
+    begin
+      Caption := 'Schedule';
+      chkПн.Caption := 'Monday';
+      chkВт.Caption := 'Tuesday';
+      chkСр.Caption := 'Wednesday';
+      chkЧт.Caption := 'Thursday';
+      chkПт.Caption := 'Friday';
+      chkСб.Caption := 'Saturday';
+      chkВс.Caption := 'Sunday';
+      lblTimeВылет.Caption := 'Time of departure:';
+      lblTimeПрилет.Caption := 'Time of arrival:';
+    end;
+    2 :
+    begin
+      Caption := 'El horario';
+      chkПн.Caption := 'El lunes';
+      chkВт.Caption := 'El martes';
+      chkСр.Caption := 'El ambiente';
+      chkЧт.Caption := 'El jueves';
+      chkПт.Caption := 'El viernes';
+      chkСб.Caption := 'El sábado';
+      chkВс.Caption := 'El domingo';
+      lblTimeВылет.Caption := 'El tiempo del vuelo:';
+      lblTimeПрилет.Caption := 'El tiempo de la llegada:';
+    end;
   end;
 end;
-
 end.

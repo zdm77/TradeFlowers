@@ -1,7 +1,5 @@
 unit UnewOrg;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -17,9 +15,9 @@ uses
   cxLookAndFeels,
   cxLookAndFeelPainters,
   dxSkinsCore,
-
+  
   dxSkinscxPCPainter,
-
+  
   cxContainer,
   cxEdit,
   cxStyles,
@@ -58,184 +56,181 @@ uses
   cxButtons,
   cxNavigator,
   dxBarBuiltInMenu,
-
+  
   dxSkinDevExpressStyle,
-
-   dxSkinsDefaultPainters, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog;
-
+  
+  dxSkinsDefaultPainters, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog;
 type
   TFNewOrg = class(TForm)
-    FrameSave1: TFrameSave;
-    page1: TcxPageControl;
-    tab1: TcxTabSheet;
-    Group3: TcxGroupBox;
-    label6: TcxLabel;
-    mmoUrAdres: TcxMemo;
-    label9: TcxLabel;
-    mmoFactAdres: TcxMemo;
-    mmoDostavka: TcxMemo;
-    label10: TcxLabel;
-    Label1: TcxLabel;
-    edtPhone1: TcxTextEdit;
-    Label3: TcxLabel;
-    edtPhone2: TcxTextEdit;
-    Label4: TcxLabel;
-    edtEmail: TcxTextEdit;
-    Label5: TcxLabel;
-    edtFax: TcxTextEdit;
-    Label8: TcxLabel;
-    edtSite: TcxTextEdit;
-    Group4: TcxGroupBox;
-    Group2: TcxGroupBox;
-    cxlbl1: TcxLabel;
-    edtName: TcxTextEdit;
-    cxlbl3: TcxLabel;
-    memoFullName: TcxMemo;
-    cbbTypeBank: TcxComboBox;
-    cxLabel8: TcxLabel;
-    chkInvoice: TcxCheckBox;
-    cxGroupBox2: TcxGroupBox;
-    cxLabel3: TcxLabel;
-    edtINN: TcxTextEdit;
-    cxLabel4: TcxLabel;
-    edtOGRN: TcxTextEdit;
-    Group5: TcxGroupBox;
-    cxGroupBox3: TcxGroupBox;
-    cxLabel2: TcxLabel;
-    edtGosReg: TcxTextEdit;
-    cxLabel5: TcxLabel;
-    cxGroupBox5: TcxGroupBox;
-    cxLabel6: TcxLabel;
-    edtOKATO: TcxTextEdit;
-    cxLabel7: TcxLabel;
-    edtOKPO: TcxTextEdit;
-    tab3: TcxTabSheet;
-    cxGroupBox6: TcxGroupBox;
-    cxGrid2: TcxGrid;
-    cxGridDBBandedTableView1: TcxGridDBBandedTableView;
-    cxGridDBBandedTableView1answ: TcxGridDBBandedColumn;
-    cxGridDBBandedTableView1client_name: TcxGridDBBandedColumn;
-    cxGridLevel2: TcxGridLevel;
-    TabAccount: TcxTabSheet;
-    PageAccount: TcxPageControl;
-    TabRussia: TcxTabSheet;
-    cxGroupBox1: TcxGroupBox;
-    Label2: TcxLabel;
-    edtNameInContract: TcxTextEdit;
-    edtInFace: TcxTextEdit;
-    edtSign: TcxTextEdit;
-    cxLabel1: TcxLabel;
-    Label7: TcxLabel;
-    Group1: TcxGroupBox;
-    cxGrid1: TcxGrid;
-    ViewOrg: TcxGridDBBandedTableView;
-    ColumnViewOrgColumn1: TcxGridDBBandedColumn;
-    ColumnViewOrgColumn2: TcxGridDBBandedColumn;
-    ColumnViewOrgColumn3: TcxGridDBBandedColumn;
-    ColumnViewOrgColumn4: TcxGridDBBandedColumn;
-    ColumnViewOrgColumn5: TcxGridDBBandedColumn;
-    ColumnViewOrgColumn7: TcxGridDBBandedColumn;
-    ColumnViewOrgColumn6: TcxGridDBBandedColumn;
-    ColumnViewOrgColumn8: TcxGridDBBandedColumn;
-    cxGridLevel1: TcxGridLevel;
-    TabBankOut: TcxTabSheet;
-    FrameTopPanel1: TFrameTopPanel;
-    GridAcc: TcxGrid;
-    GridAccount: TcxGridDBTableView;
-    GridAccountname: TcxGridDBColumn;
-    GridAccountColumn1: TcxGridDBColumn;
-    GridAccountColumn2: TcxGridDBColumn;
-    GridLevelGrid1Level1: TcxGridLevel;
-    TabAccess: TcxTabSheet;
-    PageControlAccess: TcxPageControl;
-    TabDict: TcxTabSheet;
-    GroupOsn: TcxGroupBox;
-    chkOsn: TcxCheckBox;
-    chkProduct: TcxCheckBox;
-    chkClient: TcxCheckBox;
-    chkPlant: TcxCheckBox;
-    cxGroupBox8: TcxGroupBox;
-    chkOrgGr: TcxCheckBox;
-    chkOrg: TcxCheckBox;
-    chkStoreloc: TcxCheckBox;
-    chkPost: TcxCheckBox;
-    chkUsers: TcxCheckBox;
-    cxGroupBox9: TcxGroupBox;
-    chkAvia: TcxCheckBox;
-    chkMarking: TcxCheckBox;
-    chkKargo: TcxCheckBox;
-    chkAirlines: TcxCheckBox;
-    chkTrack: TcxCheckBox;
-    chkFreeC: TcxCheckBox;
-    cxGroupBox10: TcxGroupBox;
-    chkDop: TcxCheckBox;
-    chkStatusClient: TcxCheckBox;
-    chkVidDogovor: TcxCheckBox;
-    chkBank: TcxCheckBox;
-    chkTypeDogovor: TcxCheckBox;
-    chkCurrency: TcxCheckBox;
-    chkAddress: TcxCheckBox;
-    chkRegName: TcxCheckBox;
-    TabDoc: TcxTabSheet;
-    GroupOsnTorg: TcxGroupBox;
-    chkGrOsnTorg: TcxCheckBox;
-    chkIn: TcxCheckBox;
-    chkOut: TcxCheckBox;
-    GroupReturn: TcxGroupBox;
-    chkGrReturn: TcxCheckBox;
-    chkReturnClient: TcxCheckBox;
-    chkReturnSupplier: TcxCheckBox;
-    GroupZakaz: TcxGroupBox;
-    chkGrZakaz: TcxCheckBox;
-    chkZakazClient: TcxCheckBox;
-    chkZakazSupplier: TcxCheckBox;
-    GroupInvoice: TcxGroupBox;
-    chkGrInvoice: TcxCheckBox;
-    chkInvoiceFactPlant: TcxCheckBox;
-    chkAirDoc: TcxCheckBox;
-    Query1: TUniQuery;
-    QueryRch: TUniQuery;
-    dsRch: TDataSource;
-    Query2: TUniQuery;
-    QueryAnsw: TUniQuery;
-    dsAnsw: TDataSource;
-    QueryRchOut: TUniQuery;
-    dsRchOut: TDataSource;
-    FrameTopPanel2: TFrameTopPanel;
-    FrameTopPanel3: TFrameTopPanel;
-    edtDateReg: TDateTimePicker;
-    TabКЛАДР: TcxTabSheet;
-    mmoAdressDefault: TcxMemo;
-    btnAdres: TcxButton;
-    lblAdrDefault: TLabel;
-    QueryAddress: TUniQuery;
-    btnAdrReg: TcxButton;
-    btnAdrFact: TcxButton;
-    btnAdrPost: TcxButton;
-    procedure FormShow(Sender: TObject);
-    procedure FrameSave1btnSaveClick(Sender: TObject);
-    procedure btnAdresClick(Sender: TObject);
-    procedure btnAdrRegClick(Sender: TObject);
-    procedure btnAdrFactClick(Sender: TObject);
-    procedure btnAdrPostClick(Sender: TObject);
-    procedure FrameTopPanel3btnAddClick(Sender: TObject);
-    procedure btnAddClick(Sender: TObject);
+    FrameSave1 : TFrameSave;
+    page1 : TcxPageControl;
+    tab1 : TcxTabSheet;
+    Group3 : TcxGroupBox;
+    label6 : TcxLabel;
+    mmoUrAdres : TcxMemo;
+    label9 : TcxLabel;
+    mmoFactAdres : TcxMemo;
+    mmoDostavka : TcxMemo;
+    label10 : TcxLabel;
+    Label1 : TcxLabel;
+    edtPhone1 : TcxTextEdit;
+    Label3 : TcxLabel;
+    edtPhone2 : TcxTextEdit;
+    Label4 : TcxLabel;
+    edtEmail : TcxTextEdit;
+    Label5 : TcxLabel;
+    edtFax : TcxTextEdit;
+    Label8 : TcxLabel;
+    edtSite : TcxTextEdit;
+    Group4 : TcxGroupBox;
+    Group2 : TcxGroupBox;
+    cxlbl1 : TcxLabel;
+    edtName : TcxTextEdit;
+    cxlbl3 : TcxLabel;
+    memoFullName : TcxMemo;
+    cbbTypeBank : TcxComboBox;
+    cxLabel8 : TcxLabel;
+    chkInvoice : TcxCheckBox;
+    cxGroupBox2 : TcxGroupBox;
+    cxLabel3 : TcxLabel;
+    edtINN : TcxTextEdit;
+    cxLabel4 : TcxLabel;
+    edtOGRN : TcxTextEdit;
+    Group5 : TcxGroupBox;
+    cxGroupBox3 : TcxGroupBox;
+    cxLabel2 : TcxLabel;
+    edtGosReg : TcxTextEdit;
+    cxLabel5 : TcxLabel;
+    cxGroupBox5 : TcxGroupBox;
+    cxLabel6 : TcxLabel;
+    edtOKATO : TcxTextEdit;
+    cxLabel7 : TcxLabel;
+    edtOKPO : TcxTextEdit;
+    tab3 : TcxTabSheet;
+    cxGroupBox6 : TcxGroupBox;
+    cxGrid2 : TcxGrid;
+    cxGridDBBandedTableView1 : TcxGridDBBandedTableView;
+    cxGridDBBandedTableView1answ : TcxGridDBBandedColumn;
+    cxGridDBBandedTableView1client_name : TcxGridDBBandedColumn;
+    cxGridLevel2 : TcxGridLevel;
+    TabAccount : TcxTabSheet;
+    PageAccount : TcxPageControl;
+    TabRussia : TcxTabSheet;
+    cxGroupBox1 : TcxGroupBox;
+    Label2 : TcxLabel;
+    edtNameInContract : TcxTextEdit;
+    edtInFace : TcxTextEdit;
+    edtSign : TcxTextEdit;
+    cxLabel1 : TcxLabel;
+    Label7 : TcxLabel;
+    Group1 : TcxGroupBox;
+    cxGrid1 : TcxGrid;
+    ViewOrg : TcxGridDBBandedTableView;
+    ColumnViewOrgColumn1 : TcxGridDBBandedColumn;
+    ColumnViewOrgColumn2 : TcxGridDBBandedColumn;
+    ColumnViewOrgColumn3 : TcxGridDBBandedColumn;
+    ColumnViewOrgColumn4 : TcxGridDBBandedColumn;
+    ColumnViewOrgColumn5 : TcxGridDBBandedColumn;
+    ColumnViewOrgColumn7 : TcxGridDBBandedColumn;
+    ColumnViewOrgColumn6 : TcxGridDBBandedColumn;
+    ColumnViewOrgColumn8 : TcxGridDBBandedColumn;
+    cxGridLevel1 : TcxGridLevel;
+    TabBankOut : TcxTabSheet;
+    FrameTopPanel1 : TFrameTopPanel;
+    GridAcc : TcxGrid;
+    GridAccount : TcxGridDBTableView;
+    GridAccountname : TcxGridDBColumn;
+    GridAccountColumn1 : TcxGridDBColumn;
+    GridAccountColumn2 : TcxGridDBColumn;
+    GridLevelGrid1Level1 : TcxGridLevel;
+    TabAccess : TcxTabSheet;
+    PageControlAccess : TcxPageControl;
+    TabDict : TcxTabSheet;
+    GroupOsn : TcxGroupBox;
+    chkOsn : TcxCheckBox;
+    chkProduct : TcxCheckBox;
+    chkClient : TcxCheckBox;
+    chkPlant : TcxCheckBox;
+    cxGroupBox8 : TcxGroupBox;
+    chkOrgGr : TcxCheckBox;
+    chkOrg : TcxCheckBox;
+    chkStoreloc : TcxCheckBox;
+    chkPost : TcxCheckBox;
+    chkUsers : TcxCheckBox;
+    cxGroupBox9 : TcxGroupBox;
+    chkAvia : TcxCheckBox;
+    chkMarking : TcxCheckBox;
+    chkKargo : TcxCheckBox;
+    chkAirlines : TcxCheckBox;
+    chkTrack : TcxCheckBox;
+    chkFreeC : TcxCheckBox;
+    cxGroupBox10 : TcxGroupBox;
+    chkDop : TcxCheckBox;
+    chkStatusClient : TcxCheckBox;
+    chkVidDogovor : TcxCheckBox;
+    chkBank : TcxCheckBox;
+    chkTypeDogovor : TcxCheckBox;
+    chkCurrency : TcxCheckBox;
+    chkAddress : TcxCheckBox;
+    chkRegName : TcxCheckBox;
+    TabDoc : TcxTabSheet;
+    GroupOsnTorg : TcxGroupBox;
+    chkGrOsnTorg : TcxCheckBox;
+    chkIn : TcxCheckBox;
+    chkOut : TcxCheckBox;
+    GroupReturn : TcxGroupBox;
+    chkGrReturn : TcxCheckBox;
+    chkReturnClient : TcxCheckBox;
+    chkReturnSupplier : TcxCheckBox;
+    GroupZakaz : TcxGroupBox;
+    chkGrZakaz : TcxCheckBox;
+    chkZakazClient : TcxCheckBox;
+    chkZakazSupplier : TcxCheckBox;
+    GroupInvoice : TcxGroupBox;
+    chkGrInvoice : TcxCheckBox;
+    chkInvoiceFactPlant : TcxCheckBox;
+    chkAirDoc : TcxCheckBox;
+    Query1 : TUniQuery;
+    QueryRch : TUniQuery;
+    dsRch : TDataSource;
+    Query2 : TUniQuery;
+    QueryAnsw : TUniQuery;
+    dsAnsw : TDataSource;
+    QueryRchOut : TUniQuery;
+    dsRchOut : TDataSource;
+    FrameTopPanel2 : TFrameTopPanel;
+    FrameTopPanel3 : TFrameTopPanel;
+    edtDateReg : TDateTimePicker;
+    TabКЛАДР : TcxTabSheet;
+    mmoAdressDefault : TcxMemo;
+    btnAdres : TcxButton;
+    lblAdrDefault : TLabel;
+    QueryAddress : TUniQuery;
+    btnAdrReg : TcxButton;
+    btnAdrFact : TcxButton;
+    btnAdrPost : TcxButton;
+    procedure FormShow(Sender : TObject);
+    procedure FrameSave1btnSaveClick(Sender : TObject);
+    procedure btnAdresClick(Sender : TObject);
+    procedure btnAdrRegClick(Sender : TObject);
+    procedure btnAdrFactClick(Sender : TObject);
+    procedure btnAdrPostClick(Sender : TObject);
+    procedure FrameTopPanel3btnAddClick(Sender : TObject);
+    procedure btnAddClick(Sender : TObject);
   private
     { Private declarations }
   public
-    s_id_org: Integer;
-    s_id_country, s_id_region, s_id_city: Integer;
-    procedure InsUpdOrg(id_ins: boolean);
+    s_id_org : Integer;
+    s_id_country, s_id_region, s_id_city : Integer;
+    procedure InsUpdOrg(id_ins : boolean);
     procedure SetAddres;
     procedure ShowAnsw;
     { Public declarations }
   end;
 
 var
-  FNewOrg: TFNewOrg;
-
+  FNewOrg : TFNewOrg;
 implementation
-
 {$R *.dfm}
 
 uses
@@ -245,8 +240,7 @@ uses
   UPasswd,
   UNewContactUni,
   UNewInAccount;
-
-procedure TFNewOrg.btnAddClick(Sender: TObject);
+procedure TFNewOrg.btnAddClick(Sender : TObject);
 begin
   // Application.CreateForm(TFNewContactUni, FNewContactUni);
   // with FNewContactUni do
@@ -260,10 +254,9 @@ begin
   // end;
   // end;
 end;
-
-procedure TFNewOrg.btnAdresClick(Sender: TObject);
+procedure TFNewOrg.btnAdresClick(Sender : TObject);
 var
-  s: string;
+  s : string;
 begin
   Application.CreateForm(TFAddress, FAddress);
   with FAddress do
@@ -330,30 +323,25 @@ begin
     end;
   end;
 end;
-
-procedure TFNewOrg.btnAdrFactClick(Sender: TObject);
+procedure TFNewOrg.btnAdrFactClick(Sender : TObject);
 begin
   SelectAddress(mmoFactAdres, 0, 0, 0, 0, '', '', '', '');
 end;
-
-procedure TFNewOrg.btnAdrPostClick(Sender: TObject);
+procedure TFNewOrg.btnAdrPostClick(Sender : TObject);
 begin
   SelectAddress(mmoDostavka, 0, 0, 0, 0, '', '', '', '');
 end;
-
-procedure TFNewOrg.btnAdrRegClick(Sender: TObject);
+procedure TFNewOrg.btnAdrRegClick(Sender : TObject);
 begin
   SelectAddress(mmoUrAdres, 0, 0, 0, 0, '', '', '', '');
 end;
-
-procedure TFNewOrg.FormShow(Sender: TObject);
+procedure TFNewOrg.FormShow(Sender : TObject);
 begin
   page1.ActivePageIndex := 0;
   PageAccount.ActivePageIndex := 0;
   edtName.SetFocus;
 end;
-
-procedure TFNewOrg.FrameSave1btnSaveClick(Sender: TObject);
+procedure TFNewOrg.FrameSave1btnSaveClick(Sender : TObject);
 begin
   FrameSave1.btnSaveClick(Sender);
   if s_id_org = 0 then
@@ -362,11 +350,10 @@ begin
     InsUpdOrg(false);
   Close;
 end;
-
-procedure TFNewOrg.FrameTopPanel3btnAddClick(Sender: TObject);
+procedure TFNewOrg.FrameTopPanel3btnAddClick(Sender : TObject);
 var
-  id: Integer;
-  QueryA: TUniQuery;
+  id : Integer;
+  QueryA : TUniQuery;
 begin
   // case PageAccount.ActivePageIndex of
   // 1:
@@ -431,10 +418,9 @@ begin
   // // конец выбора
   // end;
 end;
-
-procedure TFNewOrg.InsUpdOrg(id_ins: boolean);
+procedure TFNewOrg.InsUpdOrg(id_ins : boolean);
 var
-  Query1: TUniQuery;
+  Query1 : TUniQuery;
 begin
   Query1 := TUniQuery.Create(nil);
   Query1.Connection := DM1.db1;
@@ -445,28 +431,28 @@ begin
     begin
       s_id_org := PGSQL.NewID('продукция.типы_id_seq');
       SQL.Text :=
-        'INSERT INTO "организация"."организации"(id, name, "полное_имя_оргнаизации",'
-        + '"в_лице", "инн", "имя_в_договоре", "гос_регистрация", "дата_гос_регистрации", '
-        + '"огрн", "подпись", "адрес_регистрации", "фактическй_адрес", "почтоввый_адрес", '
-        + ' "телефон1", "телефон2", "телефон3",  "почта",  "факс",  "сайт",  "в_инвойсе" '
-        + ' ,"окато", "окпо", код_страны, код_региона, код_города ' +
-        ') VALUES (:id, :name, :полное_имя_оргнаизации, :в_лице, :инн, :имя_в_договоре, '
-        + ' :гос_регистрация, :дата_гос_регистрации, :огрн, :подпись, :адрес_регистрации,'
-        + ' :фактическй_адрес, :почтоввый_адрес, :телефон1, :телефон2, :телефон3, :почта,'
-        + ' :факс, :сайт, :в_инвойсе,:окато, :окпо, :код_страны, :код_региона, :код_города ); ';
+                 'INSERT INTO "организация"."организации"(id, name, "полное_имя_оргнаизации",'
+                 + '"в_лице", "инн", "имя_в_договоре", "гос_регистрация", "дата_гос_регистрации", '
+                 + '"огрн", "подпись", "адрес_регистрации", "фактическй_адрес", "почтоввый_адрес", '
+                 + ' "телефон1", "телефон2", "телефон3",  "почта",  "факс",  "сайт",  "в_инвойсе" '
+                 + ' ,"окато", "окпо", код_страны, код_региона, код_города ' +
+                 ') VALUES (:id, :name, :полное_имя_оргнаизации, :в_лице, :инн, :имя_в_договоре, '
+                 + ' :гос_регистрация, :дата_гос_регистрации, :огрн, :подпись, :адрес_регистрации,'
+                 + ' :фактическй_адрес, :почтоввый_адрес, :телефон1, :телефон2, :телефон3, :почта,'
+                 + ' :факс, :сайт, :в_инвойсе,:окато, :окпо, :код_страны, :код_региона, :код_города ); ';
     end
     else
     begin
       SQL.Text :=
-        'UPDATE "организация"."организации" SET name = :name, "полное_имя_оргнаизации" = :полное_имя_оргнаизации,'
-        + ' "в_лице" = :в_лице, "инн" = :инн, "имя_в_договоре" = :имя_в_договоре, '
-        + '  "гос_регистрация" = :гос_регистрация, "дата_гос_регистрации" = :дата_гос_регистрации,'
-        + '  "огрн" = :огрн, "подпись" = :подпись, "адрес_регистрации" = :адрес_регистрации, '
-        + ' "фактическй_адрес" = :фактическй_адрес, "почтоввый_адрес" = :почтоввый_адрес,'
-        + ' "телефон1" = :телефон1, "телефон2" = :телефон2, "телефон3" = :телефон3, '
-        + '  "почта" = :почта, "факс" = :факс, "сайт" = :сайт, "в_инвойсе" = :в_инвойсе,'
-        + '  "окато" = :окато, "окпо" = :окпо, код_страны=:код_страны, ' +
-        ' код_региона=:код_региона, код_города=:код_города WHERE id = :id';
+                 'UPDATE "организация"."организации" SET name = :name, "полное_имя_оргнаизации" = :полное_имя_оргнаизации,'
+                 + ' "в_лице" = :в_лице, "инн" = :инн, "имя_в_договоре" = :имя_в_договоре, '
+                 + '  "гос_регистрация" = :гос_регистрация, "дата_гос_регистрации" = :дата_гос_регистрации,'
+                 + '  "огрн" = :огрн, "подпись" = :подпись, "адрес_регистрации" = :адрес_регистрации, '
+                 + ' "фактическй_адрес" = :фактическй_адрес, "почтоввый_адрес" = :почтоввый_адрес,'
+                 + ' "телефон1" = :телефон1, "телефон2" = :телефон2, "телефон3" = :телефон3, '
+                 + '  "почта" = :почта, "факс" = :факс, "сайт" = :сайт, "в_инвойсе" = :в_инвойсе,'
+                 + '  "окато" = :окато, "окпо" = :окпо, код_страны=:код_страны, ' +
+                 ' код_региона=:код_региона, код_города=:код_города WHERE id = :id';
     end;
     ParamByName('id').AsInteger := s_id_org;
     ParamByName('name').AsString := edtName.Text;
@@ -496,10 +482,9 @@ begin
     ExecSQL;
   end;
 end;
-
 procedure TFNewOrg.SetAddres;
 var
-  s: string;
+  s : string;
 begin
   if s_id_country <> 0 then
   begin
@@ -531,7 +516,6 @@ begin
   end;
   // TODO -cMM: TFNewOrg.SetAddres default body inserted
 end;
-
 procedure TFNewOrg.ShowAnsw;
 begin
   // with QueryAnsw do
@@ -541,5 +525,4 @@ begin
   // Open;
   // end;
 end;
-
 end.

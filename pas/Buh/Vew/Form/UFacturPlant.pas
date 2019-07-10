@@ -1,7 +1,5 @@
 ﻿unit UFacturPlant;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -47,81 +45,71 @@ uses
   DBSumLst,
   cxCheckBox,
   cxContainer,
-  cxGroupBox,    
-     
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue;
-
+  cxGroupBox,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue;
 type
   TFFacturPlant = class(TForm)
-    FrameTopPanel1: TFrameTopPanel;
-    QueryFacturPlant: TUniQuery;
-    dsFacturPlant: TDataSource;
-    QueryFacturPlant1: TUniQuery;
-    GridBalance: TcxGrid;
-    ViewBalance: TcxGridDBBandedTableView;
-    ColumnFB: TcxGridDBBandedColumn;
-    ViewBalanceFB_: TcxGridDBBandedColumn;
-    ColumnКоробок: TcxGridDBBandedColumn;
-    ViewBalanceBOX_: TcxGridDBBandedColumn;
-    ColumnСуммаФактуры: TcxGridDBBandedColumn;
-    ColumnСуммаОплаты: TcxGridDBBandedColumn;
-    ColumnРазница: TcxGridDBBandedColumn;
-    ViewBalancename: TcxGridDBBandedColumn;
-    ViewBalance_awb: TcxGridDBBandedColumn;
-    ViewBalance_: TcxGridDBBandedColumn;
-    ViewBalance_1: TcxGridDBBandedColumn;
-    ViewBalance_2: TcxGridDBBandedColumn;
-    ViewBalance_4: TcxGridDBBandedColumn;
-    ColumnТрак: TcxGridDBBandedColumn;
-    LevelOrg: TcxGridLevel;
-    Group1: TcxGroupBox;
-    ColumnДатаПретензии: TcxGridDBBandedColumn;
-    ColumnСуммаПретензии: TcxGridDBBandedColumn;
-    ColumnСтатусПретензии: TcxGridDBBandedColumn;
-    ColumnОдобреннаяСумма: TcxGridDBBandedColumn;
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure btnEditClick(Sender: TObject);
-    procedure ColumnРазницаCustomDrawCell(Sender: TcxCustomGridTableView;
-      ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
-      var ADone: Boolean);
-    procedure ViewBalanceBOX_CustomDrawCell(Sender: TcxCustomGridTableView;
-      ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
-      var ADone: Boolean);
-    procedure ViewBalanceDblClick(Sender: TObject);
-    procedure ViewBalanceFB_CustomDrawCell(Sender: TcxCustomGridTableView;
-      ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
-      var ADone: Boolean);
-    procedure btnFilterClick(Sender: TObject);
-    procedure btnRefreshClick(Sender: TObject);
-    procedure FrameTopPanel1btnRestClick(Sender: TObject);
-    procedure btnExportClick(Sender: TObject);
-    procedure FormShow(Sender: TObject);
-    procedure FrameTopPanel1btnArchPropertiesEditValueChanged(Sender: TObject);
+    FrameTopPanel1 : TFrameTopPanel;
+    QueryFacturPlant : TUniQuery;
+    dsFacturPlant : TDataSource;
+    QueryFacturPlant1 : TUniQuery;
+    GridBalance : TcxGrid;
+    ViewBalance : TcxGridDBBandedTableView;
+    ColumnFB : TcxGridDBBandedColumn;
+    ViewBalanceFB_ : TcxGridDBBandedColumn;
+    ColumnКоробок : TcxGridDBBandedColumn;
+    ViewBalanceBOX_ : TcxGridDBBandedColumn;
+    ColumnСуммаФактуры : TcxGridDBBandedColumn;
+    ColumnСуммаОплаты : TcxGridDBBandedColumn;
+    ColumnРазница : TcxGridDBBandedColumn;
+    ViewBalancename : TcxGridDBBandedColumn;
+    ViewBalance_awb : TcxGridDBBandedColumn;
+    ViewBalance_ : TcxGridDBBandedColumn;
+    ViewBalance_1 : TcxGridDBBandedColumn;
+    ViewBalance_2 : TcxGridDBBandedColumn;
+    ViewBalance_4 : TcxGridDBBandedColumn;
+    ColumnТрак : TcxGridDBBandedColumn;
+    LevelOrg : TcxGridLevel;
+    Group1 : TcxGroupBox;
+    ColumnДатаПретензии : TcxGridDBBandedColumn;
+    ColumnСуммаПретензии : TcxGridDBBandedColumn;
+    ColumnСтатусПретензии : TcxGridDBBandedColumn;
+    ColumnОдобреннаяСумма : TcxGridDBBandedColumn;
+    procedure FormClose(Sender : TObject; var Action : TCloseAction);
+    procedure btnEditClick(Sender : TObject);
+    procedure ColumnРазницаCustomDrawCell(Sender : TcxCustomGridTableView;
+                                             ACanvas : TcxCanvas; AViewInfo : TcxGridTableDataCellViewInfo;
+                                             var ADone : Boolean);
+    procedure ViewBalanceBOX_CustomDrawCell(Sender : TcxCustomGridTableView;
+                                               ACanvas : TcxCanvas; AViewInfo : TcxGridTableDataCellViewInfo;
+                                               var ADone : Boolean);
+    procedure ViewBalanceDblClick(Sender : TObject);
+    procedure ViewBalanceFB_CustomDrawCell(Sender : TcxCustomGridTableView;
+                                              ACanvas : TcxCanvas; AViewInfo : TcxGridTableDataCellViewInfo;
+                                              var ADone : Boolean);
+    procedure btnFilterClick(Sender : TObject);
+    procedure btnRefreshClick(Sender : TObject);
+    procedure FrameTopPanel1btnRestClick(Sender : TObject);
+    procedure btnExportClick(Sender : TObject);
+    procedure FormShow(Sender : TObject);
+    procedure FrameTopPanel1btnArchPropertiesEditValueChanged(Sender : TObject);
   private
     { Private declarations }
   public
-    id_change: Boolean;
-    s_id_plant: Integer;
+    id_change : Boolean;
+    s_id_plant : Integer;
     procedure Access;
     procedure SetLang;
-    procedure ShowFact(id_locate: Integer = 0);
+    procedure ShowFact(id_locate : Integer = 0);
     { Public declarations }
   end;
 
 var
-  FFacturPlant: TFFacturPlant;
-
+  FFacturPlant : TFFacturPlant;
 implementation
-
 {$R *.dfm}
 
 uses
@@ -131,13 +119,11 @@ uses
   USubAWB,
   UNewOplatPlant,
   PGSQL;
-
 procedure TFFacturPlant.Access;
 begin
   if True then
 end;
-
-procedure TFFacturPlant.btnEditClick(Sender: TObject);
+procedure TFFacturPlant.btnEditClick(Sender : TObject);
 begin
   if QueryFacturPlant.FieldByName('о_номер_awb').AsString <> '' then
   begin
@@ -146,12 +132,12 @@ begin
     begin
       if QueryFacturPlant.FieldByName('о_дата_фактуры').AsString <> '' then
         edtDateFact.Date := QueryFacturPlant.FieldByName('о_дата_фактуры')
-          .AsDateTime
+      .AsDateTime
       else
         edtDateFact.Date := Now;
       edtNum.Text := QueryFacturPlant.FieldByName('о_номер_фактуры').AsString;
       edtSumFact.Text := QueryFacturPlant.FieldByName
-        ('о_сумма_фактуры').AsString;
+      ('о_сумма_фактуры').AsString;
       // if QueryFacturPlant.FieldByName('о_дата_притензии').AsString <> '' then
       // edtDatePrit.Date := QueryFacturPlant.FieldByName('о_дата_притензии')
       // .AsDateTime;
@@ -195,18 +181,16 @@ begin
     end;
   end;
 end;
-
-procedure TFFacturPlant.btnExportClick(Sender: TObject);
+procedure TFFacturPlant.btnExportClick(Sender : TObject);
 var
-  s: string;
+  s : string;
 begin
   s := FPasswd.GetVar('TEMP') + '\' + Caption + '_' +
-    FormatDateTime('dd_MM_yyyy', Now);
+FormatDateTime('dd_MM_yyyy', Now);
   ExportGridToExcel(s, GridBalance, True, True, True, 'xls');
   ShellExecute(Handle, nil, PChar(s + '.xls'), nil, nil, SW_RESTORE);
 end;
-
-procedure TFFacturPlant.btnFilterClick(Sender: TObject);
+procedure TFFacturPlant.btnFilterClick(Sender : TObject);
 begin
   Application.CreateForm(TFSubAWB, FSubAWB);
   with FSubAWB do
@@ -225,15 +209,13 @@ begin
       ShowFact(s_id_SubAWB);
   end;
 end;
-
-procedure TFFacturPlant.btnRefreshClick(Sender: TObject);
+procedure TFFacturPlant.btnRefreshClick(Sender : TObject);
 begin
   ShowFact(QueryFacturPlant.FieldByName('о_код').AsInteger);
 end;
-
 procedure TFFacturPlant.ColumnРазницаCustomDrawCell
-  (Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
-  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+  (Sender : TcxCustomGridTableView; ACanvas : TcxCanvas;
+      AViewInfo : TcxGridTableDataCellViewInfo; var ADone : Boolean);
 begin
   if AViewInfo.GridRecord.Values[6] < 0 then
   begin
@@ -246,28 +228,24 @@ begin
     ACanvas.Font.Color := clWhite;
   end
 end;
-
-procedure TFFacturPlant.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFFacturPlant.FormClose(Sender : TObject; var Action : TCloseAction);
 begin
   if Assigned(FBuh) and (id_change = True) then
     FBuh.FrameBalance1.ShowBalance(s_id_plant);
   Action := caFree;
   FFacturPlant := nil;
 end;
-
-procedure TFFacturPlant.FormShow(Sender: TObject);
+procedure TFFacturPlant.FormShow(Sender : TObject);
 begin
   SetLang;
   id_change := false;
 end;
-
 procedure TFFacturPlant.FrameTopPanel1btnArchPropertiesEditValueChanged
-  (Sender: TObject);
+  (Sender : TObject);
 begin
   ShowFact();
 end;
-
-procedure TFFacturPlant.FrameTopPanel1btnRestClick(Sender: TObject);
+procedure TFFacturPlant.FrameTopPanel1btnRestClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewOplatPlant, FNewOplatPlant);
   with FNewOplatPlant do
@@ -275,59 +253,57 @@ begin
     s_ins_upd := True;
     id_plant := s_id_plant;
     edtPlant.Text := PGSQL.GetFieldFromId(s_id_plant, 'name',
-      '"продукция"."плантации"');
+                                           '"продукция"."плантации"');
     ShowModal;
   end;
 end;
-
 procedure TFFacturPlant.SetLang;
 begin
   case FPasswd.Lang of
-    1:
-      begin
-        // // Caption := 'Directories';
-        // ItemТовары.Caption := 'Nomenclature';
-        // ItemКлиент.Caption := 'Clients';
-        // ItemСтраны.Caption := 'Country';
-        // ItemТипы.Caption := 'Types';
-        // ItemСвойства.Caption := 'Properties';
-        // ItemПлантации.Caption := 'Plantation';
-        // ItemСорта.Caption := 'Grades';
-        // ItemОрганизация.Caption := 'Organization';
-        // ItemПользователи.Caption := 'Users';
-        // ItemРоль.Caption := 'The role';
-        // GroupОснова.Caption := 'Main';
-        // GroupСтруктура.Caption := 'Structure';
-        // GroupОрг.Caption := 'Organization';
-        // GroupАдмин.Caption := 'Administration';
-        // ItemКарго.Caption := 'Cargo';
-        // ItemАвиалинии.Caption := 'Airlines';
-      end;
-    2:
-      begin
-        // Caption := 'Guías';
-        // GridBalanceDBBandedTableView1.Bands[1].Caption := 'Las facturas';
-        // ColumnПлантация.Caption := 'La plantación';
-        // ColumnFB.Caption := 'La cantidad FB';
-        // ColumnBOX.Caption := 'La cantidad de las cajas';
-        // ColumnFBфакт.Caption := 'La cantidad FB';
-        // ColumnBOXфакт.Caption := 'La cantidad de las cajas';
-        // ColumnСуммаФактур.Caption := 'La suma de facturas';
-        // ColumnРазница.Caption := 'La diferencia';
-        // ColumnСуммаОплат.Caption := 'La suma de pagas';
-        // ColumnПритензия.Caption := 'La suma de reclamaciones';
-        FrameTopPanel1.btnEdit.Caption := 'Cambiar';
-        FrameTopPanel1.btnRefresh.Caption := 'Renovar';
-        FrameTopPanel1.btnRest.Caption := 'Pagar';
-        FrameTopPanel1.btnFilter.Caption := 'A AWB';
-        FrameTopPanel1.btnExport.Caption := 'En Excel';
-      end;
+    1 :
+    begin
+      // // Caption := 'Directories';
+      // ItemТовары.Caption := 'Nomenclature';
+      // ItemКлиент.Caption := 'Clients';
+      // ItemСтраны.Caption := 'Country';
+      // ItemТипы.Caption := 'Types';
+      // ItemСвойства.Caption := 'Properties';
+      // ItemПлантации.Caption := 'Plantation';
+      // ItemСорта.Caption := 'Grades';
+      // ItemОрганизация.Caption := 'Organization';
+      // ItemПользователи.Caption := 'Users';
+      // ItemРоль.Caption := 'The role';
+      // GroupОснова.Caption := 'Main';
+      // GroupСтруктура.Caption := 'Structure';
+      // GroupОрг.Caption := 'Organization';
+      // GroupАдмин.Caption := 'Administration';
+      // ItemКарго.Caption := 'Cargo';
+      // ItemАвиалинии.Caption := 'Airlines';
+    end;
+    2 :
+    begin
+      // Caption := 'Guías';
+      // GridBalanceDBBandedTableView1.Bands[1].Caption := 'Las facturas';
+      // ColumnПлантация.Caption := 'La plantación';
+      // ColumnFB.Caption := 'La cantidad FB';
+      // ColumnBOX.Caption := 'La cantidad de las cajas';
+      // ColumnFBфакт.Caption := 'La cantidad FB';
+      // ColumnBOXфакт.Caption := 'La cantidad de las cajas';
+      // ColumnСуммаФактур.Caption := 'La suma de facturas';
+      // ColumnРазница.Caption := 'La diferencia';
+      // ColumnСуммаОплат.Caption := 'La suma de pagas';
+      // ColumnПритензия.Caption := 'La suma de reclamaciones';
+      FrameTopPanel1.btnEdit.Caption := 'Cambiar';
+      FrameTopPanel1.btnRefresh.Caption := 'Renovar';
+      FrameTopPanel1.btnRest.Caption := 'Pagar';
+      FrameTopPanel1.btnFilter.Caption := 'A AWB';
+      FrameTopPanel1.btnExport.Caption := 'En Excel';
+    end;
   end;
 end;
-
 procedure TFFacturPlant.ViewBalanceBOX_CustomDrawCell
-  (Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
-  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+  (Sender : TcxCustomGridTableView; ACanvas : TcxCanvas;
+      AViewInfo : TcxGridTableDataCellViewInfo; var ADone : Boolean);
 begin
   if AViewInfo.GridRecord.Values[2] > AViewInfo.GridRecord.Values[3] then
   begin
@@ -340,15 +316,13 @@ begin
     ACanvas.Font.Color := clWhite;
   end
 end;
-
-procedure TFFacturPlant.ViewBalanceDblClick(Sender: TObject);
+procedure TFFacturPlant.ViewBalanceDblClick(Sender : TObject);
 begin
   btnEditClick(Sender);
 end;
-
 procedure TFFacturPlant.ViewBalanceFB_CustomDrawCell
-  (Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
-  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+  (Sender : TcxCustomGridTableView; ACanvas : TcxCanvas;
+      AViewInfo : TcxGridTableDataCellViewInfo; var ADone : Boolean);
 begin
   if AViewInfo.GridRecord.Values[0] > AViewInfo.GridRecord.Values[1] then
   begin
@@ -361,10 +335,9 @@ begin
     ACanvas.Font.Color := clWhite;
   end
 end;
-
-procedure TFFacturPlant.ShowFact(id_locate: Integer = 0);
+procedure TFFacturPlant.ShowFact(id_locate : Integer = 0);
 var
-  id_arch: Integer;
+  id_arch : Integer;
 begin
   with QueryFacturPlant do
   begin
@@ -506,11 +479,10 @@ begin
     else
       id_arch := 0;
     SQL.Add('select * from "бух"."оплата_плантаций"(' + IntToStr(s_id_plant) +
-      ',' + IntToStr(id_arch) + ')');
+    ',' + IntToStr(id_arch) + ')');
     Open;
     Locate('о_код', id_locate, []);
     ViewBalance.ApplyBestFit(nil, True, false);
   end;
 end;
-
 end.

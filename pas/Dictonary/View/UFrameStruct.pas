@@ -1,7 +1,5 @@
 unit UFrameStruct;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -12,7 +10,6 @@ uses
   Vcl.Controls,
   Vcl.Forms,
   Vcl.Dialogs;
-
 type
   TFrameСтруктура = class(TFrame)
   private
@@ -20,9 +17,6 @@ type
   public
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
-
 end.

@@ -1,7 +1,5 @@
 unit UFPricooling;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -17,12 +15,11 @@ uses
   DBAccess,
   Uni,
   UFramePricooling;
-
 type
   TFPricooling = class(TForm)
-    FrameProcooling1: TFrameProcooling;
-    Query1: TUniQuery;
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    FrameProcooling1 : TFrameProcooling;
+    Query1 : TUniQuery;
+    procedure FormClose(Sender : TObject; var Action : TCloseAction);
   private
     { Private declarations }
   public
@@ -31,15 +28,12 @@ type
   end;
 
 var
-  FPricooling: TFPricooling;
-
+  FPricooling : TFPricooling;
 implementation
-
 {$R *.dfm}
 
 uses
   UPasswd;
-
 procedure TFPricooling.Access;
 begin
   if (FPasswd.ID_ROLE <> 1) then
@@ -49,22 +43,20 @@ begin
       { доступ }
       Close;
       sql.Text := 'select * from "пользователи"."доступ"  where код_роли=' +
-        IntToStr(FPasswd.ID_ROLE);
+    IntToStr(FPasswd.ID_ROLE);
       Open;
       FrameProcooling1.FrameTopPanel1.btnAdd.Enabled :=
-        FieldByName('прикулинг_добавление').AsBoolean;
+                                                       FieldByName('прикулинг_добавление').AsBoolean;
       FrameProcooling1.FrameTopPanel1.btnEdit.Enabled :=
-        FieldByName('прикулинг_редактирование').AsBoolean;
+                                                        FieldByName('прикулинг_редактирование').AsBoolean;
       FrameProcooling1.FrameTopPanel1.btnDel.Enabled :=
-        FieldByName('прикулинг_удаление').AsBoolean;
+                                                       FieldByName('прикулинг_удаление').AsBoolean;
     end;
   end;
 end;
-
-procedure TFPricooling.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFPricooling.FormClose(Sender : TObject; var Action : TCloseAction);
 begin
   Action := caFree;
   FPricooling := nil;
 end;
-
 end.

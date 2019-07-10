@@ -1,7 +1,5 @@
 unit UFramePritenz;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -42,64 +40,53 @@ uses
   DBAccess,
   Uni,
   cxGridExportLink,
-  shellapi,    
-     
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
-
+  shellapi,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
 type
   TFramePritenz = class(TFrame)
-    QueryPritenz: TUniQuery;
-    dsPritenz: TDataSource;
-    FrameTopPanel1: TFrameTopPanel;
-    GridPritenz: TcxGrid;
-    ViewAWB: TcxGridDBTableView;
-    LevelOrg: TcxGridLevel;
-    ViewAWB_3: TcxGridDBColumn;
-    ViewAWBname: TcxGridDBColumn;
-    ViewAWB_6: TcxGridDBColumn;
-    ViewAWB_7: TcxGridDBColumn;
-    ViewAWB__: TcxGridDBColumn;
-    ViewAWB_8: TcxGridDBColumn;
-    ColumnPlant: TcxGridDBColumn;
-    Query1: TUniQuery;
-    ColumnНомер: TcxGridDBColumn;
-    procedure btnExportClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure ViewAWBDblClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
-    procedure btnRefreshClick(Sender: TObject);
-    procedure FrameTopPanel1btnArchPropertiesEditValueChanged(Sender: TObject);
+    QueryPritenz : TUniQuery;
+    dsPritenz : TDataSource;
+    FrameTopPanel1 : TFrameTopPanel;
+    GridPritenz : TcxGrid;
+    ViewAWB : TcxGridDBTableView;
+    LevelOrg : TcxGridLevel;
+    ViewAWB_3 : TcxGridDBColumn;
+    ViewAWBname : TcxGridDBColumn;
+    ViewAWB_6 : TcxGridDBColumn;
+    ViewAWB_7 : TcxGridDBColumn;
+    ViewAWB__ : TcxGridDBColumn;
+    ViewAWB_8 : TcxGridDBColumn;
+    ColumnPlant : TcxGridDBColumn;
+    Query1 : TUniQuery;
+    ColumnНомер : TcxGridDBColumn;
+    procedure btnExportClick(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure ViewAWBDblClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
+    procedure btnRefreshClick(Sender : TObject);
+    procedure FrameTopPanel1btnArchPropertiesEditValueChanged(Sender : TObject);
   private
     { Private declarations }
   public
-    procedure ShowPritenz(id_locate: Integer = 0);
-    procedure UpdatePritenz(id_del: Boolean = False);
+    procedure ShowPritenz(id_locate : Integer = 0);
+    procedure UpdatePritenz(id_del : Boolean = False);
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
 uses
   UPasswd,
   UFEditPitenz;
-
-procedure TFramePritenz.btnDelClick(Sender: TObject);
+procedure TFramePritenz.btnDelClick(Sender : TObject);
 begin
   if (QueryPritenz.FieldByName('статус_притензии').AsString <> 'ok') then
   begin
     if Application.MessageBox('Вы действительно хотите удалить притенцию?',
-      'Вопрос.', MB_YESNO + MB_ICONQUESTION) = mrYes then
+                               'Вопрос.', MB_YESNO + MB_ICONQUESTION) = mrYes then
     begin
       UpdatePritenz(true);
     end;
@@ -108,11 +95,10 @@ begin
   begin
     Application.MessageBox
       ('С данным статусом удаление и редактирование запрещено. Обратесь к админстратору.',
-      'Ошибка', MB_OK + MB_ICONERROR);
+        'Ошибка', MB_OK + MB_ICONERROR);
   end;
 end;
-
-procedure TFramePritenz.btnEditClick(Sender: TObject);
+procedure TFramePritenz.btnEditClick(Sender : TObject);
 begin
   if QueryPritenz.RecordCount > 0 then
   begin
@@ -122,7 +108,7 @@ begin
       with FramePretenzEdit1 do
       begin
         s_id_manager := QueryPritenz.FieldByName('код_менеджера_притензии')
-          .AsInteger;
+      .AsInteger;
         s_marking := QueryPritenz.FieldByName('name').AsString;
         s_user := QueryPritenz.FieldByName('u_name').AsString;
         s_date_fly := QueryPritenz.FieldByName('дата_вылета').AsString;
@@ -139,17 +125,17 @@ begin
         s_date := QueryPritenz.FieldByName('дата_притензии').AsString;
         edtNum.Text := QueryPritenz.FieldByName('номер_притензии').AsString;
         edtDatePrit.Date := QueryPritenz.FieldByName('дата_притензии')
-          .AsDateTime;
+      .AsDateTime;
         edtСуммаПретензии.Text := QueryPritenz.FieldByName
-          ('сумма_притензии').AsString;
+        ('сумма_притензии').AsString;
         edtSumGoodPrit.Text := QueryPritenz.FieldByName
-          ('одобренная_сумма_притензии').AsString;
+        ('одобренная_сумма_притензии').AsString;
         mmoПритензияРус.Text := QueryPritenz.FieldByName
-          ('текст_притензии_рус').AsString;
+        ('текст_притензии_рус').AsString;
         mmoПритензияИсп.Text := QueryPritenz.FieldByName
-          ('текст_притензии_исп').AsString;
+        ('текст_притензии_исп').AsString;
         mmoОдобреннаяСумма.Text := QueryPritenz.FieldByName
-          ('текст_одобренной_суммы').AsString;
+        ('текст_одобренной_суммы').AsString;
         if QueryPritenz.FieldByName('статус_притензии').AsString = 'ok' then
         begin
           chkExePrit.Checked := true;
@@ -178,28 +164,24 @@ begin
     end;
   end;
 end;
-
-procedure TFramePritenz.btnExportClick(Sender: TObject);
+procedure TFramePritenz.btnExportClick(Sender : TObject);
 var
-  s: string;
+  s : string;
 begin
   s := FPasswd.GetVar('TEMP') + '\Притензии';
   ExportGridToExcel(s, GridPritenz, true, true, true, 'xls');
   ShellExecute(Handle, nil, PChar(s + '.xls'), nil, nil, SW_RESTORE);
 end;
-
-procedure TFramePritenz.btnRefreshClick(Sender: TObject);
+procedure TFramePritenz.btnRefreshClick(Sender : TObject);
 begin
   ShowPritenz(QueryPritenz.FieldByName('id').AsInteger);
 end;
-
 procedure TFramePritenz.FrameTopPanel1btnArchPropertiesEditValueChanged
-  (Sender: TObject);
+  (Sender : TObject);
 begin
   ShowPritenz();
 end;
-
-procedure TFramePritenz.ShowPritenz(id_locate: Integer = 0);
+procedure TFramePritenz.ShowPritenz(id_locate : Integer = 0);
 begin
 {$REGION 'MyRegion'}
   with QueryPritenz do
@@ -301,8 +283,7 @@ begin
   end;
 {$ENDREGION};
 end;
-
-procedure TFramePritenz.UpdatePritenz(id_del: Boolean = False);
+procedure TFramePritenz.UpdatePritenz(id_del : Boolean = False);
 begin
   with FEditPritenz do
   begin
@@ -336,15 +317,15 @@ begin
           ParamByName('дата_притензии').AsDate := edtDatePrit.DateTime;
           ParamByName('сумма_притензии').AsString := edtСуммаПретензии.Text;
           ParamByName('одобренная_сумма_притензии').AsString :=
-            edtSumGoodPrit.Text;
+                                                               edtSumGoodPrit.Text;
           ParamByName('текст_притензии_рус').AsString := mmoПритензияРус.Text;
           ParamByName('текст_притензии_исп').AsString := mmoПритензияИсп.Text;
           ParamByName('текст_одобренной_суммы').AsString :=
-            mmoОдобреннаяСумма.Text;
+                                                           mmoОдобреннаяСумма.Text;
           ParamByName('номер_притензии').AsString := edtNum.Text;
           if edtManager.Text <> '' then
             ParamByName('код_менеджера_притензии').AsInteger :=
-              edtManager.EditValue;
+                                                               edtManager.EditValue;
           if edtphoto1.Text <> '' then
             ParamByName('photo1').AsString := edtphoto1.Text;
           if edtphoto2.Text <> '' then
@@ -359,10 +340,8 @@ begin
     end;
   end;
 end;
-
-procedure TFramePritenz.ViewAWBDblClick(Sender: TObject);
+procedure TFramePritenz.ViewAWBDblClick(Sender : TObject);
 begin
   btnEditClick(Sender);
 end;
-
 end.

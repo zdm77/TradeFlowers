@@ -1,51 +1,46 @@
 unit UFrameNewReceipt;
-
 interface
-
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes,
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls,
   cxLookAndFeels, cxLookAndFeelPainters, cxStyles, dxSkinsCore,
-    dxSkinscxPCPainter,
+  dxSkinscxPCPainter,
   cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator, Data.DB,
   cxDBData, MemDS, DBAccess, Uni, cxGridLevel, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxClasses, cxGridCustomView, cxGrid,
   UFrameTopPanel;
-
 type
   TFrameNewReceipt = class(TFrame)
-    FrameTopPanel1: TFrameTopPanel;
-    GridStatWork: TcxGrid;
-    ViewReceipt: TcxGridDBTableView;
-    LevelStatWork: TcxGridLevel;
-    Query1: TUniQuery;
-    QueryNewReceipt: TUniQuery;
-    dsNewReceipt: TDataSource;
-    ViewReceiptuni_name: TcxGridDBColumn;
-    ViewReceiptm_uni_name: TcxGridDBColumn;
-    ViewReceiptDBColumn: TcxGridDBColumn;
-    ViewReceiptDBColumn1: TcxGridDBColumn;
-    ViewReceipt__: TcxGridDBColumn;
-    ViewReceiptDBColumn2: TcxGridDBColumn;
-    ViewReceiptDBColumn3: TcxGridDBColumn;
-    ViewReceipt_5: TcxGridDBColumn;
-    ViewReceipts_uni_name: TcxGridDBColumn;
-    ViewReceiptDBColumn4: TcxGridDBColumn;
-    ColumnNum: TcxGridDBColumn;
+    FrameTopPanel1 : TFrameTopPanel;
+    GridStatWork : TcxGrid;
+    ViewReceipt : TcxGridDBTableView;
+    LevelStatWork : TcxGridLevel;
+    Query1 : TUniQuery;
+    QueryNewReceipt : TUniQuery;
+    dsNewReceipt : TDataSource;
+    ViewReceiptuni_name : TcxGridDBColumn;
+    ViewReceiptm_uni_name : TcxGridDBColumn;
+    ViewReceiptDBColumn : TcxGridDBColumn;
+    ViewReceiptDBColumn1 : TcxGridDBColumn;
+    ViewReceipt__ : TcxGridDBColumn;
+    ViewReceiptDBColumn2 : TcxGridDBColumn;
+    ViewReceiptDBColumn3 : TcxGridDBColumn;
+    ViewReceipt_5 : TcxGridDBColumn;
+    ViewReceipts_uni_name : TcxGridDBColumn;
+    ViewReceiptDBColumn4 : TcxGridDBColumn;
+    ColumnNum : TcxGridDBColumn;
   private
     { Private declarations }
   public
-    IDReceipt: Integer;
-    procedure ShowNewReceipt(id_locate: Integer = 0);
+    IDReceipt : Integer;
+    procedure ShowNewReceipt(id_locate : Integer = 0);
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
-procedure TFrameNewReceipt.ShowNewReceipt(id_locate: Integer = 0);
+procedure TFrameNewReceipt.ShowNewReceipt(id_locate : Integer = 0);
 begin
   with QueryNewReceipt do
   begin
@@ -84,5 +79,4 @@ begin
     Locate('id_locate', id_locate, []);
   end;
 end;
-
 end.

@@ -1,7 +1,5 @@
 unit UFrameBankInter;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -18,7 +16,7 @@ uses
   cxLookAndFeelPainters,
   cxStyles,
   dxSkinsCore,
-
+  
   dxSkinscxPCPainter,
   cxCustomData,
   cxFilter,
@@ -39,44 +37,40 @@ uses
   Uni,
   UFrameTopPanel,
   cxNavigator,
-
+  
   dxSkinDevExpressStyle,
-
-   dxSkinsDefaultPainters;
-
+  
+  dxSkinsDefaultPainters;
 type
   TFrameBankInter = class(TFrame)
-    FrameTopPanel1: TFrameTopPanel;
-    QueryBanks: TUniQuery;
-    dsBanks: TDataSource;
-    Query1: TUniQuery;
-    GridStatWork: TcxGrid;
-    ViewStatWork: TcxGridDBTableView;
-    LevelStatWork: TcxGridLevel;
-    ViewStatWorkname: TcxGridDBColumn;
-    ViewStatWorkswift: TcxGridDBColumn;
-    procedure FrameTopPanel1btnSelClick(Sender: TObject);
-    procedure btnAddClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure ViewStatWorkDblClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
+    FrameTopPanel1 : TFrameTopPanel;
+    QueryBanks : TUniQuery;
+    dsBanks : TDataSource;
+    Query1 : TUniQuery;
+    GridStatWork : TcxGrid;
+    ViewStatWork : TcxGridDBTableView;
+    LevelStatWork : TcxGridLevel;
+    ViewStatWorkname : TcxGridDBColumn;
+    ViewStatWorkswift : TcxGridDBColumn;
+    procedure FrameTopPanel1btnSelClick(Sender : TObject);
+    procedure btnAddClick(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure ViewStatWorkDblClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
   private
     { Private declarations }
   public
     procedure EnableSave;
-    procedure ShowBank(id_locate: Integer = 0);
+    procedure ShowBank(id_locate : Integer = 0);
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
 uses
   UNewInBank,
   PGSQL;
-
-procedure TFrameBankInter.btnAddClick(Sender: TObject);
+procedure TFrameBankInter.btnAddClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewInBank, FNewInBank);
   with FNewInBank do
@@ -86,15 +80,13 @@ begin
       ShowBank(s_id_bank);
   end;
 end;
-
-procedure TFrameBankInter.btnDelClick(Sender: TObject);
+procedure TFrameBankInter.btnDelClick(Sender : TObject);
 begin
   PGSQL.StandartDelete(QueryBanks.FieldByName('id').AsString, 'банки_зарубеж',
-    QueryBanks, '', '', '', '');
+                        QueryBanks, '', '', '', '');
   EnableSave;
 end;
-
-procedure TFrameBankInter.btnEditClick(Sender: TObject);
+procedure TFrameBankInter.btnEditClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewInBank, FNewInBank);
   with FNewInBank do
@@ -108,7 +100,6 @@ begin
       ShowBank(s_id_bank);
   end;
 end;
-
 procedure TFrameBankInter.EnableSave;
 begin
   if QueryBanks.RecordCount <> 0 then
@@ -122,13 +113,11 @@ begin
     FrameTopPanel1.btnDel.Enabled := false;
   end;
 end;
-
-procedure TFrameBankInter.FrameTopPanel1btnSelClick(Sender: TObject);
+procedure TFrameBankInter.FrameTopPanel1btnSelClick(Sender : TObject);
 begin
   FrameTopPanel1.btnSelClick(Sender);
 end;
-
-procedure TFrameBankInter.ShowBank(id_locate: Integer = 0);
+procedure TFrameBankInter.ShowBank(id_locate : Integer = 0);
 begin
   with QueryBanks do
   begin
@@ -138,10 +127,8 @@ begin
     Locate('id', id_locate, []);
   end;
 end;
-
-procedure TFrameBankInter.ViewStatWorkDblClick(Sender: TObject);
+procedure TFrameBankInter.ViewStatWorkDblClick(Sender : TObject);
 begin
   btnEditClick(Sender);
 end;
-
 end.

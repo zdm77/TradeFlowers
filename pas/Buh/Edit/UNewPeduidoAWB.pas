@@ -1,7 +1,5 @@
 unit UNewPeduidoAWB;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -60,84 +58,74 @@ uses
   cxGridCustomTableView,
   cxGridTableView,
   cxGridDBTableView,
-  cxGrid,     
-    
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue;
-
+  cxGrid,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue;
 type
   TFNewPeduidoAWB = class(TForm)
-    Group1: TcxGroupBox;
-    lblKargo: TLabel;
-    lblNum: TLabel;
-    lblDate: TLabel;
-    lblOrg: TLabel;
-    lblАвиалиния: TLabel;
-    edtDate: TDateTimePicker;
-    edtNum: TMaskEdit;
-    FrameSave1: TFrameSave;
-    FrameTopPanel1: TFrameTopPanel;
-    QueryАвиалиния: TUniQuery;
-    dsАвиалиния: TDataSource;
-    edtKARGO: TDBLookupComboboxEh;
-    QueryKARGO: TUniQuery;
-    dsKARGO: TDataSource;
-    Query1: TUniQuery;
-    QueryOrg: TUniQuery;
-    dsORG: TDataSource;
-    QuerySubAWBPedido: TUniQuery;
-    dsSubAWBPedido: TDataSource;
-    ViewSubAWBPedido: TcxGridDBTableView;
-    LevelSubAWBPedido: TcxGridLevel;
-    GridSubAWBPedido: TcxGrid;
-    edtOrg: TDBLookupComboboxEh;
-    ViewSubAWBPedidot_name: TcxGridDBColumn;
-    ViewSubAWBPedidom_name: TcxGridDBColumn;
-    ColumnType: TcxGridDBColumn;
-    ColumnFito: TcxGridDBColumn;
-    ColumnPricul: TcxGridDBColumn;
-    edtАвиалиния: TDBLookupComboboxEh;
-    procedure btnAddClick(Sender: TObject);
-    procedure edtKARGOChange(Sender: TObject);
-    procedure edtNumChange(Sender: TObject);
-    procedure edtOrgChange(Sender: TObject);
-    procedure edtАвиалинияChange(Sender: TObject);
-    procedure FormShow(Sender: TObject);
-    procedure FrameSave1btnSaveClick(Sender: TObject);
-    procedure FrameTopPanel1btnEditClick(Sender: TObject);
-    procedure ViewSubAWBPedidoDblClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
+    Group1 : TcxGroupBox;
+    lblKargo : TLabel;
+    lblNum : TLabel;
+    lblDate : TLabel;
+    lblOrg : TLabel;
+    lblАвиалиния : TLabel;
+    edtDate : TDateTimePicker;
+    edtNum : TMaskEdit;
+    FrameSave1 : TFrameSave;
+    FrameTopPanel1 : TFrameTopPanel;
+    QueryАвиалиния : TUniQuery;
+    dsАвиалиния : TDataSource;
+    edtKARGO : TDBLookupComboboxEh;
+    QueryKARGO : TUniQuery;
+    dsKARGO : TDataSource;
+    Query1 : TUniQuery;
+    QueryOrg : TUniQuery;
+    dsORG : TDataSource;
+    QuerySubAWBPedido : TUniQuery;
+    dsSubAWBPedido : TDataSource;
+    ViewSubAWBPedido : TcxGridDBTableView;
+    LevelSubAWBPedido : TcxGridLevel;
+    GridSubAWBPedido : TcxGrid;
+    edtOrg : TDBLookupComboboxEh;
+    ViewSubAWBPedidot_name : TcxGridDBColumn;
+    ViewSubAWBPedidom_name : TcxGridDBColumn;
+    ColumnType : TcxGridDBColumn;
+    ColumnFito : TcxGridDBColumn;
+    ColumnPricul : TcxGridDBColumn;
+    edtАвиалиния : TDBLookupComboboxEh;
+    procedure btnAddClick(Sender : TObject);
+    procedure edtKARGOChange(Sender : TObject);
+    procedure edtNumChange(Sender : TObject);
+    procedure edtOrgChange(Sender : TObject);
+    procedure edtАвиалинияChange(Sender : TObject);
+    procedure FormShow(Sender : TObject);
+    procedure FrameSave1btnSaveClick(Sender : TObject);
+    procedure FrameTopPanel1btnEditClick(Sender : TObject);
+    procedure ViewSubAWBPedidoDblClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
   private
     { Private declarations }
   public
-    s_date_pedido_awb: TDate;
-    s_id_kargo: Integer;
-    IDAWB: Integer;
-    MaxПорядок: Integer;
+    s_date_pedido_awb : TDate;
+    s_id_kargo : Integer;
+    IDAWB : Integer;
+    MaxПорядок : Integer;
     procedure DetectMaxПорядок;
     procedure EnableSave;
-    procedure InsUpdMnemoAWB(id_ins: smallint);
-    procedure InsUpdMnemoSubAWB(id_ins: smallint);
-    procedure ShowAirLines(id_locate: Integer = 0);
-    procedure ShowKARGO(id_locate: Integer = 0);
-    procedure ShowORG(id_locate: Integer = 0);
-    procedure ShowSubAEBPedido(id_locate: Integer = 0);
+    procedure InsUpdMnemoAWB(id_ins : smallint);
+    procedure InsUpdMnemoSubAWB(id_ins : smallint);
+    procedure ShowAirLines(id_locate : Integer = 0);
+    procedure ShowKARGO(id_locate : Integer = 0);
+    procedure ShowORG(id_locate : Integer = 0);
+    procedure ShowSubAEBPedido(id_locate : Integer = 0);
     { Public declarations }
   end;
 
 var
-  FNewPeduidoAWB: TFNewPeduidoAWB;
-
+  FNewPeduidoAWB : TFNewPeduidoAWB;
 implementation
-
 {$R *.dfm}
 
 uses
@@ -145,13 +133,12 @@ uses
   USelect,
   UNewPedidoAWBDetail,
   PGSQL;
-
-procedure TFNewPeduidoAWB.btnAddClick(Sender: TObject);
+procedure TFNewPeduidoAWB.btnAddClick(Sender : TObject);
 begin
   if IDAWB = 0 then
   begin
     if Application.MessageBox('Сохранить данные AWB?', 'Вопрос',
-      MB_YESNO + MB_ICONQUESTION) = mrYes then
+                               MB_YESNO + MB_ICONQUESTION) = mrYes then
     begin
       InsUpdMnemoAWB(0);
     end
@@ -181,31 +168,29 @@ begin
   end;
   EnableSave;
 end;
-
-procedure TFNewPeduidoAWB.btnDelClick(Sender: TObject);
+procedure TFNewPeduidoAWB.btnDelClick(Sender : TObject);
 begin
   if Application.MessageBox('Вы действительно хотите удалить запись?',
-    'Вопрос.', MB_YESNO + MB_ICONQUESTION) = mrYes then
+                             'Вопрос.', MB_YESNO + MB_ICONQUESTION) = mrYes then
   begin
     with Query1 do
     begin
       Close;
       sql.Text := 'delete from "бух".sub_awb where id=' +
-        QuerySubAWBPedido.FieldByName('id').AsString;
+    QuerySubAWBPedido.FieldByName('id').AsString;
       ExecSQL;
       ShowSubAEBPedido();
     end;
   end;
   EnableSave;
 end;
-
 procedure TFNewPeduidoAWB.DetectMaxПорядок;
 begin
   with Query1 do
   begin
     Close;
     sql.Text := 'select max(порядок) from "бух".sub_awb  where "код_AWB"=' +
-      IntToStr(IDAWB) + ' and порядок is not null';
+  IntToStr(IDAWB) + ' and порядок is not null';
     Open;
     if Fields[0].AsString <> '' then
       MaxПорядок := Fields[0].AsInteger
@@ -213,33 +198,28 @@ begin
       MaxПорядок := 1;
   end;
 end;
-
-procedure TFNewPeduidoAWB.edtKARGOChange(Sender: TObject);
+procedure TFNewPeduidoAWB.edtKARGOChange(Sender : TObject);
 begin
   EnableSave;
 end;
-
-procedure TFNewPeduidoAWB.edtNumChange(Sender: TObject);
+procedure TFNewPeduidoAWB.edtNumChange(Sender : TObject);
 begin
   EnableSave;
 end;
-
-procedure TFNewPeduidoAWB.edtOrgChange(Sender: TObject);
+procedure TFNewPeduidoAWB.edtOrgChange(Sender : TObject);
 begin
   EnableSave;
 end;
-
-procedure TFNewPeduidoAWB.edtАвиалинияChange(Sender: TObject);
+procedure TFNewPeduidoAWB.edtАвиалинияChange(Sender : TObject);
 begin
   EnableSave;
 end;
-
 procedure TFNewPeduidoAWB.EnableSave;
 begin
   with FrameTopPanel1 do
   begin
     if (edtNum.Text <> '   -    -    ') and (edtKARGO.Text <> '') and
-      (edtАвиалиния.Text <> '') and (edtOrg.Text <> '') then
+    (edtАвиалиния.Text <> '') and (edtOrg.Text <> '') then
     begin
       btnAdd.Enabled := true;
     end
@@ -263,22 +243,19 @@ begin
   else
     FrameSave1.Enabled := False;
 end;
-
-procedure TFNewPeduidoAWB.FormShow(Sender: TObject);
+procedure TFNewPeduidoAWB.FormShow(Sender : TObject);
 begin
   EnableSave;
   edtNum.SetFocus;
   edtDate.Date := s_date_pedido_awb;
 end;
-
-procedure TFNewPeduidoAWB.FrameSave1btnSaveClick(Sender: TObject);
+procedure TFNewPeduidoAWB.FrameSave1btnSaveClick(Sender : TObject);
 begin
   FrameSave1.btnSaveClick(Sender);
   InsUpdMnemoAWB(1);
   Close;
 end;
-
-procedure TFNewPeduidoAWB.FrameTopPanel1btnEditClick(Sender: TObject);
+procedure TFNewPeduidoAWB.FrameTopPanel1btnEditClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewPedidoAWBDetail, FNewPedidoAWBDetail);
   with FNewPedidoAWBDetail do
@@ -297,8 +274,7 @@ begin
     end;
   end;
 end;
-
-procedure TFNewPeduidoAWB.InsUpdMnemoAWB(id_ins: smallint);
+procedure TFNewPeduidoAWB.InsUpdMnemoAWB(id_ins : smallint);
 begin
   with Query1 do
   begin
@@ -336,10 +312,9 @@ begin
     ExecSQL;
   end;
 end;
-
-procedure TFNewPeduidoAWB.InsUpdMnemoSubAWB(id_ins: smallint);
+procedure TFNewPeduidoAWB.InsUpdMnemoSubAWB(id_ins : smallint);
 var
-  IDSABAWB: Integer;
+  IDSABAWB : Integer;
 begin
   with Query1 do
   begin
@@ -391,21 +366,20 @@ begin
     ParamByName('id').Value := IDSABAWB;
     ParamByName('код_AWB').Value := IDAWB;
     ParamByName('код_маркировки').Value :=
-      FNewPedidoAWBDetail.edtMarking.KeyValue;
+                                          FNewPedidoAWBDetail.edtMarking.KeyValue;
     ParamByName('код_трака').Value := FNewPedidoAWBDetail.edtTrack.KeyValue;
     ParamByName('тип_мнемо').AsString := FNewPedidoAWBDetail.edtType.Text;
     if FNewPedidoAWBDetail.edtПорядок.Text <> '' then
       ParamByName('порядок').AsString := FNewPedidoAWBDetail.edtПорядок.Text;
     ParamByName('код_фито').AsInteger := FNewPedidoAWBDetail.edtFITO.KeyValue;
     ParamByName('код_прикулинга').AsInteger :=
-      FNewPedidoAWBDetail.edtPrikul.KeyValue;
+                                              FNewPedidoAWBDetail.edtPrikul.KeyValue;
     ExecSQL;
   end;
   DetectMaxПорядок;
   ShowSubAEBPedido(IDSABAWB);
 end;
-
-procedure TFNewPeduidoAWB.ShowAirLines(id_locate: Integer = 0);
+procedure TFNewPeduidoAWB.ShowAirLines(id_locate : Integer = 0);
 begin
   with QueryАвиалиния do
   begin
@@ -415,8 +389,7 @@ begin
     edtАвиалиния.KeyValue := id_locate;
   end;
 end;
-
-procedure TFNewPeduidoAWB.ShowKARGO(id_locate: Integer = 0);
+procedure TFNewPeduidoAWB.ShowKARGO(id_locate : Integer = 0);
 begin
   with QueryKARGO do
   begin
@@ -426,8 +399,7 @@ begin
     edtKARGO.KeyValue := id_locate;
   end;
 end;
-
-procedure TFNewPeduidoAWB.ShowORG(id_locate: Integer = 0);
+procedure TFNewPeduidoAWB.ShowORG(id_locate : Integer = 0);
 begin
   with QueryOrg do
   begin
@@ -438,8 +410,7 @@ begin
     edtOrg.KeyValue := id_locate
   end;
 end;
-
-procedure TFNewPeduidoAWB.ShowSubAEBPedido(id_locate: Integer = 0);
+procedure TFNewPeduidoAWB.ShowSubAEBPedido(id_locate : Integer = 0);
 begin
   with QuerySubAWBPedido do
   begin
@@ -449,10 +420,8 @@ begin
     Locate('id', id_locate, [])
   end;
 end;
-
-procedure TFNewPeduidoAWB.ViewSubAWBPedidoDblClick(Sender: TObject);
+procedure TFNewPeduidoAWB.ViewSubAWBPedidoDblClick(Sender : TObject);
 begin
   FrameTopPanel1btnEditClick(Sender);
 end;
-
 end.

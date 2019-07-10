@@ -1,7 +1,5 @@
 unit UReportClients;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -33,46 +31,36 @@ uses
   Data.DB,
   MemDS,
   DBAccess,
-  Uni,     
-    
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue;
-
+  Uni,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue;
 type
   TFReportClients = class(TForm)
-    FrameSave1: TFrameSave;
-    Group1: TcxGroupBox;
-    chkStat: TcxCheckBox;
-    edtStat: TcxLookupComboBox;
-    edtOrder: TcxComboBox;
-    cxLabel1: TcxLabel;
-    QueryStat: TUniQuery;
-    dsStat: TDataSource;
-    procedure chkStatClick(Sender: TObject);
-    procedure FrameSave1btnSaveClick(Sender: TObject);
+    FrameSave1 : TFrameSave;
+    Group1 : TcxGroupBox;
+    chkStat : TcxCheckBox;
+    edtStat : TcxLookupComboBox;
+    edtOrder : TcxComboBox;
+    cxLabel1 : TcxLabel;
+    QueryStat : TUniQuery;
+    dsStat : TDataSource;
+    procedure chkStatClick(Sender : TObject);
+    procedure FrameSave1btnSaveClick(Sender : TObject);
   private
     { Private declarations }
   public
-    id_exe: Boolean;
+    id_exe : Boolean;
     { Public declarations }
   end;
 
 var
-  FReportClients: TFReportClients;
-
+  FReportClients : TFReportClients;
 implementation
-
 {$R *.dfm}
 
-procedure TFReportClients.chkStatClick(Sender: TObject);
+procedure TFReportClients.chkStatClick(Sender : TObject);
 begin
   edtStat.Enabled := chkStat.Checked;
   if edtStat.Enabled = true then
@@ -83,11 +71,9 @@ begin
   else
     QueryStat.Close;
 end;
-
-procedure TFReportClients.FrameSave1btnSaveClick(Sender: TObject);
+procedure TFReportClients.FrameSave1btnSaveClick(Sender : TObject);
 begin
   id_exe := true;
   Close;
 end;
-
 end.

@@ -1,7 +1,5 @@
 ﻿unit USelectSort;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -14,13 +12,12 @@ uses
   Vcl.Dialogs,
   UFrameSort,
   DBAccess;
-
 type
   TFSelectSort = class(TForm)
-    FrameSort1: TFrameSort;
-    procedure FormShow(Sender: TObject);
-    procedure FrameSort1ViewUsersDblClick(Sender: TObject);
-    procedure FrameTopPanel1btnSelClick(Sender: TObject);
+    FrameSort1 : TFrameSort;
+    procedure FormShow(Sender : TObject);
+    procedure FrameSort1ViewUsersDblClick(Sender : TObject);
+    procedure FrameTopPanel1btnSelClick(Sender : TObject);
   private
     { Private declarations }
   public
@@ -28,24 +25,18 @@ type
   end;
 
 var
-  FSelectSort: TFSelectSort;
-
+  FSelectSort : TFSelectSort;
 implementation
-
 {$R *.dfm}
 
 uses
   UPasswd;
-
-procedure TFSelectSort.FormShow(Sender: TObject);
+procedure TFSelectSort.FormShow(Sender : TObject);
 begin
   case FPasswd.Lang of
-    0:
-      Caption := 'Выбор сорта';
-    1:
-      Caption := 'Selection of varieties';
-    2:
-      Caption := 'Elección de la variedades';
+    0 : Caption := 'Выбор сорта';
+    1 : Caption := 'Selection of varieties';
+    2 : Caption := 'Elección de la variedades';
   end;
   with FrameSort1 do
   begin
@@ -62,17 +53,14 @@ begin
   else
     FrameSort1.FrameTopPanel1.btnSel.Enabled := false;
 end;
-
-procedure TFSelectSort.FrameSort1ViewUsersDblClick(Sender: TObject);
+procedure TFSelectSort.FrameSort1ViewUsersDblClick(Sender : TObject);
 begin
   if FrameSort1.QuerySort.RecordCount > 0 then
     FrameTopPanel1btnSelClick(Sender);
 end;
-
-procedure TFSelectSort.FrameTopPanel1btnSelClick(Sender: TObject);
+procedure TFSelectSort.FrameTopPanel1btnSelClick(Sender : TObject);
 begin
   FrameSort1.FrameTopPanel1.id_select := true;
   close;
 end;
-
 end.

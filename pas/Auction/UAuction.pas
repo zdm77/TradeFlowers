@@ -1,52 +1,49 @@
 unit UAuction;
-
 interface
-
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels,
-  cxLookAndFeelPainters, dxSkinsCore, 
-   dxSkinsdxNavBarPainter, dxSkinscxPCPainter,
+  cxLookAndFeelPainters, dxSkinsCore,
+  dxSkinsdxNavBarPainter, dxSkinscxPCPainter,
   dxBarBuiltInMenu, Data.DB, MemDS, DBAccess, Uni, cxSplitter, cxPC,
   dxNavBarCollns, cxClasses, dxNavBarBase, dxNavBar, UFrameAuction,
   UFrameRaznosAucAll, UTypeAuc, UFrameProductAuc, UFrameAucOrder,
   dxSkinOffice2007Blue, dxSkinsDefaultPainters;
-
 type
   TFAuction = class(TForm)
-    Bar1: TdxNavBar;
-    GroupOsn: TdxNavBarGroup;
-    ItemАукцион: TdxNavBarItem;
-    PageDocs: TcxPageControl;
-    TabOrder: TcxTabSheet;
-    cxspltr1: TcxSplitter;
-    Query1: TUniQuery;
-    FrameAuction1: TFrameAuction;
-    ItemRaznos: TdxNavBarItem;
-    ItemПакинг: TdxNavBarItem;
-    tabРазноск: TcxTabSheet;
-    FrameRaznosAucAll1: TFrameRaznosAucAll;
-    ItemType: TdxNavBarItem;
-    Bar1Item1: TdxNavBarItem;
-    Bar1Group1: TdxNavBarGroup;
-    tabType: TcxTabSheet;
-    FrameTypeAuc1: TFrameTypeAuc;
-    ItemНоменклатура: TdxNavBarItem;
-    tabНоменклатура: TcxTabSheet;
-    FrameProductAuc1: TFrameProductAuc;
-    groupZakaz: TdxNavBarGroup;
-    itemOrderHoland: TdxNavBarItem;
-    tabOrderHolland: TcxTabSheet;
-    FrameAucOrder1: TFrameAucOrder;
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure FormShow(Sender: TObject);
-    procedure ItemRaznosClick(Sender: TObject);
-    procedure ItemTypeClick(Sender: TObject);
-    procedure ItemАукционClick(Sender: TObject);
-    procedure ItemНоменклатураClick(Sender: TObject);
-    procedure FrameTopPanel1btnArchPropertiesEditValueChanged(Sender: TObject);
-    procedure itemOrderHolandClick(Sender: TObject);
+    Bar1 : TdxNavBar;
+    GroupOsn : TdxNavBarGroup;
+    ItemАукцион : TdxNavBarItem;
+    PageDocs : TcxPageControl;
+    TabOrder : TcxTabSheet;
+    cxspltr1 : TcxSplitter;
+    Query1 : TUniQuery;
+    FrameAuction1 : TFrameAuction;
+    ItemRaznos : TdxNavBarItem;
+    ItemПакинг : TdxNavBarItem;
+    tabРазноск : TcxTabSheet;
+    FrameRaznosAucAll1 : TFrameRaznosAucAll;
+    ItemType : TdxNavBarItem;
+    Bar1Item1 : TdxNavBarItem;
+    Bar1Group1 : TdxNavBarGroup;
+    tabType : TcxTabSheet;
+    FrameTypeAuc1 : TFrameTypeAuc;
+    ItemНоменклатура : TdxNavBarItem;
+    tabНоменклатура : TcxTabSheet;
+    FrameProductAuc1 : TFrameProductAuc;
+    groupZakaz : TdxNavBarGroup;
+    itemOrderHoland : TdxNavBarItem;
+    tabOrderHolland : TcxTabSheet;
+    FrameAucOrder1 : TFrameAucOrder;
+    procedure FormClose(Sender : TObject; var Action : TCloseAction);
+    procedure FormShow(Sender : TObject);
+    procedure ItemRaznosClick(Sender : TObject);
+    procedure ItemTypeClick(Sender : TObject);
+    procedure ItemАукционClick(Sender : TObject);
+    procedure ItemНоменклатураClick(Sender : TObject);
+    procedure FrameTopPanel1btnArchPropertiesEditValueChanged(Sender : TObject);
+    procedure itemOrderHolandClick(Sender : TObject);
   private
     { Private declarations }
   public
@@ -54,26 +51,22 @@ type
   end;
 
 var
-  FAuction: TFAuction;
-
+  FAuction : TFAuction;
 implementation
-
 {$R *.dfm}
 
-procedure TFAuction.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFAuction.FormClose(Sender : TObject; var Action : TCloseAction);
 begin
   Action := caFree;
   FAuction := nil;
 end;
-
-procedure TFAuction.FormShow(Sender: TObject);
+procedure TFAuction.FormShow(Sender : TObject);
 begin
   PageDocs.ActivePageIndex := 0;
   PageDocs.HideTabs := True;
 end;
-
 procedure TFAuction.FrameTopPanel1btnArchPropertiesEditValueChanged
-  (Sender: TObject);
+  (Sender : TObject);
 begin
   with FrameProductAuc1 do
   begin
@@ -90,8 +83,7 @@ begin
   // FrameProductAuc1.cxGroupBox3.Visible :=
   // FrameProductAuc1.FrameTopPanel1.btnArch.EditValue;
 end;
-
-procedure TFAuction.itemOrderHolandClick(Sender: TObject);
+procedure TFAuction.itemOrderHolandClick(Sender : TObject);
 begin
   PageDocs.Visible := True;
   PageDocs.ActivePageIndex := 4;
@@ -103,8 +95,7 @@ begin
     end;
   end;
 end;
-
-procedure TFAuction.ItemRaznosClick(Sender: TObject);
+procedure TFAuction.ItemRaznosClick(Sender : TObject);
 begin
   PageDocs.Visible := True;
   PageDocs.ActivePageIndex := 1;
@@ -118,8 +109,7 @@ begin
     end;
   end;
 end;
-
-procedure TFAuction.ItemTypeClick(Sender: TObject);
+procedure TFAuction.ItemTypeClick(Sender : TObject);
 begin
   PageDocs.Visible := True;
   PageDocs.ActivePageIndex := 2;
@@ -128,12 +118,10 @@ begin
     if QueryTypeAuc.Active = false then
     begin
       ShowTypeAuc('');
-
     end;
   end;
 end;
-
-procedure TFAuction.ItemАукционClick(Sender: TObject);
+procedure TFAuction.ItemАукционClick(Sender : TObject);
 begin
   PageDocs.Visible := True;
   PageDocs.ActivePageIndex := 0;
@@ -148,8 +136,7 @@ begin
   end;
   // FrameTypeAuc1.ShowProduct;
 end;
-
-procedure TFAuction.ItemНоменклатураClick(Sender: TObject);
+procedure TFAuction.ItemНоменклатураClick(Sender : TObject);
 begin
   PageDocs.Visible := True;
   PageDocs.ActivePageIndex := 3;
@@ -161,5 +148,4 @@ begin
     end;
   end;
 end;
-
 end.

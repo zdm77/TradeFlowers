@@ -1,7 +1,5 @@
 ﻿unit UFrameProperties;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -37,7 +35,7 @@ uses
   cxGridCustomView,
   cxGrid,
   UFrameTopPanel,
-
+  
   Vcl.StdCtrls,
   cxContainer,
   Vcl.ImgList,
@@ -50,34 +48,33 @@ uses
   cxDBTL,
   cxTLData,
   cxNavigator,
-
+  
   dxSkinDevExpressStyle,
-
-   dxSkinsDefaultPainters, dxSkinOffice2007Blue;
-
+  
+  dxSkinsDefaultPainters, dxSkinOffice2007Blue;
 type
   TFrameProperties = class(TFrame)
-    FrameTopPanel1: TFrameTopPanel;
-    QueryProperties: TUniQuery;
-    dsProperties: TDataSource;
-    GroupType: TcxGroupBox;
-    cxspltr1: TcxSplitter;
-    GroupProp: TcxGroupBox;
-    GridProperties: TcxGrid;
-    ViewProperties: TcxGridDBTableView;
-    ColumnName: TcxGridDBColumn;
-    LevelOrg: TcxGridLevel;
-    QueryType: TUniQuery;
-    dsType: TDataSource;
-    il1: TImageList;
-    cxGrid1: TcxGrid;
-    cxGridDBTableView1: TcxGridDBTableView;
-    ColumnType: TcxGridDBColumn;
-    cxGridLevel1: TcxGridLevel;
-    procedure btnAddClick(Sender: TObject);
-    procedure FrameTopPanel1btnRefreshClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure ViewPropertiesDblClick(Sender: TObject);
+    FrameTopPanel1 : TFrameTopPanel;
+    QueryProperties : TUniQuery;
+    dsProperties : TDataSource;
+    GroupType : TcxGroupBox;
+    cxspltr1 : TcxSplitter;
+    GroupProp : TcxGroupBox;
+    GridProperties : TcxGrid;
+    ViewProperties : TcxGridDBTableView;
+    ColumnName : TcxGridDBColumn;
+    LevelOrg : TcxGridLevel;
+    QueryType : TUniQuery;
+    dsType : TDataSource;
+    il1 : TImageList;
+    cxGrid1 : TcxGrid;
+    cxGridDBTableView1 : TcxGridDBTableView;
+    ColumnType : TcxGridDBColumn;
+    cxGridLevel1 : TcxGridLevel;
+    procedure btnAddClick(Sender : TObject);
+    procedure FrameTopPanel1btnRefreshClick(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure ViewPropertiesDblClick(Sender : TObject);
   private
     { Private declarations }
   public
@@ -86,9 +83,7 @@ type
     procedure ShowPropeties;
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
 uses
@@ -96,8 +91,7 @@ uses
   UDataModule1,
   UNewTTH,
   UPasswd;
-
-procedure TFrameProperties.btnAddClick(Sender: TObject);
+procedure TFrameProperties.btnAddClick(Sender : TObject);
 begin
   // Application.CreateForm(TFNewProperties, FNewProperties);
   // with FNewProperties do
@@ -134,66 +128,63 @@ begin
     ShowPropeties;
   end;
 end;
-
-procedure TFrameProperties.btnEditClick(Sender: TObject);
+procedure TFrameProperties.btnEditClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewTTH, FNewTTH);
   with FNewTTH do
   begin
     FrameUniName1.chkUseName.Checked := QueryProperties.FieldByName('use_name')
-      .AsBoolean;
+  .AsBoolean;
     FrameUniName1.chkUniq.Checked := QueryProperties.FieldByName('uniq')
-      .AsBoolean;
+  .AsBoolean;
     s_id_type := QueryType.FieldByName('id').AsString;
     s_id := QueryProperties.FieldByName('id').AsInteger;
     FrameUniName1.edtName.Text := QueryProperties.FieldByName('name').AsString;
     FrameUniName1.edtUniName.Text := QueryProperties.FieldByName
-      ('uni_name').AsString;
+    ('uni_name').AsString;
     FrameUniName1.edtRegName.Text := QueryProperties.FieldByName
-      ('reg_name').AsString;
+    ('reg_name').AsString;
     ShowTTHDetail;
     EnableSave;
     ShowModal;
     ShowPropeties;
   end;
 end;
-
-procedure TFrameProperties.FrameTopPanel1btnRefreshClick(Sender: TObject);
+procedure TFrameProperties.FrameTopPanel1btnRefreshClick(Sender : TObject);
 begin
   ShowType;
   ShowPropeties;
 end;
-
 procedure TFrameProperties.SetLang;
 begin
   case FPasswd.Lang of
-    0:
-      begin
-        GroupType.Caption := 'Типы';
-        GroupProp.Caption := 'Свойства';
-        ColumnType.Caption := 'Наименование';
-        ColumnType.DataBinding.FieldName := 'name';
-        ColumnName.Caption := 'Значения';
-        ColumnName.DataBinding.FieldName := 'name';
-      end;
-    1:
-      begin
-        GroupType.Caption := 'Types';
-        GroupProp.Caption := 'Properties';
-        ColumnType.Caption := 'Name';
-        ColumnType.DataBinding.FieldName := 'uni_name';
-        ColumnName.Caption := 'Values';
-        ColumnName.DataBinding.FieldName := 'uni_name';
-      end;
-    2:
-      begin
-        GroupType.Caption := 'Los tipos';
-        GroupProp.Caption := 'Las propiedades';
-        ColumnType.Caption := 'El nombre';
-        ColumnType.DataBinding.FieldName := 'reg_name';
-        ColumnName.Caption := 'Los significados';
-        ColumnName.DataBinding.FieldName := 'reg_name';
-      end;
+    0 :
+    begin
+      GroupType.Caption := 'Типы';
+      GroupProp.Caption := 'Свойства';
+      ColumnType.Caption := 'Наименование';
+      ColumnType.DataBinding.FieldName := 'name';
+      ColumnName.Caption := 'Значения';
+      ColumnName.DataBinding.FieldName := 'name';
+    end;
+    1 :
+    begin
+      GroupType.Caption := 'Types';
+      GroupProp.Caption := 'Properties';
+      ColumnType.Caption := 'Name';
+      ColumnType.DataBinding.FieldName := 'uni_name';
+      ColumnName.Caption := 'Values';
+      ColumnName.DataBinding.FieldName := 'uni_name';
+    end;
+    2 :
+    begin
+      GroupType.Caption := 'Los tipos';
+      GroupProp.Caption := 'Las propiedades';
+      ColumnType.Caption := 'El nombre';
+      ColumnType.DataBinding.FieldName := 'reg_name';
+      ColumnName.Caption := 'Los significados';
+      ColumnName.DataBinding.FieldName := 'reg_name';
+    end;
   end;
   // { Загружаем и устанавливаем заголовок кнопки "Yes" в соответствии с языком }
   // if LoadString(hInstance, StrTblOfs + 27, @a, sizeof(a)) <> 0 then
@@ -201,7 +192,6 @@ begin
   // if LoadString(hInstance, StrTblOfs + 28, @a, sizeof(a)) <> 0 then
   // ColumnUniName.Caption := StrPas(a);
 end;
-
 procedure TFrameProperties.ShowType;
 begin
   with QueryType do
@@ -212,17 +202,14 @@ begin
     Open;
   end;
 end;
-
 procedure TFrameProperties.ShowPropeties;
 begin
   QueryProperties.Close;
   QueryProperties.Open;
 end;
-
-procedure TFrameProperties.ViewPropertiesDblClick(Sender: TObject);
+procedure TFrameProperties.ViewPropertiesDblClick(Sender : TObject);
 begin
   if FrameTopPanel1.btnEdit.Enabled = true then
     btnEditClick(Sender);
 end;
-
 end.

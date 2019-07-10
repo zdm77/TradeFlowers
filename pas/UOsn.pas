@@ -1,7 +1,5 @@
 ﻿unit UOsn;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -42,9 +40,9 @@ uses
   AdvMenus,
   dxBar,
   Vcl.ImgList,
-
+  
   cxPC,
-
+  
   dxTabbedMDI,
   dxSkinsdxStatusBarPainter,
   dxStatusBar,
@@ -54,129 +52,128 @@ uses
   Uni,
   cxEditRepositoryItems,
   dxBarBuiltInMenu, dxSkinsDefaultPainters, dxSkinOffice2007Blue, System.ImageList, cxImageList;
-
 type
   TFOsn = class(TForm)
-    imgMidle: TcxImageList;
-    imgSmall: TcxImageList;
-    imgLarge: TcxImageList;
-    bar1: TdxBarManager;
-    Bar2: TdxBar;
-    btnDict: TdxBarLargeButton;
-    btnTorg: TdxBarLargeButton;
-    btnSett: TdxBarLargeButton;
-    dxBarSubItem1: TdxBarSubItem;
-    dxbrbtn1: TdxBarButton;
-    btnMessage: TdxBarLargeButton;
-    btnReport: TdxBarLargeButton;
-    btnAlarm: TdxBarLargeButton;
-    btnOrg: TdxBarLargeButton;
-    btnBalance: TdxBarLargeButton;
-    Tab1: TdxTabbedMDIManager;
-    stat1: TdxStatusBar;
-    mm1: TMainMenu;
-    mОкна: TMenuItem;
-    mResize: TMenuItem;
-    mДанные: TMenuItem;
-    N4: TMenuItem;
-    N5: TMenuItem;
-    Proc1: TUniStoredProc;
-    N6: TMenuItem;
-    mСправочники: TMenuItem;
-    mНоменклатура: TMenuItem;
-    mКлиенты: TMenuItem;
-    mПоставщики: TMenuItem;
-    mСтруктура: TMenuItem;
-    N9: TMenuItem;
-    mСтраны: TMenuItem;
-    mТипы: TMenuItem;
-    mСвойства: TMenuItem;
-    mПлантации: TMenuItem;
-    mСорта: TMenuItem;
-    EdtRepos1: TcxEditRepository;
-    Рубль: TcxEditRepositoryCurrencyItem;
-    Доллар: TcxEditRepositoryCurrencyItem;
-    Евро: TcxEditRepositoryCurrencyItem;
-    Граммы: TcxEditRepositoryCalcItem;
-    КгГр: TcxEditRepositoryCalcItem;
-    Query1: TUniQuery;
-    mДлинаВес: TMenuItem;
-    mУпаковка: TMenuItem;
-    mЛогистика: TMenuItem;
-    mМаркировки: TMenuItem;
-    mАвиалинии: TMenuItem;
-    mКарго: TMenuItem;
-    mТраки: TMenuItem;
-    mПрикулинг: TMenuItem;
-    mФито: TMenuItem;
-    mСтендинг: TMenuItem;
-    mОрганизация: TMenuItem;
-    mОрганизации: TMenuItem;
-    mПрайс: TMenuItem;
-    N3: TMenuItem;
-    N7: TMenuItem;
-    mКаскад: TMenuItem;
-    mВертикаль: TMenuItem;
-    mГоризонталь: TMenuItem;
-    N12: TMenuItem;
-    mHidePanel: TMenuItem;
-    N14: TMenuItem;
-    mCloseAll: TMenuItem;
-    BackUp1: TMenuItem;
-    mБух: TMenuItem;
-    AWB1: TMenuItem;
-    mБалансПлантаций: TMenuItem;
-    mБалансКарго: TMenuItem;
-    mПретензии: TMenuItem;
-    mОплатаПплантаций: TMenuItem;
-    N1: TMenuItem;
-    mСтатистика: TMenuItem;
-    mСтатФактуры: TMenuItem;
-    imgVerySmall: TcxImageList;
-    btn1: TButton;
-    Query2: TUniQuery;
-    dxBarLargeButton1: TdxBarLargeButton;
-    btnChat: TdxBarLargeButton;
-    procedure AWB1Click(Sender: TObject);
-    procedure BackUp1Click(Sender: TObject);
-    procedure btn1Click(Sender: TObject);
-    procedure btnDictClick(Sender: TObject);
-    procedure btnTorgClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure mПлантацииClick(Sender: TObject);
-    procedure mСвойстваClick(Sender: TObject);
-    procedure mСортаClick(Sender: TObject);
-    procedure mСтраныClick(Sender: TObject);
-    procedure mТипыClick(Sender: TObject);
-    procedure mResizeClick(Sender: TObject);
-    procedure N4Click(Sender: TObject);
-    procedure N5Click(Sender: TObject);
-    procedure N6Click(Sender: TObject);
-    procedure btnBalanceClick(Sender: TObject);
-    procedure mАвиалинииClick(Sender: TObject);
-    procedure mДлинаВесClick(Sender: TObject);
-    procedure mКаргоClick(Sender: TObject);
-    procedure mКлиентыClick(Sender: TObject);
-    procedure mМаркировкиClick(Sender: TObject);
-    procedure mНоменклатураClick(Sender: TObject);
-    procedure mОрганизацииClick(Sender: TObject);
-    procedure mПоставщикиClick(Sender: TObject);
-    procedure mПрайсClick(Sender: TObject);
-    procedure mПрикулингClick(Sender: TObject);
-    procedure mСтендингClick(Sender: TObject);
-    procedure mТракиClick(Sender: TObject);
-    procedure mУпаковкаClick(Sender: TObject);
-    procedure mФитоClick(Sender: TObject);
-    procedure mВертикальClick(Sender: TObject);
-    procedure mГоризонтальClick(Sender: TObject);
-    procedure mCloseAllClick(Sender: TObject);
-    procedure mHidePanelClick(Sender: TObject);
-    procedure mБалансПлантацийClick(Sender: TObject);
-    procedure N3Click(Sender: TObject);
-    procedure mКаскадClick(Sender: TObject);
-    procedure mОкнаClick(Sender: TObject);
-    procedure dxBarLargeButton1Click(Sender: TObject);
-    procedure btnChatClick(Sender: TObject);
+    imgMidle : TcxImageList;
+    imgSmall : TcxImageList;
+    imgLarge : TcxImageList;
+    bar1 : TdxBarManager;
+    Bar2 : TdxBar;
+    btnDict : TdxBarLargeButton;
+    btnTorg : TdxBarLargeButton;
+    btnSett : TdxBarLargeButton;
+    dxBarSubItem1 : TdxBarSubItem;
+    dxbrbtn1 : TdxBarButton;
+    btnMessage : TdxBarLargeButton;
+    btnReport : TdxBarLargeButton;
+    btnAlarm : TdxBarLargeButton;
+    btnOrg : TdxBarLargeButton;
+    btnBalance : TdxBarLargeButton;
+    Tab1 : TdxTabbedMDIManager;
+    stat1 : TdxStatusBar;
+    mm1 : TMainMenu;
+    mОкна : TMenuItem;
+    mResize : TMenuItem;
+    mДанные : TMenuItem;
+    N4 : TMenuItem;
+    N5 : TMenuItem;
+    Proc1 : TUniStoredProc;
+    N6 : TMenuItem;
+    mСправочники : TMenuItem;
+    mНоменклатура : TMenuItem;
+    mКлиенты : TMenuItem;
+    mПоставщики : TMenuItem;
+    mСтруктура : TMenuItem;
+    N9 : TMenuItem;
+    mСтраны : TMenuItem;
+    mТипы : TMenuItem;
+    mСвойства : TMenuItem;
+    mПлантации : TMenuItem;
+    mСорта : TMenuItem;
+    EdtRepos1 : TcxEditRepository;
+    Рубль : TcxEditRepositoryCurrencyItem;
+    Доллар : TcxEditRepositoryCurrencyItem;
+    Евро : TcxEditRepositoryCurrencyItem;
+    Граммы : TcxEditRepositoryCalcItem;
+    КгГр : TcxEditRepositoryCalcItem;
+    Query1 : TUniQuery;
+    mДлинаВес : TMenuItem;
+    mУпаковка : TMenuItem;
+    mЛогистика : TMenuItem;
+    mМаркировки : TMenuItem;
+    mАвиалинии : TMenuItem;
+    mКарго : TMenuItem;
+    mТраки : TMenuItem;
+    mПрикулинг : TMenuItem;
+    mФито : TMenuItem;
+    mСтендинг : TMenuItem;
+    mОрганизация : TMenuItem;
+    mОрганизации : TMenuItem;
+    mПрайс : TMenuItem;
+    N3 : TMenuItem;
+    N7 : TMenuItem;
+    mКаскад : TMenuItem;
+    mВертикаль : TMenuItem;
+    mГоризонталь : TMenuItem;
+    N12 : TMenuItem;
+    mHidePanel : TMenuItem;
+    N14 : TMenuItem;
+    mCloseAll : TMenuItem;
+    BackUp1 : TMenuItem;
+    mБух : TMenuItem;
+    AWB1 : TMenuItem;
+    mБалансПлантаций : TMenuItem;
+    mБалансКарго : TMenuItem;
+    mПретензии : TMenuItem;
+    mОплатаПплантаций : TMenuItem;
+    N1 : TMenuItem;
+    mСтатистика : TMenuItem;
+    mСтатФактуры : TMenuItem;
+    imgVerySmall : TcxImageList;
+    btn1 : TButton;
+    Query2 : TUniQuery;
+    dxBarLargeButton1 : TdxBarLargeButton;
+    btnChat : TdxBarLargeButton;
+    procedure AWB1Click(Sender : TObject);
+    procedure BackUp1Click(Sender : TObject);
+    procedure btn1Click(Sender : TObject);
+    procedure btnDictClick(Sender : TObject);
+    procedure btnTorgClick(Sender : TObject);
+    procedure FormClose(Sender : TObject; var Action : TCloseAction);
+    procedure mПлантацииClick(Sender : TObject);
+    procedure mСвойстваClick(Sender : TObject);
+    procedure mСортаClick(Sender : TObject);
+    procedure mСтраныClick(Sender : TObject);
+    procedure mТипыClick(Sender : TObject);
+    procedure mResizeClick(Sender : TObject);
+    procedure N4Click(Sender : TObject);
+    procedure N5Click(Sender : TObject);
+    procedure N6Click(Sender : TObject);
+    procedure btnBalanceClick(Sender : TObject);
+    procedure mАвиалинииClick(Sender : TObject);
+    procedure mДлинаВесClick(Sender : TObject);
+    procedure mКаргоClick(Sender : TObject);
+    procedure mКлиентыClick(Sender : TObject);
+    procedure mМаркировкиClick(Sender : TObject);
+    procedure mНоменклатураClick(Sender : TObject);
+    procedure mОрганизацииClick(Sender : TObject);
+    procedure mПоставщикиClick(Sender : TObject);
+    procedure mПрайсClick(Sender : TObject);
+    procedure mПрикулингClick(Sender : TObject);
+    procedure mСтендингClick(Sender : TObject);
+    procedure mТракиClick(Sender : TObject);
+    procedure mУпаковкаClick(Sender : TObject);
+    procedure mФитоClick(Sender : TObject);
+    procedure mВертикальClick(Sender : TObject);
+    procedure mГоризонтальClick(Sender : TObject);
+    procedure mCloseAllClick(Sender : TObject);
+    procedure mHidePanelClick(Sender : TObject);
+    procedure mБалансПлантацийClick(Sender : TObject);
+    procedure N3Click(Sender : TObject);
+    procedure mКаскадClick(Sender : TObject);
+    procedure mОкнаClick(Sender : TObject);
+    procedure dxBarLargeButton1Click(Sender : TObject);
+    procedure btnChatClick(Sender : TObject);
   private
     { Private declarations }
   public
@@ -186,10 +183,8 @@ type
   end;
 
 var
-  FOsn: TFOsn;
-
+  FOsn : TFOsn;
 implementation
-
 {$R *.dfm}
 
 uses
@@ -223,46 +218,41 @@ uses
 {$IFDEF WIN32}
 {$R lang.RES}
 {$ELSE}
-
 const
   LANG_ENGLISH = $09;
-
 const
   LANG_SPANISH = $0A;
-
 const
   LANG_SWEDISH = $1D;
 {$ENDIF}
 
-function GetLanguage: word;
+function GetLanguage : word;
 {$IFDEF WIN32}
 {$ELSE}
 var
-  s: string;
-  i: integer;
+    s: string;
+    i: integer;
 {$ENDIF}
 begin
 {$IFDEF WIN32}
   GetLanguage := GetUserDefaultLangID and $3FF;
 {$ELSE}
   s[0] := Char(GetProfileString('intl', 'sLanguage', 'none', @s[1],
-    sizeof(s) - 2));
+  sizeof(s) - 2));
   for i := 1 to length(s) do
-    s[i] := UpCase(s[i]);
+  s[i] := UpCase(s[i]);
   if s = 'ENU' then
-    GetLanguage := LANG_ENGLISH
+  GetLanguage := LANG_ENGLISH
   else if s = 'ESN' then
-    GetLanguage := LANG_SPANISH
+  GetLanguage := LANG_SPANISH
   else if s = 'SVE' then
-    GetLanguage := LANG_SWEDISH
+  GetLanguage := LANG_SWEDISH
   else
-    GetLanguage := LANG_ENGLISH;
+  GetLanguage := LANG_ENGLISH;
 {$ENDIF}
 end;
-
 procedure TFOsn.Access;
 begin
-
   if (FPasswd.ID_ROLE <> 1) then
   begin
     with Query1 do
@@ -270,7 +260,7 @@ begin
       { доступ }
       Close;
       sql.Text := 'select * from "пользователи"."доступ"  where код_роли=' +
-        IntToStr(FPasswd.ID_ROLE);
+    IntToStr(FPasswd.ID_ROLE);
       Open;
       // GroupСтруктура.Visible := FieldByName('справочники_структура').AsBoolean;
       // GroupОрг.Visible := FieldByName('справочники_организация').AsBoolean;
@@ -306,21 +296,18 @@ begin
     end;
   end;
 end;
-
-procedure TFOsn.AWB1Click(Sender: TObject);
+procedure TFOsn.AWB1Click(Sender : TObject);
 begin
   Application.CreateForm(TFAWB, FAWB);
   FAWB.FrameAWB1.ShowAWB();
   FAWB.Show;
 end;
-
-procedure TFOsn.BackUp1Click(Sender: TObject);
+procedure TFOsn.BackUp1Click(Sender : TObject);
 begin
   Application.CreateForm(TBackUp, BackUp);
   BackUp.dump1.BackupToFile('back.sql');
 end;
-
-procedure TFOsn.btn1Click(Sender: TObject);
+procedure TFOsn.btn1Click(Sender : TObject);
 begin
   // Query2.Close;
   // Query2.sql.Text :=
@@ -350,9 +337,9 @@ begin
   // end;
   Query2.Close;
   Query2.sql.Text :=
-    'INSERT INTO "документы"."закупки_деталь_new" (pid, name, uni_name, ' +
-    ' reg_name, level, "стеблей") VALUES (:pid, :name, :uni_name, :reg_name, ' +
-    ':level, :стеблей);';
+                    'INSERT INTO "документы"."закупки_деталь_new" (pid, name, uni_name, ' +
+                    ' reg_name, level, "стеблей") VALUES (:pid, :name, :uni_name, :reg_name, ' +
+                    ':level, :стеблей);';
   with Query1 do
   begin
     Close;
@@ -363,20 +350,19 @@ begin
       Query2.ParamByName('pid').AsInteger := 2;
       Query2.ParamByName('name').AsString := FieldByName('name').AsString;
       Query2.ParamByName('uni_name').AsString :=
-        FieldByName('uni_name').AsString;
+                                                FieldByName('uni_name').AsString;
       Query2.ParamByName('reg_name').AsString :=
-        FieldByName('reg_name').AsString;
+                                                FieldByName('reg_name').AsString;
       Query2.ParamByName('level').AsInteger := 2;
       if FieldByName('стеблей').AsString <> '' then
         Query2.ParamByName('стеблей').AsInteger := FieldByName('стеблей')
-          .AsInteger;
+      .AsInteger;
       Query2.ExecSQL;
       Next;
     end;
   end;
 end;
-
-procedure TFOsn.btnBalanceClick(Sender: TObject);
+procedure TFOsn.btnBalanceClick(Sender : TObject);
 begin
   if FBuh = nil then
   begin
@@ -385,8 +371,7 @@ begin
   end;
   FBuh.Show;
 end;
-
-procedure TFOsn.btnChatClick(Sender: TObject);
+procedure TFOsn.btnChatClick(Sender : TObject);
 begin
   if FChatDB = nil then
   begin
@@ -395,29 +380,25 @@ begin
   end;
   FChatDB.Show;
 end;
-
-procedure TFOsn.btnDictClick(Sender: TObject);
+procedure TFOsn.btnDictClick(Sender : TObject);
 begin
   if FDict = nil then
     Application.CreateForm(TFDict, FDict);
   FDict.Show;
 end;
-
-procedure TFOsn.btnTorgClick(Sender: TObject);
+procedure TFOsn.btnTorgClick(Sender : TObject);
 begin
   if FDocs = nil then
     Application.CreateForm(TFDocs, FDocs);
   FDocs.Show;
 end;
-
-procedure TFOsn.dxBarLargeButton1Click(Sender: TObject);
+procedure TFOsn.dxBarLargeButton1Click(Sender : TObject);
 begin
   if FAuction = nil then
     Application.CreateForm(TFAuction, FAuction);
   FAuction.Show;
 end;
-
-procedure TFOsn.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFOsn.FormClose(Sender : TObject; var Action : TCloseAction);
 begin
   try
     if FOsn.WindowState = wsMaximized then
@@ -428,19 +409,15 @@ begin
   except
   end;
 end;
-
 procedure TFOsn.LangOsn;
 var
-  a: array [0 .. 255] of Char;
-  StrTblOfs: integer;
+  a : array [0..255] of Char;
+  StrTblOfs : integer;
 begin
   case FPasswd.Lang of
-    0:
-      StrTblOfs := 0;
-    1:
-      StrTblOfs := 1000;
-    2:
-      StrTblOfs := 2000;
+    0 : StrTblOfs := 0;
+    1 : StrTblOfs := 1000;
+    2 : StrTblOfs := 2000;
   end;
   { Загружаем и устанавливаем заголовок кнопки "Yes" в соответствии с языком }
   if LoadString(hInstance, StrTblOfs + 8, @a, sizeof(a)) <> 0 then
@@ -458,50 +435,49 @@ begin
   if LoadString(hInstance, StrTblOfs + 14, @a, sizeof(a)) <> 0 then
     btnSett.Caption := StrPas(a);
   case FPasswd.Lang of
-    1:
-      begin
-        mНоменклатура.Caption := 'Nomenclature';
-        mКлиенты.Caption := 'Clients';
-        mСтраны.Caption := 'Country';
-        mТипы.Caption := 'Types';
-        mСвойства.Caption := 'Properties';
-        mПлантации.Caption := 'Plantation';
-        mСорта.Caption := 'Grades';
-        // ItemОрганизация.Caption := 'Organization';
-        // ItemПользователи.Caption := 'Users';
-        // ItemРоль.Caption := 'The role';
-        // GroupОснова.Caption := 'Main';
-        mСтруктура.Caption := 'Structure';
-        // GroupОрг.Caption := 'Organization';
-        // GroupАдмин.Caption := 'Administration';
-        // ItemКарго.Caption := 'Cargo';
-        // ItemАвиалинии.Caption := 'Airlines';
-        mСправочники.Caption := 'Directory';
-      end;
-    2:
-      begin
-        mНоменклатура.Caption := 'Nomenclatura';
-        mКлиенты.Caption := 'Clientes';
-        mСтраны.Caption := 'Países';
-        mТипы.Caption := 'Tipos';
-        mСвойства.Caption := 'Propiedades';
-        mПлантации.Caption := 'Fincas';
-        mСорта.Caption := 'Variedades';
-        // ItemРоль.Caption := 'Papeles';
-        // ItemОрганизация.Caption := 'Organizaciones';
-        // ItemПользователи.Caption := 'Usuarios';
-        // GroupОснова.Caption := 'Básicos';
-        mСтруктура.Caption := 'Estructura';
-        // GroupОрг.Caption := 'Organización';
-        // GroupАдмин.Caption := 'Administración';
-        // ItemКарго.Caption := 'Agencias cargo';
-        // ItemАвиалинии.Caption := 'Aerolineas';
-        mСправочники.Caption := 'Guia';
-      end;
+    1 :
+    begin
+      mНоменклатура.Caption := 'Nomenclature';
+      mКлиенты.Caption := 'Clients';
+      mСтраны.Caption := 'Country';
+      mТипы.Caption := 'Types';
+      mСвойства.Caption := 'Properties';
+      mПлантации.Caption := 'Plantation';
+      mСорта.Caption := 'Grades';
+      // ItemОрганизация.Caption := 'Organization';
+      // ItemПользователи.Caption := 'Users';
+      // ItemРоль.Caption := 'The role';
+      // GroupОснова.Caption := 'Main';
+      mСтруктура.Caption := 'Structure';
+      // GroupОрг.Caption := 'Organization';
+      // GroupАдмин.Caption := 'Administration';
+      // ItemКарго.Caption := 'Cargo';
+      // ItemАвиалинии.Caption := 'Airlines';
+      mСправочники.Caption := 'Directory';
+    end;
+    2 :
+    begin
+      mНоменклатура.Caption := 'Nomenclatura';
+      mКлиенты.Caption := 'Clientes';
+      mСтраны.Caption := 'Países';
+      mТипы.Caption := 'Tipos';
+      mСвойства.Caption := 'Propiedades';
+      mПлантации.Caption := 'Fincas';
+      mСорта.Caption := 'Variedades';
+      // ItemРоль.Caption := 'Papeles';
+      // ItemОрганизация.Caption := 'Organizaciones';
+      // ItemПользователи.Caption := 'Usuarios';
+      // GroupОснова.Caption := 'Básicos';
+      mСтруктура.Caption := 'Estructura';
+      // GroupОрг.Caption := 'Organización';
+      // GroupАдмин.Caption := 'Administración';
+      // ItemКарго.Caption := 'Agencias cargo';
+      // ItemАвиалинии.Caption := 'Aerolineas';
+      mСправочники.Caption := 'Guia';
+    end;
   end;
 end;
-
-procedure TFOsn.mАвиалинииClick(Sender: TObject);
+procedure TFOsn.mАвиалинииClick(Sender : TObject);
 begin
   if FAirLines = nil then
   begin
@@ -518,8 +494,7 @@ begin
   end;
   FAirLines.Show;
 end;
-
-procedure TFOsn.mДлинаВесClick(Sender: TObject);
+procedure TFOsn.mДлинаВесClick(Sender : TObject);
 begin
   if FTypeLengthWeight = nil then
   begin
@@ -537,8 +512,7 @@ begin
   end;
   FTypeLengthWeight.Show;
 end;
-
-procedure TFOsn.mКаргоClick(Sender: TObject);
+procedure TFOsn.mКаргоClick(Sender : TObject);
 begin
   if FKargo = nil then
   begin
@@ -555,8 +529,7 @@ begin
   end;
   FKargo.Show;
 end;
-
-procedure TFOsn.mКлиентыClick(Sender: TObject);
+procedure TFOsn.mКлиентыClick(Sender : TObject);
 begin
   Application.CreateForm(TFClient, FClient);
   FClient.Caption := 'Клиенты';
@@ -574,8 +547,7 @@ begin
   end;
   FClient.Show;
 end;
-
-procedure TFOsn.mМаркировкиClick(Sender: TObject);
+procedure TFOsn.mМаркировкиClick(Sender : TObject);
 begin
   if FMarking = nil then
   begin
@@ -592,8 +564,7 @@ begin
   end;
   FMarking.Show;
 end;
-
-procedure TFOsn.mНоменклатураClick(Sender: TObject);
+procedure TFOsn.mНоменклатураClick(Sender : TObject);
 begin
   if FProduct = nil then
   begin
@@ -608,8 +579,7 @@ begin
   end;
   FProduct.Show;
 end;
-
-procedure TFOsn.mОрганизацииClick(Sender: TObject);
+procedure TFOsn.mОрганизацииClick(Sender : TObject);
 begin
   if FOrg = nil then
   begin
@@ -627,8 +597,7 @@ begin
   end;
   FOrg.Show;
 end;
-
-procedure TFOsn.mПлантацииClick(Sender: TObject);
+procedure TFOsn.mПлантацииClick(Sender : TObject);
 begin
   if FPlant = nil then
   begin
@@ -647,8 +616,7 @@ begin
   end;
   FPlant.Show;
 end;
-
-procedure TFOsn.mПоставщикиClick(Sender: TObject);
+procedure TFOsn.mПоставщикиClick(Sender : TObject);
 begin
   Application.CreateForm(TFClient, FClient);
   FClient.Caption := 'Поставщики';
@@ -666,8 +634,7 @@ begin
   end;
   FClient.Show;
 end;
-
-procedure TFOsn.mПрайсClick(Sender: TObject);
+procedure TFOsn.mПрайсClick(Sender : TObject);
 begin
   if FOrg = nil then
   begin
@@ -685,8 +652,7 @@ begin
   end;
   FPrice.Show;
 end;
-
-procedure TFOsn.mПрикулингClick(Sender: TObject);
+procedure TFOsn.mПрикулингClick(Sender : TObject);
 begin
   if FPricooling = nil then
   begin
@@ -701,8 +667,7 @@ begin
   end;
   FPricooling.Show;
 end;
-
-procedure TFOsn.mСвойстваClick(Sender: TObject);
+procedure TFOsn.mСвойстваClick(Sender : TObject);
 begin
   if FProperties = nil then
   begin
@@ -721,8 +686,7 @@ begin
   end;
   FProperties.Show;
 end;
-
-procedure TFOsn.mСортаClick(Sender: TObject);
+procedure TFOsn.mСортаClick(Sender : TObject);
 begin
   if FSort = nil then
   begin
@@ -741,8 +705,7 @@ begin
   end;
   FSort.Show;
 end;
-
-procedure TFOsn.mСтендингClick(Sender: TObject);
+procedure TFOsn.mСтендингClick(Sender : TObject);
 begin
   if FStanding = nil then
   begin
@@ -757,8 +720,7 @@ begin
   end;
   FStanding.Show;
 end;
-
-procedure TFOsn.mСтраныClick(Sender: TObject);
+procedure TFOsn.mСтраныClick(Sender : TObject);
 begin
   if FCountry = nil then
   begin
@@ -773,8 +735,7 @@ begin
   end;
   FCountry.Show;
 end;
-
-procedure TFOsn.mТипыClick(Sender: TObject);
+procedure TFOsn.mТипыClick(Sender : TObject);
 begin
   if FTypeStruct = nil then
   begin
@@ -790,8 +751,7 @@ begin
   end;
   FTypeStruct.Show;
 end;
-
-procedure TFOsn.mТракиClick(Sender: TObject);
+procedure TFOsn.mТракиClick(Sender : TObject);
 begin
   if FTrack = nil then
   begin
@@ -808,8 +768,7 @@ begin
   end;
   FTrack.Show;
 end;
-
-procedure TFOsn.mResizeClick(Sender: TObject);
+procedure TFOsn.mResizeClick(Sender : TObject);
 begin
   if mResize.Tag = 0 then
   begin
@@ -831,38 +790,34 @@ begin
     mВертикаль.Enabled := False;
   end;
 end;
-
-procedure TFOsn.N4Click(Sender: TObject);
+procedure TFOsn.N4Click(Sender : TObject);
 begin
   if Application.MessageBox('Вы действительно хотиет удалить все закупки?',
-    'Вопрос', MB_YESNO) = mrYes then
+                             'Вопрос', MB_YESNO) = mrYes then
   begin
     Proc1.StoredProcName := '"документы".del_all_zakupka';
     Proc1.ExecProc;
   end;
 end;
-
-procedure TFOsn.N5Click(Sender: TObject);
+procedure TFOsn.N5Click(Sender : TObject);
 begin
   if Application.MessageBox('Вы действительно хотиет удалить все закупки?',
-    'Вопрос', MB_YESNO) = mrYes then
+                             'Вопрос', MB_YESNO) = mrYes then
   begin
     Proc1.StoredProcName := '"документы".del_all_zakaz';
     Proc1.ExecProc;
   end;
 end;
-
-procedure TFOsn.N6Click(Sender: TObject);
+procedure TFOsn.N6Click(Sender : TObject);
 begin
   if Application.MessageBox('Вы действительно хотиет удалить все закупки?',
-    'Вопрос', MB_YESNO) = mrYes then
+                             'Вопрос', MB_YESNO) = mrYes then
   begin
     Proc1.StoredProcName := '"продукция".удалить_продукцию';
     Proc1.ExecProc;
   end;
 end;
-
-procedure TFOsn.mУпаковкаClick(Sender: TObject);
+procedure TFOsn.mУпаковкаClick(Sender : TObject);
 begin
   if FBox = nil then
   begin
@@ -879,8 +834,7 @@ begin
   end;
   FBox.Show;
 end;
-
-procedure TFOsn.mФитоClick(Sender: TObject);
+procedure TFOsn.mФитоClick(Sender : TObject);
 begin
   if FFITO = nil then
   begin
@@ -895,28 +849,24 @@ begin
   end;
   FFITO.Show;
 end;
-
-procedure TFOsn.mВертикальClick(Sender: TObject);
+procedure TFOsn.mВертикальClick(Sender : TObject);
 begin
   TileMode := tbVertical;
   Tile;
 end;
-
-procedure TFOsn.mГоризонтальClick(Sender: TObject);
+procedure TFOsn.mГоризонтальClick(Sender : TObject);
 begin
   TileMode := tbHorizontal;
   Tile;
 end;
-
-procedure TFOsn.mCloseAllClick(Sender: TObject);
+procedure TFOsn.mCloseAllClick(Sender : TObject);
 var
-  i: integer;
+  i : integer;
 begin
   for i := 0 to MDIChildCount - 1 do
     MDIChildren[i].Close;
 end;
-
-procedure TFOsn.mHidePanelClick(Sender: TObject);
+procedure TFOsn.mHidePanelClick(Sender : TObject);
 begin
   if mHidePanel.Tag = 0 then
   begin
@@ -931,15 +881,13 @@ begin
     Bar2.Visible := True;
   end;
 end;
-
-procedure TFOsn.mБалансПлантацийClick(Sender: TObject);
+procedure TFOsn.mБалансПлантацийClick(Sender : TObject);
 begin
   Application.CreateForm(TFBuhBalancePlant, FBuhBalancePlant);
   FBuhBalancePlant.FrameBalance1.ShowBalance();
   FBuhBalancePlant.Show;
 end;
-
-procedure TFOsn.N3Click(Sender: TObject);
+procedure TFOsn.N3Click(Sender : TObject);
 begin
   if FWareHouse = nil then
   begin
@@ -956,13 +904,11 @@ begin
   end;
   FWareHouse.Show;
 end;
-
-procedure TFOsn.mКаскадClick(Sender: TObject);
+procedure TFOsn.mКаскадClick(Sender : TObject);
 begin
   Cascade;
 end;
-
-procedure TFOsn.mОкнаClick(Sender: TObject);
+procedure TFOsn.mОкнаClick(Sender : TObject);
 begin
   if MDIChildCount <> 0 then
   begin
@@ -975,5 +921,4 @@ begin
     mCloseAll.Enabled := False;
   end;
 end;
-
 end.

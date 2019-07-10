@@ -1,7 +1,5 @@
 unit USync;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -15,13 +13,12 @@ uses
   Vcl.ComCtrls,
   AdvProgr,
   Vcl.StdCtrls;
-
 type
   TFSync = class(TForm)
-    ProgresOne: TAdvProgress;
-    lblAll: TLabel;
-    lblOne: TLabel;
-    ProgresALL: TAdvProgress;
+    ProgresOne : TAdvProgress;
+    lblAll : TLabel;
+    lblOne : TLabel;
+    ProgresALL : TAdvProgress;
   private
     { Private declarations }
   public
@@ -29,10 +26,7 @@ type
   end;
 
 var
-  FSync: TFSync;
-
+  FSync : TFSync;
 implementation
-
 {$R *.dfm}
-
 end.

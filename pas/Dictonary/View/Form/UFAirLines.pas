@@ -1,7 +1,5 @@
 unit UFAirLines;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -17,12 +15,11 @@ uses
   DBAccess,
   Uni,
   UFrameAirLine;
-
 type
   TFAirLines = class(TForm)
-    FrameAirLine1: TFrameAirLine;
-    Query1: TUniQuery;
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    FrameAirLine1 : TFrameAirLine;
+    Query1 : TUniQuery;
+    procedure FormClose(Sender : TObject; var Action : TCloseAction);
   private
     { Private declarations }
   public
@@ -31,15 +28,12 @@ type
   end;
 
 var
-  FAirLines: TFAirLines;
-
+  FAirLines : TFAirLines;
 implementation
-
 {$R *.dfm}
 
 uses
   UPasswd;
-
 procedure TFAirLines.Access;
 begin
   if (FPasswd.ID_ROLE <> 1) then
@@ -49,22 +43,20 @@ begin
       { доступ }
       Close;
       sql.Text := 'select * from "пользователи"."доступ"  where код_роли=' +
-        IntToStr(FPasswd.ID_ROLE);
+    IntToStr(FPasswd.ID_ROLE);
       Open;
       FrameAirLine1.FrameTopPanel1.btnAdd.Enabled :=
-        FieldByName('авиалинии_добавление').AsBoolean;
+                                                    FieldByName('авиалинии_добавление').AsBoolean;
       FrameAirLine1.FrameTopPanel1.btnEdit.Enabled :=
-        FieldByName('авиалинии_редактирование').AsBoolean;
+                                                     FieldByName('авиалинии_редактирование').AsBoolean;
       FrameAirLine1.FrameTopPanel1.btnDel.Enabled :=
-        FieldByName('авиалинии_удаление').AsBoolean;
+                                                    FieldByName('авиалинии_удаление').AsBoolean;
     end;
   end;
 end;
-
-procedure TFAirLines.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFAirLines.FormClose(Sender : TObject; var Action : TCloseAction);
 begin
   Action := caFree;
   FAirLines := nil;
 end;
-
 end.

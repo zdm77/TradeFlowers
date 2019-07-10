@@ -1,7 +1,5 @@
 ﻿unit UMultiSelect;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -46,7 +44,7 @@ uses
   cxButtons,
   cxDBEdit,
   Vcl.DBCtrls,
- 
+  
   cxLabel,
   cxTextEdit,
   cxMaskEdit,
@@ -54,84 +52,74 @@ uses
   cxLookupEdit,
   cxDBLookupEdit,
   cxDBLookupComboBox,
-  cxNavigator,    
-     
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue, dxSkinsDefaultPainters, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog;
-
+  cxNavigator,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue, dxSkinsDefaultPainters, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog;
 type
   TFMultiSelect = class(TForm)
-    FrameSave1: TFrameSave;
-    QuerySource: TUniQuery;
-    dsSource: TDataSource;
-    Query1: TUniQuery;
-    Group3: TcxGroupBox;
-    GroupDest: TcxGroupBox;
-    GroupSource: TcxGroupBox;
-    QueryDist: TUniQuery;
-    dsDist: TDataSource;
-    GridDest: TcxGrid;
-    ViewDest: TcxGridDBTableView;
-    ColumnName: TcxGridDBColumn;
-    LevelStatWork: TcxGridLevel;
-    btnAddAll: TcxButton;
-    btnAdd: TcxButton;
-    btnDelAll: TcxButton;
-    GroupDetail: TcxGroupBox;
-    QuerySelDetail: TUniQuery;
-    dsSelDetail: TDataSource;
-    edtDetail: TcxLookupComboBox;
-    lblDetail: TcxLabel;
-    btnDel: TcxButton;
-    cxGrid1: TcxGrid;
-    cxGridDBTableView1: TcxGridDBTableView;
-    cxGridDBColumn1: TcxGridDBColumn;
-    cxGridLevel1: TcxGridLevel;
-    procedure FormShow(Sender: TObject);
-    procedure FrameSave1btnSaveClick(Sender: TObject);
-    procedure lstDistDblClick(Sender: TObject);
-    procedure ViewDestDblClick(Sender: TObject);
-    procedure btnAddClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
-    procedure btnAddAllClick(Sender: TObject);
-    procedure btnDelAllClick(Sender: TObject);
-    procedure cxGridDBTableView1DblClick(Sender: TObject);
-    procedure lstSourceDblClick(Sender: TObject);
-    procedure edtDetailPropertiesEditValueChanged(Sender: TObject);
+    FrameSave1 : TFrameSave;
+    QuerySource : TUniQuery;
+    dsSource : TDataSource;
+    Query1 : TUniQuery;
+    Group3 : TcxGroupBox;
+    GroupDest : TcxGroupBox;
+    GroupSource : TcxGroupBox;
+    QueryDist : TUniQuery;
+    dsDist : TDataSource;
+    GridDest : TcxGrid;
+    ViewDest : TcxGridDBTableView;
+    ColumnName : TcxGridDBColumn;
+    LevelStatWork : TcxGridLevel;
+    btnAddAll : TcxButton;
+    btnAdd : TcxButton;
+    btnDelAll : TcxButton;
+    GroupDetail : TcxGroupBox;
+    QuerySelDetail : TUniQuery;
+    dsSelDetail : TDataSource;
+    edtDetail : TcxLookupComboBox;
+    lblDetail : TcxLabel;
+    btnDel : TcxButton;
+    cxGrid1 : TcxGrid;
+    cxGridDBTableView1 : TcxGridDBTableView;
+    cxGridDBColumn1 : TcxGridDBColumn;
+    cxGridLevel1 : TcxGridLevel;
+    procedure FormShow(Sender : TObject);
+    procedure FrameSave1btnSaveClick(Sender : TObject);
+    procedure lstDistDblClick(Sender : TObject);
+    procedure ViewDestDblClick(Sender : TObject);
+    procedure btnAddClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
+    procedure btnAddAllClick(Sender : TObject);
+    procedure btnDelAllClick(Sender : TObject);
+    procedure cxGridDBTableView1DblClick(Sender : TObject);
+    procedure lstSourceDblClick(Sender : TObject);
+    procedure edtDetailPropertiesEditValueChanged(Sender : TObject);
   private
     { Private declarations }
   public
-    id_clear: Boolean;
-    id_not: string;
-    table_name: string;
-    id_never_not: string;
-    id_never_delete: string;
-    caption_detail: string;
-    s_id_detatils: string;
-    table_detail: string;
-    name_detail: string;
-    id_type: Integer;
+    id_clear : Boolean;
+    id_not : string;
+    table_name : string;
+    id_never_not : string;
+    id_never_delete : string;
+    caption_detail : string;
+    s_id_detatils : string;
+    table_detail : string;
+    name_detail : string;
+    id_type : Integer;
     procedure AddDist;
     procedure DelDist;
-    procedure ShowDetail(id_locate: Integer = 0);
-    procedure ShowDist(id_locate: Integer = 0);
-    procedure ShowSource(id_locate: Integer = 0);
+    procedure ShowDetail(id_locate : Integer = 0);
+    procedure ShowDist(id_locate : Integer = 0);
+    procedure ShowSource(id_locate : Integer = 0);
     { Public declarations }
   end;
 
 var
-  FMultiSelect: TFMultiSelect;
-
+  FMultiSelect : TFMultiSelect;
 implementation
-
 uses
   USplash,
   UPasswd,
@@ -152,8 +140,7 @@ begin
   GroupDest.SetFocus;
   FSplash.Close;
 end;
-
-procedure TFMultiSelect.btnAddAllClick(Sender: TObject);
+procedure TFMultiSelect.btnAddAllClick(Sender : TObject);
 begin
   FSplash.Show();
   FSplash.Update;
@@ -173,18 +160,15 @@ begin
   ShowDist();
   FSplash.Close;
 end;
-
-procedure TFMultiSelect.btnAddClick(Sender: TObject);
+procedure TFMultiSelect.btnAddClick(Sender : TObject);
 begin
   AddDist;
 end;
-
-procedure TFMultiSelect.btnDelClick(Sender: TObject);
+procedure TFMultiSelect.btnDelClick(Sender : TObject);
 begin
   DelDist;
 end;
-
-procedure TFMultiSelect.btnDelAllClick(Sender: TObject);
+procedure TFMultiSelect.btnDelAllClick(Sender : TObject);
 begin
   FSplash.Show();
   FSplash.Update;
@@ -193,15 +177,13 @@ begin
   ShowSource();
   FSplash.Close;
 end;
-
-procedure TFMultiSelect.cxGridDBTableView1DblClick(Sender: TObject);
+procedure TFMultiSelect.cxGridDBTableView1DblClick(Sender : TObject);
 begin
   DelDist;
 end;
-
 procedure TFMultiSelect.DelDist;
 var
-  id: string;
+  id : string;
 begin
   // id := ArrID[lstDist.ItemIndex];
   // if id_type = 1 then // сорт
@@ -244,7 +226,7 @@ begin
   FSplash.Update;
   id := QueryDist.FieldByName('id').AsString;
   id_not := Copy(id_not, 1, Pos(id, id_not) - 1) +
-    Copy(id_not, Pos(id, id_not) + Length(id) + 1, Length(id_not));
+Copy(id_not, Pos(id, id_not) + Length(id) + 1, Length(id_not));
   if Copy(id_not, Length(id_not), 1) = ',' then
     id_not := Copy(id_not, 1, Length(id_not) - 1)
   else
@@ -256,14 +238,12 @@ begin
   FSplash.Close;
   // end;
 end;
-
-procedure TFMultiSelect.edtDetailPropertiesEditValueChanged(Sender: TObject);
+procedure TFMultiSelect.edtDetailPropertiesEditValueChanged(Sender : TObject);
 begin
   ShowSource();
   ShowDist();
 end;
-
-procedure TFMultiSelect.FormShow(Sender: TObject);
+procedure TFMultiSelect.FormShow(Sender : TObject);
 begin
   if id_clear = true then
   begin
@@ -275,25 +255,21 @@ begin
   end;
   id_never_delete := id_not;
 end;
-
-procedure TFMultiSelect.FrameSave1btnSaveClick(Sender: TObject);
+procedure TFMultiSelect.FrameSave1btnSaveClick(Sender : TObject);
 begin
   FrameSave1.btnSaveClick(Sender);
   Close;
 end;
-
-procedure TFMultiSelect.lstSourceDblClick(Sender: TObject);
+procedure TFMultiSelect.lstSourceDblClick(Sender : TObject);
 begin
   if btnDel.Visible = true then
     DelDist;
 end;
-
-procedure TFMultiSelect.lstDistDblClick(Sender: TObject);
+procedure TFMultiSelect.lstDistDblClick(Sender : TObject);
 begin
   DelDist;
 end;
-
-procedure TFMultiSelect.ShowDetail(id_locate: Integer = 0);
+procedure TFMultiSelect.ShowDetail(id_locate : Integer = 0);
 begin
   with QuerySelDetail do
   begin
@@ -312,8 +288,7 @@ begin
   ShowDist();
   // TODO -cMM: TFMultiSelect.ShowDetail default body inserted
 end;
-
-procedure TFMultiSelect.ShowDist(id_locate: Integer = 0);
+procedure TFMultiSelect.ShowDist(id_locate : Integer = 0);
 begin
   with QueryDist do
   begin
@@ -321,7 +296,7 @@ begin
     if id_not <> '' then
     begin
       sql.Text := 'select * from ' + table_name + ' where id in(' +
-        id_not + ')';
+    id_not + ')';
       if s_id_detatils <> '' then
         sql.Add(' and ' + name_detail + '=' + IntToStr(edtDetail.EditValue));
       sql.Add(' order by name');
@@ -330,8 +305,7 @@ begin
     end;
   end;
 end;
-
-procedure TFMultiSelect.ShowSource(id_locate: Integer = 0);
+procedure TFMultiSelect.ShowSource(id_locate : Integer = 0);
 begin
   with QuerySource do
   begin
@@ -348,10 +322,8 @@ begin
     Locate('id', id_locate, [])
   end;
 end;
-
-procedure TFMultiSelect.ViewDestDblClick(Sender: TObject);
+procedure TFMultiSelect.ViewDestDblClick(Sender : TObject);
 begin
   AddDist;
 end;
-
 end.

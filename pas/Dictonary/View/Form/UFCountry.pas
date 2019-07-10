@@ -1,7 +1,5 @@
 unit UFCountry;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -13,30 +11,26 @@ uses
   Vcl.Forms,
   Vcl.Dialogs,
   UFrameCountry;
-
 type
   TFCountry = class(TForm)
-    FrameCountry1: TFrameCountry;
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure FrameTopPanel1btnSelClick(Sender: TObject);
+    FrameCountry1 : TFrameCountry;
+    procedure FormClose(Sender : TObject; var Action : TCloseAction);
+    procedure FrameTopPanel1btnSelClick(Sender : TObject);
   private
     { Private declarations }
   public
-    ShowSel: Boolean;
-    IDSelect: Boolean;
+    ShowSel : Boolean;
+    IDSelect : Boolean;
     { Public declarations }
   end;
 
 var
-  FCountry: TFCountry;
-
+  FCountry : TFCountry;
 implementation
-
 {$R *.dfm}
 
 uses UNewCountry;
-
-procedure TFCountry.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFCountry.FormClose(Sender : TObject; var Action : TCloseAction);
 begin
   if FormStyle = fsMDIChild then
   begin
@@ -44,11 +38,9 @@ begin
     FCountry := nil;
   end;
 end;
-
-procedure TFCountry.FrameTopPanel1btnSelClick(Sender: TObject);
+procedure TFCountry.FrameTopPanel1btnSelClick(Sender : TObject);
 begin
   IDSelect := True;
   Close;
 end;
-
 end.

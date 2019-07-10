@@ -1,7 +1,5 @@
 unit UNewBoxForPackingDetail;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -24,31 +22,23 @@ uses
   UFrameTopPanel,
   Vcl.StdCtrls,
   cxLabel,
-  cxGroupBox,    
-     
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue;
-
+  cxGroupBox,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue;
 type
   TFNewBoxForPackingDetail = class(TForm)
-    GroupOsn: TcxGroupBox;
-    lbl2: TcxLabel;
-    edtNumberBox: TEdit;
-    FrameTopPanel1: TFrameTopPanel;
-    GroupProduct: TcxGroupBox;
-    FrameProduct1: TFrameProduct;
-    procedure FormShow(Sender: TObject);
-    procedure FrameProduct1lstTreeProductsDblClick(Sender: TObject);
-    procedure FrameSearch1edtNameKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    GroupOsn : TcxGroupBox;
+    lbl2 : TcxLabel;
+    edtNumberBox : TEdit;
+    FrameTopPanel1 : TFrameTopPanel;
+    GroupProduct : TcxGroupBox;
+    FrameProduct1 : TFrameProduct;
+    procedure FormShow(Sender : TObject);
+    procedure FrameProduct1lstTreeProductsDblClick(Sender : TObject);
+    procedure FrameSearch1edtNameKeyDown(Sender : TObject; var Key : Word;
+                                            Shift : TShiftState);
   private
     { Private declarations }
   public
@@ -56,23 +46,19 @@ type
   end;
 
 var
-  FNewBoxForPackingDetail: TFNewBoxForPackingDetail;
-
+  FNewBoxForPackingDetail : TFNewBoxForPackingDetail;
 implementation
-
 {$R *.dfm}
 
 uses
   UDataModule1,
   UDetailBoxPacking;
-
-procedure TFNewBoxForPackingDetail.FormShow(Sender: TObject);
+procedure TFNewBoxForPackingDetail.FormShow(Sender : TObject);
 begin
   FrameProduct1.ShowProduct();
 end;
-
 procedure TFNewBoxForPackingDetail.FrameProduct1lstTreeProductsDblClick
-  (Sender: TObject);
+  (Sender : TObject);
 begin
   with FrameProduct1 do
   begin
@@ -86,12 +72,10 @@ begin
     end;
   end;
 end;
-
-procedure TFNewBoxForPackingDetail.FrameSearch1edtNameKeyDown(Sender: TObject;
-  var Key: Word; Shift: TShiftState);
+procedure TFNewBoxForPackingDetail.FrameSearch1edtNameKeyDown(Sender : TObject;
+                                                                 var Key : Word; Shift : TShiftState);
 begin
   if Key = VK_RETURN then
     FrameProduct1.ShowProduct();
 end;
-
 end.

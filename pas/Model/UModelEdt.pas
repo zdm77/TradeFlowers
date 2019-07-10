@@ -1,43 +1,34 @@
 unit UModelEdt;
-
 interface
-
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Uni;
-
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Uni;
 type
   TModelEdt = class(TForm)
-  private
-    { Private declarations }
+  private { Private declarations }
     FQuerySender : TUniQuery;
     FIsNew : boolean;
     FIsSave : boolean;
     FQueryEdit : TUniQuery;
+    FId : Integer;
     procedure CloseChild(Sender : TObject; var Action : TCloseAction);
-
-  public
-    { Public declarations }
+  protected
+    procedure SaveRecord;
+  public { Public declarations }
     procedure AssignQuery(AQuerySource : TUniQuery; ADataSourceDest : TUniDataSource);
-
     property QuerySender : TUniQuery read FQuerySender write FQuerySender;
     property IsNew : boolean read FIsNew write FIsNew;
     property IsSave : boolean read FIsSave write FIsSave;
     property QueryEdit : TUniQuery read FQueryEdit write FQueryEdit;
+    property Id : Integer read FId write FId;
     procedure init; virtual; abstract;
   end;
 
 var
   ModelEdt : TModelEdt;
-
 implementation
-
 uses
-  Data.DB;
-
-{$R *.dfm}
-
-{ TModelEdt }
+  Data.DB, Pgsql;
+{$R *.dfm} { TModelEdt }
 
 procedure TModelEdt.CloseChild(Sender : TObject; var Action : TCloseAction);
 begin
@@ -48,12 +39,8 @@ begin
   end else QuerySender.Cancel();
   Action := caFree;
   Self := nil;
-
 end;
-
-
-procedure TModelEdt.AssignQuery(AQuerySource : TUniQuery; ADataSourceDest : TUniDataSource);
-var
+procedure TModelEdt.AssignQuery(AQuerySource : TUniQuery; ADataSourceDest : TUniDataSource); var
   i : integer;
   fld : TField;
 begin
@@ -62,9 +49,7 @@ begin
   self.QueryEdit.Connection := AQuerySource.Connection;
   self.QueryEdit.SQL.Text := AQuerySource.SQL.Text;
   if self.isNew = false then
-    self.QueryEdit.AddWhere('id=' + AQuerySource.FieldByName('id').AsString)
-  else
-    self.QueryEdit.AddWhere('id=-1');
+    self.QueryEdit.AddWhere('id=' + AQuerySource.FieldByName('id').AsString) else self.QueryEdit.AddWhere('id=-1');
   for i := 0 to AQuerySource.Fields.Count - 1 do
   begin
     case AQuerySource.Fields[i].DataType of
@@ -97,9 +82,25 @@ begin
   self.QueryEdit.UpdatingTable := self.QuerySender.UpdatingTable;
   self.QueryEdit.Open;
   if self.isNew = true then
-    self.QueryEdit.Insert
-  else
-    self.QueryEdit.Edit;
+    self.QueryEdit.Insert else self.QueryEdit.Edit;
 end;
-
+procedure TModelEdt.SaveRecord;
+begin
+  IsSave := true;
+  self.QueryEdit.Post;
+  if isNew = false then
+  begin
+    self.QuerySender.RefreshRecord;
+  end else begin
+    self.QuerySender.Refresh;
+    self.Id := Pgsql.getNewId(self.QueryEdit.UpdatingTable);
+    self.QuerySender.Locate('id', Id, []);
+    self.QueryEdit.Close;
+    self.QueryEdit.SQL.Text := self.QuerySender.SQL.Text;
+    self.QueryEdit.AddWhere('id=' + self.Id.ToString);
+    self.QueryEdit.Open;
+  end;
+  self.isNew := false;
+  self.QueryEdit.Edit;
+end;
 end.

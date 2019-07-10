@@ -1,7 +1,5 @@
 unit UFrameTypeLengthWeight;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -44,68 +42,57 @@ uses
   DBAccess,
   Uni,
   cxCalc,
-  cxLabel,    
-     
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
-
+  cxLabel,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
 type
   TFrameTypeLengthWeight = class(TFrame)
-    QueryType: TUniQuery;
-    dsType: TDataSource;
-    QueryTTH: TUniQuery;
-    dsTTH: TDataSource;
-    FrameTopPanel1: TFrameTopPanel;
-    GroupCountry: TcxGroupBox;
-    cxGrid1: TcxGrid;
-    cxGridDBTableView1: TcxGridDBTableView;
-    ColumnCountry: TcxGridDBColumn;
-    cxGridLevel1: TcxGridLevel;
-    cxspltr1: TcxSplitter;
-    Query1: TUniQuery;
-    Group1: TcxGroupBox;
-    GridUsers: TcxGrid;
-    ViewUsers: TcxGridDBTableView;
-    ColumnСтрана: TcxGridDBColumn;
-    ColumnВидУпаковки: TcxGridDBColumn;
-    ViewUserslength: TcxGridDBColumn;
-    ColumnВес: TcxGridDBColumn;
-    LevelOrg: TcxGridLevel;
-    procedure btnAddClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
-    procedure btnRefreshClick(Sender: TObject);
-    procedure ViewUsersDblClick(Sender: TObject);
-    procedure ViewUsersKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    QueryType : TUniQuery;
+    dsType : TDataSource;
+    QueryTTH : TUniQuery;
+    dsTTH : TDataSource;
+    FrameTopPanel1 : TFrameTopPanel;
+    GroupCountry : TcxGroupBox;
+    cxGrid1 : TcxGrid;
+    cxGridDBTableView1 : TcxGridDBTableView;
+    ColumnCountry : TcxGridDBColumn;
+    cxGridLevel1 : TcxGridLevel;
+    cxspltr1 : TcxSplitter;
+    Query1 : TUniQuery;
+    Group1 : TcxGroupBox;
+    GridUsers : TcxGrid;
+    ViewUsers : TcxGridDBTableView;
+    ColumnСтрана : TcxGridDBColumn;
+    ColumnВидУпаковки : TcxGridDBColumn;
+    ViewUserslength : TcxGridDBColumn;
+    ColumnВес : TcxGridDBColumn;
+    LevelOrg : TcxGridLevel;
+    procedure btnAddClick(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
+    procedure btnRefreshClick(Sender : TObject);
+    procedure ViewUsersDblClick(Sender : TObject);
+    procedure ViewUsersKeyDown(Sender : TObject; var Key : Word;
+                                  Shift : TShiftState);
   private
     { Private declarations }
   public
-    procedure ShowTTH(id_locate: Integer = 0);
+    procedure ShowTTH(id_locate : Integer = 0);
     procedure ShowType;
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
 uses
   UNewTypeLengthWeight,
   PGSQL,
   UOsn;
-
-procedure TFrameTypeLengthWeight.btnAddClick(Sender: TObject);
+procedure TFrameTypeLengthWeight.btnAddClick(Sender : TObject);
 var
-  id: Integer;
+  id : Integer;
 begin
   Application.CreateForm(TFNewTypeLengthWeight, FNewTypeLengthWeight);
   with FNewTypeLengthWeight do
@@ -113,8 +100,8 @@ begin
     ShowCountry(QueryTTH.FieldByName('код_страны').AsInteger);
     ShowUp(QueryTTH.FieldByName('код_упаковки').AsInteger);
     ShowДлина(QueryTTH.FieldByName('код_страны').AsInteger,
-      QueryTTH.FieldByName('код_страны').AsInteger,
-      QueryTTH.FieldByName('код_упаковки').AsInteger);
+               QueryTTH.FieldByName('код_страны').AsInteger,
+               QueryTTH.FieldByName('код_упаковки').AsInteger);
     ShowModal;
     if FrameSave1.id_save = true then
     begin
@@ -155,7 +142,7 @@ begin
           SQL.Add(' );');
           ParamByName('id').Value := id;
           ParamByName('код_типа').Value := QueryType.FieldByName('id')
-            .AsInteger;
+        .AsInteger;
           ParamByName('длина').Value := edtLength.Text;
           ParamByName('вес').Value := edtWeight.Text;
           ParamByName('код_страны').Value := edtCountry.EditValue;
@@ -173,24 +160,22 @@ begin
     end;
   end;
 end;
-
-procedure TFrameTypeLengthWeight.btnDelClick(Sender: TObject);
+procedure TFrameTypeLengthWeight.btnDelClick(Sender : TObject);
 begin
   if Application.MessageBox('Вы действительно хотите удалить запись?', 'Вопрос',
-    MB_YESNO + MB_ICONWARNING) = mrYes then
+                             MB_YESNO + MB_ICONWARNING) = mrYes then
   begin
     with Query1 do
     begin
       Close;
       SQL.Text := 'delete from "продукция"."тип_длина_вес" where id=' +
-        QueryTTH.FieldByName('id').AsString;
+    QueryTTH.FieldByName('id').AsString;
       ExecSQL;
       ShowTTH();
     end;
   end;
 end;
-
-procedure TFrameTypeLengthWeight.btnEditClick(Sender: TObject);
+procedure TFrameTypeLengthWeight.btnEditClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewTypeLengthWeight, FNewTypeLengthWeight);
   with FNewTypeLengthWeight do
@@ -216,8 +201,8 @@ begin
         // begin
         Close;
         SQL.Text := 'UPDATE  "продукция"."тип_длина_вес" SET "длина" = :длина,'
-          + ' "вес" = :вес, код_страны=:код_страны, код_упаковки=:код_упаковки '
-          + '  WHERE  id = :id;';
+      + ' "вес" = :вес, код_страны=:код_страны, код_упаковки=:код_упаковки '
+      + '  WHERE  id = :id;';
         ParamByName('id').AsInteger := QueryTTH.FieldByName('id').AsInteger;
         ParamByName('длина').AsString := edtLength.Text;
         ParamByName('вес').AsString := edtWeight.Text;
@@ -234,13 +219,11 @@ begin
     end;
   end;
 end;
-
-procedure TFrameTypeLengthWeight.btnRefreshClick(Sender: TObject);
+procedure TFrameTypeLengthWeight.btnRefreshClick(Sender : TObject);
 begin
   ShowTTH(QueryTTH.FieldByName('id').AsInteger);
 end;
-
-procedure TFrameTypeLengthWeight.ShowTTH(id_locate: Integer = 0);
+procedure TFrameTypeLengthWeight.ShowTTH(id_locate : Integer = 0);
 begin
   with QueryTTH do
   begin
@@ -263,7 +246,6 @@ begin
     Locate('id', id_locate, []);
   end;
 end;
-
 procedure TFrameTypeLengthWeight.ShowType;
 begin
   with QueryType do
@@ -274,18 +256,15 @@ begin
   end;
   ColumnВес.RepositoryItem := FOsn.Граммы;
 end;
-
-procedure TFrameTypeLengthWeight.ViewUsersDblClick(Sender: TObject);
+procedure TFrameTypeLengthWeight.ViewUsersDblClick(Sender : TObject);
 begin
   if FrameTopPanel1.btnEdit.Enabled = true then
     btnEditClick(Sender);
 end;
-
-procedure TFrameTypeLengthWeight.ViewUsersKeyDown(Sender: TObject;
-  var Key: Word; Shift: TShiftState);
+procedure TFrameTypeLengthWeight.ViewUsersKeyDown(Sender : TObject;
+                                                     var Key : Word; Shift : TShiftState);
 begin
   if Key = VK_INSERT then
     btnAddClick(Sender);
 end;
-
 end.

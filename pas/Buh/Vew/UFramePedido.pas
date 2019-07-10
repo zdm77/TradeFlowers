@@ -1,7 +1,5 @@
 unit UFramePedido;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -52,72 +50,69 @@ uses
   cxNavigator,
   dxSkinDevExpressStyle,
   dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
-
 type
   TFramePedido = class(TFrame)
-    FrameTopPanel1: TFrameTopPanel;
-    Group1: TcxGroupBox;
-    GridOrder: TcxGrid;
-    GridLevelOrder: TcxGridLevel;
-    QueryGroupOrder: TUniQuery;
-    dsGroupOrder: TDataSource;
-    ViewOrder: TcxGridDBBandedTableView;
-    ViewOrder_5: TcxGridDBBandedColumn;
-    ViewOrderu_name: TcxGridDBBandedColumn;
-    ViewOrderm_name: TcxGridDBBandedColumn;
-    ViewOrdersss: TcxGridDBBandedColumn;
-    ViewOrderpt_name: TcxGridDBBandedColumn;
-    ViewOrderst_name: TcxGridDBBandedColumn;
-    ViewOrderDBBandedColumn1: TcxGridDBBandedColumn;
-    ViewOrder_11: TcxGridDBBandedColumn;
-    ViewOrderp2_name: TcxGridDBBandedColumn;
-    ViewOrders2_name: TcxGridDBBandedColumn;
-    ViewOrderu1_name: TcxGridDBBandedColumn;
-    ViewOrderfb: TcxGridDBBandedColumn;
-    ViewOrdercount_zakup: TcxGridDBBandedColumn;
-    ViewOrderdlina_zakup: TcxGridDBBandedColumn;
-    ViewOrderprice_zakup: TcxGridDBBandedColumn;
-    ColumnItog: TcxGridDBBandedColumn;
-    cxstylrpstry1: TcxStyleRepository;
-    cxstyl1: TcxStyle;
-    pm1: TPopupMenu;
-    N1: TMenuItem;
-    N2: TMenuItem;
-    ColumnGoodPlant: TcxGridDBBandedColumn;
-    Query1: TUniQuery;
-    chk»ÚÓ„: TcxCheckBox;
-    procedure BandOrderCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
-      AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
-    procedure ViewOrderCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
-      AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
-    procedure btnRefreshClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure N1Click(Sender: TObject);
-    procedure N2Click(Sender: TObject);
-    procedure QueryGroupOrderAfterFetch(DataSet: TCustomDADataSet);
-    procedure QueryGroupOrderBeforeFetch(DataSet: TCustomDADataSet; var Cancel: Boolean);
-    procedure ViewOrderCustomDrawGroupCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
-      AViewInfo: TcxGridTableCellViewInfo; var ADone: Boolean);
-    procedure ViewOrderDblClick(Sender: TObject);
-    procedure btnPrintLogisticClick(Sender: TObject);
-    procedure btn«‡ÍÛÔÍ‡Click(Sender: TObject);
-    procedure chk»ÚÓ„PropertiesEditValueChanged(Sender: TObject);
-    procedure btnAWBClick(Sender: TObject);
-    procedure edtOtCloseUp(Sender: TObject);
-    procedure edtOtKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure btnAddClick(Sender: TObject);
+    FrameTopPanel1 : TFrameTopPanel;
+    Group1 : TcxGroupBox;
+    GridOrder : TcxGrid;
+    GridLevelOrder : TcxGridLevel;
+    QueryGroupOrder : TUniQuery;
+    dsGroupOrder : TDataSource;
+    ViewOrder : TcxGridDBBandedTableView;
+    ViewOrder_5 : TcxGridDBBandedColumn;
+    ViewOrderu_name : TcxGridDBBandedColumn;
+    ViewOrderm_name : TcxGridDBBandedColumn;
+    ViewOrdersss : TcxGridDBBandedColumn;
+    ViewOrderpt_name : TcxGridDBBandedColumn;
+    ViewOrderst_name : TcxGridDBBandedColumn;
+    ViewOrderDBBandedColumn1 : TcxGridDBBandedColumn;
+    ViewOrder_11 : TcxGridDBBandedColumn;
+    ViewOrderp2_name : TcxGridDBBandedColumn;
+    ViewOrders2_name : TcxGridDBBandedColumn;
+    ViewOrderu1_name : TcxGridDBBandedColumn;
+    ViewOrderfb : TcxGridDBBandedColumn;
+    ViewOrdercount_zakup : TcxGridDBBandedColumn;
+    ViewOrderdlina_zakup : TcxGridDBBandedColumn;
+    ViewOrderprice_zakup : TcxGridDBBandedColumn;
+    ColumnItog : TcxGridDBBandedColumn;
+    cxstylrpstry1 : TcxStyleRepository;
+    cxstyl1 : TcxStyle;
+    pm1 : TPopupMenu;
+    N1 : TMenuItem;
+    N2 : TMenuItem;
+    ColumnGoodPlant : TcxGridDBBandedColumn;
+    Query1 : TUniQuery;
+    chk»ÚÓ„ : TcxCheckBox;
+    procedure BandOrderCustomDrawCell(Sender : TcxCustomGridTableView; ACanvas : TcxCanvas;
+                                         AViewInfo : TcxGridTableDataCellViewInfo; var ADone : Boolean);
+    procedure ViewOrderCustomDrawCell(Sender : TcxCustomGridTableView; ACanvas : TcxCanvas;
+                                         AViewInfo : TcxGridTableDataCellViewInfo; var ADone : Boolean);
+    procedure btnRefreshClick(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure N1Click(Sender : TObject);
+    procedure N2Click(Sender : TObject);
+    procedure QueryGroupOrderAfterFetch(DataSet : TCustomDADataSet);
+    procedure QueryGroupOrderBeforeFetch(DataSet : TCustomDADataSet; var Cancel : Boolean);
+    procedure ViewOrderCustomDrawGroupCell(Sender : TcxCustomGridTableView; ACanvas : TcxCanvas;
+                                              AViewInfo : TcxGridTableCellViewInfo; var ADone : Boolean);
+    procedure ViewOrderDblClick(Sender : TObject);
+    procedure btnPrintLogisticClick(Sender : TObject);
+    procedure btn«‡ÍÛÔÍ‡Click(Sender : TObject);
+    procedure chk»ÚÓ„PropertiesEditValueChanged(Sender : TObject);
+    procedure btnAWBClick(Sender : TObject);
+    procedure edtOtCloseUp(Sender : TObject);
+    procedure edtOtKeyDown(Sender : TObject; var Key : Word; Shift : TShiftState);
+    procedure btnAddClick(Sender : TObject);
   private
     { Private declarations }
   public
-    s_date_awb: TDate;
+    s_date_awb : TDate;
     procedure EnableButton;
     procedure SetLang;
-    procedure ShowGroupOrder(id_locate: Integer = 0; locate_type: smallint = 0);
+    procedure ShowGroupOrder(id_locate : Integer = 0; locate_type : smallint = 0);
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
 uses
@@ -127,9 +122,8 @@ uses
   UReport,
   UPrepReportPedido,
   UAWBPedido, UNewPedidoPosition;
-
-procedure TFramePedido.BandOrderCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
-  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+procedure TFramePedido.BandOrderCustomDrawCell(Sender : TcxCustomGridTableView; ACanvas : TcxCanvas;
+                                                  AViewInfo : TcxGridTableDataCellViewInfo; var ADone : Boolean);
 begin
   if AViewInfo.GridRecord.Values[8] = null then
   begin
@@ -147,8 +141,7 @@ begin
     ACanvas.Font.color := clWhite;
   end;
 end;
-
-procedure TFramePedido.btnAddClick(Sender: TObject);
+procedure TFramePedido.btnAddClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewPedidoPosition, FNewPedidoPosition);
   with FNewPedidoPosition do
@@ -166,7 +159,6 @@ begin
       setDate(Now);
     end;
     ShowModal;
-
     if edtDateFly.Checked = True then
       s_date_awb := edtDateFly.Date;
     ShowGroupOrder();
@@ -191,8 +183,7 @@ begin
   // ShowGroupOrder(id_zakup, 1);
   // end;
 end;
-
-procedure TFramePedido.btnAWBClick(Sender: TObject);
+procedure TFramePedido.btnAWBClick(Sender : TObject);
 begin
   if FAWBPedido = nil then
     Application.CreateForm(TFAWBPedido, FAWBPedido);
@@ -204,8 +195,7 @@ begin
     Show;
   end;
 end;
-
-procedure TFramePedido.btnEditClick(Sender: TObject);
+procedure TFramePedido.btnEditClick(Sender : TObject);
 begin
   // if StrToDate(FormatDateTime('dd.mm.yyyy', now)) = PGSQL.ReturnSystemDate then
   // begin
@@ -231,19 +221,16 @@ begin
   // ('–‡ÁÂ¯ÂÌÓ Â‰‡ÍÚËÓ‚‡Ú¸ ÚÓÎ¸ÍÓ ÒÂ„Ó‰Ìˇ¯ÌËÂ Á‡ÍÛÔÍË.', 'Œ¯Ë·Í‡',
   // MB_OK + MB_ICONERROR)
 end;
-
-procedure TFramePedido.btnPrintLogisticClick(Sender: TObject);
+procedure TFramePedido.btnPrintLogisticClick(Sender : TObject);
 begin
   ŒÚ˜ÂÚÀÓ„ËÒÚËÍ‡œÓ¬ÒÂÏ(s_date_awb);
 end;
-
-procedure TFramePedido.btnRefreshClick(Sender: TObject);
+procedure TFramePedido.btnRefreshClick(Sender : TObject);
 begin
   QueryGroupOrder.Refresh;
   ViewOrder.ViewData.Expand(false);
 end;
-
-procedure TFramePedido.btn«‡ÍÛÔÍ‡Click(Sender: TObject);
+procedure TFramePedido.btn«‡ÍÛÔÍ‡Click(Sender : TObject);
 begin
   Application.CreateForm(TFPrepReportPedido, FPrepReportPedido);
   with FPrepReportPedido do
@@ -263,26 +250,22 @@ begin
     end;
   end;
 end;
-
-procedure TFramePedido.chk»ÚÓ„PropertiesEditValueChanged(Sender: TObject);
+procedure TFramePedido.chk»ÚÓ„PropertiesEditValueChanged(Sender : TObject);
 begin
   if chk»ÚÓ„.Checked = True then
     ViewOrder.OptionsView.GroupFooters := gfVisibleWhenExpanded
   else
     ViewOrder.OptionsView.GroupFooters := gfInvisible;
 end;
-
-procedure TFramePedido.edtOtCloseUp(Sender: TObject);
+procedure TFramePedido.edtOtCloseUp(Sender : TObject);
 begin
   ShowGroupOrder;
 end;
-
-procedure TFramePedido.edtOtKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TFramePedido.edtOtKeyDown(Sender : TObject; var Key : Word; Shift : TShiftState);
 begin
   if Key = VK_RETURN then
     ShowGroupOrder;
 end;
-
 procedure TFramePedido.EnableButton;
 begin
   with FrameTopPanel1 do
@@ -293,35 +276,29 @@ begin
       btnEdit.Enabled := false;
   end;
 end;
-
-procedure TFramePedido.N1Click(Sender: TObject);
+procedure TFramePedido.N1Click(Sender : TObject);
 begin
   ViewOrder.ViewData.Collapse(false);
 end;
-
-procedure TFramePedido.N2Click(Sender: TObject);
+procedure TFramePedido.N2Click(Sender : TObject);
 begin
   ViewOrder.ViewData.Expand(false);
 end;
-
-procedure TFramePedido.QueryGroupOrderAfterFetch(DataSet: TCustomDADataSet);
+procedure TFramePedido.QueryGroupOrderAfterFetch(DataSet : TCustomDADataSet);
 begin
   FSplash.Close;
 end;
-
-procedure TFramePedido.QueryGroupOrderBeforeFetch(DataSet: TCustomDADataSet; var Cancel: Boolean);
+procedure TFramePedido.QueryGroupOrderBeforeFetch(DataSet : TCustomDADataSet; var Cancel : Boolean);
 begin
   FSplash.Show;
   FSplash.Update;
 end;
-
 procedure TFramePedido.SetLang;
 begin
 end;
-
-procedure TFramePedido.ShowGroupOrder(id_locate: Integer = 0; locate_type: smallint = 0);
+procedure TFramePedido.ShowGroupOrder(id_locate : Integer = 0; locate_type : smallint = 0);
 var
-  i: Integer;
+  i : Integer;
 begin
   with QueryGroupOrder do
   begin
@@ -360,18 +337,16 @@ begin
     // QueryGroupOrder.First;
   end;
 end;
-
-procedure TFramePedido.ViewOrderCustomDrawCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
-  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+procedure TFramePedido.ViewOrderCustomDrawCell(Sender : TcxCustomGridTableView; ACanvas : TcxCanvas;
+                                                  AViewInfo : TcxGridTableDataCellViewInfo; var ADone : Boolean);
 begin
   // ShowMessage(AViewInfo.GridRecord.Values[15] );
 end;
-
-procedure TFramePedido.ViewOrderCustomDrawGroupCell(Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
-  AViewInfo: TcxGridTableCellViewInfo; var ADone: Boolean);
+procedure TFramePedido.ViewOrderCustomDrawGroupCell(Sender : TcxCustomGridTableView; ACanvas : TcxCanvas;
+                                                       AViewInfo : TcxGridTableCellViewInfo; var ADone : Boolean);
 var
-  s: string;
-  i, y: Integer;
+  s : string;
+  i, y : Integer;
 begin
   FormatSettings.DateSeparator := '.';
   // DecimalSeparator := '.';
@@ -381,11 +356,9 @@ begin
   if (i <> 0) and (StrToFloat(s) > 0) then
     ACanvas.Font.color := clRed;
 end;
-
-procedure TFramePedido.ViewOrderDblClick(Sender: TObject);
+procedure TFramePedido.ViewOrderDblClick(Sender : TObject);
 begin
   if FrameTopPanel1.btnEdit.Enabled = True then
     btnEditClick(Sender);
 end;
-
 end.

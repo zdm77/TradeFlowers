@@ -1,7 +1,5 @@
 unit UFrameCountry;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -18,7 +16,7 @@ uses
   cxLookAndFeelPainters,
   cxStyles,
   dxSkinsCore,
-
+  
   dxSkinscxPCPainter,
   cxCustomData,
   cxFilter,
@@ -40,50 +38,45 @@ uses
   Uni,
   UFrameTopPanel,
   cxNavigator,
-
+  
   dxSkinDevExpressStyle, dxSkinsDefaultPainters, dxSkinOffice2007Blue, dxDateRanges,
   cxDataControllerConditionalFormattingRulesManagerDialog;
-
 type
   TFrameCountry = class(TFrame)
-    QueryCountry: TUniQuery;
-    dsCountry: TDataSource;
-    GridUsers: TcxGrid;
-    ViewUsers: TcxGridDBTableView;
-    LevelOrg: TcxGridLevel;
-    Query1: TUniQuery;
-    ColumnName: TcxGridDBColumn;
-    ColumnUniName: TcxGridDBColumn;
-    FrameTopPanel1: TFrameTopPanel;
-    ColumnRegName: TcxGridDBColumn;
-    ColumnCode: TcxGridDBColumn;
-    procedure btnRefreshClick(Sender: TObject);
-    procedure QueryCountryAfterFetch(DataSet: TCustomDADataSet);
-    procedure QueryCountryBeforeFetch(DataSet: TCustomDADataSet;
-      var Cancel: Boolean);
-    procedure btnAddClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
+    QueryCountry : TUniQuery;
+    dsCountry : TDataSource;
+    GridUsers : TcxGrid;
+    ViewUsers : TcxGridDBTableView;
+    LevelOrg : TcxGridLevel;
+    Query1 : TUniQuery;
+    ColumnName : TcxGridDBColumn;
+    ColumnUniName : TcxGridDBColumn;
+    FrameTopPanel1 : TFrameTopPanel;
+    ColumnRegName : TcxGridDBColumn;
+    ColumnCode : TcxGridDBColumn;
+    procedure btnRefreshClick(Sender : TObject);
+    procedure QueryCountryAfterFetch(DataSet : TCustomDADataSet);
+    procedure QueryCountryBeforeFetch(DataSet : TCustomDADataSet;
+                                         var Cancel : Boolean);
+    procedure btnAddClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
   private
     { Private declarations }
   public
     procedure SetLang;
-    procedure ShowCountry(id_locate: Integer = 0);
+    procedure ShowCountry(id_locate : Integer = 0);
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
 uses
   UPasswd,
   ULang,
   USplash, UNewCountry, PGSQL;
-
-procedure TFrameCountry.btnAddClick(Sender: TObject);
+procedure TFrameCountry.btnAddClick(Sender : TObject);
 begin
-
   Application.CreateForm(TFNewCountry, FNewCountry);
   with FNewCountry do
   begin
@@ -118,14 +111,12 @@ begin
     end;
   end;
 end;
-
-procedure TFrameCountry.btnDelClick(Sender: TObject);
+procedure TFrameCountry.btnDelClick(Sender : TObject);
 begin
   PGSQL.StandartDelete(QueryCountry.FieldByName('id').AsString,
-    '"продукция"."страны"', QueryCountry, '', '', '', '');
+                        '"продукция"."страны"', QueryCountry, '', '', '', '');
 end;
-
-procedure TFrameCountry.btnEditClick(Sender: TObject);
+procedure TFrameCountry.btnEditClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewCountry, FNewCountry);
   with FNewCountry do
@@ -164,30 +155,25 @@ begin
     end;
   end;
 end;
-
-procedure TFrameCountry.btnRefreshClick(Sender: TObject);
+procedure TFrameCountry.btnRefreshClick(Sender : TObject);
 begin
   ShowCountry(QueryCountry.Fields[0].AsInteger);
 end;
-
-procedure TFrameCountry.QueryCountryAfterFetch(DataSet: TCustomDADataSet);
+procedure TFrameCountry.QueryCountryAfterFetch(DataSet : TCustomDADataSet);
 begin
   FSplash.Close;
 end;
-
-procedure TFrameCountry.QueryCountryBeforeFetch(DataSet: TCustomDADataSet;
-  var Cancel: Boolean);
+procedure TFrameCountry.QueryCountryBeforeFetch(DataSet : TCustomDADataSet;
+                                                   var Cancel : Boolean);
 begin
   FSplash.Show;
   FSplash.Update;
 end;
-
 procedure TFrameCountry.SetLang;
 begin
   ULang.TranslateGridCaption(ColumnUniName, ColumnRegName, ColumnName);
 end;
-
-procedure TFrameCountry.ShowCountry(id_locate: Integer = 0);
+procedure TFrameCountry.ShowCountry(id_locate : Integer = 0);
 begin
   with QueryCountry do
   begin
@@ -197,5 +183,4 @@ begin
     Locate('id', id_locate, []);
   end;
 end;
-
 end.

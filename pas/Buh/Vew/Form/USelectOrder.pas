@@ -1,7 +1,5 @@
 unit USelectOrder;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -40,37 +38,29 @@ uses
   MemDS,
   DBAccess,
   Uni,
-  cxNavigator,    
-     
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue;
-
+  cxNavigator,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue;
 type
   TFSelectOrder = class(TForm)
-    FrameOrder1: TFrameOrder;
-    cxspltr1: TcxSplitter;
-    GridOrder: TcxGrid;
-    ViewOrder: TcxGridDBTableView;
-    ColumnViewOrderpl_name: TcxGridDBColumn;
-    ColumnViewOrders_name: TcxGridDBColumn;
-    ColumnViewOrderDBColumn: TcxGridDBColumn;
-    ColumnViewOrder__1: TcxGridDBColumn;
-    Column—ÚÂ·ÎÂÈ: TcxGridDBColumn;
-    ColumnPrice: TcxGridDBColumn;
-    ColumnStand: TcxGridDBColumn;
-    GridLevelOrder: TcxGridLevel;
-    QueryOrderDetail: TUniQuery;
-    dsOrderDeatil: TDataSource;
-    procedure FrameOrder1ViewOrderDblClick(Sender: TObject);
-    procedure FrameTopPanel1btnSelClick(Sender: TObject);
+    FrameOrder1 : TFrameOrder;
+    cxspltr1 : TcxSplitter;
+    GridOrder : TcxGrid;
+    ViewOrder : TcxGridDBTableView;
+    ColumnViewOrderpl_name : TcxGridDBColumn;
+    ColumnViewOrders_name : TcxGridDBColumn;
+    ColumnViewOrderDBColumn : TcxGridDBColumn;
+    ColumnViewOrder__1 : TcxGridDBColumn;
+    Column—ÚÂ·ÎÂÈ : TcxGridDBColumn;
+    ColumnPrice : TcxGridDBColumn;
+    ColumnStand : TcxGridDBColumn;
+    GridLevelOrder : TcxGridLevel;
+    QueryOrderDetail : TUniQuery;
+    dsOrderDeatil : TDataSource;
+    procedure FrameOrder1ViewOrderDblClick(Sender : TObject);
+    procedure FrameTopPanel1btnSelClick(Sender : TObject);
   private
     { Private declarations }
   public
@@ -78,21 +68,17 @@ type
   end;
 
 var
-  FSelectOrder: TFSelectOrder;
-
+  FSelectOrder : TFSelectOrder;
 implementation
-
 {$R *.dfm}
 
-procedure TFSelectOrder.FrameOrder1ViewOrderDblClick(Sender: TObject);
+procedure TFSelectOrder.FrameOrder1ViewOrderDblClick(Sender : TObject);
 begin
   FrameTopPanel1btnSelClick(Sender);
 end;
-
-procedure TFSelectOrder.FrameTopPanel1btnSelClick(Sender: TObject);
+procedure TFSelectOrder.FrameTopPanel1btnSelClick(Sender : TObject);
 begin
   FrameOrder1.FrameTopPanel1btnSelClick(Sender);
   Close;
 end;
-
 end.

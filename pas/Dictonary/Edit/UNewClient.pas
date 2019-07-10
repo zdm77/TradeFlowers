@@ -1,7 +1,5 @@
 ﻿unit UNewClient;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -17,9 +15,9 @@ uses
   cxLookAndFeels,
   cxLookAndFeelPainters,
   dxSkinsCore,
-
+  
   dxSkinscxPCPainter,
-
+  
   cxPC,
   UFrameSave,
   cxContainer,
@@ -65,179 +63,176 @@ uses
   Vcl.ComCtrls,
   UFrameTypeClient,
   dxBarBuiltInMenu,
-
+  
   dxSkinDevExpressStyle,
-
+  
   cxButtonEdit, dxSkinsDefaultPainters, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog;
-
 type
   TFNewClient = class(TForm)
-    FrameSave1: TFrameSave;
-    Page1: TcxPageControl;
-    TabOsn: TcxTabSheet;
-    TabUrInfo: TcxTabSheet;
-    Group1: TcxGroupBox;
-    lblName: TcxLabel;
-    edtName: TcxTextEdit;
-    Label1: TcxLabel;
-    edtPhone: TcxTextEdit;
-    lblAddr: TcxLabel;
-    LabelEmail: TcxLabel;
-    edtEmail: TcxTextEdit;
-    lblStat: TcxLabel;
-    edtStat: TcxLookupComboBox;
-    mmoComent: TcxMemo;
-    lblComment: TcxLabel;
-    cxLabel2: TcxLabel;
-    edtFAX: TcxTextEdit;
-    mmoAdress: TcxMemo;
-    btnAdres: TcxButton;
-    QueryStat: TUniQuery;
-    dsStat: TDataSource;
-    Query1: TUniQuery;
-    dsManager: TDataSource;
-    QueryManager: TUniQuery;
-    Group3: TcxGroupBox;
-    label11: TcxLabel;
-    mmoUrName: TcxMemo;
-    label6: TcxLabel;
-    label9: TcxLabel;
-    mmoFactAdres: TcxMemo;
-    mmoUrAdres: TcxMemo;
-    label7: TcxLabel;
-    edtINN: TcxTextEdit;
-    edtOGRN: TcxTextEdit;
-    label8: TcxLabel;
-    edtOKPO: TcxTextEdit;
-    label16: TcxLabel;
-    edtInFace: TcxTextEdit;
-    cxLabel1: TcxLabel;
-    edtSign: TcxTextEdit;
-    Label35: TcxLabel;
-    btnAddRegAdr: TcxButton;
-    btnAddUrAdr: TcxButton;
-    Group4: TcxGroupBox;
-    edtPasportCod: TcxTextEdit;
-    label12: TcxLabel;
-    label13: TcxLabel;
-    edtNumberPasport: TcxTextEdit;
-    label14: TcxLabel;
-    label15: TcxLabel;
-    mmoVidan: TcxMemo;
-    TabДоговора: TcxTabSheet;
-    FrameTopPanel1: TFrameTopPanel;
-    GridTarif: TcxGrid;
-    cxGridDBTableView2: TcxGridDBTableView;
-    ColumnAirLine: TcxGridDBColumn;
-    cxGridLevel2: TcxGridLevel;
-    QueryContract: TUniQuery;
-    dsContract: TDataSource;
-    lbl1: TcxLabel;
-    edtSkype: TcxTextEdit;
-    TabContacts: TcxTabSheet;
-    FrameTopPanel2: TFrameTopPanel;
-    dsContact: TDataSource;
-    QueryContact: TUniQuery;
-    GridContact: TcxGrid;
-    cxGridDBTableView1: TcxGridDBTableView;
-    ColumnFIO: TcxGridDBColumn;
-    ColumnPost: TcxGridDBColumn;
-    ColumnPhone: TcxGridDBColumn;
-    cxGridLevel1: TcxGridLevel;
-    chkMarking: TCheckBox;
-    edtDatePasport: TDateTimePicker;
-    tabType: TcxTabSheet;
-    FrameTypeClient1: TFrameTypeClient;
-    tabAccess: TcxTabSheet;
-    lblLogin: TLabel;
-    Label4: TLabel;
-    edtLogin: TcxTextEdit;
-    LabelPass: TcxLabel;
-    edtPass: TcxTextEdit;
-    LabelConfPass: TcxLabel;
-    edtPasswdConfirm: TcxTextEdit;
-    lblConfitm: TLabel;
-    chkLogin: TcxCheckBox;
-    chkOstatok: TcxCheckBox;
-    chkZakupka: TcxCheckBox;
-    chkSubClient: TcxCheckBox;
-    lblSubClient: TcxLabel;
-    btnSubClient: TcxButtonEdit;
-    chkIP: TcxCheckBox;
-    Group2: TcxGroupBox;
-    Label40: TcxLabel;
-    Label24: TcxLabel;
-    Label25: TcxLabel;
-    Label26: TcxLabel;
-    Label27: TcxLabel;
-    Label28: TcxLabel;
-    edtDayAlarm: TsCalcEdit;
-    edtSrokDolg: TsCalcEdit;
-    edtSumDolg: TsCalcEdit;
-    lblManager: TcxLabel;
-    edtManager: TcxLookupComboBox;
-    mmoDostavka: TcxMemo;
-    btnAddPostAdr: TcxButton;
-    label10: TcxLabel;
-    procedure btnAddPostAdrClick(Sender: TObject);
-    procedure btnAddRegAdrClick(Sender: TObject);
-    procedure btnAddUrAdrClick(Sender: TObject);
-    procedure FormShow(Sender: TObject);
-    procedure btnAdresClick(Sender: TObject);
-    procedure chkMarkingClick(Sender: TObject);
-    procedure cxGridDBTableView1DblClick(Sender: TObject);
-    procedure FrameSave1btnSaveClick(Sender: TObject);
-    procedure FrameTopPanel1btnAddClick(Sender: TObject);
-    procedure FrameTopPanel1btnDelClick(Sender: TObject);
-    procedure FrameTopPanel1btnEditClick(Sender: TObject);
-    procedure FrameTopPanel1btnRefreshClick(Sender: TObject);
-    procedure FrameTopPanel2btnAddClick(Sender: TObject);
-    procedure FrameTopPanel2btnDelClick(Sender: TObject);
-    procedure FrameTopPanel2btnEditClick(Sender: TObject);
-    procedure FrameTopPanel2btnRefreshClick(Sender: TObject);
-    procedure Page1Change(Sender: TObject);
-    procedure btnAddClick(Sender: TObject);
-    procedure edtPassKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure edtPasswdConfirmKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure btnSubClientPropertiesButtonClick(Sender: TObject;
-      AButtonIndex: Integer);
-    procedure chkSubClientClick(Sender: TObject);
+    FrameSave1 : TFrameSave;
+    Page1 : TcxPageControl;
+    TabOsn : TcxTabSheet;
+    TabUrInfo : TcxTabSheet;
+    Group1 : TcxGroupBox;
+    lblName : TcxLabel;
+    edtName : TcxTextEdit;
+    Label1 : TcxLabel;
+    edtPhone : TcxTextEdit;
+    lblAddr : TcxLabel;
+    LabelEmail : TcxLabel;
+    edtEmail : TcxTextEdit;
+    lblStat : TcxLabel;
+    edtStat : TcxLookupComboBox;
+    mmoComent : TcxMemo;
+    lblComment : TcxLabel;
+    cxLabel2 : TcxLabel;
+    edtFAX : TcxTextEdit;
+    mmoAdress : TcxMemo;
+    btnAdres : TcxButton;
+    QueryStat : TUniQuery;
+    dsStat : TDataSource;
+    Query1 : TUniQuery;
+    dsManager : TDataSource;
+    QueryManager : TUniQuery;
+    Group3 : TcxGroupBox;
+    label11 : TcxLabel;
+    mmoUrName : TcxMemo;
+    label6 : TcxLabel;
+    label9 : TcxLabel;
+    mmoFactAdres : TcxMemo;
+    mmoUrAdres : TcxMemo;
+    label7 : TcxLabel;
+    edtINN : TcxTextEdit;
+    edtOGRN : TcxTextEdit;
+    label8 : TcxLabel;
+    edtOKPO : TcxTextEdit;
+    label16 : TcxLabel;
+    edtInFace : TcxTextEdit;
+    cxLabel1 : TcxLabel;
+    edtSign : TcxTextEdit;
+    Label35 : TcxLabel;
+    btnAddRegAdr : TcxButton;
+    btnAddUrAdr : TcxButton;
+    Group4 : TcxGroupBox;
+    edtPasportCod : TcxTextEdit;
+    label12 : TcxLabel;
+    label13 : TcxLabel;
+    edtNumberPasport : TcxTextEdit;
+    label14 : TcxLabel;
+    label15 : TcxLabel;
+    mmoVidan : TcxMemo;
+    TabДоговора : TcxTabSheet;
+    FrameTopPanel1 : TFrameTopPanel;
+    GridTarif : TcxGrid;
+    cxGridDBTableView2 : TcxGridDBTableView;
+    ColumnAirLine : TcxGridDBColumn;
+    cxGridLevel2 : TcxGridLevel;
+    QueryContract : TUniQuery;
+    dsContract : TDataSource;
+    lbl1 : TcxLabel;
+    edtSkype : TcxTextEdit;
+    TabContacts : TcxTabSheet;
+    FrameTopPanel2 : TFrameTopPanel;
+    dsContact : TDataSource;
+    QueryContact : TUniQuery;
+    GridContact : TcxGrid;
+    cxGridDBTableView1 : TcxGridDBTableView;
+    ColumnFIO : TcxGridDBColumn;
+    ColumnPost : TcxGridDBColumn;
+    ColumnPhone : TcxGridDBColumn;
+    cxGridLevel1 : TcxGridLevel;
+    chkMarking : TCheckBox;
+    edtDatePasport : TDateTimePicker;
+    tabType : TcxTabSheet;
+    FrameTypeClient1 : TFrameTypeClient;
+    tabAccess : TcxTabSheet;
+    lblLogin : TLabel;
+    Label4 : TLabel;
+    edtLogin : TcxTextEdit;
+    LabelPass : TcxLabel;
+    edtPass : TcxTextEdit;
+    LabelConfPass : TcxLabel;
+    edtPasswdConfirm : TcxTextEdit;
+    lblConfitm : TLabel;
+    chkLogin : TcxCheckBox;
+    chkOstatok : TcxCheckBox;
+    chkZakupka : TcxCheckBox;
+    chkSubClient : TcxCheckBox;
+    lblSubClient : TcxLabel;
+    btnSubClient : TcxButtonEdit;
+    chkIP : TcxCheckBox;
+    Group2 : TcxGroupBox;
+    Label40 : TcxLabel;
+    Label24 : TcxLabel;
+    Label25 : TcxLabel;
+    Label26 : TcxLabel;
+    Label27 : TcxLabel;
+    Label28 : TcxLabel;
+    edtDayAlarm : TsCalcEdit;
+    edtSrokDolg : TsCalcEdit;
+    edtSumDolg : TsCalcEdit;
+    lblManager : TcxLabel;
+    edtManager : TcxLookupComboBox;
+    mmoDostavka : TcxMemo;
+    btnAddPostAdr : TcxButton;
+    label10 : TcxLabel;
+    procedure btnAddPostAdrClick(Sender : TObject);
+    procedure btnAddRegAdrClick(Sender : TObject);
+    procedure btnAddUrAdrClick(Sender : TObject);
+    procedure FormShow(Sender : TObject);
+    procedure btnAdresClick(Sender : TObject);
+    procedure chkMarkingClick(Sender : TObject);
+    procedure cxGridDBTableView1DblClick(Sender : TObject);
+    procedure FrameSave1btnSaveClick(Sender : TObject);
+    procedure FrameTopPanel1btnAddClick(Sender : TObject);
+    procedure FrameTopPanel1btnDelClick(Sender : TObject);
+    procedure FrameTopPanel1btnEditClick(Sender : TObject);
+    procedure FrameTopPanel1btnRefreshClick(Sender : TObject);
+    procedure FrameTopPanel2btnAddClick(Sender : TObject);
+    procedure FrameTopPanel2btnDelClick(Sender : TObject);
+    procedure FrameTopPanel2btnEditClick(Sender : TObject);
+    procedure FrameTopPanel2btnRefreshClick(Sender : TObject);
+    procedure Page1Change(Sender : TObject);
+    procedure btnAddClick(Sender : TObject);
+    procedure edtPassKeyUp(Sender : TObject; var Key : Word; Shift : TShiftState);
+    procedure edtPasswdConfirmKeyUp(Sender : TObject; var Key : Word;
+                                       Shift : TShiftState);
+    procedure btnSubClientPropertiesButtonClick(Sender : TObject;
+                                                   AButtonIndex : Integer);
+    procedure chkSubClientClick(Sender : TObject);
   private
     // факт адрес
-    IDCountryFact, IDRegionFact, IDCityFact, IDStreetFact: Integer;
-    IndexFact, IDHomeFact, IDKorpusFact, IDKvartiraFact: string;
+    IDCountryFact, IDRegionFact, IDCityFact, IDStreetFact : Integer;
+    IndexFact, IDHomeFact, IDKorpusFact, IDKvartiraFact : string;
     // рег адрес
-    IDCountryReg, IDRegionReg, IDCityReg, IDStreetReg: Integer;
-    IndexReg, IDHomeReg, IDKorpusReg, IDKvartiraReg: string;
+    IDCountryReg, IDRegionReg, IDCityReg, IDStreetReg : Integer;
+    IndexReg, IDHomeReg, IDKorpusReg, IDKvartiraReg : string;
     { Private declarations }
-    idClient: Integer;
+    idClient : Integer;
   public
-    s_id_type_for_edit: Integer;
-    s_id_org: Integer;
-    s_date: string;
-    s_id_contact: Integer;
-    idSubClient: string;
-    sLogin: string;
-    function DetectLogin: Boolean;
+    s_id_type_for_edit : Integer;
+    s_id_org : Integer;
+    s_date : string;
+    s_id_contact : Integer;
+    idSubClient : string;
+    sLogin : string;
+    function DetectLogin : Boolean;
     procedure EnableSave;
-    procedure InsertUpdClient(id_ins: Boolean);
-    procedure InsUpdContact(id_ins: Boolean);
-    procedure SetAddres(s_QueryClient: TUniQuery);
-    procedure setClient(s_QueryClient: TUniQuery);
+    procedure InsertUpdClient(id_ins : Boolean);
+    procedure InsUpdContact(id_ins : Boolean);
+    procedure SetAddres(s_QueryClient : TUniQuery);
+    procedure setClient(s_QueryClient : TUniQuery);
     procedure SetLang;
-    procedure ShowContact(id_locate: Integer = 0);
-    procedure ShowManager(s_id_manager: Integer = 0);
-    procedure ShowStat(s_id_stat: Integer = 0);
+    procedure ShowContact(id_locate : Integer = 0);
+    procedure ShowManager(s_id_manager : Integer = 0);
+    procedure ShowStat(s_id_stat : Integer = 0);
     procedure ShowSubClient;
     { Public declarations }
   end;
 
 var
-  FNewClient: TFNewClient;
-
+  FNewClient : TFNewClient;
 implementation
-
 {$R *.dfm}
 
 uses
@@ -245,21 +240,18 @@ uses
   PGSQL,
   UPasswd,
   UNewContactUni, USelectClient, UFrameClient;
-
-procedure TFNewClient.btnAddClick(Sender: TObject);
+procedure TFNewClient.btnAddClick(Sender : TObject);
 begin
   FrameTypeClient1.FrameTopPanel1btnAddClick(Sender);
 end;
-
-procedure TFNewClient.btnAddPostAdrClick(Sender: TObject);
+procedure TFNewClient.btnAddPostAdrClick(Sender : TObject);
 begin
   SelectAddress(mmoDostavka, 0, 0, 0, 0, '', '', '', '');
 end;
-
-procedure TFNewClient.btnAddRegAdrClick(Sender: TObject);
+procedure TFNewClient.btnAddRegAdrClick(Sender : TObject);
 begin
   SelectAddress(mmoFactAdres, IDCountryFact, IDCityFact, IDRegionFact,
-    IDStreetFact, IDHomeFact, IDKorpusFact, IDKvartiraFact, IndexFact);
+                 IDStreetFact, IDHomeFact, IDKorpusFact, IDKvartiraFact, IndexFact);
   if (FAddress.IDCountry <> 0) then
   begin
     IDCountryFact := FAddress.IDCountry;
@@ -272,11 +264,10 @@ begin
     IndexFact := FAddress.IndexA;
   end;
 end;
-
-procedure TFNewClient.btnAddUrAdrClick(Sender: TObject);
+procedure TFNewClient.btnAddUrAdrClick(Sender : TObject);
 begin
   SelectAddress(mmoUrAdres, IDCountryReg, IDCityReg, IDRegionReg, IDStreetReg,
-    IDHomeReg, IDKorpusReg, IDKvartiraReg, IndexReg);
+                 IDHomeReg, IDKorpusReg, IDKvartiraReg, IndexReg);
   if (FAddress.IDCountry <> 0) then
   begin
     IDCountryReg := FAddress.IDCountry;
@@ -289,14 +280,12 @@ begin
     IndexReg := FAddress.IndexA;
   end;
 end;
-
-procedure TFNewClient.btnAdresClick(Sender: TObject);
+procedure TFNewClient.btnAdresClick(Sender : TObject);
 begin
   SelectAddress(mmoAdress, 0, 0, 0, 0, '', '', '', '');
 end;
-
-procedure TFNewClient.btnSubClientPropertiesButtonClick(Sender: TObject;
-  AButtonIndex: Integer);
+procedure TFNewClient.btnSubClientPropertiesButtonClick(Sender : TObject;
+                                                           AButtonIndex : Integer);
 begin
   Application.CreateForm(TFSelectClient, FSelectClient);
   with FSelectClient do
@@ -308,18 +297,16 @@ begin
     if IDSelect = true then
     begin
       btnSubClient.Text := FrameClient1.QueryClient.FieldByName('name')
-        .AsString;
+    .AsString;
       idSubClient := FrameClient1.QueryClient.FieldByName('id').AsString;
     end;
   end;
 end;
-
-procedure TFNewClient.chkMarkingClick(Sender: TObject);
+procedure TFNewClient.chkMarkingClick(Sender : TObject);
 begin
   tabType.Enabled := chkMarking.Checked;
 end;
-
-procedure TFNewClient.chkSubClientClick(Sender: TObject);
+procedure TFNewClient.chkSubClientClick(Sender : TObject);
 begin
   if chkSubClient.Checked = true then
   begin
@@ -339,13 +326,11 @@ begin
     btnSubClient.Enabled := false;
   end;
 end;
-
-procedure TFNewClient.cxGridDBTableView1DblClick(Sender: TObject);
+procedure TFNewClient.cxGridDBTableView1DblClick(Sender : TObject);
 begin
   FrameTopPanel2btnEditClick(Sender);
 end;
-
-function TFNewClient.DetectLogin: Boolean;
+function TFNewClient.DetectLogin : Boolean;
 begin
   with Query1 do
   begin
@@ -359,19 +344,16 @@ begin
   end;
   // TODO -cMM: TFNewClient.DetectLogin default body inserted
 end;
-
-procedure TFNewClient.edtPassKeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewClient.edtPassKeyUp(Sender : TObject; var Key : Word;
+                                      Shift : TShiftState);
 begin
   EnableSave;
 end;
-
-procedure TFNewClient.edtPasswdConfirmKeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewClient.edtPasswdConfirmKeyUp(Sender : TObject; var Key : Word;
+                                               Shift : TShiftState);
 begin
   EnableSave;
 end;
-
 procedure TFNewClient.EnableSave;
 begin
   if (edtPass.Text <> '') and (edtPasswdConfirm.Text <> '') then
@@ -384,8 +366,7 @@ begin
   else
     lblConfitm.Caption := 'Введите пароли';
 end;
-
-procedure TFNewClient.FormShow(Sender: TObject);
+procedure TFNewClient.FormShow(Sender : TObject);
 begin
   Page1.ActivePageIndex := 0;
   edtName.SetFocus;
@@ -394,8 +375,7 @@ begin
   ShowSubClient;
   sLogin := edtLogin.Text;
 end;
-
-procedure TFNewClient.FrameSave1btnSaveClick(Sender: TObject);
+procedure TFNewClient.FrameSave1btnSaveClick(Sender : TObject);
 begin
   FrameSave1.btnSaveClick(Sender);
   if (edtLogin.Text <> '') then
@@ -405,7 +385,7 @@ begin
       if DetectLogin = true then
       begin
         Application.MessageBox('Логин уже существует, введите другой.',
-          'Ошибка', MB_OK + MB_ICONERROR);
+                                'Ошибка', MB_OK + MB_ICONERROR);
         edtLogin.SetFocus;
         Abort;
       end;
@@ -417,28 +397,23 @@ begin
     InsertUpdClient(false);
   Close;
 end;
-
-procedure TFNewClient.FrameTopPanel1btnAddClick(Sender: TObject);
+procedure TFNewClient.FrameTopPanel1btnAddClick(Sender : TObject);
 begin
   ShowMessage('');
 end;
-
-procedure TFNewClient.FrameTopPanel1btnDelClick(Sender: TObject);
+procedure TFNewClient.FrameTopPanel1btnDelClick(Sender : TObject);
 begin
   ShowMessage('');
 end;
-
-procedure TFNewClient.FrameTopPanel1btnEditClick(Sender: TObject);
+procedure TFNewClient.FrameTopPanel1btnEditClick(Sender : TObject);
 begin
   ShowMessage('');
 end;
-
-procedure TFNewClient.FrameTopPanel1btnRefreshClick(Sender: TObject);
+procedure TFNewClient.FrameTopPanel1btnRefreshClick(Sender : TObject);
 begin
   ShowMessage('');
 end;
-
-procedure TFNewClient.FrameTopPanel2btnAddClick(Sender: TObject);
+procedure TFNewClient.FrameTopPanel2btnAddClick(Sender : TObject);
 begin
   if idClient = 0 then
     InsertUpdClient(true);
@@ -454,14 +429,12 @@ begin
     end;
   end;
 end;
-
-procedure TFNewClient.FrameTopPanel2btnDelClick(Sender: TObject);
+procedure TFNewClient.FrameTopPanel2btnDelClick(Sender : TObject);
 begin
   PGSQL.StandartDelete(QueryContact.FieldByName('id').AsString,
-    ' "контрагенты"."контакты"', QueryContact, '', '', '', '');
+                        ' "контрагенты"."контакты"', QueryContact, '', '', '', '');
 end;
-
-procedure TFNewClient.FrameTopPanel2btnEditClick(Sender: TObject);
+procedure TFNewClient.FrameTopPanel2btnEditClick(Sender : TObject);
 begin
   if QueryContact.RecordCount > 0 then
   begin
@@ -486,13 +459,11 @@ begin
     end;
   end;
 end;
-
-procedure TFNewClient.FrameTopPanel2btnRefreshClick(Sender: TObject);
+procedure TFNewClient.FrameTopPanel2btnRefreshClick(Sender : TObject);
 begin
   ShowContact();
 end;
-
-procedure TFNewClient.InsertUpdClient(id_ins: Boolean);
+procedure TFNewClient.InsertUpdClient(id_ins : Boolean);
 begin
   with Query1 do
   begin
@@ -797,8 +768,7 @@ begin
     ExecSQL;
   end;
 end;
-
-procedure TFNewClient.InsUpdContact(id_ins: Boolean);
+procedure TFNewClient.InsUpdContact(id_ins : Boolean);
 begin
   with Query1 do
   begin
@@ -807,18 +777,18 @@ begin
     begin
       s_id_contact := PGSQL.NewID('"контрагенты"."контакты_id_seq"');
       sql.Text :=
-        'INSERT INTO "контрагенты"."контакты" (id, "код_клиента", name, "тип",'
-        + '"телефон1", "телефон2", "телефон3", "почта", "скайп", "месенджер"' +
-        ')VALUES (:id, :код_клиента, :name, :тип, :телефон1, :телефон2, :телефон3,'
-        + ':почта, :скайп, :месенджер)';
+                 'INSERT INTO "контрагенты"."контакты" (id, "код_клиента", name, "тип",'
+                 + '"телефон1", "телефон2", "телефон3", "почта", "скайп", "месенджер"' +
+                 ')VALUES (:id, :код_клиента, :name, :тип, :телефон1, :телефон2, :телефон3,'
+                 + ':почта, :скайп, :месенджер)';
     end
     else
     begin
       sql.Text :=
-        'UPDATE "контрагенты"."контакты" SET "код_клиента" = :код_клиента,' +
-        'name = :name, "тип" = :тип, "телефон1" = :телефон1, "телефон2" = :телефон2,'
-        + '"телефон3" = :телефон3, "почта" = :почта, "скайп" = :скайп,' +
-        '"месенджер" = :месенджер WHERE id = :id';
+                 'UPDATE "контрагенты"."контакты" SET "код_клиента" = :код_клиента,' +
+                 'name = :name, "тип" = :тип, "телефон1" = :телефон1, "телефон2" = :телефон2,'
+                 + '"телефон3" = :телефон3, "почта" = :почта, "скайп" = :скайп,' +
+                 '"месенджер" = :месенджер WHERE id = :id';
     end;
     ParamByName('id').AsInteger := s_id_contact;
     ParamByName('код_клиента').AsInteger := idClient;
@@ -833,33 +803,31 @@ begin
     ExecSQL;
   end;
 end;
-
-procedure TFNewClient.Page1Change(Sender: TObject);
+procedure TFNewClient.Page1Change(Sender : TObject);
 begin
   case Page1.ActivePageIndex of
-    1:
+    1 :
+    begin
+      if idClient = 0 then
       begin
-        if idClient = 0 then
+        if Application.MessageBox('Клиент не сохранен. Сохранить?', 'Вопрос',
+                                   MB_YESNO + MB_ICONQUESTION) = mrNo then
         begin
-          if Application.MessageBox('Клиент не сохранен. Сохранить?', 'Вопрос',
-            MB_YESNO + MB_ICONQUESTION) = mrNo then
-          begin
-            Page1.ActivePageIndex := 0;
-            Abort;
-          end
-          else
-          begin
-            // Page1.ActivePageIndex := 0;
-            InsertUpdClient(true);
-          end;
+          Page1.ActivePageIndex := 0;
+          Abort;
+        end
+        else
+        begin
+          // Page1.ActivePageIndex := 0;
+          InsertUpdClient(true);
         end;
-        FrameTypeClient1.s_id_client_for_type := idClient;
-        FrameTypeClient1.ShowTypeClient();
       end;
+      FrameTypeClient1.s_id_client_for_type := idClient;
+      FrameTypeClient1.ShowTypeClient();
+    end;
   end;
 end;
-
-procedure TFNewClient.SetAddres(s_QueryClient: TUniQuery);
+procedure TFNewClient.SetAddres(s_QueryClient : TUniQuery);
 begin
   with s_QueryClient do
   begin
@@ -935,71 +903,67 @@ begin
     end;
   end;
 end;
-
-procedure TFNewClient.setClient(s_QueryClient: TUniQuery);
+procedure TFNewClient.setClient(s_QueryClient : TUniQuery);
 begin
   idClient := s_QueryClient.FieldByName('id').AsInteger;
   SetAddres(s_QueryClient);
 end;
-
 procedure TFNewClient.SetLang;
 begin
   case FPasswd.Lang of
-    0:
-      begin
-        Caption := 'Клиент';
-        if edtName.Text = '' then
-          Caption := Caption + ' (Новый)'
-        else
-          Caption := Caption + ' - ' + edtName.Text +
-            '. Дата заведения: ' + s_date;
-        lblName.Caption := 'Наименование';
-        lblAddr.Caption := 'Адрес';
-        lblStat.Caption := 'Статус';
-        lblComment.Caption := 'Комментарий';
-      end;
-    1:
-      begin
-        Caption := 'Сlient';
-        if edtName.Text = '' then
-          Caption := Caption + ' (New)'
-        else
-          Caption := Caption + ' - ' + edtName.Text +
-            '. Institution date: ' + s_date;
-        lblName.Caption := 'Name';
-        lblAddr.Caption := 'Address';
-        lblStat.Caption := 'Status';
-        lblComment.Caption := 'Comment';
-      end;
-    2:
-      begin
-        Caption := 'El cliente';
-        if edtName.Text = '' then
-          Caption := Caption + ' (Nuevo)'
-        else
-          Caption := Caption + ' - ' + edtName.Text +
-            '. La fecha del establecimiento: ' + s_date;
-        lblName.Caption := 'El nombre';
-        lblAddr.Caption := 'La dirección';
-        lblStat.Caption := 'El estatus';
-        lblComment.Caption := 'El comentario';
-      end;
+    0 :
+    begin
+      Caption := 'Клиент';
+      if edtName.Text = '' then
+        Caption := Caption + ' (Новый)'
+      else
+        Caption := Caption + ' - ' + edtName.Text +
+      '. Дата заведения: ' + s_date;
+      lblName.Caption := 'Наименование';
+      lblAddr.Caption := 'Адрес';
+      lblStat.Caption := 'Статус';
+      lblComment.Caption := 'Комментарий';
+    end;
+    1 :
+    begin
+      Caption := 'Сlient';
+      if edtName.Text = '' then
+        Caption := Caption + ' (New)'
+      else
+        Caption := Caption + ' - ' + edtName.Text +
+      '. Institution date: ' + s_date;
+      lblName.Caption := 'Name';
+      lblAddr.Caption := 'Address';
+      lblStat.Caption := 'Status';
+      lblComment.Caption := 'Comment';
+    end;
+    2 :
+    begin
+      Caption := 'El cliente';
+      if edtName.Text = '' then
+        Caption := Caption + ' (Nuevo)'
+      else
+        Caption := Caption + ' - ' + edtName.Text +
+      '. La fecha del establecimiento: ' + s_date;
+      lblName.Caption := 'El nombre';
+      lblAddr.Caption := 'La dirección';
+      lblStat.Caption := 'El estatus';
+      lblComment.Caption := 'El comentario';
+    end;
   end;
 end;
-
-procedure TFNewClient.ShowContact(id_locate: Integer = 0);
+procedure TFNewClient.ShowContact(id_locate : Integer = 0);
 begin
   with QueryContact do
   begin
     Close;
     sql.Text := 'select * from "контрагенты"."контакты" where код_клиента=' +
-      IntToStr(idClient);
+  IntToStr(idClient);
     Open;
     Locate('id', id_locate, []);
   end;
 end;
-
-procedure TFNewClient.ShowManager(s_id_manager: Integer = 0);
+procedure TFNewClient.ShowManager(s_id_manager : Integer = 0);
 begin
   with QueryManager do
   begin
@@ -1015,8 +979,7 @@ begin
       edtManager.EditValue := s_id_manager;
   end;
 end;
-
-procedure TFNewClient.ShowStat(s_id_stat: Integer = 0);
+procedure TFNewClient.ShowStat(s_id_stat : Integer = 0);
 begin
   with QueryStat do
   begin
@@ -1029,7 +992,6 @@ begin
       edtStat.EditValue := s_id_stat;
   end;
 end;
-
 procedure TFNewClient.ShowSubClient;
 begin
   if idSubClient <> '' then
@@ -1038,7 +1000,7 @@ begin
     begin
       Close;
       sql.Text := 'select name from "контрагенты"."клиенты" where id=' +
-        idSubClient;
+    idSubClient;
       Open;
       btnSubClient.Text := Fields[0].AsString;
       chkSubClient.Checked := true;
@@ -1051,5 +1013,4 @@ begin
     btnSubClient.Enabled := false;
   end;
 end;
-
 end.

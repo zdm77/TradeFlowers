@@ -1,7 +1,5 @@
 unit UNewInBank;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -19,7 +17,7 @@ uses
   cxContainer,
   cxEdit,
   dxSkinsCore,
-
+  
   cxMemo,
   cxTextEdit,
   cxLabel,
@@ -29,72 +27,64 @@ uses
   MemDS,
   DBAccess,
   Uni,
-
+  
   dxSkinDevExpressStyle,
-
-   dxSkinsDefaultPainters;
-
+  
+  dxSkinsDefaultPainters;
 type
   TFNewInBank = class(TForm)
-    FrameSave1: TFrameSave;
-    cxGroupBox1: TcxGroupBox;
-    lblName: TcxLabel;
-    cxLabel1: TcxLabel;
-    edtSWIFT: TcxTextEdit;
-    mmoAddress: TcxMemo;
-    lblAddr: TcxLabel;
-    edtName: TcxTextEdit;
-    Query1: TUniQuery;
-    procedure edtNameKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure FormShow(Sender: TObject);
-    procedure edtNamePropertiesEditValueChanged(Sender: TObject);
-    procedure edtSWIFTKeyUp(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure edtSWIFTPropertiesEditValueChanged(Sender: TObject);
-    procedure FrameSave1btnSaveClick(Sender: TObject);
-    procedure mmoAddressKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure mmoAddressPropertiesEditValueChanged(Sender: TObject);
+    FrameSave1 : TFrameSave;
+    cxGroupBox1 : TcxGroupBox;
+    lblName : TcxLabel;
+    cxLabel1 : TcxLabel;
+    edtSWIFT : TcxTextEdit;
+    mmoAddress : TcxMemo;
+    lblAddr : TcxLabel;
+    edtName : TcxTextEdit;
+    Query1 : TUniQuery;
+    procedure edtNameKeyUp(Sender : TObject; var Key : Word; Shift : TShiftState);
+    procedure FormShow(Sender : TObject);
+    procedure edtNamePropertiesEditValueChanged(Sender : TObject);
+    procedure edtSWIFTKeyUp(Sender : TObject; var Key : Word; Shift : TShiftState);
+    procedure edtSWIFTPropertiesEditValueChanged(Sender : TObject);
+    procedure FrameSave1btnSaveClick(Sender : TObject);
+    procedure mmoAddressKeyUp(Sender : TObject; var Key : Word;
+                                 Shift : TShiftState);
+    procedure mmoAddressPropertiesEditValueChanged(Sender : TObject);
   private
     { Private declarations }
   public
-    s_id_bank: Integer;
+    s_id_bank : Integer;
     procedure EnableSave;
-    procedure InsUpdBank(id_ins: boolean);
+    procedure InsUpdBank(id_ins : boolean);
     { Public declarations }
   end;
 
 var
-  FNewInBank: TFNewInBank;
-
+  FNewInBank : TFNewInBank;
 implementation
-
 {$R *.dfm}
 
 uses
   PGSQL;
-
-procedure TFNewInBank.edtNameKeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewInBank.edtNameKeyUp(Sender : TObject; var Key : Word;
+                                      Shift : TShiftState);
 begin
   EnableSave;
 end;
-
-procedure TFNewInBank.edtNamePropertiesEditValueChanged(Sender: TObject);
+procedure TFNewInBank.edtNamePropertiesEditValueChanged(Sender : TObject);
 begin
   EnableSave;
 end;
-
-procedure TFNewInBank.edtSWIFTKeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewInBank.edtSWIFTKeyUp(Sender : TObject; var Key : Word;
+                                       Shift : TShiftState);
 begin
   EnableSave;
 end;
-
-procedure TFNewInBank.edtSWIFTPropertiesEditValueChanged(Sender: TObject);
+procedure TFNewInBank.edtSWIFTPropertiesEditValueChanged(Sender : TObject);
 begin
   EnableSave;
 end;
-
 procedure TFNewInBank.EnableSave;
 begin
   if (edtName.Text <> '') and (edtSWIFT.Text <> '') and (mmoAddress.Text <> '')
@@ -103,13 +93,11 @@ begin
   else
     FrameSave1.btnSave.Enabled := false;
 end;
-
-procedure TFNewInBank.FormShow(Sender: TObject);
+procedure TFNewInBank.FormShow(Sender : TObject);
 begin
   EnableSave;
 end;
-
-procedure TFNewInBank.FrameSave1btnSaveClick(Sender: TObject);
+procedure TFNewInBank.FrameSave1btnSaveClick(Sender : TObject);
 begin
   FrameSave1.btnSaveClick(Sender);
   if s_id_bank = 0 then
@@ -118,8 +106,7 @@ begin
     InsUpdBank(false);
   Close;
 end;
-
-procedure TFNewInBank.InsUpdBank(id_ins: boolean);
+procedure TFNewInBank.InsUpdBank(id_ins : boolean);
 begin
   with Query1 do
   begin
@@ -128,12 +115,12 @@ begin
     begin
       s_id_bank := PGSQL.NewID('банки_зарубеж_id_seq');
       sql.Text := 'INSERT INTO "банки_зарубеж"(id, name, swift, "адрес") ' +
-        'VALUES (:id, :name, :swift, :адрес)';
+    'VALUES (:id, :name, :swift, :адрес)';
     end
     else
       sql.Text :=
-        'UPDATE "public"."банки_зарубеж" SET name = :name, swift = :swift,' +
-        '"адрес" = :адрес WHERE id = :id';
+                 'UPDATE "public"."банки_зарубеж" SET name = :name, swift = :swift,' +
+                 '"адрес" = :адрес WHERE id = :id';
     ParamByName('id').AsInteger := s_id_bank;
     ParamByName('name').AsString := edtName.Text;
     ParamByName('swift').AsString := edtSWIFT.Text;
@@ -141,16 +128,13 @@ begin
     ExecSQL;
   end;
 end;
-
-procedure TFNewInBank.mmoAddressKeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewInBank.mmoAddressKeyUp(Sender : TObject; var Key : Word;
+                                         Shift : TShiftState);
 begin
   EnableSave;
 end;
-
-procedure TFNewInBank.mmoAddressPropertiesEditValueChanged(Sender: TObject);
+procedure TFNewInBank.mmoAddressPropertiesEditValueChanged(Sender : TObject);
 begin
   EnableSave;
 end;
-
 end.

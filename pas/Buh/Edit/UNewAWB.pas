@@ -1,7 +1,5 @@
 ﻿unit UNewAWB;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -58,104 +56,94 @@ uses
   cxLookupEdit,
   cxDBLookupEdit,
   cxDBLookupComboBox,
-  UFrameSave,    
-     
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
-
+  UFrameSave,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
 type
   TFNewAWB = class(TForm)
-    Group1: TcxGroupBox;
-    lblKargo: TLabel;
-    lblNum: TLabel;
-    FrameTopPanel1: TFrameTopPanel;
-    QueryNewAWB: TUniQuery;
-    dsNewAWB: TDataSource;
-    QueryNewAWB1: TUniQuery;
-    GridAWB: TcxGrid;
-    ViewAWB: TcxGridDBTableView;
-    LevelOrg: TcxGridLevel;
-    ColumnВес: TcxGridDBColumn;
-    ColumnСтоимость: TcxGridDBColumn;
-    ColumnМаркировка: TcxGridDBColumn;
-    lblDate: TLabel;
-    ColumnFB: TcxGridDBColumn;
-    ColumnBox: TcxGridDBColumn;
-    ColumnПрикулинг: TcxGridDBColumn;
-    ColumnТранспорт: TcxGridDBColumn;
-    edtDate: TDateTimePicker;
-    edtOrg: TcxLookupComboBox;
-    lblOrg: TLabel;
-    QueryOrg: TUniQuery;
-    dsOrg: TDataSource;
-    edtNum: TMaskEdit;
-    lblАвиалиния: TLabel;
-    edtАвиалиния: TcxLookupComboBox;
-    QueryАвиалиния: TUniQuery;
-    dsАвиалиния: TDataSource;
-    lblТрак: TLabel;
-    QueryTrack: TUniQuery;
-    dsTrack: TDataSource;
-    edtTrack: TcxLookupComboBox;
-    lbl1: TLabel;
-    edtKargo: TcxLookupComboBox;
-    QueryKargo: TUniQuery;
-    dsKargo: TDataSource;
-    Label1: TLabel;
-    edtPrikul: TcxLookupComboBox;
-    QueryPrikul: TUniQuery;
-    dsPrikul: TDataSource;
-    procedure edtDateChange(Sender: TObject);
-    procedure edtNumChange(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure FormShow(Sender: TObject);
-    procedure edtKargoPropertiesButtonClick(Sender: TObject;
-      AButtonIndex: Integer);
-    procedure btnAddClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure ViewAWBDblClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
-    procedure btnExportClick(Sender: TObject);
-    procedure btnSaveClick(Sender: TObject);
-    procedure edtАвиалинияPropertiesCloseUp(Sender: TObject);
-    procedure edtTrackPropertiesCloseUp(Sender: TObject);
-    procedure edtKargoPropertiesCloseUp(Sender: TObject);
-    procedure edtPrikulPropertiesCloseUp(Sender: TObject);
-    procedure edtKargoPropertiesEditValueChanged(Sender: TObject);
+    Group1 : TcxGroupBox;
+    lblKargo : TLabel;
+    lblNum : TLabel;
+    FrameTopPanel1 : TFrameTopPanel;
+    QueryNewAWB : TUniQuery;
+    dsNewAWB : TDataSource;
+    QueryNewAWB1 : TUniQuery;
+    GridAWB : TcxGrid;
+    ViewAWB : TcxGridDBTableView;
+    LevelOrg : TcxGridLevel;
+    ColumnВес : TcxGridDBColumn;
+    ColumnСтоимость : TcxGridDBColumn;
+    ColumnМаркировка : TcxGridDBColumn;
+    lblDate : TLabel;
+    ColumnFB : TcxGridDBColumn;
+    ColumnBox : TcxGridDBColumn;
+    ColumnПрикулинг : TcxGridDBColumn;
+    ColumnТранспорт : TcxGridDBColumn;
+    edtDate : TDateTimePicker;
+    edtOrg : TcxLookupComboBox;
+    lblOrg : TLabel;
+    QueryOrg : TUniQuery;
+    dsOrg : TDataSource;
+    edtNum : TMaskEdit;
+    lblАвиалиния : TLabel;
+    edtАвиалиния : TcxLookupComboBox;
+    QueryАвиалиния : TUniQuery;
+    dsАвиалиния : TDataSource;
+    lblТрак : TLabel;
+    QueryTrack : TUniQuery;
+    dsTrack : TDataSource;
+    edtTrack : TcxLookupComboBox;
+    lbl1 : TLabel;
+    edtKargo : TcxLookupComboBox;
+    QueryKargo : TUniQuery;
+    dsKargo : TDataSource;
+    Label1 : TLabel;
+    edtPrikul : TcxLookupComboBox;
+    QueryPrikul : TUniQuery;
+    dsPrikul : TDataSource;
+    procedure edtDateChange(Sender : TObject);
+    procedure edtNumChange(Sender : TObject);
+    procedure FormClose(Sender : TObject; var Action : TCloseAction);
+    procedure FormShow(Sender : TObject);
+    procedure edtKargoPropertiesButtonClick(Sender : TObject;
+                                               AButtonIndex : Integer);
+    procedure btnAddClick(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure ViewAWBDblClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
+    procedure btnExportClick(Sender : TObject);
+    procedure btnSaveClick(Sender : TObject);
+    procedure edtАвиалинияPropertiesCloseUp(Sender : TObject);
+    procedure edtTrackPropertiesCloseUp(Sender : TObject);
+    procedure edtKargoPropertiesCloseUp(Sender : TObject);
+    procedure edtPrikulPropertiesCloseUp(Sender : TObject);
+    procedure edtKargoPropertiesEditValueChanged(Sender : TObject);
   private
   public
-    s_id_awb: Integer;
-    s_id_kargo: Integer;
-    s_id_prikul: Integer;
-    Вес: Double;
-    IDSave: Boolean;
-    DetectChange: Boolean;
+    s_id_awb : Integer;
+    s_id_kargo : Integer;
+    s_id_prikul : Integer;
+    Вес : Double;
+    IDSave : Boolean;
+    DetectChange : Boolean;
     procedure EnableAdd;
-    procedure InsUpdAWB(id_ins: Boolean);
+    procedure InsUpdAWB(id_ins : Boolean);
     procedure SetLang;
-    procedure ShowAirLines(id_locate: Integer = 0);
-    procedure ShowNewAWB(id_locate: Integer = 0);
-    procedure ShowOrg(id_locate: Integer = 0);
-    procedure ShowTrack(id_locate: Integer = 0);
-    procedure ShowKargo(id_locate: Integer = 0);
-    procedure ShowPrikul(id_locate: Integer = 0);
+    procedure ShowAirLines(id_locate : Integer = 0);
+    procedure ShowNewAWB(id_locate : Integer = 0);
+    procedure ShowOrg(id_locate : Integer = 0);
+    procedure ShowTrack(id_locate : Integer = 0);
+    procedure ShowKargo(id_locate : Integer = 0);
+    procedure ShowPrikul(id_locate : Integer = 0);
     procedure UpdPrikul;
     { Public declarations }
   end;
 
 var
-  FNewAWB: TFNewAWB;
-
+  FNewAWB : TFNewAWB;
 implementation
-
 {$R *.dfm}
 
 uses
@@ -166,8 +154,7 @@ uses
   USubAWB,
   UOsn,
   UDataModule1;
-
-procedure TFNewAWB.btnAddClick(Sender: TObject);
+procedure TFNewAWB.btnAddClick(Sender : TObject);
 begin
   if s_id_awb <> 0 then
   begin
@@ -192,17 +179,15 @@ begin
     end;
   end;
 end;
-
-procedure TFNewAWB.btnDelClick(Sender: TObject);
+procedure TFNewAWB.btnDelClick(Sender : TObject);
 begin
   PGSQL.StandartDelete(QueryNewAWB.FieldByName('id').AsString, '"бух".sub_awb',
-    QueryNewAWB, '', '', '', '');
+                        QueryNewAWB, '', '', '', '');
   EnableAdd;
   if edtPrikul.Enabled = true then
     UpdPrikul;
 end;
-
-procedure TFNewAWB.btnEditClick(Sender: TObject);
+procedure TFNewAWB.btnEditClick(Sender : TObject);
 begin
   if QueryNewAWB.Fields[0].AsString <> '' then
   begin
@@ -233,16 +218,14 @@ begin
     end;
   end;
 end;
-
-procedure TFNewAWB.btnExportClick(Sender: TObject);
+procedure TFNewAWB.btnExportClick(Sender : TObject);
 begin
   ExportGridToExcel(FPasswd.GetVar('TEMP') + '\AWB', GridAWB, true, true,
-    true, 'xls');
+                     true, 'xls');
   ShellExecute(Handle, nil, PChar(FPasswd.GetVar('TEMP') + '\AWB.xls'), nil,
-    nil, SW_RESTORE);
+                nil, SW_RESTORE);
 end;
-
-procedure TFNewAWB.btnSaveClick(Sender: TObject);
+procedure TFNewAWB.btnSaveClick(Sender : TObject);
 begin
   IDSave := true;
   if s_id_awb = 0 then
@@ -252,16 +235,14 @@ begin
   EnableAdd;
   DetectChange := false;
 end;
-
-procedure TFNewAWB.edtDateChange(Sender: TObject);
+procedure TFNewAWB.edtDateChange(Sender : TObject);
 begin
   Caption := 'AWB №: ' + edtNum.Text;
   EnableAdd;
   DetectChange := true;
 end;
-
-procedure TFNewAWB.edtKargoPropertiesButtonClick(Sender: TObject;
-  AButtonIndex: Integer);
+procedure TFNewAWB.edtKargoPropertiesButtonClick(Sender : TObject;
+                                                    AButtonIndex : Integer);
 begin
   Application.CreateForm(TFSelect, FSelect);
   with FSelect do
@@ -276,41 +257,33 @@ begin
       // else
       // InsUpdAWB(false);
       case FPasswd.Lang of
-        0:
-          edtKargo.Text := QuerySelect.FieldByName('name').AsString;
-        1:
-          edtKargo.Text := QuerySelect.FieldByName('uni_name').AsString;
-        2:
-          edtKargo.Text := QuerySelect.FieldByName('reg_name').AsString;
+        0 : edtKargo.Text := QuerySelect.FieldByName('name').AsString;
+        1 : edtKargo.Text := QuerySelect.FieldByName('uni_name').AsString;
+        2 : edtKargo.Text := QuerySelect.FieldByName('reg_name').AsString;
       end;
     end;
   end;
   EnableAdd;
 end;
-
-procedure TFNewAWB.edtKargoPropertiesCloseUp(Sender: TObject);
+procedure TFNewAWB.edtKargoPropertiesCloseUp(Sender : TObject);
 begin
   DetectChange := true;
 end;
-
-procedure TFNewAWB.edtKargoPropertiesEditValueChanged(Sender: TObject);
+procedure TFNewAWB.edtKargoPropertiesEditValueChanged(Sender : TObject);
 begin
   s_id_kargo := edtKargo.EditValue;
 end;
-
-procedure TFNewAWB.edtNumChange(Sender: TObject);
+procedure TFNewAWB.edtNumChange(Sender : TObject);
 begin
   Caption := 'AWB №: ' + edtNum.Text;
   EnableAdd;
   DetectChange := true;
 end;
-
-procedure TFNewAWB.edtPrikulPropertiesCloseUp(Sender: TObject);
+procedure TFNewAWB.edtPrikulPropertiesCloseUp(Sender : TObject);
 begin
   DetectChange := true;
 end;
-
-procedure TFNewAWB.edtTrackPropertiesCloseUp(Sender: TObject);
+procedure TFNewAWB.edtTrackPropertiesCloseUp(Sender : TObject);
 begin
   DetectChange := true;
   edtPrikul.Enabled := QueryTrack.FieldByName('учет_прикулинг').AsBoolean;
@@ -339,21 +312,19 @@ begin
   // end;
   // end;
 end;
-
-procedure TFNewAWB.edtАвиалинияPropertiesCloseUp(Sender: TObject);
+procedure TFNewAWB.edtАвиалинияPropertiesCloseUp(Sender : TObject);
 begin
   EnableAdd;
   DetectChange := true;
 end;
-
 procedure TFNewAWB.EnableAdd;
 begin
   try
     with FrameTopPanel1 do
     begin
       if (edtNum.Text <> '') and (edtDate.Checked = true) and
-        (edtKargo.Text <> '') and (edtАвиалиния.Text <> '') and
-        (edtTrack.Text <> '') then
+      (edtKargo.Text <> '') and (edtАвиалиния.Text <> '') and
+      (edtTrack.Text <> '') then
       begin
         btnAdd.Enabled := true;
         btnSave.Enabled := true;
@@ -384,8 +355,7 @@ begin
   except
   end;
 end;
-
-procedure TFNewAWB.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFNewAWB.FormClose(Sender : TObject; var Action : TCloseAction);
 begin
   if IDSave = true then
   begin
@@ -397,8 +367,7 @@ begin
   Action := caFree;
   FNewAWB := nil;
 end;
-
-procedure TFNewAWB.FormShow(Sender: TObject);
+procedure TFNewAWB.FormShow(Sender : TObject);
 begin
   SetLang;
   FrameTopPanel1.SetLang;
@@ -422,8 +391,7 @@ begin
     edtOrg.Visible := true;
   end;
 end;
-
-procedure TFNewAWB.InsUpdAWB(id_ins: Boolean);
+procedure TFNewAWB.InsUpdAWB(id_ins : Boolean);
 begin
   if DetectChange = true then
   begin
@@ -489,10 +457,10 @@ begin
       end;
       ExecSQL;
       if (edtPrikul.Enabled = true) and (s_id_prikul <> edtPrikul.EditValue) and
-        (s_id_prikul <> 0) then
+      (s_id_prikul <> 0) then
       begin
         if Application.MessageBox('Изменен прикулинг, пересчитать стоимость?',
-          'Вопрос', MB_YESNO + MB_ICONWARNING) = mrYes then
+                                   'Вопрос', MB_YESNO + MB_ICONWARNING) = mrYes then
         begin
           UpdPrikul;
           s_id_prikul := edtPrikul.EditValue;
@@ -513,46 +481,44 @@ begin
   end
   // else ShowMessage('небыло изменений');
 end;
-
 procedure TFNewAWB.SetLang;
 begin
   case FPasswd.Lang of
-    1:
-      begin
-        // // Caption := 'Directories';
-        // ItemТовары.Caption := 'Nomenclature';
-        // ItemКлиент.Caption := 'Clients';
-        // ItemСтраны.Caption := 'Country';
-        // ItemТипы.Caption := 'Types';
-        // ItemСвойства.Caption := 'Properties';
-        // ItemПлантации.Caption := 'Plantation';
-        // ItemСорта.Caption := 'Grades';
-        // ItemОрганизация.Caption := 'Organization';
-        // ItemПользователи.Caption := 'Users';
-        // ItemРоль.Caption := 'The role';
-        // GroupОснова.Caption := 'Main';
-        // GroupСтруктура.Caption := 'Structure';
-        // GroupОрг.Caption := 'Organization';
-        // GroupАдмин.Caption := 'Administration';
-        // ItemКарго.Caption := 'Cargo';
-        // ItemАвиалинии.Caption := 'Airlines';
-      end;
-    2:
-      begin
-        // Caption := 'Guías';
-        ColumnМаркировка.Caption := 'La marca';
-        ColumnFB.Caption := 'La cantidad FB';
-        ColumnBox.Caption := 'La cantidad de las cajas';
-        ColumnВес.Caption := 'El peso';
-        lblDate.Caption := 'Fecha AWB:';
-        lblKargo.Caption := 'El cargo:';
-        lblАвиалиния.Caption := 'Aerolineas:';
-        edtАвиалиния.Properties.ListFieldNames := 'reg_name';
-      end;
+    1 :
+    begin
+      // // Caption := 'Directories';
+      // ItemТовары.Caption := 'Nomenclature';
+      // ItemКлиент.Caption := 'Clients';
+      // ItemСтраны.Caption := 'Country';
+      // ItemТипы.Caption := 'Types';
+      // ItemСвойства.Caption := 'Properties';
+      // ItemПлантации.Caption := 'Plantation';
+      // ItemСорта.Caption := 'Grades';
+      // ItemОрганизация.Caption := 'Organization';
+      // ItemПользователи.Caption := 'Users';
+      // ItemРоль.Caption := 'The role';
+      // GroupОснова.Caption := 'Main';
+      // GroupСтруктура.Caption := 'Structure';
+      // GroupОрг.Caption := 'Organization';
+      // GroupАдмин.Caption := 'Administration';
+      // ItemКарго.Caption := 'Cargo';
+      // ItemАвиалинии.Caption := 'Airlines';
+    end;
+    2 :
+    begin
+      // Caption := 'Guías';
+      ColumnМаркировка.Caption := 'La marca';
+      ColumnFB.Caption := 'La cantidad FB';
+      ColumnBox.Caption := 'La cantidad de las cajas';
+      ColumnВес.Caption := 'El peso';
+      lblDate.Caption := 'Fecha AWB:';
+      lblKargo.Caption := 'El cargo:';
+      lblАвиалиния.Caption := 'Aerolineas:';
+      edtАвиалиния.Properties.ListFieldNames := 'reg_name';
+    end;
   end;
 end;
-
-procedure TFNewAWB.ShowAirLines(id_locate: Integer = 0);
+procedure TFNewAWB.ShowAirLines(id_locate : Integer = 0);
 begin
   with QueryАвиалиния do
   begin
@@ -562,8 +528,7 @@ begin
     edtАвиалиния.EditValue := id_locate;
   end;
 end;
-
-procedure TFNewAWB.ShowNewAWB(id_locate: Integer = 0);
+procedure TFNewAWB.ShowNewAWB(id_locate : Integer = 0);
 begin
 {$REGION 'MyRegion'}
   with QueryNewAWB do
@@ -589,8 +554,7 @@ begin
   end;
 {$ENDREGION};
 end;
-
-procedure TFNewAWB.ShowOrg(id_locate: Integer = 0);
+procedure TFNewAWB.ShowOrg(id_locate : Integer = 0);
 begin
   with QueryOrg do
   begin
@@ -601,8 +565,7 @@ begin
     edtOrg.EditValue := id_locate
   end;
 end;
-
-procedure TFNewAWB.ShowTrack(id_locate: Integer = 0);
+procedure TFNewAWB.ShowTrack(id_locate : Integer = 0);
 begin
   with QueryTrack do
   begin
@@ -611,12 +574,11 @@ begin
     Open;
     if id_locate <> 0 then
       edtTrack.EditValue := id_locate
-      // else
-      // edtTrack.EditValue := Fields[ 0 ].AsInteger;
+    // else
+    // edtTrack.EditValue := Fields[ 0 ].AsInteger;
   end;
 end;
-
-procedure TFNewAWB.ShowKargo(id_locate: Integer = 0);
+procedure TFNewAWB.ShowKargo(id_locate : Integer = 0);
 begin
   with QueryKargo do
   begin
@@ -629,8 +591,7 @@ begin
       edtKargo.EditValue := Fields[0].AsInteger;
   end;
 end;
-
-procedure TFNewAWB.ShowPrikul(id_locate: Integer = 0);
+procedure TFNewAWB.ShowPrikul(id_locate : Integer = 0);
 begin
   with QueryPrikul do
   begin
@@ -643,29 +604,28 @@ begin
       edtPrikul.EditValue := Fields[0].AsInteger;
   end;
 end;
-
 procedure TFNewAWB.UpdPrikul;
 var
-  prikul: Double;
+  prikul : Double;
 begin
   with QueryNewAWB1 do
   begin
     Close;
     SQL.Text := 'select sum(вес) from "бух".sub_awb where "код_AWB"=' +
-      IntToStr(s_id_awb);
+  IntToStr(s_id_awb);
     Open;
     Вес := Fields[0].AsFloat;
     if Вес <> 0 then
     begin
       Close;
       SQL.Text :=
-        'select стоимость, оформление from  "прикулинг"."агенства" where id= ' +
-        IntToStr(edtPrikul.EditValue);
+                 'select стоимость, оформление from  "прикулинг"."агенства" where id= ' +
+                 IntToStr(edtPrikul.EditValue);
       Open;
       prikul := Fields[0].Value * Вес + Fields[1].Value;
       Close;
       SQL.Text := 'update "бух".awb set прикулинг=:p ' + ' where id = ' +
-        IntToStr(s_id_awb);
+    IntToStr(s_id_awb);
       ParamByName('p').Value := prikul;
       ExecSQL;
       // ShowMessage( FloatToStr( prikul ) );
@@ -674,7 +634,7 @@ begin
     begin
       Close;
       SQL.Text := 'update "бух".awb set прикулинг=0 where id = ' +
-        IntToStr(s_id_awb);
+    IntToStr(s_id_awb);
       ExecSQL;
     end;
   end;
@@ -682,10 +642,8 @@ begin
   // else
   // ShowMessage( 'пустой вес' );
 end;
-
-procedure TFNewAWB.ViewAWBDblClick(Sender: TObject);
+procedure TFNewAWB.ViewAWBDblClick(Sender : TObject);
 begin
   btnEditClick(Sender);
 end;
-
 end.

@@ -1,7 +1,5 @@
 unit UFrameGroupOrderDetail;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -38,56 +36,45 @@ uses
   DBAccess,
   Uni,
   UFrameTopPanel,
-  cxNavigator,    
-     
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue;
-
+  cxNavigator,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue;
 type
   TFrameGroupOrderDetail = class(TFrame)
-    FrameTopPanel1: TFrameTopPanel;
-    QueryGroupOrder: TUniQuery;
-    dsGroupOrder: TDataSource;
-    GridOrder: TcxGrid;
-    ViewOrder: TcxGridDBTableView;
-    GridLevelOrder: TcxGridLevel;
-    ViewOrder_5: TcxGridDBColumn;
-    ViewOrderu_name: TcxGridDBColumn;
-    ViewOrderlogin: TcxGridDBColumn;
-    ViewOrderDBColumn: TcxGridDBColumn;
-    ViewOrderm_name: TcxGridDBColumn;
-    ViewOrdersss: TcxGridDBColumn;
-    ViewOrderDBColumn1: TcxGridDBColumn;
-    ViewOrderDBColumn2: TcxGridDBColumn;
-    ViewOrderpt_name: TcxGridDBColumn;
-    ViewOrderst_name: TcxGridDBColumn;
-    ViewOrderp2_name: TcxGridDBColumn;
-    ViewOrders2_name: TcxGridDBColumn;
-    ColumnViewOrderColumn1: TcxGridDBColumn;
-    procedure btnEditClick(Sender: TObject);
-    procedure ViewOrderDblClick(Sender: TObject);
+    FrameTopPanel1 : TFrameTopPanel;
+    QueryGroupOrder : TUniQuery;
+    dsGroupOrder : TDataSource;
+    GridOrder : TcxGrid;
+    ViewOrder : TcxGridDBTableView;
+    GridLevelOrder : TcxGridLevel;
+    ViewOrder_5 : TcxGridDBColumn;
+    ViewOrderu_name : TcxGridDBColumn;
+    ViewOrderlogin : TcxGridDBColumn;
+    ViewOrderDBColumn : TcxGridDBColumn;
+    ViewOrderm_name : TcxGridDBColumn;
+    ViewOrdersss : TcxGridDBColumn;
+    ViewOrderDBColumn1 : TcxGridDBColumn;
+    ViewOrderDBColumn2 : TcxGridDBColumn;
+    ViewOrderpt_name : TcxGridDBColumn;
+    ViewOrderst_name : TcxGridDBColumn;
+    ViewOrderp2_name : TcxGridDBColumn;
+    ViewOrders2_name : TcxGridDBColumn;
+    ColumnViewOrderColumn1 : TcxGridDBColumn;
+    procedure btnEditClick(Sender : TObject);
+    procedure ViewOrderDblClick(Sender : TObject);
   private
     { Private declarations }
   public
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
 uses
   UNewZakupka;
-
-procedure TFrameGroupOrderDetail.btnEditClick(Sender: TObject);
+procedure TFrameGroupOrderDetail.btnEditClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewZakupka, FNewZakupka);
   with FNewZakupka do
@@ -95,10 +82,8 @@ begin
     ShowModal;
   end;
 end;
-
-procedure TFrameGroupOrderDetail.ViewOrderDblClick(Sender: TObject);
+procedure TFrameGroupOrderDetail.ViewOrderDblClick(Sender : TObject);
 begin
   btnEditClick(Sender);
 end;
-
 end.

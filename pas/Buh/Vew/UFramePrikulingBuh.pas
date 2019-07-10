@@ -1,7 +1,5 @@
 unit UFramePrikulingBuh;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -40,64 +38,52 @@ uses
   cxClasses,
   cxGridCustomView,
   cxGrid,
-  UFrameTopPanel,    
-     
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
-
+  UFrameTopPanel,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
 type
   TFramePrikulingBuh = class(TFrame)
-    FrameTopPanel1: TFrameTopPanel;
-    GridAWB: TcxGrid;
-    ViewAWB: TcxGridDBTableView;
-    ColumnДата: TcxGridDBColumn;
-    ColumnMnemo: TcxGridDBColumn;
-    ColumnMnemoNUM: TcxGridDBColumn;
-    ColumnAWBNum: TcxGridDBColumn;
-    ColumnKargo: TcxGridDBColumn;
-    ColumnАвиалиния: TcxGridDBColumn;
-    ColumnFB: TcxGridDBColumn;
-    ColumnBOX: TcxGridDBColumn;
-    ColumnВес: TcxGridDBColumn;
-    ColumnСтоимость: TcxGridDBColumn;
-    ColumnOrg: TcxGridDBColumn;
-    ColumnID: TcxGridDBColumn;
-    LevelOrg: TcxGridLevel;
-    QueryPrik: TUniQuery;
-    dsPrik: TDataSource;
-    ColumnПрикулинг: TcxGridDBColumn;
-    procedure FrameTopPanel1btnArchPropertiesEditValueChanged(Sender: TObject);
-    procedure btnRefreshClick(Sender: TObject);
+    FrameTopPanel1 : TFrameTopPanel;
+    GridAWB : TcxGrid;
+    ViewAWB : TcxGridDBTableView;
+    ColumnДата : TcxGridDBColumn;
+    ColumnMnemo : TcxGridDBColumn;
+    ColumnMnemoNUM : TcxGridDBColumn;
+    ColumnAWBNum : TcxGridDBColumn;
+    ColumnKargo : TcxGridDBColumn;
+    ColumnАвиалиния : TcxGridDBColumn;
+    ColumnFB : TcxGridDBColumn;
+    ColumnBOX : TcxGridDBColumn;
+    ColumnВес : TcxGridDBColumn;
+    ColumnСтоимость : TcxGridDBColumn;
+    ColumnOrg : TcxGridDBColumn;
+    ColumnID : TcxGridDBColumn;
+    LevelOrg : TcxGridLevel;
+    QueryPrik : TUniQuery;
+    dsPrik : TDataSource;
+    ColumnПрикулинг : TcxGridDBColumn;
+    procedure FrameTopPanel1btnArchPropertiesEditValueChanged(Sender : TObject);
+    procedure btnRefreshClick(Sender : TObject);
   private
     { Private declarations }
   public
     procedure ShowPrikul;
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
-procedure TFramePrikulingBuh.btnRefreshClick(Sender: TObject);
+procedure TFramePrikulingBuh.btnRefreshClick(Sender : TObject);
 begin
   ShowPrikul;
 end;
-
 procedure TFramePrikulingBuh.FrameTopPanel1btnArchPropertiesEditValueChanged
-  (Sender: TObject);
+  (Sender : TObject);
 begin
   ShowPrikul;
 end;
-
 procedure TFramePrikulingBuh.ShowPrikul;
 begin
   with QueryPrik do
@@ -141,5 +127,4 @@ begin
     Open;
   end;
 end;
-
 end.

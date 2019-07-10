@@ -1,7 +1,5 @@
 unit UNewContract;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -12,7 +10,6 @@ uses
   Vcl.Controls,
   Vcl.Forms,
   Vcl.Dialogs;
-
 type
   TFNewContract = class(TForm)
   private
@@ -22,10 +19,7 @@ type
   end;
 
 var
-  FNewContract: TFNewContract;
-
+  FNewContract : TFNewContract;
 implementation
-
 {$R *.dfm}
-
 end.

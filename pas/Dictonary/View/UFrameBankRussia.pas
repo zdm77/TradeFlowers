@@ -1,7 +1,5 @@
 unit UFrameBankRussia;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -18,7 +16,7 @@ uses
   cxLookAndFeelPainters,
   cxStyles,
   dxSkinsCore,
-
+  
   dxSkinscxPCPainter,
   cxCustomData,
   cxFilter,
@@ -39,38 +37,35 @@ uses
   cxGridCustomView,
   cxGrid,
   cxNavigator,
-
+  
   dxSkinDevExpressStyle,
-
-   dxSkinsDefaultPainters;
-
+  
+  dxSkinsDefaultPainters;
 type
   TFrameBank = class(TFrame)
-    GridStatWork: TcxGrid;
-    ViewStatWork: TcxGridDBTableView;
-    ViewStatWorkname: TcxGridDBColumn;
-    ViewStatWorkbik: TcxGridDBColumn;
-    ViewStatWorkcity: TcxGridDBColumn;
-    ViewStatWorkphone: TcxGridDBColumn;
-    ViewStatWorkrkc: TcxGridDBColumn;
-    ViewStatWorkokpo: TcxGridDBColumn;
-    LevelStatWork: TcxGridLevel;
-    QueryBanks: TUniQuery;
-    dsBanks: TDataSource;
-    Query1: TUniQuery;
-    FrameTopPanel1: TFrameTopPanel;
+    GridStatWork : TcxGrid;
+    ViewStatWork : TcxGridDBTableView;
+    ViewStatWorkname : TcxGridDBColumn;
+    ViewStatWorkbik : TcxGridDBColumn;
+    ViewStatWorkcity : TcxGridDBColumn;
+    ViewStatWorkphone : TcxGridDBColumn;
+    ViewStatWorkrkc : TcxGridDBColumn;
+    ViewStatWorkokpo : TcxGridDBColumn;
+    LevelStatWork : TcxGridLevel;
+    QueryBanks : TUniQuery;
+    dsBanks : TDataSource;
+    Query1 : TUniQuery;
+    FrameTopPanel1 : TFrameTopPanel;
   private
     { Private declarations }
   public
-    procedure ShowBank(id_locate: integer = 0);
+    procedure ShowBank(id_locate : integer = 0);
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
-procedure TFrameBank.ShowBank(id_locate: integer = 0);
+procedure TFrameBank.ShowBank(id_locate : integer = 0);
 begin
   with QueryBanks do
   begin
@@ -80,5 +75,4 @@ begin
     Locate('bik', id_locate, []);
   end;
 end;
-
 end.

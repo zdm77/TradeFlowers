@@ -1,7 +1,5 @@
 unit UNewTTH;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -20,7 +18,7 @@ uses
   cxContainer,
   cxEdit,
   dxSkinsCore,
-
+  
   cxStyles,
   dxSkinscxPCPainter,
   cxCustomData,
@@ -43,47 +41,46 @@ uses
   MemDS,
   DBAccess,
   cxNavigator,
-
+  
   dxSkinDevExpressStyle,
-
-   dxSkinsDefaultPainters;
-
+  
+  dxSkinsDefaultPainters;
 type
   TFNewTTH = class(TForm)
-    FrameSave1: TFrameSave;
-    FrameUniName1: TFrameUniName;
-    cxGroupBox1: TcxGroupBox;
-    FrameTopPanel3: TFrameTopPanel;
-    GridType: TcxGrid;
-    ViewType: TcxGridDBTableView;
-    ColumnUniName: TcxGridDBColumn;
-    ColumnName: TcxGridDBColumn;
-    ColumnRegName: TcxGridDBColumn;
-    LevelOrg: TcxGridLevel;
-    QueryTTHAdd: TUniQuery;
-    dsTTHAdd: TDataSource;
-    procedure FrameSave1btnSaveClick(Sender: TObject);
-    procedure FrameUniName1edtNameKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure FrameUniName1edtRegNameKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure FrameUniName1edtUniNameKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure btnAddClick(Sender: TObject);
-    procedure FormShow(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure ViewTypeDblClick(Sender: TObject);
+    FrameSave1 : TFrameSave;
+    FrameUniName1 : TFrameUniName;
+    cxGroupBox1 : TcxGroupBox;
+    FrameTopPanel3 : TFrameTopPanel;
+    GridType : TcxGrid;
+    ViewType : TcxGridDBTableView;
+    ColumnUniName : TcxGridDBColumn;
+    ColumnName : TcxGridDBColumn;
+    ColumnRegName : TcxGridDBColumn;
+    LevelOrg : TcxGridLevel;
+    QueryTTHAdd : TUniQuery;
+    dsTTHAdd : TDataSource;
+    procedure FrameSave1btnSaveClick(Sender : TObject);
+    procedure FrameUniName1edtNameKeyUp(Sender : TObject; var Key : Word;
+                                           Shift : TShiftState);
+    procedure FrameUniName1edtRegNameKeyUp(Sender : TObject; var Key : Word;
+                                              Shift : TShiftState);
+    procedure FrameUniName1edtUniNameKeyUp(Sender : TObject; var Key : Word;
+                                              Shift : TShiftState);
+    procedure btnAddClick(Sender : TObject);
+    procedure FormShow(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure ViewTypeDblClick(Sender : TObject);
     procedure FrameUniName1edtUniNamePropertiesEditValueChanged
-      (Sender: TObject);
-    procedure FrameUniName1edtNamePropertiesEditValueChanged(Sender: TObject);
+        (Sender : TObject);
+    procedure FrameUniName1edtNamePropertiesEditValueChanged(Sender : TObject);
     procedure FrameUniName1edtRegNamePropertiesEditValueChanged
-      (Sender: TObject);
+        (Sender : TObject);
   private
     procedure InsertProp;
     { Private declarations }
   public
-    s_id_type: string;
-    s_id: Integer;
+    s_id_type : string;
+    s_id : Integer;
     procedure EnableSave;
     procedure SetLang;
     procedure ShowTTHDetail;
@@ -92,10 +89,8 @@ type
   end;
 
 var
-  FNewTTH: TFNewTTH;
-
+  FNewTTH : TFNewTTH;
 implementation
-
 {$R *.dfm}
 
 uses
@@ -104,15 +99,14 @@ uses
   UNewUniName,
   UPasswd,
   ULang;
-
-procedure TFNewTTH.btnAddClick(Sender: TObject);
+procedure TFNewTTH.btnAddClick(Sender : TObject);
 var
-  Query1: TUniQuery;
+  Query1 : TUniQuery;
 begin
   if s_id = 0 then
   begin
     if Application.MessageBox('Свойство еще не сохранено. Сохранить?', 'Вопрос',
-      MB_YESNO + MB_ICONQUESTION) = mrYes then
+                               MB_YESNO + MB_ICONQUESTION) = mrYes then
     begin
       InsertProp;
     end
@@ -135,8 +129,8 @@ begin
       begin
         Close;
         sql.Text :=
-          'insert into "продукция"."свойства_значения" (код_свойства, name, uni_name, reg_name)'
-          + ' values (:код_свойства, :name, :uni_name, :reg_name) ';
+                   'insert into "продукция"."свойства_значения" (код_свойства, name, uni_name, reg_name)'
+                   + ' values (:код_свойства, :name, :uni_name, :reg_name) ';
         ParamByName('код_свойства').AsInteger := s_id;
         // ParamByName('id').AsInteger := id;
         ParamByName('name').AsString := edtName.Text;
@@ -148,10 +142,9 @@ begin
     end;
   end;
 end;
-
-procedure TFNewTTH.btnEditClick(Sender: TObject);
+procedure TFNewTTH.btnEditClick(Sender : TObject);
 var
-  Query1: TUniQuery;
+  Query1 : TUniQuery;
 begin
   Application.CreateForm(TFNewUniName, FNewUniName);
   with FNewUniName.FrameUniName1 do
@@ -173,8 +166,8 @@ begin
       begin
         Close;
         sql.Text :=
-          'update  "продукция"."свойства_значения" set name=:name, uni_name=:uni_name,'
-          + '  reg_name=:reg_name where id=:id';
+                   'update  "продукция"."свойства_значения" set name=:name, uni_name=:uni_name,'
+                   + '  reg_name=:reg_name where id=:id';
         ParamByName('id').AsInteger := QueryTTHAdd.FieldByName('id').AsInteger;
         ParamByName('name').AsString := edtName.Text;
         ParamByName('uni_name').AsString := edtUniName.Text;
@@ -185,13 +178,12 @@ begin
     end;
   end;
 end;
-
 procedure TFNewTTH.EnableSave;
 begin
   with FrameUniName1 do
   begin
     if (edtName.Text <> '') and (edtUniName.Text <> '') and
-      (edtRegName.Text <> '') then
+    (edtRegName.Text <> '') then
     begin
       FrameTopPanel3.btnAdd.Enabled := true;
       FrameTopPanel3.btnDel.Enabled := true;
@@ -212,8 +204,7 @@ begin
       FrameTopPanel3.btnDel.Enabled := false;
   end;
 end;
-
-procedure TFNewTTH.FormShow(Sender: TObject);
+procedure TFNewTTH.FormShow(Sender : TObject);
 begin
   SetLang();
   FrameUniName1.SetLang;
@@ -221,8 +212,7 @@ begin
   FrameSave1.SetLang;
   ULang.TranslateGridCaption(ColumnUniName, ColumnRegName, ColumnName);
 end;
-
-procedure TFNewTTH.FrameSave1btnSaveClick(Sender: TObject);
+procedure TFNewTTH.FrameSave1btnSaveClick(Sender : TObject);
 begin
   if s_id = 0 then
     InsertProp
@@ -230,46 +220,39 @@ begin
     UpdateProp;
   Close;
 end;
-
-procedure TFNewTTH.FrameUniName1edtNameKeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewTTH.FrameUniName1edtNameKeyUp(Sender : TObject; var Key : Word;
+                                                Shift : TShiftState);
 begin
   EnableSave;
 end;
-
 procedure TFNewTTH.FrameUniName1edtNamePropertiesEditValueChanged
-  (Sender: TObject);
+  (Sender : TObject);
 begin
   EnableSave;
 end;
-
-procedure TFNewTTH.FrameUniName1edtRegNameKeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewTTH.FrameUniName1edtRegNameKeyUp(Sender : TObject; var Key : Word;
+                                                   Shift : TShiftState);
 begin
   EnableSave;
 end;
-
 procedure TFNewTTH.FrameUniName1edtRegNamePropertiesEditValueChanged
-  (Sender: TObject);
+  (Sender : TObject);
 begin
   EnableSave;
 end;
-
-procedure TFNewTTH.FrameUniName1edtUniNameKeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFNewTTH.FrameUniName1edtUniNameKeyUp(Sender : TObject; var Key : Word;
+                                                   Shift : TShiftState);
 begin
   EnableSave;
 end;
-
 procedure TFNewTTH.FrameUniName1edtUniNamePropertiesEditValueChanged
-  (Sender: TObject);
+  (Sender : TObject);
 begin
   EnableSave;
 end;
-
 procedure TFNewTTH.InsertProp;
 var
-  Query1: TUniQuery;
+  Query1 : TUniQuery;
 begin
   Query1 := TUniQuery.Create(nil);
   Query1.Connection := DM1.dbUpd;
@@ -279,8 +262,8 @@ begin
   begin
     Close;
     sql.Text :=
-      'insert into "продукция"."типы_свойства" (id, код_типа, name, uni_name, reg_name, use_name, uniq)'
-      + ' values (:id, :код_типа, :name, :uni_name, :reg_name, :use_name, :uniq) ';
+               'insert into "продукция"."типы_свойства" (id, код_типа, name, uni_name, reg_name, use_name, uniq)'
+               + ' values (:id, :код_типа, :name, :uni_name, :reg_name, :use_name, :uniq) ';
     ParamByName('код_типа').AsString := s_id_type;
     ParamByName('id').AsInteger := s_id;
     ParamByName('name').AsString := FrameUniName1.edtName.Text;
@@ -293,40 +276,37 @@ begin
   end;
   // TODO -cMM: TForm1.InsertProp default body inserted
 end;
-
 procedure TFNewTTH.SetLang;
 begin
   case FPasswd.Lang of
-    0:
-      begin
-        Caption := 'Свойство';
-      end;
-    1:
-      begin
-        Caption := 'Property';
-      end;
-    2:
-      begin
-        Caption := 'La propiedad';
-      end;
+    0 :
+    begin
+      Caption := 'Свойство';
+    end;
+    1 :
+    begin
+      Caption := 'Property';
+    end;
+    2 :
+    begin
+      Caption := 'La propiedad';
+    end;
   end;
 end;
-
 procedure TFNewTTH.ShowTTHDetail;
 begin
   with QueryTTHAdd do
   begin
     Close;
     sql.Text :=
-      'select * from "продукция"."свойства_значения" where код_свойства=' +
-      IntToStr(s_id) + ' order by id';
+               'select * from "продукция"."свойства_значения" where код_свойства=' +
+               IntToStr(s_id) + ' order by id';
     Open;
   end;
 end;
-
 procedure TFNewTTH.UpdateProp;
 var
-  Query1: TUniQuery;
+  Query1 : TUniQuery;
 begin
   Query1 := TUniQuery.Create(nil);
   Query1.Connection := DM1.dbUpd;
@@ -336,9 +316,9 @@ begin
     begin
       Close;
       sql.Text :=
-        'update  "продукция"."типы_свойства" set name=:name, uni_name=:uni_name, '
-        + 'reg_name=:reg_name, use_name=:use_name, uniq=:uniq' + ' where id=' +
-        IntToStr(s_id);
+                 'update  "продукция"."типы_свойства" set name=:name, uni_name=:uni_name, '
+                 + 'reg_name=:reg_name, use_name=:use_name, uniq=:uniq' + ' where id=' +
+                 IntToStr(s_id);
       ParamByName('name').AsString := edtName.Text;
       ParamByName('uni_name').AsString := edtUniName.Text;
       ParamByName('reg_name').AsString := edtRegName.Text;
@@ -349,10 +329,8 @@ begin
   end;
   // TODO -cMM: TFNewTTH.UpdateProp default body inserted
 end;
-
-procedure TFNewTTH.ViewTypeDblClick(Sender: TObject);
+procedure TFNewTTH.ViewTypeDblClick(Sender : TObject);
 begin
   btnEditClick(Sender);
 end;
-
 end.

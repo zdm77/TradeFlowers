@@ -1,7 +1,5 @@
 unit UNewLength;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -24,18 +22,17 @@ uses
   Vcl.StdCtrls,
   AdvEdit,
   cxGroupBox,
-
+  
   dxSkinDevExpressStyle,
-
-   dxSkinsDefaultPainters;
-
+  
+  dxSkinsDefaultPainters;
 type
   TFNewSortRose = class(TForm)
-    Group1: TcxGroupBox;
-    edtValue: TAdvEdit;
-    lblValue: TcxLabel;
-    FrameSave1: TFrameSave;
-    procedure FormShow(Sender: TObject);
+    Group1 : TcxGroupBox;
+    edtValue : TAdvEdit;
+    lblValue : TcxLabel;
+    FrameSave1 : TFrameSave;
+    procedure FormShow(Sender : TObject);
   private
     { Private declarations }
   public
@@ -43,15 +40,12 @@ type
   end;
 
 var
-  FNewSortRose: TFNewSortRose;
-
+  FNewSortRose : TFNewSortRose;
 implementation
-
 {$R *.dfm}
 
-procedure TFNewSortRose.FormShow(Sender: TObject);
+procedure TFNewSortRose.FormShow(Sender : TObject);
 begin
   edtValue.SetFocus;
 end;
-
 end.

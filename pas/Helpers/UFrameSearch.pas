@@ -1,7 +1,5 @@
 ﻿unit UFrameSearch;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -19,53 +17,48 @@ uses
   cxContainer,
   cxEdit,
   dxSkinsCore,
-
+  
   cxTextEdit,
   cxLabel,
   cxGroupBox,
-
+  
   dxSkinDevExpressStyle,
-
-   dxSkinsDefaultPainters, dxSkinOffice2007Blue;
-
+  
+  dxSkinsDefaultPainters, dxSkinOffice2007Blue;
 type
   TFrameSearch = class(TFrame)
-    Group1: TcxGroupBox;
-    LabelName: TcxLabel;
-    edtName: TcxTextEdit;
+    Group1 : TcxGroupBox;
+    LabelName : TcxLabel;
+    edtName : TcxTextEdit;
   private
     { Private declarations }
   public
     procedure SetLang;
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
 uses
   UPasswd;
-
 procedure TFrameSearch.SetLang;
 begin
   case FPasswd.Lang of
-    0:
-      begin
-        LabelName.Caption := 'Поиск';
-        edtName.Left := 42;
-      end;
-    1:
-      begin
-        LabelName.Caption := 'Search';
-        edtName.Left := 42;
-      end;
-    2:
-      begin
-        LabelName.Caption := 'La búsqueda';
-        edtName.Left := 74;
-      end;
+    0 :
+    begin
+      LabelName.Caption := 'Поиск';
+      edtName.Left := 42;
+    end;
+    1 :
+    begin
+      LabelName.Caption := 'Search';
+      edtName.Left := 42;
+    end;
+    2 :
+    begin
+      LabelName.Caption := 'La búsqueda';
+      edtName.Left := 74;
+    end;
   end;
 end;
-
 end.

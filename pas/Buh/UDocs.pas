@@ -1,7 +1,5 @@
 unit UDocs;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -21,7 +19,7 @@ uses
   dxSkinsdxNavBarPainter,
   dxNavBar,
   dxSkinscxPCPainter,
-
+  
   cxPC,
   dxNavBarCollns,
   cxClasses,
@@ -37,65 +35,56 @@ uses
   DBAccess,
   Uni,
   UFramePedidoALL,
-  dxBarBuiltInMenu, Vcl.Grids, Vcl.DBGrids,  
-      
-   dxSkinDevExpressStyle, 
-     
-     
-    
-    
-    
-    
-      
-     
-     
-    UFramePrice, UFrameReceipt, dxSkinOffice2007Blue, dxSkinsDefaultPainters,
+  dxBarBuiltInMenu, Vcl.Grids, Vcl.DBGrids,
+  
+  dxSkinDevExpressStyle,
+  
+  UFramePrice, UFrameReceipt, dxSkinOffice2007Blue, dxSkinsDefaultPainters,
   dxSkinOffice2016Colorful, dxSkinOffice2016Dark, dxSkinTheBezier,
   dxSkinVisualStudio2013Blue, dxSkinVisualStudio2013Dark,
   dxSkinVisualStudio2013Light;
-
 type
   TFDocs = class(TForm)
-    dxnvbr1: TdxNavBar;
-    GroupOsn: TdxNavBarGroup;
-    ItemЗаказы: TdxNavBarItem;
-    PageDocs: TcxPageControl;
-    TabOrder: TcxTabSheet;
-    FrameOrder1: TFrameOrder;
-    cxspltr1: TcxSplitter;
-    ItemПедидо: TdxNavBarItem;
-    TabПедидо: TcxTabSheet;
-    ItemФактуры: TdxNavBarItem;
-    TabФактура: TcxTabSheet;
-    FrameFactura1: TFrameFactura;
-    GroupTamog: TdxNavBarGroup;
-    ItemPacking: TdxNavBarItem;
-    tabPacking: TcxTabSheet;
-    Tamog_Packing1: TTamog_Packing;
-    Query1: TUniQuery;
-    FramePedidoALL1: TFramePedidoAll;
-    ItemPrice: TdxNavBarItem;
-    tabPrice: TcxTabSheet;
-    FramePrice1: TFramePrice;
-    ItemПоступления: TdxNavBarItem;
-    GroupПоступления: TdxNavBarGroup;
-    TabПоступления: TcxTabSheet;
-    FrameReceipt1: TFrameReceipt;
-    procedure FormCreate(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure FormShow(Sender: TObject);
-    procedure ItemЗаказыClick(Sender: TObject);
-    procedure ItemПедидоClick(Sender: TObject);
-    procedure FrameAllOrders1ViewOrderDblClick(Sender: TObject);
-    procedure FrameFactura1edtDateDoChange(Sender: TObject);
-    procedure FramePedidoALL1ViewPedidoALLDblClick(Sender: TObject);
-    procedure ItemPackingClick(Sender: TObject);
-    procedure ItemPriceClick(Sender: TObject);
-    procedure ItemФактурыClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure FramePrice1ViewPedidoALLDblClick(Sender: TObject);
-    procedure btnRefreshClick(Sender: TObject);
-    procedure ItemПоступленияClick(Sender: TObject);
+    dxnvbr1 : TdxNavBar;
+    GroupOsn : TdxNavBarGroup;
+    ItemЗаказы : TdxNavBarItem;
+    PageDocs : TcxPageControl;
+    TabOrder : TcxTabSheet;
+    FrameOrder1 : TFrameOrder;
+    cxspltr1 : TcxSplitter;
+    ItemПедидо : TdxNavBarItem;
+    TabПедидо : TcxTabSheet;
+    ItemФактуры : TdxNavBarItem;
+    TabФактура : TcxTabSheet;
+    FrameFactura1 : TFrameFactura;
+    GroupTamog : TdxNavBarGroup;
+    ItemPacking : TdxNavBarItem;
+    tabPacking : TcxTabSheet;
+    Tamog_Packing1 : TTamog_Packing;
+    Query1 : TUniQuery;
+    FramePedidoALL1 : TFramePedidoAll;
+    ItemPrice : TdxNavBarItem;
+    tabPrice : TcxTabSheet;
+    FramePrice1 : TFramePrice;
+    ItemПоступления : TdxNavBarItem;
+    GroupПоступления : TdxNavBarGroup;
+    TabПоступления : TcxTabSheet;
+    FrameReceipt1 : TFrameReceipt;
+    procedure FormCreate(Sender : TObject);
+    procedure FormClose(Sender : TObject; var Action : TCloseAction);
+    procedure FormShow(Sender : TObject);
+    procedure ItemЗаказыClick(Sender : TObject);
+    procedure ItemПедидоClick(Sender : TObject);
+    procedure FrameAllOrders1ViewOrderDblClick(Sender : TObject);
+    procedure FrameFactura1edtDateDoChange(Sender : TObject);
+    procedure FramePedidoALL1ViewPedidoALLDblClick(Sender : TObject);
+    procedure ItemPackingClick(Sender : TObject);
+    procedure ItemPriceClick(Sender : TObject);
+    procedure ItemФактурыClick(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure FramePrice1ViewPedidoALLDblClick(Sender : TObject);
+    procedure btnRefreshClick(Sender : TObject);
+    procedure ItemПоступленияClick(Sender : TObject);
   private
     { Private declarations }
   public
@@ -104,15 +93,12 @@ type
   end;
 
 var
-  FDocs: TFDocs;
-
+  FDocs : TFDocs;
 implementation
-
 {$R *.dfm}
 
 uses
   UPasswd;
-
 procedure TFDocs.Access;
 begin
   if (FPasswd.ID_ROLE <> 1) then
@@ -122,110 +108,100 @@ begin
       { доступ }
       Close;
       sql.Text := 'select * from "пользователи"."доступ"  where код_роли=' +
-        IntToStr(FPasswd.ID_ROLE);
+    IntToStr(FPasswd.ID_ROLE);
       Open;
       GroupOsn.Visible := FieldByName('Закупка_и_реализация_основа').AsBoolean;
       // бухгалтерия AWB
       ItemЗаказы.Visible := FieldByName('Закупка_и_реализация_заказы_просм')
-        .AsBoolean;
+    .AsBoolean;
       ItemПедидо.Visible := FieldByName('Закупка_и_реализация_педидо_просм')
-        .AsBoolean;
+    .AsBoolean;
       ItemPacking.Visible := FieldByName('Закупка_и_реализация_таможня_прос')
-        .AsBoolean;
+    .AsBoolean;
       // Заказы
       FrameOrder1.FrameTopPanel1.btnAdd.Enabled :=
-        FieldByName('Закупка_и_реализация_заказы_добав').AsBoolean;
+                                                  FieldByName('Закупка_и_реализация_заказы_добав').AsBoolean;
       FrameOrder1.FrameTopPanel1.btnEdit.Enabled :=
-        FieldByName('Закупка_и_реализация_заказы_редак').AsBoolean;
+                                                   FieldByName('Закупка_и_реализация_заказы_редак').AsBoolean;
       FrameOrder1.FrameTopPanel1.btnDel.Enabled :=
-        FieldByName('Закупка_и_реализация_заказы_удале').AsBoolean;
+                                                  FieldByName('Закупка_и_реализация_заказы_удале').AsBoolean;
       // Педидо
       FramePedidoALL1.FrameTopPanel1.btnAdd.Enabled :=
-        FieldByName('Закупка_и_реализация_педидо_добав').AsBoolean;
+                                                      FieldByName('Закупка_и_реализация_педидо_добав').AsBoolean;
       FramePedidoALL1.FrameTopPanel1.btnEdit.Enabled :=
-        FieldByName('Закупка_и_реализация_педидо_редак').AsBoolean;
+                                                       FieldByName('Закупка_и_реализация_педидо_редак').AsBoolean;
       FramePedidoALL1.FrameTopPanel1.btnDel.Enabled :=
-        FieldByName('Закупка_и_реализация_педидо_удале').AsBoolean;
+                                                      FieldByName('Закупка_и_реализация_педидо_удале').AsBoolean;
       // Таможня -Пакинг
       Tamog_Packing1.FrameTopPanel1.btnAdd.Enabled :=
-        FieldByName('Закупка_и_реализация_таможня_доба').AsBoolean;
+                                                     FieldByName('Закупка_и_реализация_таможня_доба').AsBoolean;
       Tamog_Packing1.FrameTopPanel1.btnEdit.Enabled :=
-        FieldByName('Закупка_и_реализация_таможня_реда').AsBoolean;
+                                                      FieldByName('Закупка_и_реализация_таможня_реда').AsBoolean;
       Tamog_Packing1.FrameTopPanel1.btnDel.Enabled :=
-        FieldByName('Закупка_и_реализация_таможня_удал').AsBoolean;
+                                                     FieldByName('Закупка_и_реализация_таможня_удал').AsBoolean;
     end;
   end;
 end;
-
-procedure TFDocs.FormCreate(Sender: TObject);
+procedure TFDocs.FormCreate(Sender : TObject);
 begin
   case FPasswd.Lang of
-    0:
-      begin
-        // Caption := 'Directories';
-        ItemЗаказы.Caption := 'Заказы';
-        GroupOsn.Caption := 'Заказы';
-      end;
-    1:
-      begin
-        // Caption := 'Directories';
-        ItemЗаказы.Caption := 'Orders';
-        GroupOsn.Caption := 'Orders';
-      end;
-    2:
-      begin
-        // Caption := 'Directories';
-        ItemЗаказы.Caption := 'Encargos';
-        GroupOsn.Caption := 'Encargos';
-      end;
+    0 :
+    begin
+      // Caption := 'Directories';
+      ItemЗаказы.Caption := 'Заказы';
+      GroupOsn.Caption := 'Заказы';
+    end;
+    1 :
+    begin
+      // Caption := 'Directories';
+      ItemЗаказы.Caption := 'Orders';
+      GroupOsn.Caption := 'Orders';
+    end;
+    2 :
+    begin
+      // Caption := 'Directories';
+      ItemЗаказы.Caption := 'Encargos';
+      GroupOsn.Caption := 'Encargos';
+    end;
   end;
 end;
-
-procedure TFDocs.btnEditClick(Sender: TObject);
+procedure TFDocs.btnEditClick(Sender : TObject);
 begin
   FramePrice1.FrameTopPanel1btnEditClick(Sender);
 end;
-
-procedure TFDocs.btnRefreshClick(Sender: TObject);
+procedure TFDocs.btnRefreshClick(Sender : TObject);
 begin
   FramePrice1.FrameTopPanel1btnRefreshClick(Sender);
 end;
-
-procedure TFDocs.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFDocs.FormClose(Sender : TObject; var Action : TCloseAction);
 begin
   Action := caFree;
   FDocs := nil;
 end;
-
-procedure TFDocs.FormShow(Sender: TObject);
+procedure TFDocs.FormShow(Sender : TObject);
 begin
   PageDocs.ActivePageIndex := 0;
   PageDocs.HideTabs := True;
   Access;
 end;
-
-procedure TFDocs.FrameAllOrders1ViewOrderDblClick(Sender: TObject);
+procedure TFDocs.FrameAllOrders1ViewOrderDblClick(Sender : TObject);
 begin
   if FramePedidoALL1.FrameTopPanel1.btnEdit.Enabled = True then
     FramePedidoALL1.btnEditClick(Sender);
 end;
-
-procedure TFDocs.FrameFactura1edtDateDoChange(Sender: TObject);
+procedure TFDocs.FrameFactura1edtDateDoChange(Sender : TObject);
 begin
   FrameFactura1.edtOtChange(Sender);
 end;
-
-procedure TFDocs.FramePedidoALL1ViewPedidoALLDblClick(Sender: TObject);
+procedure TFDocs.FramePedidoALL1ViewPedidoALLDblClick(Sender : TObject);
 begin
   FramePedidoALL1.btnEditClick(Sender);
 end;
-
-procedure TFDocs.FramePrice1ViewPedidoALLDblClick(Sender: TObject);
+procedure TFDocs.FramePrice1ViewPedidoALLDblClick(Sender : TObject);
 begin
   FramePrice1.FrameTopPanel1btnEditClick(Sender);
 end;
-
-procedure TFDocs.ItemPackingClick(Sender: TObject);
+procedure TFDocs.ItemPackingClick(Sender : TObject);
 begin
   { пакинг }
   PageDocs.Visible := True;
@@ -241,8 +217,7 @@ begin
     end;
   end;
 end;
-
-procedure TFDocs.ItemPriceClick(Sender: TObject);
+procedure TFDocs.ItemPriceClick(Sender : TObject);
 begin
   { заказы }
   if FramePrice1.QueryPrice.Active = false then
@@ -261,8 +236,7 @@ begin
     // SetLang;
   end;
 end;
-
-procedure TFDocs.ItemЗаказыClick(Sender: TObject);
+procedure TFDocs.ItemЗаказыClick(Sender : TObject);
 begin
   { заказы }
   PageDocs.Visible := True;
@@ -280,8 +254,7 @@ begin
     end;
   end;
 end;
-
-procedure TFDocs.ItemПедидоClick(Sender: TObject);
+procedure TFDocs.ItemПедидоClick(Sender : TObject);
 begin
   { заказы }
   PageDocs.Visible := True;
@@ -304,8 +277,7 @@ begin
     end;
   end;
 end;
-
-procedure TFDocs.ItemПоступленияClick(Sender: TObject);
+procedure TFDocs.ItemПоступленияClick(Sender : TObject);
 begin
   PageDocs.Visible := True;
   PageDocs.ActivePageIndex := 5;
@@ -319,8 +291,7 @@ begin
     end;
   end;
 end;
-
-procedure TFDocs.ItemФактурыClick(Sender: TObject);
+procedure TFDocs.ItemФактурыClick(Sender : TObject);
 begin
   { заказы }
   PageDocs.Visible := True;
@@ -339,5 +310,4 @@ begin
     end;
   end;
 end;
-
 end.

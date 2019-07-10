@@ -1,7 +1,5 @@
 unit USelectRusBank;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -14,11 +12,10 @@ uses
   Vcl.Dialogs,
   UFrameBankInter,
   UFrameBankRussia;
-
 type
   TFSelectBankRus = class(TForm)
-    FrameBank1: TFrameBank;
-    procedure FrameTopPanel1btnSelClick(Sender: TObject);
+    FrameBank1 : TFrameBank;
+    procedure FrameTopPanel1btnSelClick(Sender : TObject);
   private
     { Private declarations }
   public
@@ -26,16 +23,13 @@ type
   end;
 
 var
-  FSelectBankRus: TFSelectBankRus;
-
+  FSelectBankRus : TFSelectBankRus;
 implementation
-
 {$R *.dfm}
 
-procedure TFSelectBankRus.FrameTopPanel1btnSelClick(Sender: TObject);
+procedure TFSelectBankRus.FrameTopPanel1btnSelClick(Sender : TObject);
 begin
   FrameBank1.FrameTopPanel1.id_select := True;
   Close;
 end;
-
 end.

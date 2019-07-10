@@ -1,7 +1,5 @@
 unit UNewTypeClient;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -31,62 +29,50 @@ uses
   cxDropDownEdit,
   cxLookupEdit,
   cxDBLookupEdit,
-  cxDBLookupComboBox,    
-     
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-      cxStyles,
+  cxDBLookupComboBox,
+  
+  dxSkinDevExpressStyle,
+  
+  cxStyles,
   dxSkinscxPCPainter, cxCustomData, cxFilter, cxData, cxDataStorage,
   cxNavigator, cxDBData, cxCheckBox, cxGridLevel, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxClasses, cxGridCustomView, cxGrid,
   cxGroupBox, cxButtonEdit;
-
 type
   TFNewTypeClient = class(TForm)
-    FrameSave1: TFrameSave;
-    GridStatWork: TcxGrid;
-    ViewStatWork: TcxGridDBTableView;
-    LevelStatWork: TcxGridLevel;
-    dsAll: TUniDataSource;
-    QueryAll: TUniQuery;
-    ViewStatWorkDBColumn: TcxGridDBColumn;
-    ViewStatWorkDBColumn1: TcxGridDBColumn;
-    ViewStatWorkDBColumn2: TcxGridDBColumn;
-    ViewStatWorkDBColumn3: TcxGridDBColumn;
-    cxGroupBox1: TcxGroupBox;
-    edtMarking: TcxButtonEdit;
-    lblMarking: TcxLabel;
-    procedure FrameSave1btnSaveClick(Sender: TObject);
-    procedure edtTypePropertiesEditValueChanged(Sender: TObject);
-    procedure FormShow(Sender: TObject);
-    procedure edtMarkingPropertiesButtonClick(Sender: TObject;
-      AButtonIndex: Integer);
+    FrameSave1 : TFrameSave;
+    GridStatWork : TcxGrid;
+    ViewStatWork : TcxGridDBTableView;
+    LevelStatWork : TcxGridLevel;
+    dsAll : TUniDataSource;
+    QueryAll : TUniQuery;
+    ViewStatWorkDBColumn : TcxGridDBColumn;
+    ViewStatWorkDBColumn1 : TcxGridDBColumn;
+    ViewStatWorkDBColumn2 : TcxGridDBColumn;
+    ViewStatWorkDBColumn3 : TcxGridDBColumn;
+    cxGroupBox1 : TcxGroupBox;
+    edtMarking : TcxButtonEdit;
+    lblMarking : TcxLabel;
+    procedure FrameSave1btnSaveClick(Sender : TObject);
+    procedure edtTypePropertiesEditValueChanged(Sender : TObject);
+    procedure FormShow(Sender : TObject);
+    procedure edtMarkingPropertiesButtonClick(Sender : TObject;
+                                                 AButtonIndex : Integer);
   private
-
     { Private declarations }
   public
-   s_id_Marking: Integer;
+    s_id_Marking : Integer;
     { Public declarations }
   end;
 
 var
-  FNewTypeClient: TFNewTypeClient;
-
+  FNewTypeClient : TFNewTypeClient;
 implementation
-
 {$R *.dfm}
 
 uses USelect;
-
-procedure TFNewTypeClient.edtMarkingPropertiesButtonClick(Sender: TObject;
-  AButtonIndex: Integer);
+procedure TFNewTypeClient.edtMarkingPropertiesButtonClick(Sender : TObject;
+                                                             AButtonIndex : Integer);
 begin
   Application.CreateForm(TFSelect, FSelect);
   with FSelect do
@@ -96,24 +82,21 @@ begin
     GridSelect.Visible := false;
     ShowSelect('"маркировки"."маркировки"', ' ', false, True);
     ShowModal;
-
     if FrameTopPanel1.id_select = True then
     begin
-      edtMarking.Text:=QuerySelect.FieldByName('name').AsString;
-      s_id_Marking:=QuerySelect.FieldByName('id').AsInteger;
+      edtMarking.Text := QuerySelect.FieldByName('name').AsString;
+      s_id_Marking := QuerySelect.FieldByName('id').AsInteger;
     end;
   end;
 end;
-
-procedure TFNewTypeClient.edtTypePropertiesEditValueChanged(Sender: TObject);
+procedure TFNewTypeClient.edtTypePropertiesEditValueChanged(Sender : TObject);
 begin
   // ShowVid();
   // ShowCur();
   // ShowTypeProduct();
   // ShowCountry();
 end;
-
-procedure TFNewTypeClient.FormShow(Sender: TObject);
+procedure TFNewTypeClient.FormShow(Sender : TObject);
 begin
   with QueryAll do
   begin
@@ -138,11 +121,9 @@ begin
     Open;
   end;
 end;
-
-procedure TFNewTypeClient.FrameSave1btnSaveClick(Sender: TObject);
+procedure TFNewTypeClient.FrameSave1btnSaveClick(Sender : TObject);
 begin
   FrameSave1.btnSaveClick(Sender);
   Close;
 end;
-
 end.

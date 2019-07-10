@@ -1,7 +1,5 @@
 unit UFStanding;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -17,12 +15,11 @@ uses
   DBAccess,
   Uni,
   UFrameStanding;
-
 type
   TFStanding = class(TForm)
-    FrameStanding1: TFrameStanding;
-    Query1: TUniQuery;
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    FrameStanding1 : TFrameStanding;
+    Query1 : TUniQuery;
+    procedure FormClose(Sender : TObject; var Action : TCloseAction);
   private
     { Private declarations }
   public
@@ -31,15 +28,12 @@ type
   end;
 
 var
-  FStanding: TFStanding;
-
+  FStanding : TFStanding;
 implementation
-
 {$R *.dfm}
 
 uses
   UPasswd;
-
 procedure TFStanding.Access;
 begin
   if (FPasswd.ID_ROLE <> 1) then
@@ -49,22 +43,20 @@ begin
       { доступ }
       Close;
       sql.Text := 'select * from "пользователи"."доступ"  where код_роли=' +
-        IntToStr(FPasswd.ID_ROLE);
+    IntToStr(FPasswd.ID_ROLE);
       Open;
       FrameStanding1.FrameTopPanel1.btnAdd.Enabled :=
-        FieldByName('стендинг_добавление').AsBoolean;
+                                                     FieldByName('стендинг_добавление').AsBoolean;
       FrameStanding1.FrameTopPanel1.btnEdit.Enabled :=
-        FieldByName('стендинг_редактирование').AsBoolean;
+                                                      FieldByName('стендинг_редактирование').AsBoolean;
       FrameStanding1.FrameTopPanel1.btnDel.Enabled :=
-        FieldByName('стендинг_удаление').AsBoolean;
+                                                     FieldByName('стендинг_удаление').AsBoolean;
     end;
   end;
 end;
-
-procedure TFStanding.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFStanding.FormClose(Sender : TObject; var Action : TCloseAction);
 begin
   Action := caFree;
   FStanding := nil;
 end;
-
 end.

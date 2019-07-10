@@ -1,7 +1,5 @@
 ﻿unit UFrameRole;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -18,7 +16,7 @@ uses
   cxLookAndFeelPainters,
   cxStyles,
   dxSkinsCore,
-
+  
   dxSkinscxPCPainter,
   cxCustomData,
   cxFilter,
@@ -40,38 +38,35 @@ uses
   Uni,
   cxNavigator,
   Vcl.StdCtrls,
-
+  
   dxSkinDevExpressStyle,
-
-   dxSkinsDefaultPainters, dxSkinOffice2007Blue;
-
+  
+  dxSkinsDefaultPainters, dxSkinOffice2007Blue;
 type
   TFrameRole = class(TFrame)
-    QueryRole: TUniQuery;
-    dsRole: TDataSource;
-    FrameTopPanel1: TFrameTopPanel;
-    GridUsers: TcxGrid;
-    ViewUsers: TcxGridDBTableView;
-    ColumnUniName: TcxGridDBColumn;
-    ColumnName: TcxGridDBColumn;
-    ColumnRegName: TcxGridDBColumn;
-    LevelOrg: TcxGridLevel;
-    Query1: TUniQuery;
-    procedure btnAddClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
-    procedure btnRefreshClick(Sender: TObject);
-    procedure ViewUsersDblClick(Sender: TObject);
+    QueryRole : TUniQuery;
+    dsRole : TDataSource;
+    FrameTopPanel1 : TFrameTopPanel;
+    GridUsers : TcxGrid;
+    ViewUsers : TcxGridDBTableView;
+    ColumnUniName : TcxGridDBColumn;
+    ColumnName : TcxGridDBColumn;
+    ColumnRegName : TcxGridDBColumn;
+    LevelOrg : TcxGridLevel;
+    Query1 : TUniQuery;
+    procedure btnAddClick(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
+    procedure btnRefreshClick(Sender : TObject);
+    procedure ViewUsersDblClick(Sender : TObject);
   private
     { Private declarations }
   public
     procedure SetLang;
-    procedure ShowRole(id_locate: Integer = 0);
+    procedure ShowRole(id_locate : Integer = 0);
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
 uses
@@ -80,8 +75,7 @@ uses
   UNewUniName,
   PGSQL,
   UDialogMy;
-
-procedure TFrameRole.btnAddClick(Sender: TObject);
+procedure TFrameRole.btnAddClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewUniName, FNewUniName);
   with FNewUniName.FrameUniName1 do
@@ -93,42 +87,34 @@ begin
     if FNewUniName.FrameSave1.id_save = true then
     begin
       PGSQL.StandartInsert('"пользователи"."роли_id_seq"',
-        '"пользователи"."роли"', edtName.Text, edtUniName.Text, edtRegName.Text,
-        QueryRole);
+                            '"пользователи"."роли"', edtName.Text, edtUniName.Text, edtRegName.Text,
+                            QueryRole);
     end;
   end;
 end;
-
-procedure TFrameRole.btnDelClick(Sender: TObject);
+procedure TFrameRole.btnDelClick(Sender : TObject);
 var
-  s: string;
+  s : string;
 begin
   case FPasswd.edtLang.ItemIndex of
-    0:
-      s := 'Связанные пользователи';
-    1:
-      s := 'Associated users';
-    2:
-      s := 'Los usuarios vinculados';
+    0 : s := 'Связанные пользователи';
+    1 : s := 'Associated users';
+    2 : s := 'Los usuarios vinculados';
   end;
   if QueryRole.FieldByName('id').AsInteger <> 1 then
     PGSQL.StandartDelete(QueryRole.FieldByName('id').AsString,
-      '"пользователи"."роли"', QueryRole, 'код_роли',
-      '"пользователи"."пользователи"', 'name', s)
+                          '"пользователи"."роли"', QueryRole, 'код_роли',
+                          '"пользователи"."пользователи"', 'name', s)
   else
   begin
     case FPasswd.edtLang.ItemIndex of
-      0:
-        ErrorDialog('Данную запись удалять запрещено.', '', '');
-      1:
-        ErrorDialog('This entry delete prohibited.', '', '');
-      2:
-        ErrorDialog('Se prohíbe quitar la anotación dada.', '', '');
+      0 : ErrorDialog('Данную запись удалять запрещено.', '', '');
+      1 : ErrorDialog('This entry delete prohibited.', '', '');
+      2 : ErrorDialog('Se prohíbe quitar la anotación dada.', '', '');
     end;
   end;
 end;
-
-procedure TFrameRole.btnEditClick(Sender: TObject);
+procedure TFrameRole.btnEditClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewUniName, FNewUniName);
   with FNewUniName.FrameUniName1 do
@@ -143,23 +129,20 @@ begin
     if FNewUniName.FrameSave1.id_save = true then
     begin
       PGSQL.StandartUpdate(QueryRole.FieldByName('id').AsString,
-        '"пользователи"."роли"', edtName.Text, edtUniName.Text, edtRegName.Text,
-        QueryRole);
+                            '"пользователи"."роли"', edtName.Text, edtUniName.Text, edtRegName.Text,
+                            QueryRole);
     end;
   end;
 end;
-
-procedure TFrameRole.btnRefreshClick(Sender: TObject);
+procedure TFrameRole.btnRefreshClick(Sender : TObject);
 begin
   QueryRole.Refresh;
 end;
-
 procedure TFrameRole.SetLang;
 begin
   ULang.TranslateGridCaption(ColumnUniName, ColumnRegName, ColumnName);
 end;
-
-procedure TFrameRole.ShowRole(id_locate: Integer = 0);
+procedure TFrameRole.ShowRole(id_locate : Integer = 0);
 begin
   with QueryRole do
   begin
@@ -169,10 +152,8 @@ begin
     Locate('id', id_locate, []);
   end;
 end;
-
-procedure TFrameRole.ViewUsersDblClick(Sender: TObject);
+procedure TFrameRole.ViewUsersDblClick(Sender : TObject);
 begin
   btnEditClick(Sender);
 end;
-
 end.

@@ -1,7 +1,5 @@
 unit UFrameTrack;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -18,7 +16,7 @@ uses
   cxLookAndFeelPainters,
   cxStyles,
   dxSkinsCore,
-
+  
   dxSkinscxPCPainter,
   cxCustomData,
   cxFilter,
@@ -39,42 +37,38 @@ uses
   cxGrid,
   UFrameTopPanel,
   cxNavigator,
-
+  
   dxSkinDevExpressStyle,
-
-   dxSkinsDefaultPainters, dxSkinOffice2007Blue;
-
+  
+  dxSkinsDefaultPainters, dxSkinOffice2007Blue;
 type
   TFrameTrack = class(TFrame)
-    FrameTopPanel1: TFrameTopPanel;
-    GridStatWork: TcxGrid;
-    ViewStatWork: TcxGridDBTableView;
-    ColumnName: TcxGridDBColumn;
-    LevelStatWork: TcxGridLevel;
-    QueryTrack: TUniQuery;
-    dsTrack: TDataSource;
-    Query1: TUniQuery;
-    procedure btnAddClick(Sender: TObject);
-    procedure ViewStatWorkDblClick(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
-    procedure btnRefreshClick(Sender: TObject);
+    FrameTopPanel1 : TFrameTopPanel;
+    GridStatWork : TcxGrid;
+    ViewStatWork : TcxGridDBTableView;
+    ColumnName : TcxGridDBColumn;
+    LevelStatWork : TcxGridLevel;
+    QueryTrack : TUniQuery;
+    dsTrack : TDataSource;
+    Query1 : TUniQuery;
+    procedure btnAddClick(Sender : TObject);
+    procedure ViewStatWorkDblClick(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
+    procedure btnRefreshClick(Sender : TObject);
   private
     { Private declarations }
   public
-    procedure ShowTrack(id_locate: Integer = 0);
+    procedure ShowTrack(id_locate : Integer = 0);
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
 uses
   UNewTrack,
   PGSQL;
-
-procedure TFrameTrack.btnAddClick(Sender: TObject);
+procedure TFrameTrack.btnAddClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewTrack, FNewTrack);
   with FNewTrack do
@@ -84,14 +78,12 @@ begin
       ShowTrack(s_id_track);
   end;
 end;
-
-procedure TFrameTrack.btnDelClick(Sender: TObject);
+procedure TFrameTrack.btnDelClick(Sender : TObject);
 begin
   PGSQL.StandartDelete(QueryTrack.FieldByName('id').AsString, 'траки.траки',
-    QueryTrack, '', '', '', '');
+                        QueryTrack, '', '', '', '');
 end;
-
-procedure TFrameTrack.btnEditClick(Sender: TObject);
+procedure TFrameTrack.btnEditClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewTrack, FNewTrack);
   with FNewTrack do
@@ -117,13 +109,11 @@ begin
       ShowTrack(s_id_track);
   end;
 end;
-
-procedure TFrameTrack.btnRefreshClick(Sender: TObject);
+procedure TFrameTrack.btnRefreshClick(Sender : TObject);
 begin
   QueryTrack.Refresh;
 end;
-
-procedure TFrameTrack.ShowTrack(id_locate: Integer = 0);
+procedure TFrameTrack.ShowTrack(id_locate : Integer = 0);
 begin
   with QueryTrack do
   begin
@@ -133,11 +123,9 @@ begin
     Locate('id', id_locate, []);
   end;
 end;
-
-procedure TFrameTrack.ViewStatWorkDblClick(Sender: TObject);
+procedure TFrameTrack.ViewStatWorkDblClick(Sender : TObject);
 begin
   if FrameTopPanel1.btnEdit.Enabled = true then
     btnEditClick(Sender);
 end;
-
 end.

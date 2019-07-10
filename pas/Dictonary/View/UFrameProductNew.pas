@@ -1,25 +1,14 @@
 unit UFrameProductNew;
-
 interface
-
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes,
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls,
   cxLookAndFeels, cxLookAndFeelPainters, cxContainer, cxEdit, dxSkinsCore,
-      
-    
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-     
-     
-     
-   cxCustomData, cxStyles, cxTL, cxLabel, cxMaskEdit,
+  
+  dxSkinDevExpressStyle,
+  
+  cxCustomData, cxStyles, cxTL, cxLabel, cxMaskEdit,
   cxTLdxBarBuiltInMenu, cxInplaceContainer, cxDBTL, cxTLData, cxClasses,
   Vcl.ImgList, Data.DB, MemDS, DBAccess, Uni, UFrameSearch, UFrameTopPanel,
   cxCheckBox, dxSkinscxPCPainter, cxFilter, cxData, cxDataStorage, cxNavigator,
@@ -27,39 +16,38 @@ uses
   cxGridLevel, cxGridCustomView, cxGrid, Vcl.StdCtrls, Vcl.ExtCtrls,
   dxSkinOffice2007Blue, dxSkinsDefaultPainters, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog,
   System.ImageList;
-
 type
   TFrameProductNew = class(TFrame)
-    chkDel: TcxCheckBox;
-    FrameTopPanel1: TFrameTopPanel;
-    FrameSearch1: TFrameSearch;
-    QueryProduct: TUniQuery;
-    dsProduct: TDataSource;
-    il1: TImageList;
-    Style1: TcxStyleRepository;
-    cxStyle1: TcxStyle;
-    cxStyle2: TcxStyle;
-    Query1: TUniQuery;
-    dsTree: TDataSource;
-    QueryTree: TUniQuery;
-    GridProduct: TcxGrid;
-    ViewProduct: TcxGridDBTableView;
-    ColumnPlant: TcxGridDBColumn;
-    ColumnSort: TcxGridDBColumn;
-    ColumnPrice: TcxGridDBColumn;
-    ColumnDlina: TcxGridDBColumn;
-    ColumnDate: TcxGridDBColumn;
-    GridProductLevel1: TcxGridLevel;
-    Query2: TUniQuery;
-    ColumnCountry: TcxGridDBColumn;
-    ColumnType: TcxGridDBColumn;
-    chkGroup: TcxCheckBox;
-    chkLast: TcxCheckBox;
-    procedure chkDetailClick(Sender: TObject);
-    procedure lstTreeProductsClick(Sender: TObject);
-    procedure chkGroupClick(Sender: TObject);
-    procedure btnLoadPriceClick(Sender: TObject);
-    procedure chkLastClick(Sender: TObject);
+    chkDel : TcxCheckBox;
+    FrameTopPanel1 : TFrameTopPanel;
+    FrameSearch1 : TFrameSearch;
+    QueryProduct : TUniQuery;
+    dsProduct : TDataSource;
+    il1 : TImageList;
+    Style1 : TcxStyleRepository;
+    cxStyle1 : TcxStyle;
+    cxStyle2 : TcxStyle;
+    Query1 : TUniQuery;
+    dsTree : TDataSource;
+    QueryTree : TUniQuery;
+    GridProduct : TcxGrid;
+    ViewProduct : TcxGridDBTableView;
+    ColumnPlant : TcxGridDBColumn;
+    ColumnSort : TcxGridDBColumn;
+    ColumnPrice : TcxGridDBColumn;
+    ColumnDlina : TcxGridDBColumn;
+    ColumnDate : TcxGridDBColumn;
+    GridProductLevel1 : TcxGridLevel;
+    Query2 : TUniQuery;
+    ColumnCountry : TcxGridDBColumn;
+    ColumnType : TcxGridDBColumn;
+    chkGroup : TcxCheckBox;
+    chkLast : TcxCheckBox;
+    procedure chkDetailClick(Sender : TObject);
+    procedure lstTreeProductsClick(Sender : TObject);
+    procedure chkGroupClick(Sender : TObject);
+    procedure btnLoadPriceClick(Sender : TObject);
+    procedure chkLastClick(Sender : TObject);
   private
     { Private declarations }
   public
@@ -67,18 +55,15 @@ type
     procedure ShowTree;
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
 uses UFImport, UDataModule1, PGSQL, UPasswd;
-
-procedure TFrameProductNew.btnLoadPriceClick(Sender: TObject);
+procedure TFrameProductNew.btnLoadPriceClick(Sender : TObject);
 var
-  IDType, IDPlant, IDSort, IDZakup: Integer;
-  i: Integer;
-  s: string;
+  IDType, IDPlant, IDSort, IDZakup : Integer;
+  i : Integer;
+  s : string;
 begin
   if FImport = nil then
     Application.CreateForm(TFImport, FImport);
@@ -217,9 +202,9 @@ begin
         begin
           Close;
           sql.Text :=
-            'select id from продукция.сорта where UPPER(uni_name)=:uni_name';
+                     'select id from продукция.сорта where UPPER(uni_name)=:uni_name';
           ParamByName('uni_name').AsString :=
-            Trim(AnsiUpperCase(GridOrder.Cells[0, i]));
+                                             Trim(AnsiUpperCase(GridOrder.Cells[0, i]));
           Open;
           if Fields[0].AsString <> '' then
           begin
@@ -228,16 +213,16 @@ begin
           else
           begin
             s := 'Сорт - (' + GridOrder.Cells[0, i] +
-              ') не найдена в структуре. Добавить?.';
+          ') не найдена в структуре. Добавить?.';
             if Application.MessageBox(pchar(s), 'Предупреждение',
-              MB_YESNO + MB_ICONERROR) = mrYes then
+                                       MB_YESNO + MB_ICONERROR) = mrYes then
             begin
               IDSort := PGSQL.NewID('продукция.сорта_id_seq');
               Close;
               sql.Text :=
-                'insert into продукция.сорта (id, name, uni_name, reg_name, стеблей, '
-                + ' код_типа, комментарий) values ' +
-                ' (:id, :name, :uni_name, :reg_name, :стеблей, :код_типа,:комментарий)';
+                         'insert into продукция.сорта (id, name, uni_name, reg_name, стеблей, '
+                         + ' код_типа, комментарий) values ' +
+                         ' (:id, :name, :uni_name, :reg_name, :стеблей, :код_типа,:комментарий)';
               ParamByName('id').AsInteger := IDSort;
               ParamByName('name').AsString := Trim(GridOrder.Cells[0, i]);
               ParamByName('uni_name').AsString := Trim(GridOrder.Cells[0, i]);
@@ -257,8 +242,8 @@ begin
         IDZakup := PGSQL.NewID('"документы"."закупки_id_seq"');
         Close;
         sql.Text :=
-          'INSERT INTO "документы"."закупки"(id, "код_пользователя", "дата_закупки",  '
-          + ' "мнемо") VALUES (:id, :код_пользователя, :дата_закупки, :мнемо);';
+                   'INSERT INTO "документы"."закупки"(id, "код_пользователя", "дата_закупки",  '
+                   + ' "мнемо") VALUES (:id, :код_пользователя, :дата_закупки, :мнемо);';
         ParamByName('id').AsInteger := IDZakup;
         ParamByName('код_пользователя').AsInteger := FPasswd.ID_USER;
         // ParamByName('дата_закупки').AsDateTime := edtDate.DateTime;
@@ -266,20 +251,20 @@ begin
         ExecSQL;
         Close;
         sql.Text :=
-          'INSERT INTO "документы"."закупки_деталь"("код_закупки", "код_плантации", '
-          + ' "код_сорта", "цена", "длина", "код_пользователя") ' +
-          ' VALUES (:код_закупки, :код_плантации, :код_сорта, :цена, :длина,' +
-          ' :код_пользователя);';
+                   'INSERT INTO "документы"."закупки_деталь"("код_закупки", "код_плантации", '
+                   + ' "код_сорта", "цена", "длина", "код_пользователя") ' +
+                   ' VALUES (:код_закупки, :код_плантации, :код_сорта, :цена, :длина,' +
+                   ' :код_пользователя);';
         Query2.Close;
         Query2.sql.Text :=
-          'select id from продукция.сорта where UPPER(uni_name)=:uni_name';
+                          'select id from продукция.сорта where UPPER(uni_name)=:uni_name';
         // содержимое
         for i := 1 to GridOrder.RowCount - 1 do
         begin
           Close;
           Query2.Close;
           Query2.ParamByName('uni_name').AsString :=
-            Trim(AnsiUpperCase(GridOrder.Cells[0, i]));
+                                                    Trim(AnsiUpperCase(GridOrder.Cells[0, i]));
           Query2.Open;
           IDSort := Query2.Fields[0].AsInteger;
           ParamByName('код_закупки').AsInteger := IDZakup;
@@ -295,27 +280,22 @@ begin
     end;
   end;
 end;
-
-procedure TFrameProductNew.chkGroupClick(Sender: TObject);
+procedure TFrameProductNew.chkGroupClick(Sender : TObject);
 begin
   ShowProduct;
 end;
-
-procedure TFrameProductNew.chkLastClick(Sender: TObject);
+procedure TFrameProductNew.chkLastClick(Sender : TObject);
 begin
   ShowProduct;
 end;
-
-procedure TFrameProductNew.chkDetailClick(Sender: TObject);
+procedure TFrameProductNew.chkDetailClick(Sender : TObject);
 begin
   ShowProduct;
 end;
-
-procedure TFrameProductNew.lstTreeProductsClick(Sender: TObject);
+procedure TFrameProductNew.lstTreeProductsClick(Sender : TObject);
 begin
   ShowProduct;
 end;
-
 procedure TFrameProductNew.ShowProduct;
 begin
   with QueryProduct do
@@ -421,7 +401,6 @@ begin
     end;
   end;
 end;
-
 procedure TFrameProductNew.ShowTree;
 begin
   // with QueryTree do
@@ -432,5 +411,4 @@ begin
   // Open;
   // end;
 end;
-
 end.

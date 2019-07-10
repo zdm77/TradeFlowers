@@ -1,7 +1,5 @@
 unit UFAwb;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -13,10 +11,9 @@ uses
   Vcl.Forms,
   Vcl.Dialogs,
   UFrameAWB;
-
 type
   TFAWB = class(TForm)
-    FrameAWB1: TFrameAWB;
+    FrameAWB1 : TFrameAWB;
   private
     { Private declarations }
   public
@@ -24,10 +21,7 @@ type
   end;
 
 var
-  FAWB: TFAWB;
-
+  FAWB : TFAWB;
 implementation
-
 {$R *.dfm}
-
 end.

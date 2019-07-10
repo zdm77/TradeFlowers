@@ -1,42 +1,37 @@
 // Поступления
 unit UFrameReceipt;
-
 interface
-
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
   System.Classes,
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls,
   cxLookAndFeels, cxLookAndFeelPainters, cxStyles, dxSkinsCore,
-    dxSkinscxPCPainter,
+  dxSkinscxPCPainter,
   cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator, Data.DB,
   cxDBData, MemDS, DBAccess, Uni, cxGridLevel, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxClasses, cxGridCustomView, cxGrid,
   UFrameTopPanel, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
-
 type
   TFrameReceipt = class(TFrame)
-    FrameTopPanel1: TFrameTopPanel;
-    GridStatWork: TcxGrid;
-    ViewReceipt: TcxGridDBTableView;
-    LevelStatWork: TcxGridLevel;
-    Query1: TUniQuery;
-    QueryReceipt: TUniQuery;
-    dsReceipt: TDataSource;
-    ColumnДата: TcxGridDBColumn;
-    ViewReceiptname: TcxGridDBColumn;
+    FrameTopPanel1 : TFrameTopPanel;
+    GridStatWork : TcxGrid;
+    ViewReceipt : TcxGridDBTableView;
+    LevelStatWork : TcxGridLevel;
+    Query1 : TUniQuery;
+    QueryReceipt : TUniQuery;
+    dsReceipt : TDataSource;
+    ColumnДата : TcxGridDBColumn;
+    ViewReceiptname : TcxGridDBColumn;
   private
     { Private declarations }
   public
-    procedure ShowReceipt(id_locate: Integer = 0);
+    procedure ShowReceipt(id_locate : Integer = 0);
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
-procedure TFrameReceipt.ShowReceipt(id_locate: Integer = 0);
+procedure TFrameReceipt.ShowReceipt(id_locate : Integer = 0);
 begin
   with QueryReceipt do
   begin
@@ -59,5 +54,4 @@ begin
     Locate('id', id_locate, []);
   end;
 end;
-
 end.

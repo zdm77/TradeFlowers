@@ -1,7 +1,5 @@
 ﻿unit UFEditFact;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -49,112 +47,102 @@ uses
   DBAccess,
   Uni,
   cxCalc,
-
+  
   cxPC,
   Vcl.ComCtrls,
-  sCurrEdit,    
-     
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue, dxSkinsDefaultPainters, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog;
-
+  sCurrEdit,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue, dxSkinsDefaultPainters, dxDateRanges, cxDataControllerConditionalFormattingRulesManagerDialog;
 type
   TFEditFact = class(TForm)
-    FrameSave1: TFrameSave;
-    Group1: TcxGroupBox;
-    lblDate: TLabel;
-    lblNum: TLabel;
-    lblSum: TLabel;
-    lblFB: TLabel;
-    lblBOX: TLabel;
-    edtNum: TEdit;
-    edtFB: TAdvEdit;
-    edtBox: TAdvEdit;
-    QueryOpl: TUniQuery;
-    dsOpl: TDataSource;
-    QueryOpl1: TUniQuery;
-    Query1: TUniQuery;
-    Query2: TUniQuery;
-    edtDateFact: TDateTimePicker;
-    GroupПретензия: TcxGroupBox;
-    FrameTopPanel1: TFrameTopPanel;
-    QueryПретензия: TUniQuery;
-    dsПретензия: TDataSource;
-    GridUsers: TcxGrid;
-    ViewUsers: TcxGridDBTableView;
-    LevelOrg: TcxGridLevel;
-    ViewUsers_7: TcxGridDBColumn;
-    ViewUsers_8: TcxGridDBColumn;
-    ViewUsers__: TcxGridDBColumn;
-    ViewUsers_9: TcxGridDBColumn;
-    ViewUsers_10: TcxGridDBColumn;
-    ColumnМенеджер: TcxGridDBColumn;
-    edtSumFact: TsCalcEdit;
-    procedure edtDateFactKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure edtFBKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure edtNumKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure edtSumOplKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure FrameSave1btnSaveClick(Sender: TObject);
-    procedure btnAddClick(Sender: TObject);
-    procedure btnDelClick(Sender: TObject);
-    procedure FormShow(Sender: TObject);
-    procedure btnEditClick(Sender: TObject);
-    procedure chkExePritClick(Sender: TObject);
-    procedure edtBoxChange(Sender: TObject);
-    procedure edtDateFactChange(Sender: TObject);
-    procedure edtDateFactCloseUp(Sender: TObject);
-    procedure edtDatePritChange(Sender: TObject);
-    procedure edtDatePritCloseUp(Sender: TObject);
-    procedure edtFBChange(Sender: TObject);
-    procedure edtNumChange(Sender: TObject);
-    procedure edtSumFactChange(Sender: TObject);
-    procedure edtSumFactKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure edtSumGoodPritChange(Sender: TObject);
-    procedure edtSumPritChange(Sender: TObject);
-    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
-    procedure FrameTopPanel1btnAddClick(Sender: TObject);
-    procedure FrameTopPanel1btnDelClick(Sender: TObject);
-    procedure FrameTopPanel1btnEditClick(Sender: TObject);
-    procedure mmoОдобреннаяСуммаChange(Sender: TObject);
-    procedure mmoПритензияРусChange(Sender: TObject);
-    procedure ViewAWBDblClick(Sender: TObject);
-    procedure ViewUsersDblClick(Sender: TObject);
-    procedure edtWeightChange(Sender: TObject);
-    procedure edtWeightKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    FrameSave1 : TFrameSave;
+    Group1 : TcxGroupBox;
+    lblDate : TLabel;
+    lblNum : TLabel;
+    lblSum : TLabel;
+    lblFB : TLabel;
+    lblBOX : TLabel;
+    edtNum : TEdit;
+    edtFB : TAdvEdit;
+    edtBox : TAdvEdit;
+    QueryOpl : TUniQuery;
+    dsOpl : TDataSource;
+    QueryOpl1 : TUniQuery;
+    Query1 : TUniQuery;
+    Query2 : TUniQuery;
+    edtDateFact : TDateTimePicker;
+    GroupПретензия : TcxGroupBox;
+    FrameTopPanel1 : TFrameTopPanel;
+    QueryПретензия : TUniQuery;
+    dsПретензия : TDataSource;
+    GridUsers : TcxGrid;
+    ViewUsers : TcxGridDBTableView;
+    LevelOrg : TcxGridLevel;
+    ViewUsers_7 : TcxGridDBColumn;
+    ViewUsers_8 : TcxGridDBColumn;
+    ViewUsers__ : TcxGridDBColumn;
+    ViewUsers_9 : TcxGridDBColumn;
+    ViewUsers_10 : TcxGridDBColumn;
+    ColumnМенеджер : TcxGridDBColumn;
+    edtSumFact : TsCalcEdit;
+    procedure edtDateFactKeyDown(Sender : TObject; var Key : Word;
+                                    Shift : TShiftState);
+    procedure edtFBKeyDown(Sender : TObject; var Key : Word; Shift : TShiftState);
+    procedure edtNumKeyDown(Sender : TObject; var Key : Word; Shift : TShiftState);
+    procedure edtSumOplKeyDown(Sender : TObject; var Key : Word;
+                                  Shift : TShiftState);
+    procedure FrameSave1btnSaveClick(Sender : TObject);
+    procedure btnAddClick(Sender : TObject);
+    procedure btnDelClick(Sender : TObject);
+    procedure FormShow(Sender : TObject);
+    procedure btnEditClick(Sender : TObject);
+    procedure chkExePritClick(Sender : TObject);
+    procedure edtBoxChange(Sender : TObject);
+    procedure edtDateFactChange(Sender : TObject);
+    procedure edtDateFactCloseUp(Sender : TObject);
+    procedure edtDatePritChange(Sender : TObject);
+    procedure edtDatePritCloseUp(Sender : TObject);
+    procedure edtFBChange(Sender : TObject);
+    procedure edtNumChange(Sender : TObject);
+    procedure edtSumFactChange(Sender : TObject);
+    procedure edtSumFactKeyDown(Sender : TObject; var Key : Word;
+                                   Shift : TShiftState);
+    procedure edtSumGoodPritChange(Sender : TObject);
+    procedure edtSumPritChange(Sender : TObject);
+    procedure FormCloseQuery(Sender : TObject; var CanClose : Boolean);
+    procedure FrameTopPanel1btnAddClick(Sender : TObject);
+    procedure FrameTopPanel1btnDelClick(Sender : TObject);
+    procedure FrameTopPanel1btnEditClick(Sender : TObject);
+    procedure mmoОдобреннаяСуммаChange(Sender : TObject);
+    procedure mmoПритензияРусChange(Sender : TObject);
+    procedure ViewAWBDblClick(Sender : TObject);
+    procedure ViewUsersDblClick(Sender : TObject);
+    procedure edtWeightChange(Sender : TObject);
+    procedure edtWeightKeyDown(Sender : TObject; var Key : Word;
+                                  Shift : TShiftState);
   private
     { Private declarations }
   public
-    ID_CHANGE: Boolean;
-    s_id_detail: Integer;
-    sum_fact: string;
-    idPlant: Integer;
+    ID_CHANGE : Boolean;
+    s_id_detail : Integer;
+    sum_fact : string;
+    idPlant : Integer;
     procedure Access;
     procedure EdtAddПретензия;
     procedure SetLang;
-    procedure ShowOpl(id_locate: Integer = 0);
+    procedure ShowOpl(id_locate : Integer = 0);
     procedure ShowPretenz;
-    procedure UpdateAfterOpl(s_v: Double);
+    procedure UpdateAfterOpl(s_v : Double);
     procedure UpdateOpl;
-    procedure UpdatePritenz(id_del: Boolean = False);
+    procedure UpdatePritenz(id_del : Boolean = False);
     { Public declarations }
   end;
 
 var
-  FEditFact: TFEditFact;
-
+  FEditFact : TFEditFact;
 implementation
-
 {$R *.dfm}
 
 uses
@@ -163,7 +151,6 @@ uses
   PGSQL,
   UPasswd,
   UFEditPitenz;
-
 procedure TFEditFact.Access;
 begin
   with FPasswd do
@@ -181,7 +168,7 @@ begin
         { доступ }
         Close;
         sql.Text := 'select * from "пользователи"."доступ"  where код_роли=' +
-          IntToStr(FPasswd.ID_ROLE);
+      IntToStr(FPasswd.ID_ROLE);
         Open;
         // if FieldByName('бух_фактуры_редактирование').AsBoolean = False then
         // begin
@@ -213,10 +200,9 @@ begin
     end;
   end;
 end;
-
-procedure TFEditFact.btnAddClick(Sender: TObject);
+procedure TFEditFact.btnAddClick(Sender : TObject);
 var
-  v: Double;
+  v : Double;
 begin
   Application.CreateForm(TFNewOpl, FNewOpl);
   with FNewOpl do
@@ -233,19 +219,19 @@ begin
           // определяем предыдущий
           Close;
           sql.Text := 'select разница from "бух"."оплата"' +
-            ' where код_детали_awb=' + IntToStr(s_id_detail) + ' and дата<=:d '
-            + ' order by дата DESC,  ID  LIMIT 1';
+        ' where код_детали_awb=' + IntToStr(s_id_detail) + ' and дата<=:d '
+        + ' order by дата DESC,  ID  LIMIT 1';
           ParamByName('d').AsString := FNewOpl.edtDateOpl.Text;
           Open;
           if Fields[0].AsString <> '' then
             v := Fields[0].AsFloat + StrToFloat(FNewOpl.edtSumOpl.Text)
           else
             v := StrToFloat(FNewOpl.edtSumOpl.Text) -
-              StrToFloat(edtSumFact.Text);
+          StrToFloat(edtSumFact.Text);
           Close;
           sql.Text :=
-            'select * from "бух"."оплата" where дата>:d and код_детали_awb=' +
-            IntToStr(s_id_detail) + ' order by дата';
+                     'select * from "бух"."оплата" where дата>:d and код_детали_awb=' +
+                     IntToStr(s_id_detail) + ' order by дата';
           Open;
           if Fields[0].AsString <> '' then
           begin
@@ -282,11 +268,10 @@ begin
     end;
   end;
 end;
-
-procedure TFEditFact.btnDelClick(Sender: TObject);
+procedure TFEditFact.btnDelClick(Sender : TObject);
 begin
   PGSQL.StandartDelete(QueryOpl.FieldByName('id').AsString, '"бух"."оплата"',
-    QueryOpl, '', '', '', '');
+                        QueryOpl, '', '', '', '');
   with QueryOpl1 do
   begin
     Close;
@@ -296,8 +281,7 @@ begin
     ShowOpl();
   end;
 end;
-
-procedure TFEditFact.btnEditClick(Sender: TObject);
+procedure TFEditFact.btnEditClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewOpl, FNewOpl);
   with FNewOpl do
@@ -333,12 +317,10 @@ begin
     end;
   end;
 end;
-
-procedure TFEditFact.chkExePritClick(Sender: TObject);
+procedure TFEditFact.chkExePritClick(Sender : TObject);
 begin
   ID_CHANGE := true;
 end;
-
 procedure TFEditFact.EdtAddПретензия;
 begin
   Application.CreateForm(TFEditPritenz, FEditPritenz);
@@ -347,7 +329,7 @@ begin
     with FramePretenzEdit1 do
     begin
       s_id_manager := QueryПретензия.FieldByName('код_менеджера_притензии')
-        .AsInteger;
+    .AsInteger;
       s_marking := QueryПретензия.FieldByName('name').AsString;
       s_user := QueryПретензия.FieldByName('u_name').AsString;
       s_date_fly := QueryПретензия.FieldByName('дата_вылета').AsString;
@@ -365,19 +347,19 @@ begin
       edtNum.Text := QueryПретензия.FieldByName('номер_притензии').AsString;
       if QueryПретензия.FieldByName('дата_притензии').AsString <> '' then
         edtDatePrit.Date := QueryПретензия.FieldByName('дата_притензии')
-          .AsDateTime
+      .AsDateTime
       else
         edtDatePrit.Date := Now;
       edtСуммаПретензии.Text := QueryПретензия.FieldByName
-        ('сумма_притензии').AsString;
+      ('сумма_притензии').AsString;
       edtSumGoodPrit.Text := QueryПретензия.FieldByName
-        ('одобренная_сумма_притензии').AsString;
+      ('одобренная_сумма_притензии').AsString;
       mmoПритензияРус.Text := QueryПретензия.FieldByName
-        ('текст_притензии_рус').AsString;
+      ('текст_притензии_рус').AsString;
       mmoПритензияИсп.Text := QueryПретензия.FieldByName
-        ('текст_притензии_исп').AsString;
+      ('текст_притензии_исп').AsString;
       mmoОдобреннаяСумма.Text := QueryПретензия.FieldByName
-        ('текст_одобренной_суммы').AsString;
+      ('текст_одобренной_суммы').AsString;
       if QueryПретензия.FieldByName('статус_притензии').AsString = 'ok' then
       begin
         chkExePrit.Checked := true;
@@ -405,46 +387,38 @@ begin
     end;
   end;
 end;
-
-procedure TFEditFact.edtBoxChange(Sender: TObject);
+procedure TFEditFact.edtBoxChange(Sender : TObject);
 begin
   ID_CHANGE := true;
 end;
-
-procedure TFEditFact.edtDateFactChange(Sender: TObject);
+procedure TFEditFact.edtDateFactChange(Sender : TObject);
 begin
   ID_CHANGE := true;
 end;
-
-procedure TFEditFact.edtDateFactCloseUp(Sender: TObject);
+procedure TFEditFact.edtDateFactCloseUp(Sender : TObject);
 begin
   edtNum.SetFocus;
 end;
-
-procedure TFEditFact.edtDateFactKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFEditFact.edtDateFactKeyDown(Sender : TObject; var Key : Word;
+                                           Shift : TShiftState);
 begin
   if Key = VK_RETURN then
     edtNum.SetFocus;
 end;
-
-procedure TFEditFact.edtDatePritChange(Sender: TObject);
+procedure TFEditFact.edtDatePritChange(Sender : TObject);
 begin
   ID_CHANGE := true;
 end;
-
-procedure TFEditFact.edtDatePritCloseUp(Sender: TObject);
+procedure TFEditFact.edtDatePritCloseUp(Sender : TObject);
 begin
   // edtSumPrit.SetFocus;
 end;
-
-procedure TFEditFact.edtFBChange(Sender: TObject);
+procedure TFEditFact.edtFBChange(Sender : TObject);
 begin
   ID_CHANGE := true;
 end;
-
-procedure TFEditFact.edtFBKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFEditFact.edtFBKeyDown(Sender : TObject; var Key : Word;
+                                     Shift : TShiftState);
 begin
   if Key = VK_RETURN then
   begin
@@ -452,26 +426,22 @@ begin
     edtBox.SelectAll;
   end;
 end;
-
-procedure TFEditFact.edtNumChange(Sender: TObject);
+procedure TFEditFact.edtNumChange(Sender : TObject);
 begin
   ID_CHANGE := true;
 end;
-
-procedure TFEditFact.edtNumKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFEditFact.edtNumKeyDown(Sender : TObject; var Key : Word;
+                                      Shift : TShiftState);
 begin
   if Key = VK_RETURN then
     edtSumFact.SetFocus;
 end;
-
-procedure TFEditFact.edtSumFactChange(Sender: TObject);
+procedure TFEditFact.edtSumFactChange(Sender : TObject);
 begin
   ID_CHANGE := true;
 end;
-
-procedure TFEditFact.edtSumFactKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFEditFact.edtSumFactKeyDown(Sender : TObject; var Key : Word;
+                                          Shift : TShiftState);
 begin
   if Key = VK_RETURN then
   begin
@@ -479,31 +449,26 @@ begin
     edtFB.SelectAll;
   end;
 end;
-
-procedure TFEditFact.edtSumGoodPritChange(Sender: TObject);
+procedure TFEditFact.edtSumGoodPritChange(Sender : TObject);
 begin
   ID_CHANGE := true;
 end;
-
-procedure TFEditFact.edtSumOplKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFEditFact.edtSumOplKeyDown(Sender : TObject; var Key : Word;
+                                         Shift : TShiftState);
 begin
   if Key = VK_RETURN then
     edtFB.SetFocus;
 end;
-
-procedure TFEditFact.edtSumPritChange(Sender: TObject);
+procedure TFEditFact.edtSumPritChange(Sender : TObject);
 begin
   ID_CHANGE := true;
 end;
-
-procedure TFEditFact.edtWeightChange(Sender: TObject);
+procedure TFEditFact.edtWeightChange(Sender : TObject);
 begin
   ID_CHANGE := true;
 end;
-
-procedure TFEditFact.edtWeightKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TFEditFact.edtWeightKeyDown(Sender : TObject; var Key : Word;
+                                         Shift : TShiftState);
 begin
   if Key = VK_RETURN then
   begin
@@ -511,17 +476,16 @@ begin
     edtFB.SelectAll;
   end;
 end;
-
-procedure TFEditFact.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+procedure TFEditFact.FormCloseQuery(Sender : TObject; var CanClose : Boolean);
 var
-  id_upd: Boolean;
+  id_upd : Boolean;
 begin
   if FrameSave1.id_save = False then
   begin
     if ID_CHANGE = true then
     begin
       if Application.MessageBox('Обнаружены изменения. Сохранить?', 'Вопрос',
-        MB_YESNO + MB_ICONQUESTION) = mrYes then
+                                 MB_YESNO + MB_ICONQUESTION) = mrYes then
       begin
         id_upd := true;
       end;
@@ -546,8 +510,7 @@ begin
   end;
   FrameSave1.id_save := id_upd;
 end;
-
-procedure TFEditFact.FormShow(Sender: TObject);
+procedure TFEditFact.FormShow(Sender : TObject);
 begin
   SetLang;
   // Page1.ActivePageIndex := 0;
@@ -555,88 +518,80 @@ begin
   Access;
   // ShowMessage(IntToStr(s_id_detail));
 end;
-
-procedure TFEditFact.FrameSave1btnSaveClick(Sender: TObject);
+procedure TFEditFact.FrameSave1btnSaveClick(Sender : TObject);
 begin
   FrameSave1.btnSaveClick(Sender);
   Close;
 end;
-
-procedure TFEditFact.FrameTopPanel1btnAddClick(Sender: TObject);
+procedure TFEditFact.FrameTopPanel1btnAddClick(Sender : TObject);
 begin
   EdtAddПретензия;
 end;
-
-procedure TFEditFact.FrameTopPanel1btnDelClick(Sender: TObject);
+procedure TFEditFact.FrameTopPanel1btnDelClick(Sender : TObject);
 begin
   if Application.MessageBox('Вы действительно хотите удалить претензию?',
-    'Вопрос', MB_YESNO + MB_ICONQUESTION) = mrYes then
+                             'Вопрос', MB_YESNO + MB_ICONQUESTION) = mrYes then
   begin
     UpdatePritenz(true);
   end;
 end;
-
-procedure TFEditFact.FrameTopPanel1btnEditClick(Sender: TObject);
+procedure TFEditFact.FrameTopPanel1btnEditClick(Sender : TObject);
 begin
   EdtAddПретензия;
 end;
-
-procedure TFEditFact.mmoОдобреннаяСуммаChange(Sender: TObject);
+procedure TFEditFact.mmoОдобреннаяСуммаChange(Sender : TObject);
 begin
   ID_CHANGE := true;
 end;
-
-procedure TFEditFact.mmoПритензияРусChange(Sender: TObject);
+procedure TFEditFact.mmoПритензияРусChange(Sender : TObject);
 begin
   ID_CHANGE := true;
 end;
-
 procedure TFEditFact.SetLang;
 begin
   case FPasswd.Lang of
-    1:
-      begin
-        // // Caption := 'Directories';
-        // ItemТовары.Caption := 'Nomenclature';
-        // ItemКлиент.Caption := 'Clients';
-        // ItemСтраны.Caption := 'Country';
-        // ItemТипы.Caption := 'Types';
-        // ItemСвойства.Caption := 'Properties';
-        // ItemПлантации.Caption := 'Plantation';
-        // ItemСорта.Caption := 'Grades';
-        // ItemОрганизация.Caption := 'Organization';
-        // ItemПользователи.Caption := 'Users';
-        // ItemРоль.Caption := 'The role';
-        // GroupОснова.Caption := 'Main';
-        // GroupСтруктура.Caption := 'Structure';
-        // GroupОрг.Caption := 'Organization';
-        // GroupАдмин.Caption := 'Administration';
-        // ItemКарго.Caption := 'Cargo';
-        // ItemАвиалинии.Caption := 'Airlines';
-      end;
-    2:
-      begin
-        Caption := 'La factura de la plantación';
-        FrameSave1.SetLang;
-        lblDate.Caption := 'La fecha';
-        lblNum.Caption := 'El número';
-        lblSum.Caption := 'La suma de factura';
-        lblFB.Caption := 'FB';
-        lblBOX.Caption := 'De las cajas';
-        // lblДатаПритензии.Caption := 'La fecha';
-        // lblСуммаПритензии.Caption := 'La suma de reclamación';
-        // lblОдобреннаяСумма.Caption := 'La suma aprobada';
-        // lblОписаниеРус.Caption := 'La descripción de la reclamación en ruso';
-        // lblОписаниеИсп.Caption := 'La descripción de la reclamación en español';
-        // lblОписаниеСуммы.Caption := 'La descripción de la suma aprobada';
-        // chkExePrit.Caption := 'La realización definitiva de la reclamación';
-        GroupПретензия.Caption := 'La reclamación';
-      end;
+    1 :
+    begin
+      // // Caption := 'Directories';
+      // ItemТовары.Caption := 'Nomenclature';
+      // ItemКлиент.Caption := 'Clients';
+      // ItemСтраны.Caption := 'Country';
+      // ItemТипы.Caption := 'Types';
+      // ItemСвойства.Caption := 'Properties';
+      // ItemПлантации.Caption := 'Plantation';
+      // ItemСорта.Caption := 'Grades';
+      // ItemОрганизация.Caption := 'Organization';
+      // ItemПользователи.Caption := 'Users';
+      // ItemРоль.Caption := 'The role';
+      // GroupОснова.Caption := 'Main';
+      // GroupСтруктура.Caption := 'Structure';
+      // GroupОрг.Caption := 'Organization';
+      // GroupАдмин.Caption := 'Administration';
+      // ItemКарго.Caption := 'Cargo';
+      // ItemАвиалинии.Caption := 'Airlines';
+    end;
+    2 :
+    begin
+      Caption := 'La factura de la plantación';
+      FrameSave1.SetLang;
+      lblDate.Caption := 'La fecha';
+      lblNum.Caption := 'El número';
+      lblSum.Caption := 'La suma de factura';
+      lblFB.Caption := 'FB';
+      lblBOX.Caption := 'De las cajas';
+      // lblДатаПритензии.Caption := 'La fecha';
+      // lblСуммаПритензии.Caption := 'La suma de reclamación';
+      // lblОдобреннаяСумма.Caption := 'La suma aprobada';
+      // lblОписаниеРус.Caption := 'La descripción de la reclamación en ruso';
+      // lblОписаниеИсп.Caption := 'La descripción de la reclamación en español';
+      // lblОписаниеСуммы.Caption := 'La descripción de la suma aprobada';
+      // chkExePrit.Caption := 'La realización definitiva de la reclamación';
+      GroupПретензия.Caption := 'La reclamación';
+    end;
   end;
   FrameTopPanel1.SetLang;
 end;
-
-procedure TFEditFact.ShowOpl(id_locate: Integer = 0);
+procedure TFEditFact.ShowOpl(id_locate : Integer = 0);
 begin
   with QueryOpl do
   begin
@@ -655,7 +610,6 @@ begin
     Locate('id', id_locate, []);
   end;
 end;
-
 procedure TFEditFact.ShowPretenz;
 begin
   with QueryПретензия do
@@ -702,8 +656,7 @@ begin
     end;
   end;
 end;
-
-procedure TFEditFact.UpdateAfterOpl(s_v: Double);
+procedure TFEditFact.UpdateAfterOpl(s_v : Double);
 begin
   // with Query1 do
   // begin
@@ -720,7 +673,6 @@ begin
   // end;
   // end;
 end;
-
 procedure TFEditFact.UpdateOpl;
 begin
 {$REGION 'Обновляем данные'}
@@ -772,8 +724,7 @@ begin
   end;
 {$ENDREGION};
 end;
-
-procedure TFEditFact.UpdatePritenz(id_del: Boolean = False);
+procedure TFEditFact.UpdatePritenz(id_del : Boolean = False);
 begin
   with FEditPritenz do
   begin
@@ -807,15 +758,15 @@ begin
           ParamByName('дата_притензии').AsDate := edtDatePrit.Date;
           ParamByName('сумма_притензии').AsString := edtСуммаПретензии.Text;
           ParamByName('одобренная_сумма_притензии').AsString :=
-            edtSumGoodPrit.Text;
+                                                               edtSumGoodPrit.Text;
           ParamByName('текст_притензии_рус').AsString := mmoПритензияРус.Text;
           ParamByName('текст_притензии_исп').AsString := mmoПритензияИсп.Text;
           ParamByName('текст_одобренной_суммы').AsString :=
-            mmoОдобреннаяСумма.Text;
+                                                           mmoОдобреннаяСумма.Text;
           ParamByName('номер_притензии').AsString := edtNum.Text;
           if edtManager.Text <> '' then
             ParamByName('код_менеджера_притензии').AsInteger :=
-              edtManager.EditValue;
+                                                               edtManager.EditValue;
           if edtphoto1.Text <> '' then
             ParamByName('photo1').AsString := edtphoto1.Text;
           if edtphoto2.Text <> '' then
@@ -830,15 +781,12 @@ begin
     end;
   end;
 end;
-
-procedure TFEditFact.ViewAWBDblClick(Sender: TObject);
+procedure TFEditFact.ViewAWBDblClick(Sender : TObject);
 begin
   btnEditClick(Sender);
 end;
-
-procedure TFEditFact.ViewUsersDblClick(Sender: TObject);
+procedure TFEditFact.ViewUsersDblClick(Sender : TObject);
 begin
   EdtAddПретензия;
 end;
-
 end.

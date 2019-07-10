@@ -1,7 +1,5 @@
 unit UFrameTypeClient;
-
 interface
-
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -40,70 +38,59 @@ uses
   cxGridDBTableView,
   cxClasses,
   cxGridCustomView,
-  cxGrid,     
-    
-  dxSkinDevExpressStyle,   
-     
-     
-    
-    
-    
-     
-      
-    
-     dxSkinXmas2008Blue;
-
+  cxGrid,
+  
+  dxSkinDevExpressStyle,
+  
+  dxSkinXmas2008Blue;
 type
   TFrameTypeClient = class(TFrame)
-    FrameTopPanel1: TFrameTopPanel;
-    Group1: TcxGroupBox;
-    GridType: TcxGrid;
-    ViewType: TcxGridDBTableView;
-    LevelOrg: TcxGridLevel;
-    QueryType: TUniQuery;
-    dsType: TDataSource;
-    cxGroupBox1: TcxGroupBox;
-    FrameTopPanel2: TFrameTopPanel;
-    GridVid: TcxGrid;
-    ViewVid: TcxGridDBTableView;
-    cxGridDBColumn1: TcxGridDBColumn;
-    cxGridLevel1: TcxGridLevel;
-    dsMarking: TDataSource;
-    QueryMarking: TUniQuery;
-    Query1: TUniQuery;
-    Query2: TUniQuery;
-    ViewTypeDBColumn: TcxGridDBColumn;
-    ViewTypeDBColumn1: TcxGridDBColumn;
-    ViewTypeDBColumn2: TcxGridDBColumn;
-    ViewTypeDBColumn3: TcxGridDBColumn;
-    ViewTypeColumn1: TcxGridDBColumn;
-    procedure FrameTopPanel1btnAddClick(Sender: TObject);
-    procedure FrameTopPanel1btnDelClick(Sender: TObject);
-    procedure FrameTopPanel1btnEditClick(Sender: TObject);
-    procedure FrameTopPanel1btnRefreshClick(Sender: TObject);
-    procedure FrameTopPanel1btnSelClick(Sender: TObject);
-    procedure FrameTopPanel2btnAddClick(Sender: TObject);
-    procedure FrameTopPanel2btnDelClick(Sender: TObject);
-    procedure FrameTopPanel2btnEditClick(Sender: TObject);
-    procedure FrameTopPanel2btnRefreshClick(Sender: TObject);
-    procedure FrameTopPanel2btnSelClick(Sender: TObject);
+    FrameTopPanel1 : TFrameTopPanel;
+    Group1 : TcxGroupBox;
+    GridType : TcxGrid;
+    ViewType : TcxGridDBTableView;
+    LevelOrg : TcxGridLevel;
+    QueryType : TUniQuery;
+    dsType : TDataSource;
+    cxGroupBox1 : TcxGroupBox;
+    FrameTopPanel2 : TFrameTopPanel;
+    GridVid : TcxGrid;
+    ViewVid : TcxGridDBTableView;
+    cxGridDBColumn1 : TcxGridDBColumn;
+    cxGridLevel1 : TcxGridLevel;
+    dsMarking : TDataSource;
+    QueryMarking : TUniQuery;
+    Query1 : TUniQuery;
+    Query2 : TUniQuery;
+    ViewTypeDBColumn : TcxGridDBColumn;
+    ViewTypeDBColumn1 : TcxGridDBColumn;
+    ViewTypeDBColumn2 : TcxGridDBColumn;
+    ViewTypeDBColumn3 : TcxGridDBColumn;
+    ViewTypeColumn1 : TcxGridDBColumn;
+    procedure FrameTopPanel1btnAddClick(Sender : TObject);
+    procedure FrameTopPanel1btnDelClick(Sender : TObject);
+    procedure FrameTopPanel1btnEditClick(Sender : TObject);
+    procedure FrameTopPanel1btnRefreshClick(Sender : TObject);
+    procedure FrameTopPanel1btnSelClick(Sender : TObject);
+    procedure FrameTopPanel2btnAddClick(Sender : TObject);
+    procedure FrameTopPanel2btnDelClick(Sender : TObject);
+    procedure FrameTopPanel2btnEditClick(Sender : TObject);
+    procedure FrameTopPanel2btnRefreshClick(Sender : TObject);
+    procedure FrameTopPanel2btnSelClick(Sender : TObject);
   private
     { Private declarations }
   public
-    s_id_client_for_type: Integer;
-    procedure ShowTypeClient(id_locate: Integer = 0);
+    s_id_client_for_type : Integer;
+    procedure ShowTypeClient(id_locate : Integer = 0);
     { Public declarations }
   end;
-
 implementation
-
 {$R *.dfm}
 
 uses
   UNewTypeClient,
   UMultiSelect;
-
-procedure TFrameTypeClient.FrameTopPanel1btnAddClick(Sender: TObject);
+procedure TFrameTypeClient.FrameTopPanel1btnAddClick(Sender : TObject);
 begin
   Application.CreateForm(TFNewTypeClient, FNewTypeClient);
   with FNewTypeClient do
@@ -141,34 +128,30 @@ begin
     end;
   end;
 end;
-
-procedure TFrameTypeClient.FrameTopPanel1btnDelClick(Sender: TObject);
+procedure TFrameTypeClient.FrameTopPanel1btnDelClick(Sender : TObject);
 begin
   if Application.MessageBox('Вы действительно хотите удалить запись?', 'Вопрос',
-    MB_YESNO + MB_ICONQUESTION) = mrYes then
+                             MB_YESNO + MB_ICONQUESTION) = mrYes then
   begin
     with Query1 do
     begin
       Close;
       SQL.Text := 'delete from "контрагенты"."клиент_вид" where id=' +
-        QueryType.FieldByName('id').AsString;
+    QueryType.FieldByName('id').AsString;
       ExecSQL;
       ShowTypeClient();
     end;
   end;
 end;
-
-procedure TFrameTypeClient.FrameTopPanel1btnEditClick(Sender: TObject);
+procedure TFrameTypeClient.FrameTopPanel1btnEditClick(Sender : TObject);
 begin
   ShowMessage('');
 end;
-
-procedure TFrameTypeClient.FrameTopPanel1btnRefreshClick(Sender: TObject);
+procedure TFrameTypeClient.FrameTopPanel1btnRefreshClick(Sender : TObject);
 begin
   ShowMessage('');
 end;
-
-procedure TFrameTypeClient.FrameTopPanel1btnSelClick(Sender: TObject);
+procedure TFrameTypeClient.FrameTopPanel1btnSelClick(Sender : TObject);
 begin
   with Query1 do
   begin
@@ -178,8 +161,8 @@ begin
     Open;
     Query2.Close;
     Query2.SQL.Text :=
-      'insert into "контрагенты"."клиент_вид" (код_клиента, код_вида) ' +
-      ' values (:код_клиента, :код_вида)';
+                      'insert into "контрагенты"."клиент_вид" (код_клиента, код_вида) ' +
+                      ' values (:код_клиента, :код_вида)';
     while not eof do
     begin
       Query2.ParamByName('код_клиента').AsInteger := s_id_client_for_type;
@@ -190,8 +173,7 @@ begin
     ShowTypeClient();
   end;
 end;
-
-procedure TFrameTypeClient.FrameTopPanel2btnAddClick(Sender: TObject);
+procedure TFrameTypeClient.FrameTopPanel2btnAddClick(Sender : TObject);
 begin
   // Application.CreateForm(TFMultiSelect, FMultiSelect);
   // with FMultiSelect do
@@ -223,28 +205,23 @@ begin
   // end;
   // end;
 end;
-
-procedure TFrameTypeClient.FrameTopPanel2btnDelClick(Sender: TObject);
+procedure TFrameTypeClient.FrameTopPanel2btnDelClick(Sender : TObject);
 begin
   ShowMessage('');
 end;
-
-procedure TFrameTypeClient.FrameTopPanel2btnEditClick(Sender: TObject);
+procedure TFrameTypeClient.FrameTopPanel2btnEditClick(Sender : TObject);
 begin
   ShowMessage('');
 end;
-
-procedure TFrameTypeClient.FrameTopPanel2btnRefreshClick(Sender: TObject);
+procedure TFrameTypeClient.FrameTopPanel2btnRefreshClick(Sender : TObject);
 begin
   ShowMessage('');
 end;
-
-procedure TFrameTypeClient.FrameTopPanel2btnSelClick(Sender: TObject);
+procedure TFrameTypeClient.FrameTopPanel2btnSelClick(Sender : TObject);
 begin
   ShowMessage('');
 end;
-
-procedure TFrameTypeClient.ShowTypeClient(id_locate: Integer = 0);
+procedure TFrameTypeClient.ShowTypeClient(id_locate : Integer = 0);
 begin
   with QueryType do
   begin
@@ -277,7 +254,7 @@ begin
     SQL.Add(' tt.name "тип товара",');
     SQL.Add(' vl.name "валюта",');
     SQL.Add(' kv."код_клиента",');
-     SQL.Add(' m.name "маркировка"');
+    SQL.Add(' m.name "маркировка"');
     SQL.Add(' FROM');
     SQL.Add(' "контрагенты"."страна_тип" st');
     SQL.Add(' INNER JOIN "продукция"."страны" s ON (st."код_страны" = s.id)');
@@ -291,5 +268,4 @@ begin
     Locate('id', id_locate, []);
   end;
 end;
-
 end.
