@@ -1,4 +1,4 @@
-object FrameCountry: TFrameCountry
+﻿object FrameCountry: TFrameCountry
   Left = 0
   Top = 0
   Width = 797
@@ -70,11 +70,7 @@ object FrameCountry: TFrameCountry
     TabOrder = 1
     ExplicitWidth = 797
     inherited barProduct: TdxBarManager
-      DockControlHeights = (
-        0
-        0
-        34
-        0)
+      PixelsPerInch = 96
       inherited dxbrBardxbrmngr1Bar1: TdxBar
         ItemLinks = <
           item
@@ -108,6 +104,18 @@ object FrameCountry: TFrameCountry
       inherited btnRefresh: TdxBarLargeButton
         OnClick = btnRefreshClick
       end
+    end
+    inherited pmПедидо: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmЗаказ: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmФактура: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmClients: TdxBarPopupMenu
+      PixelsPerInch = 96
     end
   end
   object QueryCountry: TUniQuery

@@ -41,7 +41,8 @@ uses
   UFrameTopPanel,
   cxNavigator,
 
-  dxSkinDevExpressStyle, dxSkinsDefaultPainters, dxSkinOffice2007Blue;
+  dxSkinDevExpressStyle, dxSkinsDefaultPainters, dxSkinOffice2007Blue, dxDateRanges,
+  cxDataControllerConditionalFormattingRulesManagerDialog;
 
 type
   TFrameCountry = class(TFrame)

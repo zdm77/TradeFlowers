@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module exeOutputPath="" mainFile="TradeFlowers.dpr" type="PASCAL_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/dpr" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/pas" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/pas/Auction" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/pas/Auction/Orders" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/pas/Buh" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/pas/Buh/Edit" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/pas/Buh/Vew" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/pas/Buh/Vew/Form" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/pas/Chat" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/pas/Classes" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/pas/Dictonary" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/pas/Dictonary/Edit" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/pas/Dictonary/View" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/pas/Dictonary/View/Form" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/pas/Helpers" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
