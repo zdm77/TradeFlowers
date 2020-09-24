@@ -1,4 +1,4 @@
-object FSelect: TFSelect
+﻿object FSelect: TFSelect
   Left = 0
   Top = 0
   ClientHeight = 412
@@ -25,11 +25,7 @@ object FSelect: TFSelect
     TabOrder = 0
     ExplicitWidth = 534
     inherited barProduct: TdxBarManager
-      DockControlHeights = (
-        0
-        0
-        34
-        0)
+      PixelsPerInch = 96
       inherited dxbrBardxbrmngr1Bar1: TdxBar
         ItemLinks = <
           item
@@ -46,6 +42,18 @@ object FSelect: TFSelect
         Visible = ivAlways
         OnClick = FrameTopPanel1btnSelClick
       end
+    end
+    inherited pmПедидо: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmЗаказ: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmФактура: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmClients: TdxBarPopupMenu
+      PixelsPerInch = 96
     end
   end
   object GridSelect: TcxGrid
@@ -157,6 +165,7 @@ object FSelect: TFSelect
     end
     object ColumnColor: TcxDBTreeListColumn
       Visible = False
+      Width = 100
       Position.ColIndex = 1
       Position.RowIndex = 0
       Position.BandIndex = 0
@@ -195,7 +204,7 @@ object FSelect: TFSelect
     Left = 388
     Top = 205
     Bitmap = {
-      494C0101020005004C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102000500040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       00000000000000000000000000000000000000000000FCFCFC04D0CFCE39CCCB
       CA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECBCA
