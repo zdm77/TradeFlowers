@@ -1,4 +1,4 @@
-object FramePrice: TFramePrice
+﻿object FramePrice: TFramePrice
   Left = 0
   Top = 0
   Width = 907
@@ -14,6 +14,7 @@ object FramePrice: TFramePrice
     ExplicitWidth = 907
     ExplicitHeight = 33
     inherited barProduct: TdxBarManager
+      PixelsPerInch = 96
       DockControlHeights = (
         0
         0
@@ -35,6 +36,18 @@ object FramePrice: TFramePrice
         Visible = ivAlways
         OnClick = FrameTopPanel1btnSelClick
       end
+    end
+    inherited pmПедидо: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmЗаказ: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmФактура: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmClients: TdxBarPopupMenu
+      PixelsPerInch = 96
     end
   end
   object GridPedidoALL: TcxGrid

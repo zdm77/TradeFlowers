@@ -25,10 +25,6 @@
     Style.LookAndFeel.SkinName = 'Office2007Blue'
     StyleDisabled.LookAndFeel.NativeStyle = False
     StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleFocused.LookAndFeel.NativeStyle = False
-    StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleHot.LookAndFeel.NativeStyle = False
-    StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
     TabOrder = 0
     Height = 33
     Width = 1030
@@ -118,18 +114,7 @@
       AutoSize = False
       TabOrder = 2
       OnChange = edtWeightChange
-      BoundLabel.Indent = 0
-      BoundLabel.Font.Charset = DEFAULT_CHARSET
-      BoundLabel.Font.Color = clWindowText
-      BoundLabel.Font.Height = -11
-      BoundLabel.Font.Name = 'Tahoma'
-      BoundLabel.Font.Style = []
-      BoundLabel.Layout = sclLeft
-      BoundLabel.MaxWidth = 0
-      BoundLabel.UseSkinColor = True
       SkinData.SkinSection = 'EDIT'
-      GlyphMode.Blend = 0
-      GlyphMode.Grayed = False
       DecimalPlaces = 0
       DisplayFormat = '### ### ##0;-### ### ##0.00;0'
       Value = 1.000000000000000000
@@ -141,18 +126,7 @@
       Height = 21
       AutoSize = False
       TabOrder = 3
-      BoundLabel.Indent = 0
-      BoundLabel.Font.Charset = DEFAULT_CHARSET
-      BoundLabel.Font.Color = clWindowText
-      BoundLabel.Font.Height = -11
-      BoundLabel.Font.Name = 'Tahoma'
-      BoundLabel.Font.Style = []
-      BoundLabel.Layout = sclLeft
-      BoundLabel.MaxWidth = 0
-      BoundLabel.UseSkinColor = True
       SkinData.SkinSection = 'EDIT'
-      GlyphMode.Blend = 0
-      GlyphMode.Grayed = False
     end
     object btnCalc: TcxButton
       Left = 653
@@ -178,11 +152,7 @@
     inherited barProduct: TdxBarManager
       Left = 416
       Top = 32
-      DockControlHeights = (
-        0
-        0
-        34
-        0)
+      PixelsPerInch = 96
       inherited dxbrBardxbrmngr1Bar1: TdxBar
         ItemLinks = <
           item
@@ -253,9 +223,9 @@
         Caption = #1050' '#1092#1072#1082#1090#1091#1088#1077
         Hint = #1050' '#1092#1072#1082#1090#1091#1088#1077
         Visible = ivAlways
-        LargeImageIndex = 4
         OnClick = btnFilterClick
         AutoGrayScale = False
+        LargeImageIndex = 4
       end
       inherited btnRazdel: TdxBarLargeButton
         Visible = ivAlways
@@ -270,6 +240,18 @@
       inherited btnSave: TdxBarLargeButton
         OnClick = btnSaveClick
       end
+    end
+    inherited pmПедидо: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmЗаказ: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmФактура: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmClients: TdxBarPopupMenu
+      PixelsPerInch = 96
     end
   end
   object GridSubAWB: TcxGrid

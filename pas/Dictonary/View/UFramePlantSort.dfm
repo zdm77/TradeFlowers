@@ -1,4 +1,4 @@
-object FramePlantSort: TFramePlantSort
+﻿object FramePlantSort: TFramePlantSort
   Left = 0
   Top = 0
   Width = 717
@@ -13,11 +13,7 @@ object FramePlantSort: TFramePlantSort
     TabOrder = 0
     ExplicitWidth = 717
     inherited barProduct: TdxBarManager
-      DockControlHeights = (
-        0
-        0
-        34
-        0)
+      PixelsPerInch = 96
       inherited dxbrBardxbrmngr1Bar1: TdxBar
         ItemLinks = <
           item
@@ -60,6 +56,18 @@ object FramePlantSort: TFramePlantSort
         OnClick = btnRefreshClick
       end
     end
+    inherited pmПедидо: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmЗаказ: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmФактура: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmClients: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
   end
   object GroupSelCountry: TcxGroupBox
     Left = 0
@@ -70,10 +78,6 @@ object FramePlantSort: TFramePlantSort
     Style.LookAndFeel.SkinName = 'Office2007Blue'
     StyleDisabled.LookAndFeel.NativeStyle = False
     StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleFocused.LookAndFeel.NativeStyle = False
-    StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleHot.LookAndFeel.NativeStyle = False
-    StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
     TabOrder = 1
     Height = 33
     Width = 717
@@ -137,7 +141,6 @@ object FramePlantSort: TFramePlantSort
       TabOrder = 2
       Transparent = True
       OnClick = chkDelClick
-      Width = 130
     end
   end
   object GroupSort: TcxGroupBox
@@ -149,10 +152,6 @@ object FramePlantSort: TFramePlantSort
     Style.LookAndFeel.SkinName = 'Office2007Blue'
     StyleDisabled.LookAndFeel.NativeStyle = False
     StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleFocused.LookAndFeel.NativeStyle = False
-    StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleHot.LookAndFeel.NativeStyle = False
-    StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
     TabOrder = 2
     Height = 408
     Width = 717

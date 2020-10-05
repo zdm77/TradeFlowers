@@ -1,4 +1,4 @@
-object FrameTrack: TFrameTrack
+﻿object FrameTrack: TFrameTrack
   Left = 0
   Top = 0
   Width = 582
@@ -14,6 +14,7 @@ object FrameTrack: TFrameTrack
     ExplicitWidth = 582
     ExplicitHeight = 32
     inherited barProduct: TdxBarManager
+      PixelsPerInch = 96
       DockControlHeights = (
         0
         0
@@ -31,6 +32,18 @@ object FrameTrack: TFrameTrack
       inherited btnRefresh: TdxBarLargeButton
         OnClick = btnRefreshClick
       end
+    end
+    inherited pmПедидо: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmЗаказ: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmФактура: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmClients: TdxBarPopupMenu
+      PixelsPerInch = 96
     end
   end
   object GridStatWork: TcxGrid

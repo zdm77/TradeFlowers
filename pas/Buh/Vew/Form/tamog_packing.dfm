@@ -1,4 +1,4 @@
-object Tamog_Packing: TTamog_Packing
+﻿object Tamog_Packing: TTamog_Packing
   Left = 0
   Top = 0
   Width = 777
@@ -14,11 +14,7 @@ object Tamog_Packing: TTamog_Packing
     ExplicitWidth = 777
     ExplicitHeight = 38
     inherited barProduct: TdxBarManager
-      DockControlHeights = (
-        0
-        0
-        34
-        0)
+      PixelsPerInch = 96
       inherited dxbrBardxbrmngr1Bar1: TdxBar
         ItemLinks = <
           item
@@ -73,6 +69,18 @@ object Tamog_Packing: TTamog_Packing
         OnClick = btnRefreshClick
       end
     end
+    inherited pmПедидо: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmЗаказ: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmФактура: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmClients: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
   end
   object GroupOsn: TcxGroupBox
     Left = 0
@@ -81,8 +89,6 @@ object Tamog_Packing: TTamog_Packing
     Caption = #1060#1080#1083#1100#1090#1088
     Style.LookAndFeel.SkinName = 'Office2007Blue'
     StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
     TabOrder = 1
     Height = 51
     Width = 777
@@ -103,8 +109,8 @@ object Tamog_Packing: TTamog_Packing
       Top = 17
       Width = 97
       Height = 21
-      Date = 41535.395268159720000000
-      Time = 41535.395268159720000000
+      Date = 41535.000000000000000000
+      Time = 0.395268159722036200
       ShowCheckbox = True
       Checked = False
       TabOrder = 2
@@ -116,8 +122,8 @@ object Tamog_Packing: TTamog_Packing
       Top = 17
       Width = 97
       Height = 21
-      Date = 41535.395268159720000000
-      Time = 41535.395268159720000000
+      Date = 41535.000000000000000000
+      Time = 0.395268159722036200
       ShowCheckbox = True
       Checked = False
       TabOrder = 3

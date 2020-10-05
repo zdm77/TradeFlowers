@@ -1,4 +1,4 @@
-object FrameClient: TFrameClient
+﻿object FrameClient: TFrameClient
   Left = 0
   Top = 0
   Width = 854
@@ -14,6 +14,7 @@ object FrameClient: TFrameClient
     ExplicitWidth = 854
     ExplicitHeight = 32
     inherited barProduct: TdxBarManager
+      PixelsPerInch = 96
       DockControlHeights = (
         0
         0
@@ -42,6 +43,18 @@ object FrameClient: TFrameClient
       inherited btnReportClients: TdxBarButton
         OnClick = btnReportClientsClick
       end
+    end
+    inherited pmПедидо: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmЗаказ: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmФактура: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmClients: TdxBarPopupMenu
+      PixelsPerInch = 96
     end
   end
   object GridStatWork: TcxGrid
@@ -111,10 +124,6 @@ object FrameClient: TFrameClient
     Style.LookAndFeel.SkinName = 'Office2007Blue'
     StyleDisabled.LookAndFeel.NativeStyle = False
     StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleFocused.LookAndFeel.NativeStyle = False
-    StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleHot.LookAndFeel.NativeStyle = False
-    StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
     TabOrder = 2
     Height = 29
     Width = 854
@@ -163,7 +172,6 @@ object FrameClient: TFrameClient
       TabOrder = 1
       Transparent = True
       OnClick = chkDelClick
-      Width = 130
     end
   end
   object Query1: TUniQuery
@@ -334,7 +342,7 @@ object FrameClient: TFrameClient
     end
   end
   object Report1: TfrxReport
-    Version = '4.15.10'
+    Version = '6.7.6'
     DotMatrixReport = False
     IniFile = '\Software\Fast Reports'
     PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]

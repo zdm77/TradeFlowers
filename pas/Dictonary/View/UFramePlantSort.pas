@@ -50,7 +50,7 @@ uses
   
   dxSkinDevExpressStyle,
   
-  dxSkinXmas2008Blue;
+  dxSkinXmas2008Blue, dxDateRanges;
 type
   TFramePlantSort = class(TFrame)
     FrameTopPanel1 : TFrameTopPanel;

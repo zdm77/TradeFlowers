@@ -1,7 +1,7 @@
 unit UModelView;
 interface
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Uni, UFrameTopPanel, cxDBTL, cxGridDBTableView, CodeSiteLogging, Data.Db, cxGridTableView, cxGridCustomTableView, DBAccess, System.Generics.Collections;
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Uni, UFrameTopPanel, cxDBTL, cxGridDBTableView,  Data.Db, cxGridTableView, cxGridCustomTableView, DBAccess, System.Generics.Collections;
 type
   TFindControl = class(TcxGridTableController);
   TcxGridFindPanelAccess = class(TcxGridFindPanel);

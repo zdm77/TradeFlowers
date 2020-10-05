@@ -14,11 +14,7 @@
     ExplicitWidth = 996
     ExplicitHeight = 38
     inherited barProduct: TdxBarManager
-      DockControlHeights = (
-        0
-        0
-        34
-        0)
+      PixelsPerInch = 96
       inherited btnAdd: TdxBarLargeButton
         OnClick = btnAddClick
       end
@@ -32,6 +28,18 @@
         OnClick = btnRefreshClick
       end
     end
+    inherited pmПедидо: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmЗаказ: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmФактура: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmClients: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
   end
   object GroupCountry: TcxGroupBox
     Left = 0
@@ -42,26 +50,18 @@
     Style.LookAndFeel.SkinName = 'Office2007Blue'
     StyleDisabled.LookAndFeel.NativeStyle = False
     StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleFocused.LookAndFeel.NativeStyle = False
-    StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleHot.LookAndFeel.NativeStyle = False
-    StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
     TabOrder = 1
     Height = 412
     Width = 205
     object cxGrid1: TcxGrid
-      Left = 3
-      Top = 15
-      Width = 199
-      Height = 387
+      Left = 2
+      Top = 18
+      Width = 201
+      Height = 392
       Align = alClient
       TabOrder = 0
       LookAndFeel.Kind = lfOffice11
       LookAndFeel.NativeStyle = False
-      ExplicitLeft = 2
-      ExplicitTop = 18
-      ExplicitWidth = 201
-      ExplicitHeight = 392
       object cxGridDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         DataController.DataSource = dsType
@@ -115,28 +115,18 @@
     StyleDisabled.LookAndFeel.Kind = lfFlat
     StyleDisabled.LookAndFeel.NativeStyle = False
     StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleFocused.LookAndFeel.Kind = lfFlat
-    StyleFocused.LookAndFeel.NativeStyle = False
-    StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleHot.LookAndFeel.Kind = lfFlat
-    StyleHot.LookAndFeel.NativeStyle = False
-    StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
     TabOrder = 3
     Height = 412
     Width = 783
     object GridUsers: TcxGrid
-      Left = 3
-      Top = 15
-      Width = 777
-      Height = 387
+      Left = 2
+      Top = 18
+      Width = 779
+      Height = 392
       Align = alClient
       TabOrder = 0
       LookAndFeel.Kind = lfOffice11
       LookAndFeel.NativeStyle = False
-      ExplicitLeft = 2
-      ExplicitTop = 18
-      ExplicitWidth = 779
-      ExplicitHeight = 392
       object ViewUsers: TcxGridDBTableView
         OnDblClick = ViewUsersDblClick
         OnKeyDown = ViewUsersKeyDown

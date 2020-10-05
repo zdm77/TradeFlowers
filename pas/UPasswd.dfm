@@ -28,12 +28,6 @@ object FPasswd: TFPasswd
     StyleDisabled.LookAndFeel.Kind = lfOffice11
     StyleDisabled.LookAndFeel.NativeStyle = False
     StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleFocused.LookAndFeel.Kind = lfOffice11
-    StyleFocused.LookAndFeel.NativeStyle = False
-    StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleHot.LookAndFeel.Kind = lfOffice11
-    StyleHot.LookAndFeel.NativeStyle = False
-    StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
     TabOrder = 0
     Height = 189
     Width = 348
@@ -320,7 +314,6 @@ object FPasswd: TFPasswd
       Caption = #1057#1091#1087#1077#1088#1072#1076#1084#1080#1085#1080#1089#1090#1088#1072#1090#1086#1088
       TabOrder = 14
       OnClick = chkAdminClick
-      Width = 218
     end
   end
   object dxbrmngr1: TdxBarManager
@@ -341,6 +334,7 @@ object FPasswd: TFPasswd
     UseSystemFont = True
     Left = 248
     Top = 64
+    PixelsPerInch = 96
     DockControlHeights = (
       0
       0
@@ -389,10 +383,10 @@ object FPasswd: TFPasswd
       Category = 0
       Hint = #1042#1099#1093#1086#1076
       Visible = ivAlways
-      LargeImageIndex = 16
       OnClick = btnCancelClick
       AutoGrayScale = False
       GlyphLayout = glLeft
+      LargeImageIndex = 16
     end
     object btnOk: TdxBarLargeButton
       Align = iaRight
@@ -401,10 +395,10 @@ object FPasswd: TFPasswd
       Enabled = False
       Hint = #1042#1093#1086#1076
       Visible = ivAlways
-      LargeImageIndex = 1
       OnClick = btnOkClick
       AutoGrayScale = False
       GlyphLayout = glLeft
+      LargeImageIndex = 1
     end
     object chk1: TcxBarEditItem
       Category = 0

@@ -38,7 +38,8 @@ uses
   cxGrid,
   cxNavigator,
   
-  dxSkinDevExpressStyle, dxSkinsDefaultPainters, dxSkinOffice2007Blue;
+  dxSkinDevExpressStyle, dxSkinsDefaultPainters, dxSkinOffice2007Blue,
+  dxDateRanges;
 type
   TFrameType = class(TFrame)
     GridUsers : TcxGrid;

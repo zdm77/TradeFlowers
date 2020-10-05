@@ -1,4 +1,4 @@
-object FrameStanding: TFrameStanding
+﻿object FrameStanding: TFrameStanding
   Left = 0
   Top = 0
   Width = 636
@@ -14,6 +14,7 @@ object FrameStanding: TFrameStanding
     ExplicitWidth = 636
     ExplicitHeight = 32
     inherited barProduct: TdxBarManager
+      PixelsPerInch = 96
       DockControlHeights = (
         0
         0
@@ -31,6 +32,18 @@ object FrameStanding: TFrameStanding
       inherited btnRefresh: TdxBarLargeButton
         OnClick = btnRefreshClick
       end
+    end
+    inherited pmПедидо: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmЗаказ: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmФактура: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmClients: TdxBarPopupMenu
+      PixelsPerInch = 96
     end
   end
   object GridUsers: TcxGrid

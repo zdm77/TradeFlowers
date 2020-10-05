@@ -4,7 +4,7 @@
   Width = 758
   object db1: TUniConnection
     ProviderName = 'PostgreSQL'
-    Database = 'wwwunifloragroup_trade'
+    Database = 'trade_old'
     SpecificOptions.Strings = (
       'PostgreSQL.Charset=WIN1251'
       'PostgreSQL.UseUnicode=True'
@@ -14,11 +14,12 @@
     PoolingOptions.MaxPoolSize = 100000
     PoolingOptions.ConnectionLifetime = 3
     Pooling = True
-    Username = 'uniflora_trade'
+    Username = 'postgres'
+    Server = 'localhost'
     LoginPrompt = False
     Left = 8
     Top = 16
-    EncryptedPassword = 'B4FF94FF9BFFCCFFC8FFBCFF94FF8EFF99FF92FF'
+    EncryptedPassword = 'B4FF94FF9BFFCCFFC8FFBCFF94FF8EFF99FF92FFBBFF92FF'
   end
   object Provider1: TPostgreSQLUniProvider
     Left = 72
@@ -41,17 +42,18 @@
   end
   object dbUpd: TUniConnection
     ProviderName = 'PostgreSQL'
-    Database = 'wwwunifloragroup_trade'
+    Database = 'trade_old'
     SpecificOptions.Strings = (
       'PostgreSQL.Charset=WIN1251'
       'PostgreSQL.UseUnicode=True'
       'PostgreSQL.ConnectionTimeout=0')
     Options.DisconnectedMode = True
-    Server = 'pgsql.uniflora.mass.hc.ru'
+    Username = 'postgres'
+    Server = 'localhost'
     LoginPrompt = False
     Left = 168
     Top = 24
-    EncryptedPassword = 'B4FF94FF9BFFCCFFC8FFBCFF94FF8EFF99FF92FF'
+    EncryptedPassword = 'B4FF94FF9BFFCCFFC8FFBCFF94FF8EFF99FF92FFBBFF92FF'
   end
   object QueryUpd: TUniQuery
     Connection = dbUpd

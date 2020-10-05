@@ -1,4 +1,4 @@
-object FramePedidoAll: TFramePedidoAll
+﻿object FramePedidoAll: TFramePedidoAll
   Left = 0
   Top = 0
   Width = 960
@@ -14,11 +14,7 @@ object FramePedidoAll: TFramePedidoAll
     ExplicitWidth = 960
     ExplicitHeight = 33
     inherited barProduct: TdxBarManager
-      DockControlHeights = (
-        0
-        0
-        34
-        0)
+      PixelsPerInch = 96
       inherited btnAdd: TdxBarLargeButton
         OnClick = btnAddClick
       end
@@ -31,6 +27,18 @@ object FramePedidoAll: TFramePedidoAll
       inherited btnRefresh: TdxBarLargeButton
         OnClick = btnRefreshClick
       end
+    end
+    inherited pmПедидо: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmЗаказ: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmФактура: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmClients: TdxBarPopupMenu
+      PixelsPerInch = 96
     end
   end
   object GridPedidoALL: TcxGrid

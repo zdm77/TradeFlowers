@@ -34,10 +34,6 @@
     Style.LookAndFeel.SkinName = 'Office2007Blue'
     StyleDisabled.LookAndFeel.NativeStyle = False
     StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleFocused.LookAndFeel.NativeStyle = False
-    StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleHot.LookAndFeel.NativeStyle = False
-    StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
     TabOrder = 0
     Height = 32
     Width = 1466
@@ -96,8 +92,8 @@
       Top = 7
       Width = 97
       Height = 21
-      Date = 41535.395268159720000000
-      Time = 41535.395268159720000000
+      Date = 41535.000000000000000000
+      Time = 0.395268159722036200
       ShowCheckbox = True
       Checked = False
       TabOrder = 0
@@ -264,11 +260,7 @@
     ExplicitWidth = 1466
     ExplicitHeight = 38
     inherited barProduct: TdxBarManager
-      DockControlHeights = (
-        0
-        0
-        34
-        0)
+      PixelsPerInch = 96
       inherited dxbrBardxbrmngr1Bar1: TdxBar
         ItemLinks = <
           item
@@ -344,6 +336,18 @@
       inherited btnSave: TdxBarLargeButton
         OnClick = btnSaveClick
       end
+    end
+    inherited pmПедидо: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmЗаказ: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmФактура: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmClients: TdxBarPopupMenu
+      PixelsPerInch = 96
     end
   end
   object GridAWB: TcxGrid

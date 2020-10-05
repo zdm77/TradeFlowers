@@ -51,7 +51,7 @@ uses
   
   dxSkinDevExpressStyle,
   
-  dxSkinsDefaultPainters, dxSkinOffice2007Blue;
+  dxSkinsDefaultPainters, dxSkinOffice2007Blue, dxDateRanges, System.ImageList;
 type
   TFrameProperties = class(TFrame)
     FrameTopPanel1 : TFrameTopPanel;

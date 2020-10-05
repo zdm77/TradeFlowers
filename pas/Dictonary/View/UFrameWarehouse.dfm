@@ -1,4 +1,4 @@
-object FrameWarehouse: TFrameWarehouse
+﻿object FrameWarehouse: TFrameWarehouse
   Left = 0
   Top = 0
   Width = 650
@@ -13,6 +13,7 @@ object FrameWarehouse: TFrameWarehouse
     TabOrder = 0
     ExplicitWidth = 650
     inherited barProduct: TdxBarManager
+      PixelsPerInch = 96
       DockControlHeights = (
         0
         0
@@ -30,6 +31,18 @@ object FrameWarehouse: TFrameWarehouse
       inherited btnRefresh: TdxBarLargeButton
         OnClick = btnRefreshClick
       end
+    end
+    inherited pmПедидо: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmЗаказ: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmФактура: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmClients: TdxBarPopupMenu
+      PixelsPerInch = 96
     end
   end
   object GridWarehouse: TcxGrid

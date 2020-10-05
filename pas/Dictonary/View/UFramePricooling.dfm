@@ -1,4 +1,4 @@
-object FrameProcooling: TFrameProcooling
+﻿object FrameProcooling: TFrameProcooling
   Left = 0
   Top = 0
   Width = 595
@@ -14,6 +14,7 @@ object FrameProcooling: TFrameProcooling
     ExplicitWidth = 595
     ExplicitHeight = 32
     inherited barProduct: TdxBarManager
+      PixelsPerInch = 96
       DockControlHeights = (
         0
         0
@@ -34,6 +35,18 @@ object FrameProcooling: TFrameProcooling
       inherited btnSel: TdxBarLargeButton
         OnClick = FrameTopPanel1btnSelClick
       end
+    end
+    inherited pmПедидо: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmЗаказ: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmФактура: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmClients: TdxBarPopupMenu
+      PixelsPerInch = 96
     end
   end
   object GridStatWork: TcxGrid

@@ -43,7 +43,7 @@ uses
   
   dxSkinDevExpressStyle,
   
-  dxSkinsDefaultPainters, dxSkinOffice2007Blue;
+  dxSkinsDefaultPainters, dxSkinOffice2007Blue, dxDateRanges;
 type
   TFrameUsers = class(TFrame)
     FrameTopPanel1 : TFrameTopPanel;

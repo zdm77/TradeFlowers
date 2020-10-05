@@ -10,7 +10,7 @@ uses
   cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, cxNavigator, Data.DB,
   cxDBData, MemDS, DBAccess, Uni, cxGridLevel, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxClasses, cxGridCustomView, cxGrid,
-  UFrameTopPanel, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
+  UFrameTopPanel, dxSkinOffice2007Blue, dxSkinsDefaultPainters, dxDateRanges;
 type
   TFrameReceipt = class(TFrame)
     FrameTopPanel1 : TFrameTopPanel;

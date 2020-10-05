@@ -41,7 +41,7 @@ uses
   
   dxSkinDevExpressStyle,
   
-  dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
+  dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters, dxDateRanges;
 type
   TFrameBox = class(TFrame)
     FrameTopPanel1 : TFrameTopPanel;

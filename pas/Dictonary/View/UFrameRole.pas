@@ -41,7 +41,7 @@ uses
   
   dxSkinDevExpressStyle,
   
-  dxSkinsDefaultPainters, dxSkinOffice2007Blue;
+  dxSkinsDefaultPainters, dxSkinOffice2007Blue, dxDateRanges;
 type
   TFrameRole = class(TFrame)
     QueryRole : TUniQuery;

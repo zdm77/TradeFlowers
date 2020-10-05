@@ -1,5 +1,7 @@
 ﻿unit UPasswd;
+
 interface
+
 uses
   Winapi.Windows,
   Winapi.Messages,
@@ -42,88 +44,93 @@ uses
   cxDBTL, cxTLData,
   dxSkinDevExpressStyle,
   cxCheckBox, dxSkinsDefaultPainters, dxSkinOffice2007Blue;
+
 type
   TFPasswd = class(TForm)
-    Group1 : TcxGroupBox;
-    lblUser : TcxLabel;
-    edtName : TcxLookupComboBox;
-    lblPasswd : TcxLabel;
-    edtPasswd : TcxTextEdit;
-    lblOrg : TcxLabel;
-    edtOrg : TcxLookupComboBox;
-    dxbrmngr1 : TdxBarManager;
-    Bardxbrmngr1Bar1 : TdxBar;
-    btnCancel : TdxBarLargeButton;
-    btnOk : TdxBarLargeButton;
-    chk1 : TcxBarEditItem;
-    QueryUsers : TUniQuery;
-    dsUsers : TUniDataSource;
-    dsOrg : TUniDataSource;
-    QueryOrg : TUniQuery;
-    lblLang : TcxLabel;
-    edtLang : TcxComboBox;
-    cxlclzr1 : TcxLocalizer;
-    Query1 : TUniQuery;
-    lbl1 : TcxLabel;
-    edtLangData : TcxComboBox;
-    chkSync : TCheckBox;
-    edt1 : TEdit;
-    cxLabel1 : TcxLabel;
-    edtDB : TcxComboBox;
-    QueryProduct : TUniQuery;
-    dset1 : TClientDataSet;
-    dsPr1 : TDataSource;
-    chkAdmin : TcxCheckBox;
-    procedure btnCancelClick(Sender : TObject);
-    procedure FormShow(Sender : TObject);
-    procedure btnOkClick(Sender : TObject);
-    procedure Button1Click(Sender : TObject);
-    procedure Button2Click(Sender : TObject);
-    procedure chkAdminClick(Sender : TObject);
-    procedure edtLangPropertiesEditValueChanged(Sender : TObject);
-    procedure edtOrgPropertiesEditValueChanged(Sender : TObject);
-    procedure edtNamePropertiesEditValueChanged(Sender : TObject);
-    procedure edtNamePropertiesChange(Sender : TObject);
-    procedure edtPasswdKeyDown(Sender : TObject; var Key : Word; Shift : TShiftState);
-    procedure edtPasswdKeyUp(Sender : TObject; var Key : Word; Shift : TShiftState);
-    procedure edtNamePropertiesCloseUp(Sender : TObject);
-    procedure QueryUsersAfterScroll(DataSet : TDataSet);
-    procedure edtOrgPropertiesCloseUp(Sender : TObject);
-    procedure edtDBPropertiesChange(Sender : TObject);
+    Group1: TcxGroupBox;
+    lblUser: TcxLabel;
+    edtName: TcxLookupComboBox;
+    lblPasswd: TcxLabel;
+    edtPasswd: TcxTextEdit;
+    lblOrg: TcxLabel;
+    edtOrg: TcxLookupComboBox;
+    dxbrmngr1: TdxBarManager;
+    Bardxbrmngr1Bar1: TdxBar;
+    btnCancel: TdxBarLargeButton;
+    btnOk: TdxBarLargeButton;
+    chk1: TcxBarEditItem;
+    QueryUsers: TUniQuery;
+    dsUsers: TUniDataSource;
+    dsOrg: TUniDataSource;
+    QueryOrg: TUniQuery;
+    lblLang: TcxLabel;
+    edtLang: TcxComboBox;
+    cxlclzr1: TcxLocalizer;
+    Query1: TUniQuery;
+    lbl1: TcxLabel;
+    edtLangData: TcxComboBox;
+    chkSync: TCheckBox;
+    edt1: TEdit;
+    cxLabel1: TcxLabel;
+    edtDB: TcxComboBox;
+    QueryProduct: TUniQuery;
+    dset1: TClientDataSet;
+    dsPr1: TDataSource;
+    chkAdmin: TcxCheckBox;
+    procedure btnCancelClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure btnOkClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure chkAdminClick(Sender: TObject);
+    procedure edtLangPropertiesEditValueChanged(Sender: TObject);
+    procedure edtOrgPropertiesEditValueChanged(Sender: TObject);
+    procedure edtNamePropertiesEditValueChanged(Sender: TObject);
+    procedure edtNamePropertiesChange(Sender: TObject);
+    procedure edtPasswdKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure edtPasswdKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure edtNamePropertiesCloseUp(Sender: TObject);
+    procedure QueryUsersAfterScroll(DataSet: TDataSet);
+    procedure edtOrgPropertiesCloseUp(Sender: TObject);
+    procedure edtDBPropertiesChange(Sender: TObject);
   private
-    Counter : SmallInt;
+    Counter: SmallInt;
     procedure EnableSave;
-    function GetRoleId(id_locate : Integer = 0) : Integer;
-    function GetUserName(id_locate : Integer = 0) : string;
+    function GetRoleId(id_locate: Integer = 0): Integer;
+    function GetUserName(id_locate: Integer = 0): string;
     procedure LangPasswd;
     { Private declarations }
   public
-    INI : TIniFile;
-    DefaulPath : string;
-    Lang : Integer;
-    ID_USER : Integer;
-    ID_ORG : Integer;
-    ID_ROLE : Integer;
-    ID_COUNTRY, ID_REGION, ID_CITY : Integer;
-    ID_MAIN_ORG : SmallInt;
-    Version : string;
+    INI: TIniFile;
+    DefaulPath: string;
+    Lang: Integer;
+    ID_USER: Integer;
+    ID_ORG: Integer;
+    ID_ROLE: Integer;
+    ID_COUNTRY, ID_REGION, ID_CITY: Integer;
+    ID_MAIN_ORG: SmallInt;
+    Version: string;
     procedure Access;
-    function GetVar(const VarName : string) : string;
-    procedure InsNewPC(pc_name, pc_hard, pc_mac, pc_user : string);
+    function GetVar(const VarName: string): string;
+    procedure InsNewPC(pc_name, pc_hard, pc_mac, pc_user: string);
     /// <summary>
     /// Отобразить пользователей в выпадающем меню
     /// </summary>
   public
-    MStream : TStream;
+    MStream: TStream;
     procedure ConnectDb;
     procedure ShowUsers;
-    procedure Sync(SyncALL : Boolean = False);
+    procedure Sync(SyncALL: Boolean = False);
     { Public declarations }
   end;
 
 var
-  FPasswd : TFPasswd;
+  FPasswd: TFPasswd;
+
 implementation
+
 {$R *.dfm}
 
 uses
@@ -133,9 +140,10 @@ uses
   UDialogMy,
   USync,
   PGSQL;
+
 procedure TFPasswd.Access;
 var
-  pc_name, pc_mac, pc_user, pc_hard : string;
+  pc_name, pc_mac, pc_user, pc_hard: string;
 begin
   if (ID_ROLE <> 1) then
   begin
@@ -149,8 +157,9 @@ begin
       pc_user := PGSQL.GetUserFromWindows;
       pc_mac := PGSQL.GetMACAddress;
       Close;
-      SQL.Text := 'select * from "пользователи"."безопасность" where id_user=' + IntToStr(ID_USER) +
-    ' and name_pc=:name_pc and id_hard=:id_hard and mac=:mac and account=:account ';
+      SQL.Text := 'select * from "пользователи"."безопасность" where id_user=' +
+        IntToStr(ID_USER) +
+        ' and name_pc=:name_pc and id_hard=:id_hard and mac=:mac and account=:account ';
       ParamByName('name_pc').AsString := pc_name;
       ParamByName('id_hard').AsString := pc_hard;
       ParamByName('mac').AsString := pc_mac;
@@ -161,9 +170,10 @@ begin
       else
       begin
         Close;
-        SQL.Text := 'select * from "пользователи"."безопасность" where id_user=' + IntToStr(ID_USER)
-      + ' and name_pc=:name_pc and id_hard=:id_hard and mac=:mac and account=:account ' +
-      ' and разрешить=false';
+        SQL.Text := 'select * from "пользователи"."безопасность" where id_user='
+          + IntToStr(ID_USER) +
+          ' and name_pc=:name_pc and id_hard=:id_hard and mac=:mac and account=:account '
+          + ' and разрешить=false';
         ParamByName('name_pc').AsString := pc_name;
         ParamByName('id_hard').AsString := pc_hard;
         ParamByName('mac').AsString := pc_mac;
@@ -173,12 +183,13 @@ begin
         begin
           Application.MessageBox
             ('Зафиксирован несанкционированный вход в систему. Приложение бует закрыто. Обратитесь к администратору.',
-              'Ошибка', MB_OK + MB_ICONWARNING);
+            'Ошибка', MB_OK + MB_ICONWARNING);
           Application.Terminate;
         end;
       end;
       Close;
-      SQL.Text := 'select * from "пользователи"."доступ"  where код_роли=' + IntToStr(ID_ROLE);
+      SQL.Text := 'select * from "пользователи"."доступ"  where код_роли=' +
+        IntToStr(ID_ROLE);
       open;
       FOsn.btnDict.Enabled := FieldByName('Справочники').AsBoolean;
       FOsn.btnTorg.Enabled := FieldByName('Закупка_и_реализация').AsBoolean;
@@ -190,13 +201,15 @@ begin
     end;
   end;
 end;
-procedure TFPasswd.btnCancelClick(Sender : TObject);
+
+procedure TFPasswd.btnCancelClick(Sender: TObject);
 begin
   Application.Terminate;
 end;
-procedure TFPasswd.btnOkClick(Sender : TObject);
+
+procedure TFPasswd.btnOkClick(Sender: TObject);
 var
-  s : string;
+  s: string;
 begin
   try
     with DM1.QueryGlobalUser do
@@ -204,8 +217,9 @@ begin
       FSplash.Show();
       FSplash.Update;
       Close;
-      SQL.Text := 'select пароль, id from пользователи.пользователи where пароль=md5(''' +
-    edtPasswd.Text + ''') ';
+      SQL.Text :=
+        'select пароль, id from пользователи.пользователи where пароль=md5(''' +
+        edtPasswd.Text + ''') ';
       if chkAdmin.Checked = False then
         SQL.Add('  and id=' + IntToStr(edtName.EditValue))
       else
@@ -235,8 +249,8 @@ begin
         end;
         Close;
         SQL.Text :=
-                   'select "код_страны", "код_региона" , "код_города" from "организация"."организации" where id='
-                   + IntToStr(ID_ORG);
+          'select "код_страны", "код_региона" , "код_города" from "организация"."организации" where id='
+          + IntToStr(ID_ORG);
         FSplash.Update;
         open;
         FSplash.Update;
@@ -255,23 +269,24 @@ begin
         FOsn.Enabled := true;
         FOsn.Access;
         s := 'TradeFlowers. ';
-        cxlclzr1.LoadFromFile(ExtractFileDir(Application.ExeName) + '\..\ini\LanguagesUnicode.ini');
+        cxlclzr1.LoadFromFile(ExtractFileDir(Application.ExeName) +
+          '\..\ini\LanguagesUnicode.ini');
         cxlclzr1.Active := true;
         case edtLang.ItemIndex of
-          0 :
-          begin
-            s := s + 'Пользователь: ' + edtName.Text + '. Версия: ';
-            cxlclzr1.Locale := 1049;
-          end;
-          1 :
-          begin
-            s := s + 'User: ' + edtName.Text + '. Version:';
-          end;
-          2 :
-          begin
-            s := s + 'El usuario: ' + edtName.Text + '. La versión: ';
-            cxlclzr1.Locale := 1034;
-          end;
+          0:
+            begin
+              s := s + 'Пользователь: ' + edtName.Text + '. Версия: ';
+              cxlclzr1.Locale := 1049;
+            end;
+          1:
+            begin
+              s := s + 'User: ' + edtName.Text + '. Version:';
+            end;
+          2:
+            begin
+              s := s + 'El usuario: ' + edtName.Text + '. La versión: ';
+              cxlclzr1.Locale := 1034;
+            end;
         end;
         s := s + Version + '. Database->' + edtDB.Text + '.';
         FOsn.Caption := s;
@@ -288,10 +303,10 @@ begin
         FSplash.Close;
         edtPasswd.SelectAll;
         Counter := Counter + 1;
-        s := 'Не правильный пароль. Осталось попыток - ' + IntToStr(4 - Counter) +
-      '. Попробуете снова?';
-        if (Counter = 4) or (Application.MessageBox(PChar(s), 'Ошибка', MB_YESNO + MB_ICONERROR)
-        = mrNo) then
+        s := 'Не правильный пароль. Осталось попыток - ' + IntToStr(4 - Counter)
+          + '. Попробуете снова?';
+        if (Counter = 4) or (Application.MessageBox(PChar(s), 'Ошибка',
+          MB_YESNO + MB_ICONERROR) = mrNo) then
         begin
           Application.Terminate
         end;
@@ -302,24 +317,27 @@ begin
   end;
   edtPasswd.SetFocus;
 end;
-procedure TFPasswd.Button1Click(Sender : TObject);
+
+procedure TFPasswd.Button1Click(Sender: TObject);
 begin
   // QueryProduct.Close;
   // QueryProduct.Open;
   // dset1.SetProvider(QueryProduct);
   // dset1.Active:=true;
   // MStream:=TMemoryStream.Create;
-  //dset1.SaveToStream(MStream,dfXML);
+  // dset1.SaveToStream(MStream,dfXML);
   // MStream.seek(0, 0);
 end;
-procedure TFPasswd.Button2Click(Sender : TObject);
+
+procedure TFPasswd.Button2Click(Sender: TObject);
 begin
   /// /  ShowMessage(dset1.FieldByName('id').AsString);
   // dset2.LoadFromStream(MStream);
   /// /dset1.Filter:='id=5 and pid=1';
   /// /dset1.Filtered:=true;
 end;
-procedure TFPasswd.chkAdminClick(Sender : TObject);
+
+procedure TFPasswd.chkAdminClick(Sender: TObject);
 begin
   edtOrg.Enabled := not chkAdmin.Checked;
   edtName.Enabled := not chkAdmin.Checked;
@@ -332,82 +350,95 @@ begin
   edtPasswd.SetFocus;
   EnableSave;
 end;
+
 procedure TFPasswd.ConnectDb;
 begin
   DM1.db1.Connected := False;
-  case edtDB.ItemIndex of
-    0 :
-    begin
-      DM1.db1.Server := 'pgsql.uniflora.mass.hc.ru';
-      DM1.db1.Password := 'Kkd37Ckqfm';
-      DM1.db1.Username := 'uniflora_trade';
-      DM1.dbUpd.Server := 'pgsql.uniflora.mass.hc.ru';
-      DM1.dbUpd.Password := 'Kkd37Ckqfm';
-      DM1.dbUpd.Username := 'uniflora_trade';
-    end;
-    1 :
-    begin
-      DM1.db1.Server := 'zdm.myftp.biz';
-      DM1.db1.Password := 'Kkd37CkqfmDm';
-      DM1.db1.Username := 'postgres';
-      DM1.dbUpd.Server := 'zdm.myftp.biz';
-      DM1.dbUpd.Password := 'Kkd37CkqfmDm';
-      DM1.dbUpd.Username := 'postgres';
-    end;
-    2 :
-    begin
-      DM1.db1.Server := 'localhost';
-      DM1.db1.Password := 'Kkd37CkqfmDm';
-      DM1.db1.Username := 'postgres';
-      DM1.dbUpd.Server := 'localhost';
-      DM1.dbUpd.Password := 'Kkd37CkqfmDm';
-      DM1.dbUpd.Username := 'postgres';
-    end;
-  end;
+//  case edtDB.ItemIndex of
+//    0:
+//      begin
+//        DM1.db1.Server := 'pgsql.uniflora.mass.hc.ru';
+//        DM1.db1.Password := 'Kkd37Ckqfm';
+//        DM1.db1.Username := 'uniflora_trade';
+//        DM1.dbUpd.Server := 'pgsql.uniflora.mass.hc.ru';
+//        DM1.dbUpd.Password := 'Kkd37Ckqfm';
+//        DM1.dbUpd.Username := 'uniflora_trade';
+//      end;
+//    1:
+//      begin
+//        DM1.db1.Server := 'zdm.myftp.biz';
+//        DM1.db1.Password := 'Kkd37CkqfmDm';
+//        DM1.db1.Username := 'postgres';
+//        DM1.dbUpd.Server := 'zdm.myftp.biz';
+//        DM1.dbUpd.Password := 'Kkd37CkqfmDm';
+//        DM1.dbUpd.Username := 'postgres';
+//      end;
+//    2:
+//      begin
+//        DM1.db1.Server := 'localhost';
+//        DM1.db1.Password := 'Kkd37CkqfmDm';
+//        DM1.db1.Username := 'postgres';
+//        DM1.dbUpd.Server := 'localhost';
+//        DM1.dbUpd.Password := 'Kkd37CkqfmDm';
+//        DM1.dbUpd.Username := 'postgres';
+//      end;
+//  end;
   DM1.db1.Connected := true;
 end;
-procedure TFPasswd.edtDBPropertiesChange(Sender : TObject);
+
+procedure TFPasswd.edtDBPropertiesChange(Sender: TObject);
 begin
   ConnectDb;
   with QueryOrg do
   begin
     Close;
-    SQL.Text := 'select * from "организация"."организации" where id<>1 and id_del=0';
+    SQL.Text :=
+      'select * from "организация"."организации" where id<>1 and id_del=0';
     open;
   end;
   ShowUsers;
 end;
-procedure TFPasswd.edtLangPropertiesEditValueChanged(Sender : TObject);
+
+procedure TFPasswd.edtLangPropertiesEditValueChanged(Sender: TObject);
 begin
   LangPasswd;
 end;
-procedure TFPasswd.edtNamePropertiesChange(Sender : TObject);
+
+procedure TFPasswd.edtNamePropertiesChange(Sender: TObject);
 begin
   EnableSave;
 end;
-procedure TFPasswd.edtNamePropertiesCloseUp(Sender : TObject);
+
+procedure TFPasswd.edtNamePropertiesCloseUp(Sender: TObject);
 begin
   edtPasswd.SetFocus;
 end;
-procedure TFPasswd.edtNamePropertiesEditValueChanged(Sender : TObject);
+
+procedure TFPasswd.edtNamePropertiesEditValueChanged(Sender: TObject);
 begin
   EnableSave;
 end;
-procedure TFPasswd.edtOrgPropertiesCloseUp(Sender : TObject);
+
+procedure TFPasswd.edtOrgPropertiesCloseUp(Sender: TObject);
 begin
   edtName.SetFocus;
 end;
-procedure TFPasswd.edtOrgPropertiesEditValueChanged(Sender : TObject);
+
+procedure TFPasswd.edtOrgPropertiesEditValueChanged(Sender: TObject);
 begin
   ShowUsers;
   EnableSave;
 end;
-procedure TFPasswd.edtPasswdKeyDown(Sender : TObject; var Key : Word; Shift : TShiftState);
+
+procedure TFPasswd.edtPasswdKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 begin
   if (btnOk.Enabled = true) and (Key = VK_RETURN) then
     btnOkClick(Sender);
 end;
-procedure TFPasswd.edtPasswdKeyUp(Sender : TObject; var Key : Word; Shift : TShiftState);
+
+procedure TFPasswd.edtPasswdKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 begin
   if (edtName.EditValue = 0) and (edtOrg.EditValue = 0) then
   begin
@@ -418,11 +449,13 @@ begin
   end;
   EnableSave;
 end;
+
 procedure TFPasswd.EnableSave;
 begin
   if chkAdmin.Checked = False then
   begin
-    if (edtName.Text <> '') and (edtPasswd.Text <> '') and (edtOrg.Text <> '') then
+    if (edtName.Text <> '') and (edtPasswd.Text <> '') and (edtOrg.Text <> '')
+    then
       btnOk.Enabled := true
     else
       btnOk.Enabled := False;
@@ -435,9 +468,10 @@ begin
       btnOk.Enabled := False;
   end;
 end;
-procedure TFPasswd.FormShow(Sender : TObject);
+
+procedure TFPasswd.FormShow(Sender: TObject);
 begin
-  DM1.Monotor1.Active := True;
+  DM1.Monotor1.Active := true;
   FOsn.Show;
   FOsn.Bar2.Visible := False;
   FOsn.mДанные.Visible := False;
@@ -530,13 +564,18 @@ begin
     if FieldByName('закрыта').AsBoolean = true then
     begin
       case Lang of
-        0 : ErrorDialog('База данных закрыта на техническое обслуживание. ', '',
-                         ' Дата/Время окончания работ: ' + FieldByName('дата_открытия').AsString);
-        1 : ErrorDialog('Database is closed for maintenance.', '', 'Date/Time of end of works: ' +
-        FieldByName('дата_открытия').AsString);
-        2 : ErrorDialog('Base de datos es cerrada al mantenimiento técnico.', '',
-                         'La Fecha/tiempo de la terminación de los trabajos: ' + FieldByName('дата_открытия')
-                         .AsString);
+        0:
+          ErrorDialog('База данных закрыта на техническое обслуживание. ', '',
+            ' Дата/Время окончания работ: ' + FieldByName('дата_открытия')
+            .AsString);
+        1:
+          ErrorDialog('Database is closed for maintenance.', '',
+            'Date/Time of end of works: ' + FieldByName('дата_открытия')
+            .AsString);
+        2:
+          ErrorDialog('Base de datos es cerrada al mantenimiento técnico.', '',
+            'La Fecha/tiempo de la terminación de los trabajos: ' +
+            FieldByName('дата_открытия').AsString);
       end;
       Application.Terminate;
     end;
@@ -545,11 +584,16 @@ begin
     if FieldByName('версия_базы').AsString <> Version then
     begin
       case Lang of
-        0 : ErrorDialog('Версия программы и базы данных не совпадают. ', '', 'Обновите приложение.');
-        1 : ErrorDialog('Version of the program and the database are not the same. ', '',
-                         'Update the application.');
-        2 : ErrorDialog('Versión del programa y la base de datos no coincide.', '',
-                         'Renueven la aplicación.');
+        0:
+          ErrorDialog('Версия программы и базы данных не совпадают. ', '',
+            'Обновите приложение.');
+        1:
+          ErrorDialog
+            ('Version of the program and the database are not the same. ', '',
+            'Update the application.');
+        2:
+          ErrorDialog('Versión del programa y la base de datos no coincide.',
+            '', 'Renueven la aplicación.');
       end;
       Application.Terminate;
     end;
@@ -562,49 +606,56 @@ begin
   // Passwd.SetFocus;
   edtPasswd.SetFocus;
 end;
-function TFPasswd.GetRoleId(id_locate : Integer = 0) : Integer;
+
+function TFPasswd.GetRoleId(id_locate: Integer = 0): Integer;
 var
-  Query1 : TUniQuery;
+  Query1: TUniQuery;
 begin
   Query1 := TUniQuery.Create(nil);
   Query1.Connection := DM1.db1;
   with Query1 do
   begin
     Close;
-    SQL.Text := 'select код_роли from пользователи.пользователи where id=' + IntToStr(id_locate);
+    SQL.Text := 'select код_роли from пользователи.пользователи where id=' +
+      IntToStr(id_locate);
     open;
     Result := Fields[0].AsInteger;
   end;
 end;
-function TFPasswd.GetUserName(id_locate : Integer = 0) : string;
+
+function TFPasswd.GetUserName(id_locate: Integer = 0): string;
 var
-  Query1 : TUniQuery;
+  Query1: TUniQuery;
 begin
   Query1 := TUniQuery.Create(nil);
   Query1.Connection := DM1.db1;
   with Query1 do
   begin
     Close;
-    SQL.Text := 'select name from пользователи.пользователи where id=' + IntToStr(id_locate);
+    SQL.Text := 'select name from пользователи.пользователи where id=' +
+      IntToStr(id_locate);
     open;
     Result := Fields[0].AsString;
   end;
 end;
-function TFPasswd.GetVar(const VarName : string) : string;
+
+function TFPasswd.GetVar(const VarName: string): string;
 var
-  r : array [0..255] of char;
+  r: array [0 .. 255] of char;
 begin
   r := '';
   GetEnvironmentVariable(PChar(VarName), r, 255);
   Result := r
 end;
-procedure TFPasswd.InsNewPC(pc_name, pc_hard, pc_mac, pc_user : string);
+
+procedure TFPasswd.InsNewPC(pc_name, pc_hard, pc_mac, pc_user: string);
 begin
   with Query1 do
   begin
     Close;
-    SQL.Text := 'INSERT INTO  "пользователи"."безопасность"(id_user,  name_pc,' +
-  '  id_hard,  mac,  account) VALUES (:id_user,  :name_pc,' + '  :id_hard,  :mac,  :account);';
+    SQL.Text := 'INSERT INTO  "пользователи"."безопасность"(id_user,  name_pc,'
+      + '  id_hard,  mac,  account) VALUES (:id_user,  :name_pc,' +
+      '  :id_hard,  :mac,  :account);';
     ParamByName('id_user').AsInteger := ID_USER;
     ParamByName('name_pc').AsString := pc_name;
     ParamByName('id_hard').AsString := pc_hard;
@@ -613,14 +664,15 @@ begin
     ExecSQL;
     Application.MessageBox
       ('Зафиксирован несанкционированный вход в систему. Приложение бует закрыто. Обратитесь к администратору.',
-        'Ошибка', MB_OK + MB_ICONWARNING);
+      'Ошибка', MB_OK + MB_ICONWARNING);
     Application.Terminate;
   end;
 end;
+
 procedure TFPasswd.LangPasswd;
 var
-  a : array [0..255] of char;
-  StrTblOfs : Integer;
+  a: array [0 .. 255] of char;
+  StrTblOfs: Integer;
 begin
   { Получаем текущий язык системы и начало соответствующих строк в таблице }
   // case GetLanguage of
@@ -635,9 +687,12 @@ begin
   // end;
   Lang := edtLang.ItemIndex;
   case Lang of
-    0 : StrTblOfs := 0;
-    1 : StrTblOfs := 1000;
-    2 : StrTblOfs := 2000;
+    0:
+      StrTblOfs := 0;
+    1:
+      StrTblOfs := 1000;
+    2:
+      StrTblOfs := 2000;
   end;
   { Загружаем и устанавливаем заголовок кнопки "Yes" в соответствии с языком }
   if LoadString(hInstance, StrTblOfs + 1, @a, sizeof(a)) <> 0 then
@@ -656,10 +711,12 @@ begin
     btnCancel.Caption := StrPas(a);
   FOsn.LangOsn;
 end;
-procedure TFPasswd.QueryUsersAfterScroll(DataSet : TDataSet);
+
+procedure TFPasswd.QueryUsersAfterScroll(DataSet: TDataSet);
 begin
   edtPasswd.SetFocus;
 end;
+
 procedure TFPasswd.ShowUsers;
 begin
   if DM1.db1.Connected then
@@ -667,15 +724,16 @@ begin
     with QueryUsers do
     begin
       Close;
-      SQL.Text := 'select * from пользователи.пользователи ' + 'where код_организации=' +
-    IntToStr(edtOrg.EditValue);
+      SQL.Text := 'select * from пользователи.пользователи ' +
+        'where код_организации=' + IntToStr(edtOrg.EditValue);
       open;
     end;
   end;
 end;
-procedure TFPasswd.Sync(SyncALL : Boolean = False);
+
+procedure TFPasswd.Sync(SyncALL: Boolean = False);
 var
-  max_time : TDateTime;
+  max_time: TDateTime;
 begin
   // FSync.ProgresAll.Max := 20;
   // FSync.lblOne.Caption := 'Текущий прогресс - Подготовка';
@@ -878,4 +936,5 @@ begin
   // FSync.Hide;
   // end;
 end;
+
 end.

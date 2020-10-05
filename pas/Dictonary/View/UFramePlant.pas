@@ -46,7 +46,7 @@ uses
   
   dxSkinDevExpressStyle,
   
-  dxSkinsDefaultPainters, dxSkinOffice2007Blue;
+  dxSkinsDefaultPainters, dxSkinOffice2007Blue, dxDateRanges;
 type
   TFramePlant = class(TFrame)
     FrameTopPanel1 : TFrameTopPanel;

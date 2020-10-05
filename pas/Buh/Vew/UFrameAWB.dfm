@@ -16,11 +16,7 @@
     inherited barProduct: TdxBarManager
       Left = 512
       Top = 8
-      DockControlHeights = (
-        0
-        0
-        34
-        0)
+      PixelsPerInch = 96
       inherited dxbrBardxbrmngr1Bar1: TdxBar
         ItemLinks = <
           item
@@ -93,6 +89,18 @@
         Visible = ivAlways
         Properties.OnEditValueChanged = FrameTopPanel1btnArchPropertiesEditValueChanged
       end
+    end
+    inherited pmПедидо: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmЗаказ: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmФактура: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmClients: TdxBarPopupMenu
+      PixelsPerInch = 96
     end
   end
   object GridAWB: TcxGrid

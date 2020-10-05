@@ -1,4 +1,4 @@
-object FrameFITO: TFrameFITO
+﻿object FrameFITO: TFrameFITO
   Left = 0
   Top = 0
   Width = 667
@@ -14,6 +14,7 @@ object FrameFITO: TFrameFITO
     ExplicitWidth = 667
     ExplicitHeight = 38
     inherited barProduct: TdxBarManager
+      PixelsPerInch = 96
       DockControlHeights = (
         0
         0
@@ -31,6 +32,18 @@ object FrameFITO: TFrameFITO
       inherited btnRefresh: TdxBarLargeButton
         OnClick = btnRefreshClick
       end
+    end
+    inherited pmПедидо: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmЗаказ: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmФактура: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmClients: TdxBarPopupMenu
+      PixelsPerInch = 96
     end
   end
   object GridUsers: TcxGrid

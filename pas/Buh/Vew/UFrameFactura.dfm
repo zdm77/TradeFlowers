@@ -90,26 +90,13 @@
       PixelsPerInch = 96
     end
   end
-  object Group1: TcxGroupBox
-    Left = 0
-    Top = 33
-    Align = alTop
-    PanelStyle.Active = True
-    Style.LookAndFeel.NativeStyle = False
-    Style.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleDisabled.LookAndFeel.NativeStyle = False
-    StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-    TabOrder = 1
-    Height = 37
-    Width = 910
-  end
   object GridFactura: TcxGrid
     Left = 0
     Top = 70
     Width = 910
     Height = 400
     Align = alClient
-    TabOrder = 2
+    TabOrder = 1
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = False
     object ViewFactura: TcxGridDBBandedTableView
@@ -226,6 +213,38 @@
     end
     object LevelOrg: TcxGridLevel
       GridView = ViewFactura
+    end
+  end
+  object Group1: TcxGroupBox
+    Left = 0
+    Top = 33
+    Align = alTop
+    PanelStyle.Active = True
+    Style.LookAndFeel.NativeStyle = False
+    Style.LookAndFeel.SkinName = 'Office2007Blue'
+    StyleDisabled.LookAndFeel.NativeStyle = False
+    StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
+    TabOrder = 2
+    Height = 37
+    Width = 910
+    object edtOt: TDateTimePicker
+      Left = 32
+      Top = 10
+      Width = 186
+      Height = 21
+      Date = 44109.000000000000000000
+      Time = 0.510530624997045400
+      TabOrder = 0
+      OnChange = edtOtChange
+    end
+    object edtDateDo: TDateTimePicker
+      Left = 224
+      Top = 6
+      Width = 186
+      Height = 21
+      Date = 44109.000000000000000000
+      Time = 0.510530624997045400
+      TabOrder = 1
     end
   end
   object QueryFactura: TUniQuery

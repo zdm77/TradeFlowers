@@ -46,7 +46,7 @@ uses
   
   dxSkinDevExpressStyle,
   
-  dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters;
+  dxSkinXmas2008Blue, dxSkinOffice2007Blue, dxSkinsDefaultPainters, dxDateRanges;
 type
   TFrameTypeLengthWeight = class(TFrame)
     QueryType : TUniQuery;

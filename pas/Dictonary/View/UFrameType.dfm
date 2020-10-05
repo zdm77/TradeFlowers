@@ -1,4 +1,4 @@
-object FrameType: TFrameType
+﻿object FrameType: TFrameType
   Left = 0
   Top = 0
   Width = 737
@@ -70,11 +70,7 @@ object FrameType: TFrameType
     TabOrder = 1
     ExplicitWidth = 737
     inherited barProduct: TdxBarManager
-      DockControlHeights = (
-        0
-        0
-        34
-        0)
+      PixelsPerInch = 96
       inherited dxbrBardxbrmngr1Bar1: TdxBar
         ItemLinks = <
           item
@@ -108,6 +104,18 @@ object FrameType: TFrameType
       inherited btnRefresh: TdxBarLargeButton
         OnClick = btnRefreshClick
       end
+    end
+    inherited pmПедидо: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmЗаказ: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmФактура: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmClients: TdxBarPopupMenu
+      PixelsPerInch = 96
     end
   end
   object QueryType: TUniQuery

@@ -1,4 +1,4 @@
-object FramePlant: TFramePlant
+﻿object FramePlant: TFramePlant
   Left = 0
   Top = 0
   Width = 921
@@ -13,11 +13,7 @@ object FramePlant: TFramePlant
     TabOrder = 0
     ExplicitWidth = 921
     inherited barProduct: TdxBarManager
-      DockControlHeights = (
-        0
-        0
-        34
-        0)
+      PixelsPerInch = 96
       inherited dxbrBardxbrmngr1Bar1: TdxBar
         ItemLinks = <
           item
@@ -51,6 +47,18 @@ object FramePlant: TFramePlant
         OnClick = btnRefreshClick
       end
     end
+    inherited pmПедидо: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmЗаказ: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmФактура: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmClients: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
   end
   object GroupCountry: TcxGroupBox
     Left = 0
@@ -61,26 +69,18 @@ object FramePlant: TFramePlant
     Style.LookAndFeel.SkinName = 'Office2007Blue'
     StyleDisabled.LookAndFeel.NativeStyle = False
     StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleFocused.LookAndFeel.NativeStyle = False
-    StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleHot.LookAndFeel.NativeStyle = False
-    StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
     TabOrder = 1
     Height = 455
     Width = 205
     object cxGrid1: TcxGrid
-      Left = 3
-      Top = 15
-      Width = 199
-      Height = 430
+      Left = 2
+      Top = 18
+      Width = 201
+      Height = 435
       Align = alClient
       TabOrder = 0
       LookAndFeel.Kind = lfOffice11
       LookAndFeel.NativeStyle = False
-      ExplicitLeft = 2
-      ExplicitTop = 18
-      ExplicitWidth = 201
-      ExplicitHeight = 435
       object cxGridDBTableView1: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
         DataController.DataSource = dsCountry
@@ -132,26 +132,18 @@ object FramePlant: TFramePlant
     Style.LookAndFeel.SkinName = 'Office2007Blue'
     StyleDisabled.LookAndFeel.NativeStyle = False
     StyleDisabled.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleFocused.LookAndFeel.NativeStyle = False
-    StyleFocused.LookAndFeel.SkinName = 'Office2007Blue'
-    StyleHot.LookAndFeel.NativeStyle = False
-    StyleHot.LookAndFeel.SkinName = 'Office2007Blue'
     TabOrder = 3
     Height = 455
     Width = 708
     object GridUsers: TcxGrid
-      Left = 3
-      Top = 42
-      Width = 702
-      Height = 403
+      Left = 2
+      Top = 45
+      Width = 704
+      Height = 408
       Align = alClient
       TabOrder = 0
       LookAndFeel.Kind = lfOffice11
       LookAndFeel.NativeStyle = False
-      ExplicitLeft = 2
-      ExplicitTop = 45
-      ExplicitWidth = 704
-      ExplicitHeight = 408
       object ViewUsers: TcxGridDBTableView
         OnDblClick = ViewUsersDblClick
         Navigator.Buttons.CustomButtons = <>
@@ -200,24 +192,23 @@ object FramePlant: TFramePlant
       end
     end
     inline FrameSearch1: TFrameSearch
-      Left = 3
-      Top = 15
-      Width = 702
+      Left = 2
+      Top = 18
+      Width = 704
       Height = 27
       Align = alTop
       TabOrder = 1
-      ExplicitLeft = 3
-      ExplicitTop = 15
-      ExplicitWidth = 702
+      ExplicitLeft = 2
+      ExplicitTop = 18
+      ExplicitWidth = 704
       ExplicitHeight = 27
       inherited Group1: TcxGroupBox
-        ExplicitWidth = 702
+        ExplicitWidth = 704
         ExplicitHeight = 27
         Height = 27
-        Width = 702
+        Width = 704
         inherited LabelName: TcxLabel
           Top = 4
-          Style.IsFontAssigned = True
           ExplicitTop = 4
         end
       end

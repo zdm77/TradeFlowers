@@ -32,7 +32,7 @@ uses
   cxMaskEdit,
   cxClasses,
   dxSkinDevExpressStyle,
-  dxSkinsDefaultPainters, dxSkinOffice2007Blue;
+  dxSkinsDefaultPainters, dxSkinOffice2007Blue, System.ImageList;
 type
   TFrameMarking = class(TFrame)
     QueryMarking : TUniQuery;

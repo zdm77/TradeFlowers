@@ -1,4 +1,4 @@
-object FrameMarking: TFrameMarking
+﻿object FrameMarking: TFrameMarking
   Left = 0
   Top = 0
   Width = 673
@@ -77,11 +77,7 @@ object FrameMarking: TFrameMarking
     ExplicitWidth = 673
     ExplicitHeight = 32
     inherited barProduct: TdxBarManager
-      DockControlHeights = (
-        0
-        0
-        34
-        0)
+      PixelsPerInch = 96
       inherited dxbrBardxbrmngr1Bar1: TdxBar
         ItemLinks = <
           item
@@ -127,6 +123,18 @@ object FrameMarking: TFrameMarking
       inherited btnSel: TdxBarLargeButton
         OnClick = FrameTopPanel1btnSelClick
       end
+    end
+    inherited pmПедидо: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmЗаказ: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmФактура: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmClients: TdxBarPopupMenu
+      PixelsPerInch = 96
     end
   end
   object QueryMarking: TUniQuery
@@ -185,7 +193,7 @@ object FrameMarking: TFrameMarking
     Left = 388
     Top = 205
     Bitmap = {
-      494C0101020005004C0010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010102000500040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
       00000000000000000000000000000000000000000000FCFCFC04D0CFCE39CCCB
       CA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECDCBCA3ECBCA

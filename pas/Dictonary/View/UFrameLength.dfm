@@ -1,4 +1,4 @@
-object FrameLength: TFrameLength
+﻿object FrameLength: TFrameLength
   Left = 0
   Top = 0
   Width = 718
@@ -13,11 +13,7 @@ object FrameLength: TFrameLength
     TabOrder = 0
     ExplicitWidth = 718
     inherited barProduct: TdxBarManager
-      DockControlHeights = (
-        0
-        0
-        34
-        0)
+      PixelsPerInch = 96
       inherited dxbrBardxbrmngr1Bar1: TdxBar
         ItemLinks = <
           item
@@ -50,6 +46,18 @@ object FrameLength: TFrameLength
       inherited btnRefresh: TdxBarLargeButton
         OnClick = btnRefreshClick
       end
+    end
+    inherited pmПедидо: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmЗаказ: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmФактура: TdxBarPopupMenu
+      PixelsPerInch = 96
+    end
+    inherited pmClients: TdxBarPopupMenu
+      PixelsPerInch = 96
     end
   end
   object GridUsers: TcxGrid
